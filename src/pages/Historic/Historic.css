@@ -1,0 +1,12 @@
+.container-main-historic {
+  margin-left: 260px;
+  margin-right: 6px;
+  overflow: hidden;
+}
+
+@media (width < 920px) {
+  .container-main-historic {
+    transition: margin 0.4s;
+    margin-left: 150px;
+  }
+}

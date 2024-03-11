@@ -1,0 +1,272 @@
+/* Configurações gerais para os textos na barra lateral */
+.border {
+    justify-content: space-between;
+}
+
+.sidebar-logo-img img {
+    transition: font-size 0.5s ease;
+}
+
+.sidebar-text-logout,
+.sidebar-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(23, 24, 27, 0.7);
+}
+
+/* Configurações específicas para o texto de logout */
+.sidebar-text-logout {
+    color: #FF2B2B;
+}
+
+/* Estilos da barra lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 249px;
+    height: 100vh;
+    padding: 27px 15px 30px 15px;
+    border-right: 1px solid #DADCE0;
+    transition: all 0.35s;
+
+    overflow: hidden;
+}
+
+/* Estilos do cabeçalho da barra lateral */
+.sidebar-header {
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos dos botões na barra lateral */
+.sidebar button {
+    height: 50px;
+    background-color: transparent;
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: left;
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+}
+
+/* Estilos dos ícones e texto dentro dos botões */
+.sidebar button > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+    padding: 0 2px 0 19px;
+    border-radius: 7px;
+    line-height: 1;
+    transition: all 0.3s;
+}
+
+.sidebar.open-sidebar button > span {
+    overflow: visible; /* Mostra o texto */
+    gap: 12px;
+}
+
+/* Configurações de transição para o efeito hover */
+.border .icon-hover-logout > span,
+.border .icon-hover > span {
+    width: 215px;
+    height: 50px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.icon-hover:hover {
+    background: rgba(0, 102, 165, 0.1);
+    color: #0066A5;
+    font-weight: 500;
+}
+
+.icon-hover:hover > span svg {
+    color: #0066A5;
+    opacity: 100%;
+}
+
+.sidebar-text:hover {
+    color: #0066A5;
+    opacity: 100%;
+    font-weight: 500;
+}
+
+.icon-hover.active {
+    background: rgba(0, 102, 165, 0.1);
+    color: #0066A5;
+    font-weight: 500;
+}
+
+.icon-hover.active > span svg {
+    color: #0066A5;
+    opacity: 100%;
+}
+
+/* Rectangle 28 */
+
+
+.icon-hover-logout:hover {
+    background: rgba(255, 43, 43, 0.1);
+    color: #FF2B2B;
+    font-weight: 500;
+}
+
+.icon-hover-logout:hover > span svg {
+    color: #FF2B2B;
+    opacity: 100%;
+}
+
+.sidebar-text-logout:hover {
+    color: #FF2B2B;
+    opacity: 100%;
+    font-weight: 500;
+}
+
+.icon-hover-logout.active {
+    background: rgba(255, 43, 43, 0.1);
+    color: #FF2B2B;
+    font-weight: 500;
+}
+
+.icon-hover-logout.active > span svg {
+    color: #FF2B2B;
+    opacity: 100%;
+}
+
+.sidebar-text-logout.active {
+    color: #FF2B2B;
+    opacity: 100%;
+    font-weight: 500;
+}
+
+.sidebar-text.active {
+    color: #0066A5;
+    opacity: 100%;
+    font-weight: 500;
+}
+
+svg {
+    transition: all 0.4s;
+}
+
+/* Estilo  para o ícones */
+.sidebar-header svg {
+    width: 16px;
+    height: 16px;
+    color: #0E1013;
+}
+
+.icon-notification svg,
+.icon-home svg,
+.icon-calendar svg,
+.icon-clock svg,
+.icon-settings svg {
+    width: 36px;
+    color: #17181B;
+    opacity: 50%;
+}
+
+.icon-notification svg {
+    height: 36px;
+}
+
+.icon-home svg {
+    height: 30px;
+}
+
+.icon-calendar svg {
+    height: 24px;
+}
+
+.icon-clock svg {
+    height: 34px;
+}
+
+.icon-settings svg {
+    height: 30px;
+}
+
+.open-btn-icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar .open-btn-icon {
+    transform: rotate(360deg);
+}
+
+.open-btn-icon {
+    transform: rotate(180deg);
+}
+
+.icon-logout svg {
+    width: 36px;
+    height: 30px;
+    color: #FF2B2B;
+    opacity: 70%;
+    transform: scaleX(-1);
+    font-weight: 700;
+    stroke-width: 0.4px; 
+}
+
+.icon-home {
+    margin-bottom: 15px;
+}
+
+/* Estilo da linha de separação na barra lateral */
+.border-bottom {
+    margin: 0 auto;
+    width: 205px;
+    height: 1px;
+    background-color: #17181B;
+    opacity: 15%;
+}
+
+/* Estilos para o texto de navegação */
+.nav-text h5{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 50px;
+    color: #17181B;
+    opacity: 35%;
+    text-align: center;
+}
+
+.nav-text.active h5{
+    margin-left: 25px;
+    text-align: left;
+}
+
+/* Estilos para a navegação dentro da barra lateral */
+.sidebar > nav {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar {
+    width: 106px;   
+}
+
+.sidebar button > span {
+    width: 46px;
+}
+
+.border-bottom {
+    width: 100%;
+}
+
+.sidebar.open-sidebar {
+    width: 249px;
+}
+
+.sidebar-header button {
+    width: 7px;
+}
