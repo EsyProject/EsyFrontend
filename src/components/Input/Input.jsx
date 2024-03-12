@@ -9,10 +9,10 @@ const Input = ({ label, id, placeholder }) => (
 );
 
 // PropTypes validation for the Input component
-CustomSelect.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
-  placeholder: PropTypes.string.isRequired,
+Input.propTypes = {
   label: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
 
 export default Input;
