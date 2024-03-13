@@ -1,6 +1,6 @@
-import "./Sidebar/Sidebar.css";
 import PropTypes from "prop-types";
 import "material-symbols";
+import "../Sidebar/Sidebar.css";
 
 const SidebarIcon = ({
   iconName,
