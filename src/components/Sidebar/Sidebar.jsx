@@ -1,16 +1,5 @@
 import { useState } from "react";
-import {
-  LogoEsy,
-  LogoEsyClosed,
-  IoIosArrowBack,
-  IoIosNotificationsOutline,
-  GoHome,
-  BsCalendarWeek,
-  PiClockCounterClockwiseFill,
-  FaRegUser,
-  VscSettings,
-  CiLogout,
-} from "../../pages/index";
+import { LogoEsy, LogoEsyClosed, IoIosArrowBack } from "../../pages/index";
 import "./Sidebar.css";
 import { SidebarIcon } from "../../pages/index";
 
@@ -42,7 +31,7 @@ const Sidebar = () => {
       <nav className="border">
         <div className="sidebar-content">
           <SidebarIcon
-            icon={IoIosNotificationsOutline}
+            iconName="notifications"
             text="Notificações"
             className="notification icon-hover"
             textClassName="sidebar-text"
@@ -50,7 +39,7 @@ const Sidebar = () => {
             onClick={() => handleIconClick("notifications")}
           />
           <SidebarIcon
-            icon={GoHome}
+            iconName="home"
             text="Home"
             className="home icon-hover"
             textClassName="sidebar-text"
@@ -62,7 +51,7 @@ const Sidebar = () => {
             <h5>EVENTOS</h5>
           </div>
           <SidebarIcon
-            icon={BsCalendarWeek}
+            iconName="calendar_month"
             text="Próximos eventos"
             className="calendar icon-hover"
             textClassName="sidebar-text"
@@ -70,7 +59,7 @@ const Sidebar = () => {
             onClick={() => handleIconClick("calendar")}
           />
           <SidebarIcon
-            icon={PiClockCounterClockwiseFill}
+            iconName="history"
             text="Histórico"
             className="clock icon-hover"
             textClassName="sidebar-text"
@@ -82,7 +71,7 @@ const Sidebar = () => {
             <h5>GERAIS</h5>
           </div>
           <SidebarIcon
-            icon={FaRegUser}
+            iconName="person"
             text="Conta"
             className="calendar icon-hover"
             textClassName="sidebar-text"
@@ -90,7 +79,7 @@ const Sidebar = () => {
             onClick={() => handleIconClick("account")}
           />
           <SidebarIcon
-            icon={VscSettings}
+            iconName="tune"
             text="Configurações"
             className="settings icon-hover"
             textClassName="sidebar-text"
@@ -100,7 +89,7 @@ const Sidebar = () => {
         </div>
         <div className="logout-container">
           <SidebarIcon
-            icon={CiLogout}
+            iconName="logout"
             text="Log out"
             className="logout icon-svg icon-hover-logout"
             textClassName="sidebar-text-logout"

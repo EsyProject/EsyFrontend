@@ -16,7 +16,11 @@ import ImageRegisterBack from "../assets/img-register.png";
 import LogoEsy from "../assets/logo.png";
 import LogoEsyClosed from "../assets/logo-closed.png";
 
-import { IoIosNotificationsOutline, IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import {
+  IoIosNotificationsOutline,
+  IoIosArrowForward,
+  IoIosArrowBack,
+} from "react-icons/io";
 import { GoHome } from "react-icons/go";
 import { BsCalendarWeek } from "react-icons/bs";
 import { PiClockCounterClockwiseFill } from "react-icons/pi";
@@ -24,33 +28,29 @@ import { FaRegUser } from "react-icons/fa6";
 import { VscSettings } from "react-icons/vsc";
 import { CiLogout } from "react-icons/ci";
 
-
 export {
-    Home,
-    Login,
-    Password,
-    Register,
-    Historic,
-
-    InteractiveBubble,
-    AnimatedImage,
-    Input,
-    CustomSelect,
-    Sidebar,
-    SidebarIcon,
-
-    ImageLogin,
-    ImageRegisterBack,
-    LogoEsy,
-    LogoEsyClosed,
-
-    IoIosNotificationsOutline,
-    GoHome,
-    BsCalendarWeek,
-    PiClockCounterClockwiseFill,
-    FaRegUser,
-    VscSettings,
-    CiLogout,
-    IoIosArrowForward,
-    IoIosArrowBack,
-}
+  Home,
+  Login,
+  Password,
+  Register,
+  Historic,
+  InteractiveBubble,
+  AnimatedImage,
+  Input,
+  CustomSelect,
+  Sidebar,
+  SidebarIcon,
+  ImageLogin,
+  ImageRegisterBack,
+  LogoEsy,
+  LogoEsyClosed,
+  IoIosNotificationsOutline,
+  GoHome,
+  BsCalendarWeek,
+  PiClockCounterClockwiseFill,
+  FaRegUser,
+  VscSettings,
+  CiLogout,
+  IoIosArrowForward,
+  IoIosArrowBack,
+};

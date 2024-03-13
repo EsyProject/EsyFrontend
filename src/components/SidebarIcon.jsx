@@ -1,8 +1,9 @@
 import "./Sidebar/Sidebar.css";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import "material-symbols";
 
 const SidebarIcon = ({
-  icon: Icon,
+  iconName,
   text,
   className,
   textClassName,
@@ -15,10 +16,8 @@ const SidebarIcon = ({
       onClick={onClick}
     >
       <span>
-        <Icon />
-        <span
-          className={`${textClassName} ${active ? "active" : ""}`}
-        >
+        <span className="material-symbols-outlined">{iconName}</span>
+        <span className={`${textClassName} ${active ? "active" : ""}`}>
           {text}
         </span>
       </span>
@@ -29,10 +28,10 @@ const SidebarIcon = ({
 export default SidebarIcon;
 
 SidebarIcon.propTypes = {
-    icon: PropTypes.object,
-    text: PropTypes.string,
-    className: PropTypes.string,
-    textClassName: PropTypes.string,
-    active: PropTypes.bool,
-    onClick: PropTypes.func
-}
+  iconName: PropTypes.string,
+  text: PropTypes.string,
+  className: PropTypes.string,
+  textClassName: PropTypes.string,
+  active: PropTypes.bool,
+  onClick: PropTypes.func,
+};
