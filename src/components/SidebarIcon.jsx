@@ -5,6 +5,7 @@ import "material-symbols";
 const SidebarIcon = ({
   iconName,
   text,
+  buttonClassName,
   className,
   textClassName,
   active,
@@ -12,7 +13,9 @@ const SidebarIcon = ({
 }) => {
   return (
     <button
-      className={`icon-${className} ${active ? "active" : ""}`}
+      className={`${buttonClassName} icon-${className} ${
+        active ? "active" : ""
+      }`}
       onClick={onClick}
     >
       <span>
@@ -30,6 +33,7 @@ export default SidebarIcon;
 SidebarIcon.propTypes = {
   iconName: PropTypes.string,
   text: PropTypes.string,
+  buttonClassName: PropTypes.string,
   className: PropTypes.string,
   textClassName: PropTypes.string,
   active: PropTypes.bool,

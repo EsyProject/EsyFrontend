@@ -33,7 +33,8 @@ const Sidebar = () => {
           <SidebarIcon
             iconName="notifications"
             text="Notificações"
-            className="notification icon-hover"
+            buttonClassName="icon-hover"
+            className="notification"
             textClassName="sidebar-text"
             active={activeIcon === "notifications"}
             onClick={() => handleIconClick("notifications")}
@@ -41,19 +42,21 @@ const Sidebar = () => {
           <SidebarIcon
             iconName="home"
             text="Home"
-            className="home icon-hover"
+            buttonClassName="icon-hover"
+            className="home"
             textClassName="sidebar-text"
             active={activeIcon === "home"}
             onClick={() => handleIconClick("home")}
           />
-          <div className="border-bottom icon-hover"></div>
+          <div className="border-bottom"></div>
           <div className={`nav-text ${sidebarOpen ? "active" : ""}`}>
             <h5>EVENTOS</h5>
           </div>
           <SidebarIcon
             iconName="calendar_month"
             text="Próximos eventos"
-            className="calendar icon-hover"
+            buttonClassName="icon-hover"
+            className="calendar"
             textClassName="sidebar-text"
             active={activeIcon === "calendar"}
             onClick={() => handleIconClick("calendar")}
@@ -61,19 +64,21 @@ const Sidebar = () => {
           <SidebarIcon
             iconName="history"
             text="Histórico"
-            className="clock icon-hover"
+            buttonClassName="icon-hover"
+            className="clock"
             textClassName="sidebar-text"
             active={activeIcon === "history"}
             onClick={() => handleIconClick("history")}
           />
-          <div className="border-bottom icon-hover"></div>
+          <div className="border-bottom"></div>
           <div className={`nav-text ${sidebarOpen ? "active" : ""}`}>
             <h5>GERAIS</h5>
           </div>
           <SidebarIcon
             iconName="person"
             text="Conta"
-            className="calendar icon-hover"
+            buttonClassName="icon-hover"
+            className="calendar"
             textClassName="sidebar-text"
             active={activeIcon === "account"}
             onClick={() => handleIconClick("account")}
@@ -81,7 +86,8 @@ const Sidebar = () => {
           <SidebarIcon
             iconName="tune"
             text="Configurações"
-            className="settings icon-hover"
+            buttonClassName="icon-hover"
+            className="settings"
             textClassName="sidebar-text"
             active={activeIcon === "settings"}
             onClick={() => handleIconClick("settings")}
@@ -91,7 +97,8 @@ const Sidebar = () => {
           <SidebarIcon
             iconName="logout"
             text="Log out"
-            className="logout icon-svg icon-hover-logout"
+            buttonClassName="icon-hover-logout"
+            className="logout icon-svg"
             textClassName="sidebar-text-logout"
             active={activeIcon === "logout"}
             onClick={() => handleIconClick("logout")}
