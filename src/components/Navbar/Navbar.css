@@ -1,0 +1,22 @@
+.sidebar-open .navbar-container {
+  margin-left: 229px;
+}
+
+.navbar-container {
+  flex: 1;
+  margin-left: 106px;
+  border-bottom: 1px solid #dadce0;
+  height: 68px;
+  transition: margin-left 0.3s;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-border {
+  position: absolute;
+  width: 100%;
+  border-bottom: 0px solid #dadce0;
+}

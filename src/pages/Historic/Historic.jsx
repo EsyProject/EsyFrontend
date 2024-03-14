@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar } from "../../pages/index";
+import { Sidebar, Navbar } from "../../pages/index";
 import "./Historic.css";
 
 const Historic = () => {
@@ -11,9 +11,11 @@ const Historic = () => {
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
+      <Navbar />
+      
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
-      <div className="container-main-historic">
+      <div className="container-main">
         <h1>Conteudo aqui</h1>
         <span>aleatorio</span>
       </div>
