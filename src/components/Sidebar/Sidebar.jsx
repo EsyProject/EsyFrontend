@@ -13,7 +13,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
   return (
     <aside className={`sidebar border ${isOpen ? "open-sidebar" : ""}`}>
-      <header className={`sidebar-header ${isOpen ? "active" : ""}`}>
+      <header className={`sidebar-header ${isOpen ? "active-header" : ""}`}>
         <div className="sidebar-logo-img">
           <img src={isOpen ? LogoEsy : LogoEsyClosed} alt="logo" />
         </div>
