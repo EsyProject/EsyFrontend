@@ -1,12 +1,15 @@
-.container-main-historic {
-  margin-left: 260px;
-  margin-right: 6px;
-  overflow: hidden;
+.historic-container {
+  display: flex;
+  transition: margin-left 0.3s ease;
 }
 
-@media (width < 920px) {
-  .container-main-historic {
-    transition: margin 0.4s;
-    margin-left: 150px;
-  }
+.sidebar-open .container-main-historic {
+  margin-left: 300px;
+}
+
+.container-main-historic {
+  flex: 1;
+  padding: 20px;
+  margin-left: 156px;
+  transition: margin-left 0.3s;
 }

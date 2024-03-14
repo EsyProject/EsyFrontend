@@ -1,25 +1,21 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { LogoEsy, LogoEsyClosed, IoIosArrowBack } from "../../pages/index";
 import "./Sidebar.css";
 import { SidebarIcon } from "../../pages/index";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [activeIcon, setActiveIcon] = useState(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
 
   const handleIconClick = (icon) => {
     setActiveIcon(icon);
   };
 
   return (
-    <aside className={`sidebar border ${sidebarOpen ? "open-sidebar" : ""}`}>
+    <aside className={`sidebar border ${isOpen ? "open-sidebar" : ""}`}>
       <header className="sidebar-header">
         <div className="sidebar-logo-img">
-          <img src={sidebarOpen ? LogoEsy : LogoEsyClosed} alt="logo" />
+          <img src={isOpen ? LogoEsy : LogoEsyClosed} alt="logo" />
         </div>
         <button className="open-btn" onClick={toggleSidebar}>
           <span className="open-btn-icon">
@@ -49,7 +45,7 @@ const Sidebar = () => {
             onClick={() => handleIconClick("home")}
           />
           <div className="border-bottom"></div>
-          <div className={`nav-text ${sidebarOpen ? "active" : ""}`}>
+          <div className={`nav-text ${isOpen ? "open-sidebar" : ""}`}>
             <h5>EVENTOS</h5>
           </div>
           <SidebarIcon
@@ -71,7 +67,7 @@ const Sidebar = () => {
             onClick={() => handleIconClick("history")}
           />
           <div className="border-bottom"></div>
-          <div className={`nav-text ${sidebarOpen ? "active" : ""}`}>
+          <div className={`nav-text ${isOpen ? "open-sidebar" : ""}`}>
             <h5>GERAIS</h5>
           </div>
           <SidebarIcon
@@ -107,6 +103,11 @@ const Sidebar = () => {
       </nav>
     </aside>
   );
+};
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
 };
 
 export default Sidebar;
