@@ -15,6 +15,18 @@
   align-items: center;
 }
 
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-content h4 {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
 .navbar-border {
   position: absolute;
   width: 100%;
