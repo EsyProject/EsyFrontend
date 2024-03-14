@@ -11,7 +11,7 @@ const Historic = () => {
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
-      <Navbar />
+      <Navbar currentPageIcon="history" />
       
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
