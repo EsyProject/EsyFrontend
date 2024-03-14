@@ -46,6 +46,10 @@
   margin: 0 auto;
 }
 
+.sidebar-header.active {
+  gap: 19px;
+}
+
 /* Estilos dos botões na barra lateral */
 .sidebar button {
   height: 50px;

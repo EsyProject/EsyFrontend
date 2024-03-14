@@ -13,7 +13,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
   return (
     <aside className={`sidebar border ${isOpen ? "open-sidebar" : ""}`}>
-      <header className="sidebar-header">
+      <header className={`sidebar-header ${isOpen ? "active" : ""}`}>
         <div className="sidebar-logo-img">
           <img src={isOpen ? LogoEsy : LogoEsyClosed} alt="logo" />
         </div>
@@ -45,7 +45,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             onClick={() => handleIconClick("home")}
           />
           <div className="border-bottom"></div>
-          <div className={`nav-text ${isOpen ? "open-sidebar" : ""}`}>
+          <div className={`nav-text ${isOpen ? "active" : ""}`}>
             <h5>EVENTOS</h5>
           </div>
           <SidebarIcon
@@ -67,7 +67,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             onClick={() => handleIconClick("history")}
           />
           <div className="border-bottom"></div>
-          <div className={`nav-text ${isOpen ? "open-sidebar" : ""}`}>
+          <div className={`nav-text ${isOpen ? "active" : ""}`}>
             <h5>GERAIS</h5>
           </div>
           <SidebarIcon
