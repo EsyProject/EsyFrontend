@@ -12,8 +12,12 @@ const Historic = () => {
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar currentPageIcon="history" />
-      
-      <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+
+      <Sidebar
+        activePage="history"
+        isOpen={sidebarOpen}
+        toggleSidebar={toggleSidebar}
+      />
 
       <div className="container-main">
         <h1>Conteudo aqui</h1>
