@@ -9,7 +9,7 @@ const Navbar = ({ currentPageIcon }) => {
         <div className="rectangle">
           <span className="material-symbols-outlined">{currentPageIcon}</span>
         </div>
-        <h2>Meus Eventos</h2>
+        <h2>Meus eventos</h2>
         <h4>Próximos eventos</h4>
         <h4>Histórico de eventos</h4>
       </div>

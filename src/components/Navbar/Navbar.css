@@ -19,12 +19,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .navbar-content h4 {
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-left: 35px;
+}
+
+.navbar-content h2 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: #17181B;
 }
 
 .navbar-border {
@@ -37,7 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0066A5;
+  background: #0066a5;
   border-radius: 7px;
   width: 40px;
   height: 40px;
