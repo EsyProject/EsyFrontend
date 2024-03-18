@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import "material-symbols";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ currentPageIcon, activePage }) => {
@@ -10,12 +11,17 @@ const Navbar = ({ currentPageIcon, activePage }) => {
           <span className="material-symbols-outlined">{currentPageIcon}</span>
         </div>
         <h2>Meus eventos</h2>
-        <h4 className={activePage === "proximos-eventos" ? "active" : ""}>
-          Próximos eventos
-        </h4>
+        <Link to="/schedule">
+          {" "}
+          <h4 className={activePage === "proximos-eventos" ? "active" : ""}>
+            Próximos eventos
+          </h4>
+        </Link>
         <div
           className={
-            activePage === "proximos-eventos" ? "active subtitle-underline-next" : ""
+            activePage === "proximos-eventos"
+              ? "active subtitle-underline-next"
+              : ""
           }
         ></div>
         <h4 className={activePage === "historic" ? "active" : ""}>
