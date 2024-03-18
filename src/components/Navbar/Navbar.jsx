@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "material-symbols";
 import "./Navbar.css";
 
-const Navbar = ({ currentPageIcon }) => {
+const Navbar = ({ currentPageIcon, activePage }) => {
   return (
     <div className="navbar-container">
       <div className="navbar-content">
@@ -10,8 +10,24 @@ const Navbar = ({ currentPageIcon }) => {
           <span className="material-symbols-outlined">{currentPageIcon}</span>
         </div>
         <h2>Meus eventos</h2>
-        <h4>Próximos eventos</h4>
-        <h4>Histórico de eventos</h4>
+        <h4 className={activePage === "proximos-eventos" ? "active" : ""}>
+          Próximos eventos
+        </h4>
+        <div
+          className={
+            activePage === "proximos-eventos" ? "active subtitle-underline" : ""
+          }
+        ></div>
+        <h4 className={activePage === "historic" ? "active" : ""}>
+          Histórico de eventos
+        </h4>
+        <div
+          className={
+            activePage === "historic" ? "active subtitle-underline" : ""
+          }
+        ></div>
+      </div>
+      <div className="navbar-icon">
         <span className="material-symbols-outlined">notifications</span>
       </div>
     </div>
@@ -20,6 +36,7 @@ const Navbar = ({ currentPageIcon }) => {
 
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
+  activePage: PropTypes.string.isRequired,
 };
 
 export default Navbar;
