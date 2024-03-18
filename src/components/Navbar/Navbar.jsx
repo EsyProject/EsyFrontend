@@ -15,7 +15,7 @@ const Navbar = ({ currentPageIcon, activePage }) => {
         </h4>
         <div
           className={
-            activePage === "proximos-eventos" ? "active subtitle-underline" : ""
+            activePage === "proximos-eventos" ? "active subtitle-underline-next" : ""
           }
         ></div>
         <h4 className={activePage === "historic" ? "active" : ""}>
