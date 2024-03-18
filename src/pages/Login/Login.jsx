@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { ImageLogin, LogoEsy, AnimatedImage, Input } from '../index';
 import { Link } from 'react-router-dom';
@@ -38,7 +38,7 @@ const Login = () => {
                 </button>
               </div>
 
-              <Link to="/password" className="custom-button">Entrar</Link>
+              <Link to="/historic" className="custom-button">Entrar</Link>
             </form>
 
             <div className="existing-account">
