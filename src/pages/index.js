@@ -3,6 +3,7 @@ import Login from "./Login/Login";
 import Password from "./Password/Password";
 import Register from "./Register/Register";
 import Historic from "./Historic/Historic";
+import Schedule from "./Schedule/Schedule";
 
 import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
 import AnimatedImage from "../components/AnimatedImage/AnimatedImage";
@@ -25,6 +26,7 @@ export {
   Password,
   Register,
   Historic,
+  Schedule,
   InteractiveBubble,
   AnimatedImage,
   Input,
