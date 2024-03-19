@@ -15,14 +15,14 @@ const Navbar = ({ currentPageIcon, activePage }) => {
         {/* Link to the schedule page */}
         <Link to="/schedule">
           {" "}
-          <h4 className={activePage === "proximos-eventos" ? "active" : ""}>
+          <h4 className={activePage === "schedule" ? "active" : ""}>
             Próximos eventos
           </h4>
         </Link>
         {/* Underline for the "Next Events" navigation */}
         <div
           className={
-            activePage === "proximos-eventos"
+            activePage === "schedule"
               ? "active subtitle-underline-next"
               : ""
           }
