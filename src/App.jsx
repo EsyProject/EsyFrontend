@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Home, Login, Password, Register, Historic } from './pages/index'
+import { Home, Login, Password, Register, Historic, Schedule } from './pages/index'
 
 const App = () => {
   return (
@@ -11,6 +11,7 @@ const App = () => {
           <Route path='/Password' element={<Password />} />
           <Route path='/Register' element={<Register />} />
           <Route path='/Historic' element={<Historic />} />
+          <Route path='/schedule' element={<Schedule />} />
         </Routes>
       </Router>
     </main>

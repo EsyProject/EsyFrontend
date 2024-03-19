@@ -223,10 +223,10 @@ svg {
 /* Estilo da linha de separação na barra lateral */
 .border-bottom {
   margin: 0 auto;
-  width: 205px;
+  width: 100%;
   height: 1px;
-  background-color: #17181b;
-  opacity: 15%;
+  background-color: #DADCE0;
+  opacity: 100%;
 }
 
 /* Estilos para o texto de navegação */

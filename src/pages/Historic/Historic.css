@@ -1,13 +1,12 @@
 .historic-container {
-  display: flex;
   transition: margin-left 0.3s ease;
 }
 
-.sidebar-open .container-main-historic {
+.sidebar-open .container-main {
   margin-left: 300px;
 }
 
-.container-main-historic {
+.container-main {
   flex: 1;
   padding: 20px;
   margin-left: 156px;

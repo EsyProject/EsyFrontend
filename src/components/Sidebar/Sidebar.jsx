@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { LogoEsy, LogoEsyClosed, IoIosArrowBack } from "../../pages/index";
 import "./Sidebar.css";
 import { SidebarIcon } from "../../pages/index";
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
   const [activeIcon, setActiveIcon] = useState(null);
 
   const handleIconClick = (icon) => {
     setActiveIcon(icon);
   };
+
+  useEffect(() => {
+    setActiveIcon(activePage);
+  }, [activePage]);
 
   return (
     <aside className={`sidebar border ${isOpen ? "open-sidebar" : ""}`}>
@@ -64,7 +68,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             className="clock"
             textClassName="sidebar-text"
             active={activeIcon === "history"}
-            onClick={() => handleIconClick("history")}
+            onClick={() => setActiveIcon("history")}
           />
           <div className="border-bottom"></div>
           <div className={`nav-text ${isOpen ? "active" : ""}`}>
@@ -108,6 +112,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
+  activePage: PropTypes.string.isRequired,
 };
 
 export default Sidebar;
