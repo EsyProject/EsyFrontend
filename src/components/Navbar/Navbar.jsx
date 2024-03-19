@@ -7,16 +7,19 @@ const Navbar = ({ currentPageIcon, activePage }) => {
   return (
     <div className="navbar-container">
       <div className="navbar-content">
+        {/* Container for icon */}
         <div className="rectangle">
           <span className="material-symbols-outlined">{currentPageIcon}</span>
         </div>
         <h2>Meus eventos</h2>
+        {/* Link to the schedule page */}
         <Link to="/schedule">
           {" "}
           <h4 className={activePage === "proximos-eventos" ? "active" : ""}>
             Próximos eventos
           </h4>
         </Link>
+        {/* Underline for the "Next Events" navigation */}
         <div
           className={
             activePage === "proximos-eventos"
@@ -27,12 +30,14 @@ const Navbar = ({ currentPageIcon, activePage }) => {
         <h4 className={activePage === "historic" ? "active" : ""}>
           Histórico de eventos
         </h4>
+        {/* Underline for the "Historical Events" navigation */}
         <div
           className={
             activePage === "historic" ? "active subtitle-underline" : ""
           }
         ></div>
       </div>
+      {/* Container for notification icon */}
       <div className="navbar-icon">
         <span className="material-symbols-outlined">notifications</span>
       </div>
@@ -40,6 +45,7 @@ const Navbar = ({ currentPageIcon, activePage }) => {
   );
 };
 
+// PropTypes for Navbar component
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
