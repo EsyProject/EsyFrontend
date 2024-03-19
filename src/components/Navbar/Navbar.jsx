@@ -20,16 +20,16 @@ const Navbar = ({ currentPageIcon, activePage }) => {
           </h4>
         </Link>
         {/* Underline for the "Next Events" navigation */}
-        <div
-          className={
-            activePage === "schedule"
-              ? "active subtitle-underline-next"
-              : ""
-          }
-        ></div>
-        <h4 className={activePage === "historic" ? "active" : ""}>
-          Histórico de eventos
-        </h4>
+        <Link to="/historic">
+          <div
+            className={
+              activePage === "schedule" ? "active subtitle-underline-next" : ""
+            }
+          ></div>
+          <h4 className={activePage === "historic" ? "active" : ""}>
+            Histórico de eventos
+          </h4>
+        </Link>
         {/* Underline for the "Historical Events" navigation */}
         <div
           className={
