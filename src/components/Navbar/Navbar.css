@@ -3,7 +3,7 @@
 }
 
 .sidebar-open .subtitle-underline {
-  left: 413px;
+  left: 400px;
   transition: transform 0.3s ease;
 }
 
@@ -103,7 +103,7 @@ h4.active {
   position: absolute;
   width: 143px;
   height: 4px;
-  left: 413px;
+  left: 398px;
   top: 65px;
 
   background: #0066a5;
