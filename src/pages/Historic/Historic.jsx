@@ -20,8 +20,37 @@ const Historic = () => {
       />
 
       <div className="container-main">
-        <h1>Conteudo aqui</h1>
-        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, fugiat quia magnam iure, doloribus expedita vero porro molestias maiores</span>
+        <div className="events-wrapper">
+          <div className="events amount">
+            <h4>
+              Total de eventos <span>24</span>
+            </h4>
+          </div>
+
+          <div className="events presence">
+            <h4>
+              Comparecimentos <span>20</span>
+            </h4>
+          </div>
+
+          <div className="events absences">
+            <h4>
+              Faltas <span>4</span>
+            </h4>
+          </div>
+
+          <div className="events cancellations">
+            <h4>
+              Cancelamentos <span>0</span>
+            </h4>
+          </div>
+
+          <div className="events time">
+            <h4>
+              Tempo de uso <span>2 anos</span>
+            </h4>
+          </div>
+        </div>
       </div>
     </div>
   );
