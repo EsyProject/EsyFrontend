@@ -8,23 +8,23 @@ const EventTable = ({ events }) => {
     <table>
       <thead>
         <tr>
-          <th className="th-column-1">Nome do Evento</th>
-          <th>Data</th>
-          <th>Horário</th>
-          <th>Local</th>
-          <th>Área</th>
-          <th>Presença</th>
+          <th className="th-event-name">Nome do Evento</th>
+          <th className="th-event-date">Data</th>
+          <th className="th-event-time">Horário</th>
+          <th className="th-event-local">Local</th>
+          <th className="th-event-area">Área</th>
+          <th className="th-event-presence">Presença</th>
         </tr>
       </thead>
       <tbody>
         {events.map((event, index) => (
           <tr key={index}>
-            <td>{event.name}</td>
-            <td>{event.date}</td>
-            <td>{event.time}</td>
-            <td>{event.local}</td>
-            <td>{event.area}</td>
-            <td>{event.presence}</td>
+            <td className="td-event-name">{event.name}</td>
+            <td className="td-event-date">{event.date}</td>
+            <td className="td-event-time">{event.time}</td>
+            <td className="td-event-local">{event.local}</td>
+            <td className="td-event-area">{event.area}</td>
+            <td className="td-event-presence">{event.presence}</td>
           </tr>
         ))}
       </tbody>

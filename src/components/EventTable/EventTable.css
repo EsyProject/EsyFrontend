@@ -1,21 +1,63 @@
-td, th {
-  padding: 18px;
+td,
+th {
+  padding: 10px;
   border: none;
-  border-bottom: 1px solid #E8EAED;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.td-event-name {
+  padding-left: 30px;
+  width: 550px;
+  text-align: left;
+}
+
+.td-event-date {
+  text-align: left;
+}
+
+.td-event-time {
+  width: 148px;
+}
+
+.td-event-area {
+  width: 160px;
+}
+
+.td-event-presence {
+  padding-right: 30px;
+}
+
+.th-event-name {
+  padding-left: 30px;
+  text-align: left;
+}
+
+.th-event-date {
+  text-align: left;
+}
+
+.th-event-presence {
+  padding-right: 30px;
 }
 
 table {
   border-collapse: collapse;
 }
 
+td {
+  padding: 18px;
+  text-align: center;
+}
+
 th {
+  text-align: center;
   font-size: 18px;
-  color: #17181B;
+  color: #17181b;
   font-weight: 600;
 }
 
 .th-column-1 {
   display: flex;
   width: 457px;
-
 }
+

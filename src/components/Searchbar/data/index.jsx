@@ -1,6 +1,6 @@
 const eventsList = [
   {
-    name: "Workshop de Desenvolvimento",
+    name: "Workshop de Desenvolvimento de Aplicativos Móveis",
     date: "Seg, 27 Mai 2024",
     time: "10:00",
     local: "Ca300",
@@ -8,37 +8,38 @@ const eventsList = [
     presence: "SIM"
   },
   {
-    name: "Seminário de Inteligência Artificial",
+    name: "Seminário sobre Inteligência Artificial e Machine Learning",
     date: "Ter, 28 Mai 2024",
     time: "14:00",
-    local: "Auditório Principal",
-    area: "TI",
+    local: "Ca600",
+    area: "BD - IA",
     presence: "NÃO"
   },
   {
-    name: "Conferência de Ciência de Dados",
+    name: "Feira de Tecnologia e Inovação",
     date: "Qua, 29 Mai 2024",
     time: "09:30",
-    local: "Sala 201",
-    area: "Ciência de Dados",
+    local: "Ca170",
+    area: "BD - LA",
     presence: "SIM"
   },
   {
-    name: "Curso Avançado de React Native",
+    name: "Palestra sobre Cibersegurança e Proteção de Dados",
     date: "Qui, 30 Mai 2024",
     time: "13:00",
-    local: "Laboratório de Informática",
-    area: "Desenvolvimento Web",
+    local: "Ca600",
+    area: "BD - CI",
     presence: "SIM"
   },
   {
-    name: "Palestra sobre Blockchain",
+    name: "Conferência de Realidade Virtual e Aumentada",
     date: "Sex, 31 Mai 2024",
     time: "11:00",
-    local: "Sala de Conferências",
-    area: "Tecnologia Financeira",
+    local: "Ca300",
+    area: "BD - RA",
     presence: "SIM"
   },
+    /*
   {
     name: "Hackathon de Inteligência Artificial",
     date: "Seg, 03 Jun 2024",
@@ -78,7 +79,7 @@ const eventsList = [
     local: "Auditório Central",
     area: "Segurança da Informação",
     presence: "SIM"
-  }
+  } */
 ];
 
 export default eventsList;
