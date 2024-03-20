@@ -12,6 +12,7 @@ import CustomSelect from "../components/CustomSelect/CustomSelect";
 import Sidebar from "../components/Sidebar/Sidebar";
 import SidebarIcon from "../components/SidebarIcon/SidebarIcon";
 import Navbar from "../components/Navbar/Navbar";
+import Searchbar from "../components/Searchbar/Searchbar";
 
 import ImageLogin from "../assets/img-login.png";
 import ImageRegisterBack from "../assets/img-register.png";
@@ -28,6 +29,7 @@ export {
   Historic,
   Schedule,
   InteractiveBubble,
+  Searchbar,
   AnimatedImage,
   Input,
   CustomSelect,

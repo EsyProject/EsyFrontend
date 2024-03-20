@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar, Navbar } from "../../pages/index";
+import { Sidebar, Navbar, Searchbar } from "../../pages/index";
 import "./Historic.css";
 
 const Historic = () => {
@@ -51,6 +51,10 @@ const Historic = () => {
             </h4>
           </div>
         </div>
+
+        <Searchbar />
+
+        
       </div>
     </div>
   );
