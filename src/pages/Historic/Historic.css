@@ -1,0 +1,66 @@
+.historic-container {
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-open .container-main {
+  margin-left: 300px;
+}
+
+.container-main {
+  flex: 1;
+  padding: 10px;
+  margin-left: 156px;
+  transition: margin-left 0.3s;
+}
+
+.events-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.events {
+  display: flex;
+  align-items: center;
+  height: 58px;
+  border: 1px solid #e8eaed;
+  border-radius: 10px;
+  padding-left: 25px;
+  margin-top: 50px;
+}
+
+.amount {
+  width: 212px;
+}
+
+.presence {
+  width: 229px;
+}
+
+.absences {
+  width: 124px;
+}
+
+.cancellations {
+  width: 195px;
+}
+
+.time {
+  width: 249px;
+}
+
+.events-wrapper h4 {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #3c4043;
+  cursor: pointer;
+}
+
+.events-wrapper span {
+  font-weight: 500;
+  font-size: 25px;
+  color: #17181b;
+  margin-left: 15px;
+}
