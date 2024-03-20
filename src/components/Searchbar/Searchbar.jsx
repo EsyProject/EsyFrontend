@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "material-symbols";
 import eventsList from "./data";
 import EventTable from "../EventTable/EventTable";
-import './Searchbar.css'
+import "./Searchbar.css";
 
 // Searchbar component definition
 const Searchbar = () => {
@@ -20,12 +20,15 @@ const Searchbar = () => {
   // JSX rendering of Searchbar component
   return (
     <div className="container-search">
-      <input
-        type="search"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
+      <div className="input-wrapper">
+        <span className="material-symbols-outlined">search</span>
+        <input
+          type="search"
+          value={search}
+          placeholder="Pesquise aqui..."
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
       <EventTable events={filteredEvents} />
     </div>
   );
