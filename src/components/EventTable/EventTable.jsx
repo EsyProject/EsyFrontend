@@ -1,13 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
+import "./EventTable.css";
 
 const EventTable = ({ events }) => {
   return (
     <table>
       <thead>
         <tr>
-          <th>Nome do Evento</th>
+          <th className="th-column-1">Nome do Evento</th>
           <th>Data</th>
           <th>Horário</th>
           <th>Local</th>

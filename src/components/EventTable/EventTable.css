@@ -1,0 +1,21 @@
+td, th {
+  padding: 18px;
+  border: none;
+  border-bottom: 1px solid #E8EAED;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font-size: 18px;
+  color: #17181B;
+  font-weight: 600;
+}
+
+.th-column-1 {
+  display: flex;
+  width: 457px;
+
+}
