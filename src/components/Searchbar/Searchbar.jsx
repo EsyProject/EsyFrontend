@@ -1,7 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
+import "material-symbols";
 import eventsList from "./data";
 import EventTable from "../EventTable/EventTable";
+import './Searchbar.css'
 
 // Searchbar component definition
 const Searchbar = () => {
@@ -17,7 +19,7 @@ const Searchbar = () => {
 
   // JSX rendering of Searchbar component
   return (
-    <div>
+    <div className="container-search">
       <input
         type="search"
         value={search}
