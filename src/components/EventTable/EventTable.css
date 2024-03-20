@@ -20,6 +20,9 @@ th {
 }
 
 .td-event-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 160px;
 }
 
@@ -48,7 +51,7 @@ td {
   padding: 18px;
   text-align: center;
   font-size: 15px;
-  color: #3C4043;
+  color: #3c4043;
 }
 
 th {
@@ -63,3 +66,19 @@ th {
   width: 457px;
 }
 
+.container-event-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 28px;
+  border-radius: 5px;
+}
+
+.container-event-area[data-area="BISB"] {
+  background: rgba(71, 0, 188, 0.15);
+  opacity: 15%;
+  color: #4700bc;
+  opacity: 100%;
+  font-weight: 600;
+}
