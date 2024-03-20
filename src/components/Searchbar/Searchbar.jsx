@@ -3,6 +3,12 @@ import eventsList from "./data";
 
 const Searchbar = () => {
   const [search, setSearch] = useState("");
+  
+  const searchLowerCase = search.toLowerCase();
+
+  const events = eventsList.filter((event) =>
+    event.name.toLowerCase().includes(searchLowerCase)
+  );
 
   return (
     <div>
@@ -24,7 +30,7 @@ const Searchbar = () => {
           </tr>
         </thead>
         <tbody>
-          {eventsList.map((event, index) => (
+          {events.map((event, index) => (
             <tr key={index}>
               <td>{event.name}</td>
               <td>{event.date}</td>
