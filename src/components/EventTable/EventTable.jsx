@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import PropTypes from "prop-types";
 
 const EventTable = ({ events }) => {
   return (
@@ -28,6 +29,11 @@ const EventTable = ({ events }) => {
       </tbody>
     </table>
   );
+};
+
+// PropTypes validation
+EventTable.propTypes = {
+  events: PropTypes.string.isRequired,
 };
 
 export default EventTable;
