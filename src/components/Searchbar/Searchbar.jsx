@@ -1,9 +1,16 @@
+import { useState } from "react";
 import eventsList from "./data";
 
 const Searchbar = () => {
+  const [search, setSearch] = useState("");
+
   return (
     <div>
-      <input type="search" />
+      <input
+        type="search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
       <table>
         <thead>
