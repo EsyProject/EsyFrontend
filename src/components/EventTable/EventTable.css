@@ -7,23 +7,11 @@ th {
 
 .td-event-name {
   padding-left: 30px;
-  width: 550px;
   text-align: left;
 }
 
 .td-event-date {
   text-align: left;
-}
-
-.td-event-time {
-  width: 148px;
-}
-
-.td-event-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 160px;
 }
 
 .td-event-presence {
