@@ -76,8 +76,29 @@ th {
   font-weight: 600;
 }
 
-.container-event-area[data-area="ETS - DS"] {
+.container-event-area[data-area^="ETS - DS"] {
   background: rgba(0, 188, 178, 0.15);
   color: #00BCB2;
+  font-weight: 600;
+}
+
+.container-event-presence {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 28px;
+  border-radius: 5px;
+}
+
+.container-event-presence[data-presence="SIM"] {
+  background: rgba(0, 188, 64, 0.15);
+  color: #00BC40;
+  font-weight: 600;
+}
+
+.container-event-presence[data-presence="NÃO"] {
+  background: rgba(188, 0, 0, 0.15);
+  color: #BC0000;
   font-weight: 600;
 }

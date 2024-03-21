@@ -24,9 +24,15 @@ const EventTable = ({ events }) => {
             <td className="td-event-time">{event.time}</td>
             <td className="td-event-local">{event.local}</td>
             <td className="td-event-area">
-              <div className="container-event-area" data-area={event.area}>{event.area}</div>
+              <div className="container-event-area" data-area={event.area}>
+                {event.area}
+              </div>
             </td>
-            <td className="td-event-presence">{event.presence}</td>
+            <td className="td-event-presence">
+              <div className="container-event-presence" data-presence={event.presence}>
+                {event.presence}
+              </div>
+            </td>
           </tr>
         ))}
       </tbody>
