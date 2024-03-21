@@ -65,8 +65,19 @@ th {
 
 .container-event-area[data-area="BISB"] {
   background: rgba(71, 0, 188, 0.15);
-  opacity: 15%;
   color: #4700bc;
-  opacity: 100%;
+  font-weight: 600;
+}
+
+
+.container-event-area[data-area^="BD"] {
+  background: rgba(184, 0, 188, 0.15);
+  color: #B800BC;
+  font-weight: 600;
+}
+
+.container-event-area[data-area="ETS - DS"] {
+  background: rgba(0, 188, 178, 0.15);
+  color: #00BCB2;
   font-weight: 600;
 }

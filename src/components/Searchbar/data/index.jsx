@@ -28,7 +28,7 @@ const eventsList = [
     date: "Qui, 30 Mai 2024",
     time: "13:00",
     local: "Ca600",
-    area: "BD - CI",
+    area: "ETS - DS",
     presence: "SIM"
   },
   {
