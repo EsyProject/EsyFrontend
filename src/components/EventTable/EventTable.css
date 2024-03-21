@@ -1,12 +1,11 @@
 td,
 th {
-  padding: 10px;
+  padding: 18px;
   border: none;
   border-bottom: 1px solid #e8eaed;
 }
 
 .td-event-name {
-  padding-left: 30px;
   text-align: left;
 }
 
@@ -15,11 +14,12 @@ th {
 }
 
 .td-event-presence {
-  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .th-event-name {
-  padding-left: 30px;
   text-align: left;
 }
 
@@ -33,6 +33,8 @@ th {
 
 table {
   border-collapse: collapse;
+  white-space: nowrap;
+  margin-bottom: 30px;
 }
 
 td {
@@ -69,16 +71,15 @@ th {
   font-weight: 600;
 }
 
-
 .container-event-area[data-area^="BD"] {
   background: rgba(184, 0, 188, 0.15);
-  color: #B800BC;
+  color: #b800bc;
   font-weight: 600;
 }
 
 .container-event-area[data-area^="ETS - DS"] {
   background: rgba(0, 188, 178, 0.15);
-  color: #00BCB2;
+  color: #00bcb2;
   font-weight: 600;
 }
 
@@ -93,12 +94,50 @@ th {
 
 .container-event-presence[data-presence="SIM"] {
   background: rgba(0, 188, 64, 0.15);
-  color: #00BC40;
+  color: #00bc40;
   font-weight: 600;
 }
 
 .container-event-presence[data-presence="NÃO"] {
   background: rgba(188, 0, 0, 0.15);
-  color: #BC0000;
+  color: #bc0000;
   font-weight: 600;
+}
+
+.container-table {
+  overflow-x: auto;
+  margin-bottom: 50px;
+  padding: 0 20px 0 0;
+}
+
+.container-table::-webkit-scrollbar {
+  height: 10px;
+}
+
+.container-table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container-table::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  border: none;
+}
+
+body::-webkit-scrollbar {
+  width: 20px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  border: 6px solid white;
+}
+
+@media (max-width: 1225px) {
+  
 }
