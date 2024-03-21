@@ -64,3 +64,31 @@
   color: #17181b;
   margin-left: 15px;
 }
+
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 204px;
+  height: 40px;
+  border: 1px solid #bdc1c6;
+  border-radius: 7px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.select-wrapper span {
+  margin-left: 15px;
+}
+
+select {
+  width: 147px;
+}
+
+.select-wrapper select {
+  background-color: transparent;
+  border: none;
+  color: #9aa0a6;
+  font-size: 14px;
+  font-weight: 400;
+}

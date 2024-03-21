@@ -52,9 +52,19 @@ const Historic = () => {
           </div>
         </div>
 
-        <Searchbar />
+        <div className="filter-searchbar">
+          <Searchbar />
 
-        
+          <div className="select-wrapper">
+            <span className="material-symbols-outlined">calendar_month</span>
+            <select>
+              <option value="opcao1">Todo o período</option>
+              <option value="opcao2">Último mês</option>
+              <option value="opcao3">Últimos 3 meses</option>
+              <option value="opcao4">Últimos 6 meses</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   );

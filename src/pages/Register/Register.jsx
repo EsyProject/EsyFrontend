@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ImageRegisterBack, LogoEsy, AnimatedImage, Input, CustomSelect } from '../index';
 import { Link } from 'react-router-dom';
 import './Register.css';
