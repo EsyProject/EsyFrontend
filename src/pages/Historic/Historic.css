@@ -94,3 +94,7 @@ select {
   font-weight: 400;
 
 }
+
+.select-wrapper select:focus-visible {
+  outline: none;
+}
