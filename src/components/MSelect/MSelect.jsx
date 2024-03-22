@@ -1,8 +1,9 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import "material-symbols";
 import "./MSelect.css";
 
-const MSelect = () => {
+const MSelect = ({ options, placeholder, value, onChange }) => {
   const [showOptions, setShowOptions] = useState(false);
 
   const toggleOptions = () => {
@@ -11,51 +12,52 @@ const MSelect = () => {
 
   const handleOptionClick = (option) => {
     console.log("Opção selecionada:", option);
-    setShowOptions(false); // close the modal
+    onChange(option);
+    setShowOptions(false);
   };
 
   return (
     <div className="mselect-container">
       <div className="filter-searchbar">
         <div className="select-wrapper">
-          <span className="material-symbols-outlined">
-            <span className="material-symbols-outlined" onClick={toggleOptions}>
-              expand_more
-            </span>
-          </span>
-          <h4>Todo o período</h4>
+          <span className="material-symbols-outlined">calendar_month</span>
+          <h4>{value ? value.label : placeholder}</h4>
           {showOptions && (
             <div className="options-modal">
-              <div
-                className="option"
-                onClick={() => handleOptionClick("Todo o período")}
-              >
-                Todo o período
-              </div>
-              <div
-                className="option"
-                onClick={() => handleOptionClick("Último mês")}
-              >
-                Último mês
-              </div>
-              <div
-                className="option"
-                onClick={() => handleOptionClick("Últimos 3 meses")}
-              >
-                Últimos 3 meses
-              </div>
-              <div
-                className="option"
-                onClick={() => handleOptionClick("Últimos 6 meses")}
-              >
-                Últimos 6 meses
-              </div>
+              {options.map((option, index) => (
+                <div
+                  key={index}
+                  className="option"
+                  onClick={() => handleOptionClick(option)}
+                >
+                  {option.label}
+                </div>
+              ))}
             </div>
           )}
+          <span className="material-symbols-outlined" onClick={toggleOptions}>
+            expand_more
+          </span>
         </div>
       </div>
     </div>
   );
+};
+
+MSelect.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.any.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  placeholder: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.shape({
+    value: PropTypes.any.isRequired,
+    label: PropTypes.string.isRequired,
+  }),
+  onChange: PropTypes.func.isRequired,
 };
 
 export default MSelect;

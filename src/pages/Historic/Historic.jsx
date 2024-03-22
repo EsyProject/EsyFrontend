@@ -1,12 +1,17 @@
 import { useState } from "react";
-import { Sidebar, Navbar, Searchbar } from "../../pages/index";
+import { Sidebar, Navbar, Searchbar, MSelect } from "../../pages/index";
 import "./Historic.css";
 
 const Historic = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+  };
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
   };
 
   return (
@@ -55,15 +60,18 @@ const Historic = () => {
         <div className="filter-searchbar">
           <Searchbar />
 
-          <div className="select-wrapper">
-            <span className="material-symbols-outlined">calendar_month</span>
-            <select>
-              <option value="opcao1">Todo o período</option>
-              <option value="opcao2">Último mês</option>
-              <option value="opcao3">Últimos 3 meses</option>
-              <option value="opcao4">Últimos 6 meses</option>
-            </select>
-          </div>
+          <MSelect
+            options={[
+              { value: "opcao1", label: "Todo o período" },
+              { value: "opcao2", label: "Último mês" },
+              { value: "opcao3", label: "Últimos 3 meses" },
+              { value: "opcao4", label: "Últimos 6 meses" },
+            ]}
+            placeholder="Todo o período"
+            label="Período"
+            value={selectedOption} 
+            onChange={handleOptionSelect}
+          />
         </div>
       </div>
     </div>
