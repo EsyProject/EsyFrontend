@@ -19,7 +19,7 @@
 }
 
 .option:hover {
-  background-color: #f0f0f0;
+  background-color: #E8EAED;
 }
 
 .select-wrapper {
@@ -63,4 +63,10 @@ select {
 
 .select-wrapper select:focus-visible {
   outline: none;
+}
+
+.options-modal:hover {
+  color: #0066a5;
+  opacity: 100%;
+  font-weight: 500;
 }

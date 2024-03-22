@@ -5,6 +5,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  user-select: none;
+}
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
   color: #17181b;
@@ -29,15 +33,21 @@
 
 .navbar-icon .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
-  color: #17181B;
+  color: #17181b;
   opacity: 50%;
   font-size: 24px;
 }
 
-.select-wrapper .material-symbols-outlined,
 .input-wrapper .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
-  color: #3C4043;
+  color: #3c4043;
+  opacity: 100%;
+  font-size: 24px;
+}
+
+.select-wrapper .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 40;
+  color: #1c1b1f;
   opacity: 100%;
   font-size: 24px;
 }
