@@ -1,0 +1,28 @@
+.container-search input {
+  background-color: transparent;
+  border: none;
+  color: #9aa0a6;
+  font-size: 14px;
+  font-weight: 400;
+  width: 83%;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 360px;
+  height: 40px;
+  border: 1px solid #bdc1c6;
+  border-radius: 7px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.input-wrapper input:focus-visible {
+  outline: none;
+}
+
+.input-wrapper span {
+  margin-left: 15px;
+}
