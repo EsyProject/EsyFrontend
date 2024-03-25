@@ -5,6 +5,7 @@ import "./MSelect.css";
 
 const MSelect = ({ options, placeholder, value, onChange }) => {
   const [showOptions, setShowOptions] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(value);
 
   const toggleOptions = () => {
     setShowOptions(!showOptions);
@@ -12,6 +13,7 @@ const MSelect = ({ options, placeholder, value, onChange }) => {
 
   const handleOptionClick = (option) => {
     console.log("Opção selecionada:", option);
+    setSelectedOption(option);
     onChange(option);
     setShowOptions(false);
   };
@@ -21,15 +23,16 @@ const MSelect = ({ options, placeholder, value, onChange }) => {
       <div className="filter-searchbar">
         <div className="select-wrapper">
           <span className="material-symbols-outlined">calendar_month</span>
-          <h4>{value ? value.label : placeholder}</h4>
+          <h4>{selectedOption ? selectedOption.label : placeholder}</h4>
           {showOptions && (
             <div className="options-modal">
               {options.map((option, index) => (
                 <div
                   key={index}
-                  className="option"
+                  className={`option ${option.value === selectedOption.value ? 'selected' : ''}`}
                   onClick={() => handleOptionClick(option)}
                 >
+                  <span className="material-symbols-outlined">{option.value === selectedOption.value ? 'check' : ''}</span>
                   {option.label}
                 </div>
               ))}
