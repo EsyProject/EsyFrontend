@@ -64,3 +64,8 @@
   color: #17181b;
   margin-left: 15px;
 }
+
+.filter-searchbar {
+  display: flex;
+  gap: 32rem;
+}
