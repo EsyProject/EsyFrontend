@@ -47,7 +47,16 @@ const EventTable = ({ events }) => {
 
 // PropTypes validation
 EventTable.propTypes = {
-  events: PropTypes.string.isRequired,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+      local: PropTypes.string.isRequired,
+      area: PropTypes.string.isRequired,
+      presence: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default EventTable;
