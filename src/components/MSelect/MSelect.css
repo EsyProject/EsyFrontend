@@ -65,8 +65,8 @@ select {
   outline: none;
 }
 
-.options-modal:hover {
-  color: #0066a5;
+.option:hover {
+  color: #17181B;
   opacity: 100%;
   font-weight: 500;
 }
