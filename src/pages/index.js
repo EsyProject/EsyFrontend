@@ -14,6 +14,7 @@ import SidebarIcon from "../components/SidebarIcon/SidebarIcon";
 import Navbar from "../components/Navbar/Navbar";
 import Searchbar from "../components/Searchbar/Searchbar";
 import MSelect from "../components/MSelect/MSelect";
+import EventTable from "../components/EventTable/EventTable";
 
 import ImageLogin from "../assets/img-login.png";
 import ImageRegisterBack from "../assets/img-register.png";
@@ -38,6 +39,7 @@ export {
   Sidebar,
   SidebarIcon,
   Navbar,
+  EventTable,
   ImageLogin,
   ImageRegisterBack,
   LogoEsy,

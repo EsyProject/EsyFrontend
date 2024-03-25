@@ -1,10 +1,18 @@
 import { useState } from "react";
-import { Sidebar, Navbar, Searchbar, MSelect } from "../../pages/index";
+import {
+  Sidebar,
+  Navbar,
+  Searchbar,
+  MSelect,
+  EventTable,
+} from "../../pages/index";
+import eventsList from "../../components/Searchbar/data";
 import "./Historic.css";
 
 const Historic = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -13,6 +21,14 @@ const Historic = () => {
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
+
+  // Function to convert search input to lowercase
+  const searchLowerCase = searchValue.toLowerCase();
+
+  // Filtering events based on search input
+  const filteredEvents = eventsList.filter((event) =>
+    event.name.toLowerCase().includes(searchLowerCase)
+  );
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -58,7 +74,7 @@ const Historic = () => {
         </div>
 
         <div className="filter-searchbar">
-          <Searchbar />
+          <Searchbar setSearch={setSearchValue} />
 
           <MSelect
             options={[
@@ -69,10 +85,12 @@ const Historic = () => {
             ]}
             placeholder="Todo o período"
             label="Período"
-            value={selectedOption} 
+            value={selectedOption}
             onChange={handleOptionSelect}
           />
         </div>
+
+        <EventTable events={filteredEvents} />
       </div>
     </div>
   );
