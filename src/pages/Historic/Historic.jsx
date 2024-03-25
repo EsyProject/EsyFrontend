@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Sidebar,
   Navbar,
   Searchbar,
   MSelect,
   EventTable,
+  Pagination,
 } from "../../pages/index";
 import eventsList from "../../components/Searchbar/data";
 import "./Historic.css";
@@ -13,6 +14,8 @@ const Historic = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [searchValue, setSearchValue] = useState("");
+  const [offset, setOffset] = useState(0);
+  const [totalEvents, setTotalEvents] = useState(0);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -29,6 +32,11 @@ const Historic = () => {
   const filteredEvents = eventsList.filter((event) =>
     event.name.toLowerCase().includes(searchLowerCase)
   );
+
+  // updates the totalEvents state
+  useEffect(() => {
+    setTotalEvents(filteredEvents.length);
+  }, [filteredEvents]);
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -90,7 +98,14 @@ const Historic = () => {
           />
         </div>
 
-        <EventTable events={filteredEvents} />
+        <EventTable events={filteredEvents.slice(offset, offset + 5)} />
+
+        <Pagination
+          limit={5}
+          total={totalEvents}
+          offset={offset}
+          setOffset={setOffset}
+        />
       </div>
     </div>
   );
