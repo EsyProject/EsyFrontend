@@ -29,10 +29,10 @@ const MSelect = ({ options, placeholder, value, onChange }) => {
               {options.map((option, index) => (
                 <div
                   key={index}
-                  className={`option ${option.value === selectedOption.value ? 'selected' : ''}`}
+                  className={`option ${selectedOption && option.value === selectedOption.value ? 'selected' : ''}`}
                   onClick={() => handleOptionClick(option)}
                 >
-                  <span className="material-symbols-outlined">{option.value === selectedOption.value ? 'check' : ''}</span>
+                  <span className="material-symbols-outlined">{selectedOption && option.value === selectedOption.value ? 'check' : ''}</span>
                   {option.label}
                 </div>
               ))}
