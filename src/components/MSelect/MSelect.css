@@ -82,10 +82,6 @@ select {
   padding: 10px 10px 10px 10px;
 }
 
-.material-symbols-outlined {
-  margin-right: 5px;
-}
-
 .options-modal > :last-child {
   border-radius: 0 0 7px 7px;
 }
