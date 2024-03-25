@@ -12,11 +12,19 @@
 
 .pagination__item--active {
   background: none;
-  font-weight: bold;
   border: none;
+  color: #00A4FD;
+  font-size: 16px;
 }
 
-.pagination__item--active:focus {
+.pagination-item button{
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 16px;
+}
+
+.pagination-item-active:focus {
   outline: none;
 }
 
