@@ -17,40 +17,72 @@ const Pagination = ({ limit, total, offset, setOffset }) => {
 
   // Function to handle page change
   const onPageChange = (page) => {
-    setOffset((page - 1) * limit);
+    // Checks if the requested page is within the limits
+    if (page >= 1 && page <= pages) {
+      setOffset((page - 1) * limit);
+    }
   };
 
   return (
     <ul className="pagination">
-      <li>
-        <button
-          onClick={() => onPageChange(current - 1)}
-          disabled={current === 1}
+      <div
+        className={`arrow-left ${current === 1 ? "" : "active"}`}
+        onClick={() => onPageChange(current - 1)}
+      >
+        <span
+          className={`material-symbols-outlined ${
+            current === 1 ? "" : "active"
+          }`}
         >
-          Anterior
-        </button>
-      </li>
-      {Array.from(
-        { length: Math.min(MAX_ITEMS, pages) },
-        (_, index) => index + first
-      ).map((page) => (
-        <li key={page}>
+          arrow_left_alt
+        </span>
+        <li>
           <button
-            onClick={() => onPageChange(page)}
-            className={page === current ? "pagination__item--active" : ""}
+            className={`btn-pagination ${current === 1 ? "" : "active"}`}
+            onClick={() => onPageChange(current - 1)}
+            disabled={current === 1}
           >
-            {page}
+            Anterior
           </button>
         </li>
-      ))}
-      <li>
-        <button
-          onClick={() => onPageChange(current + 1)}
-          disabled={current === pages}
+      </div>
+
+      <div className="pagination-item">
+        {Array.from(
+          { length: Math.min(MAX_ITEMS, pages) },
+          (_, index) => index + first
+        ).map((page) => (
+          <li key={page}>
+            <button
+              onClick={() => onPageChange(page)}
+              className={page === current ? "pagination__item--active" : ""}
+            >
+              {page}
+            </button>
+          </li>
+        ))}
+      </div>
+      <div
+        className={`arrow-right ${current === pages ? "" : "active"}`}
+        onClick={() => onPageChange(current + 1)}
+      >
+        <li>
+          <button
+            className={`btn-pagination ${current === pages ? "" : "active"}`}
+            onClick={() => onPageChange(current + 1)}
+            disabled={current === pages}
+          >
+            Próxima
+          </button>
+        </li>
+        <span
+          className={`material-symbols-outlined ${
+            current === pages ? "" : "active"
+          }`}
         >
-          Próxima
-        </button>
-      </li>
+          arrow_right_alt
+        </span>
+      </div>
     </ul>
   );
 };
