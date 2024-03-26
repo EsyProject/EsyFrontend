@@ -38,6 +38,11 @@ const Historic = () => {
     setTotalEvents(filteredEvents.length);
   }, [filteredEvents]);
 
+  // Reset offset to page 1 when searchValue changes
+  useEffect(() => {
+    setOffset(0);
+  }, [searchValue]);
+
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar currentPageIcon="history" activePage="historic" />
@@ -52,7 +57,7 @@ const Historic = () => {
         <div className="events-wrapper">
           <div className="events amount">
             <h4>
-              Total de eventos <span>24</span>
+              Total de eventos <span>{totalEvents}</span>
             </h4>
           </div>
 
