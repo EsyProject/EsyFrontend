@@ -23,6 +23,11 @@ const Pagination = ({ limit, total, offset, setOffset }) => {
     }
   };
 
+  // Render pagination only if total items are greater than 5
+  if (total <= 5) {
+    return null;
+  }
+
   return (
     <ul className="pagination">
       <div
