@@ -19,11 +19,24 @@ const Settings = () => {
       />
 
       <div className="container-main">
-        <h4>Conteudo aqui</h4>
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, fugiat
-          quia magnam iure, doloribus expedita vero porro molestias maiores
-        </span>
+        <div>
+          <h3>Conta de Usuário</h3>
+
+          <div>
+            <p>Nome do usuário</p>
+            <p>Manuela Souza</p>
+          </div>
+
+          <div>
+            <p>E-mail de acesso</p>
+            <p>Souza.manuela@br.bosch.com</p>
+          </div>
+
+          <div>
+            <p>Senha</p>
+            <p>••••••••••••••</p>
+          </div>
+        </div>
       </div>
     </div>
   );
