@@ -29,6 +29,7 @@
   color: #000000;
   font-weight: 600;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .pagination-item-active:focus {
@@ -41,8 +42,8 @@
   font-size: 14px;
   font-weight: 600;
   border: 0;
-  cursor: pointer;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .arrow-left,
@@ -50,6 +51,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 
 .pagination-item {
