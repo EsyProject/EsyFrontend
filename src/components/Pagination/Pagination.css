@@ -10,17 +10,19 @@
   margin-left: 1rem;
 }
 
-.pagination__item--active {
+.pagination-item-active {
   background: none;
   border: none;
   color: #00A4FD;
+  font-weight: 600;
   font-size: 16px;
 }
 
-.pagination-item button{
+.pagination-item-button{
   background: none;
   border: none;
   color: #000000;
+  font-weight: 600;
   font-size: 16px;
 }
 

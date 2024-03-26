@@ -55,7 +55,7 @@ const Pagination = ({ limit, total, offset, setOffset }) => {
           <li key={page}>
             <button
               onClick={() => onPageChange(page)}
-              className={page === current ? "pagination__item--active" : ""}
+              className={page === current ? "pagination-item-active" : "pagination-item-button"}
             >
               {page}
             </button>
