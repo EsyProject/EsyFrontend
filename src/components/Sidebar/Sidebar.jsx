@@ -108,15 +108,17 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
           </Link>
         </div>
         <div className="logout-container">
-          <SidebarIcon
-            iconName="logout"
-            text="Log out"
-            buttonClassName="icon-hover-logout"
-            className="logout icon-svg"
-            textClassName="sidebar-text-logout"
-            active={activeIcon === "logout"}
-            onClick={() => handleIconClick("logout")}
-          />
+          <Link to="/login">
+            <SidebarIcon
+              iconName="logout"
+              text="Log out"
+              buttonClassName="icon-hover-logout"
+              className="logout icon-svg"
+              textClassName="sidebar-text-logout"
+              active={activeIcon === "logout"}
+              onClick={() => handleIconClick("logout")}
+            />
+          </Link>
         </div>
       </nav>
     </aside>
