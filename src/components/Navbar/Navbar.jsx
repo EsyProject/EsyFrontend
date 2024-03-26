@@ -3,7 +3,7 @@ import "material-symbols";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({ currentPageIcon, activePage }) => {
+const Navbar = ({ currentPageIcon, activePage, showNavigationTexts }) => {
   return (
     <div className="navbar-container">
       <div className="navbar-content">
@@ -13,12 +13,13 @@ const Navbar = ({ currentPageIcon, activePage }) => {
         </div>
         <h2>Meus eventos</h2>
         {/* Link to the schedule page */}
-        <Link to="/schedule">
-          {" "}
-          <h4 className={activePage === "schedule" ? "active" : ""}>
-            Próximos eventos
-          </h4>
-        </Link>
+        {showNavigationTexts && (
+          <Link to="/schedule">
+            <h4 className={activePage === "schedule" ? "active" : ""}>
+              Próximos eventos
+            </h4>
+          </Link>
+        )}
         {/* Underline for the "Next Events" navigation */}
         <Link to="/historic">
           <div
@@ -26,9 +27,11 @@ const Navbar = ({ currentPageIcon, activePage }) => {
               activePage === "schedule" ? "active subtitle-underline-next" : ""
             }
           ></div>
-          <h4 className={activePage === "historic" ? "active" : ""}>
-            Histórico de eventos
-          </h4>
+          {showNavigationTexts && (
+            <h4 className={activePage === "historic" ? "active" : ""}>
+              Histórico de eventos
+            </h4>
+          )}
         </Link>
         {/* Underline for the "Historical Events" navigation */}
         <div
@@ -49,6 +52,7 @@ const Navbar = ({ currentPageIcon, activePage }) => {
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
+  showNavigationTexts: PropTypes.bool.isRequired, // Nova propriedade
 };
 
 export default Navbar;
