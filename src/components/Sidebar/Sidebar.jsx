@@ -42,7 +42,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
               onClick={() => handleIconClick("notifications")}
             />
           </Link>
-          <Link to="/home">
+          <Link to="/">
             <SidebarIcon
               iconName="home"
               text="Home"
