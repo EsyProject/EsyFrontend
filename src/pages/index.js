@@ -4,6 +4,8 @@ import Password from "./Password/Password";
 import Register from "./Register/Register";
 import Historic from "./Historic/Historic";
 import Schedule from "./Schedule/Schedule";
+import Account from "./Account/Account";
+import Settings from "./Settings/Settings";
 
 import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
 import AnimatedImage from "../components/AnimatedImage/AnimatedImage";
@@ -31,6 +33,8 @@ export {
   Register,
   Historic,
   Schedule,
+  Account,
+  Settings,
   InteractiveBubble,
   Searchbar,
   MSelect,
