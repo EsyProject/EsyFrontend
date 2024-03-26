@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: space-between;
   transition: all 0.35s;
-  margin-right: 10px;
 }
 
 .pagination li + li {
