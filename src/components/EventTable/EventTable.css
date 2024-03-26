@@ -30,6 +30,7 @@ table {
   border-collapse: collapse;
   white-space: nowrap;
   margin-bottom: 30px;
+  min-width: 1086px;
 }
 
 td {
@@ -107,7 +108,6 @@ th {
 
 .container-table {
   overflow-x: auto;
-  padding: 0 20px 0 0;
 }
 
 .container-table::-webkit-scrollbar {
