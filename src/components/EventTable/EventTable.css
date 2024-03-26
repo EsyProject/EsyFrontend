@@ -13,12 +13,6 @@ th {
   text-align: left;
 }
 
-.td-event-presence {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .th-event-name {
   text-align: left;
 }
@@ -87,7 +81,6 @@ th {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
   height: 28px;
   border-radius: 5px;
 }
