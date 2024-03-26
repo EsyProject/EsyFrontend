@@ -21,7 +21,7 @@ const MSelect = ({ options, placeholder, value, onChange }) => {
   return (
     <div className="mselect-container">
       <div className="filter-searchbar">
-        <div className="select-wrapper">
+        <div className="select-wrapper" onClick={toggleOptions}>
           <span className="material-symbols-outlined">calendar_month</span>
           <h4>{selectedOption ? selectedOption.label : placeholder}</h4>
           {showOptions && (
@@ -38,7 +38,7 @@ const MSelect = ({ options, placeholder, value, onChange }) => {
               ))}
             </div>
           )}
-          <span className="material-symbols-outlined" onClick={toggleOptions}>
+          <span className="material-symbols-outlined">
             expand_more
           </span>
         </div>
