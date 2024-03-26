@@ -10,7 +10,7 @@ const EventTable = ({ events }) => {
         <thead>
           <tr>
             <th className="th-event-name">Nome do Evento</th>
-            <th className="th-event-date">Data</th>
+            <th className="th-event-date">Data<span className="material-symbols-outlined">expand_all</span></th>
             <th className="th-event-time">Horário</th>
             <th className="th-event-local">Local</th>
             <th className="th-event-area">Área</th>
