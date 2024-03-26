@@ -1,7 +1,9 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import "./Pagination.css";
 
 const Pagination = ({ limit, total, offset, setOffset }) => {
+  const sidebarOpen = useState(false);
   const MAX_ITEMS = 9; // Maximum items displayed in pagination
   const MAX_LEFT = (MAX_ITEMS - 1) / 2; // Maximum items to the left of the current item
 
@@ -24,7 +26,7 @@ const Pagination = ({ limit, total, offset, setOffset }) => {
   };
 
   return (
-    <ul className="pagination">
+    <ul className={`pagination ${sidebarOpen ? "sidebar-open" : ""}`}>
       <div
         className={`arrow-left ${current === 1 ? "" : "active"}`}
         onClick={() => onPageChange(current - 1)}

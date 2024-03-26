@@ -4,8 +4,13 @@
   align-items: center;
   width: 62%;
   justify-content: space-between;
+  transition: all 0.35s;
 }
 
+.sidebar-open .pagination {
+  transition: all 0.35s;
+  width: 67%;
+}
 .pagination li + li {
   margin-left: 1rem;
 }
