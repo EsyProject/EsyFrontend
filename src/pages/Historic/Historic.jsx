@@ -45,7 +45,7 @@ const Historic = () => {
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
-      <Navbar currentPageIcon="history" activePage="historic" />
+      <Navbar currentPageIcon="history" activePage="historic" showNavigationTexts={true} />
 
       <Sidebar
         activePage="history"
