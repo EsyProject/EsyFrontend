@@ -100,6 +100,13 @@ const Settings = () => {
         </div>
 
         <div className="user-account-data">
+          <button
+            className={`toggle-btn ${toggled ? "toggled" : ""}`}
+            onClick={() => setToggled(!toggled)}
+          >
+            Toggle
+          </button>
+
           <h4>Receber novidades sobre próximos eventos no e-mail</h4>
         </div>
 
