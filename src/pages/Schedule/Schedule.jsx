@@ -10,7 +10,12 @@ const Schedule = () => {
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
-      <Navbar currentPageIcon="calendar_month" activePage="schedule" showNavigationTexts={true} />
+      <Navbar
+        currentPageIcon="calendar_month"
+        activePage="schedule"
+        showNavigationTexts={true}
+        navigationText="Meus eventos"
+      />
 
       <Sidebar
         activePage="calendar"
