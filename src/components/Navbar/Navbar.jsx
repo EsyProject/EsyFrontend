@@ -3,7 +3,7 @@ import "material-symbols";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({ currentPageIcon, activePage, showNavigationTexts }) => {
+const Navbar = ({ currentPageIcon, activePage, showNavigationTexts, navigationText }) => {
   return (
     <div className="navbar-container">
       <div className="navbar-content">
@@ -11,7 +11,7 @@ const Navbar = ({ currentPageIcon, activePage, showNavigationTexts }) => {
         <div className="rectangle">
           <span className="material-symbols-outlined">{currentPageIcon}</span>
         </div>
-        <h2>Meus eventos</h2>
+        <h2>{navigationText}</h2>
         {/* Link to the schedule page */}
         {showNavigationTexts && (
           <Link to="/schedule">
@@ -53,6 +53,7 @@ Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
   showNavigationTexts: PropTypes.bool.isRequired,
+  navigationText: PropTypes.string.isRequired, 
 };
 
 export default Navbar;
