@@ -10,7 +10,11 @@ const Settings = () => {
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
-      <Navbar currentPageIcon="settings" activePage="settings" />
+      <Navbar
+        currentPageIcon="tune"
+        activePage="settings"
+        navigationText="Configurações"
+      />
 
       <Sidebar
         activePage="settings"
