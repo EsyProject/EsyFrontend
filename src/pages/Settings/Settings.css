@@ -2,11 +2,11 @@
   transition: margin-left 0.3s ease;
 }
 
-.sidebar-open .container-main-settings {
+.sidebar-open .section-container {
   margin-left: 36%;
 }
 
-.container-main-settings {
+.section-container {
   flex: 1;
   padding: 10px;
   width: 850px;
@@ -14,12 +14,12 @@
   transition: margin-left 0.3s;
 }
 
-.user-account {
+.section-header {
   margin-top: 80px;
   padding-left: 40px;
 }
 
-.user-account h2 {
+.section-header h2 {
   font-size: 22px;
   font-weight: 600;
 }
@@ -43,10 +43,7 @@
   font-weight: 550;
 }
 
-.navbar-container {
-  flex: 1;
-  margin-left: 106px;
-  border-bottom: 1px solid #dadce0;
-  height: 68px;
-  transition: margin-left 0.3s ease;
+.theme-backup {
+  display: flex;
+  gap: 100px;
 }
