@@ -89,6 +89,22 @@ const Settings = () => {
         </div>
         <div className="border-bottom"></div>
       </div>
+
+      <div className="section-container">
+        <div className="section-header">
+          <h2>Notifcações e Alertas</h2>
+        </div>
+
+        <div className="user-account-data">
+          <UserInfo label="Permissões de notificações e alertas" />
+        </div>
+
+        <div className="user-account-data">
+          <h4>Receber novidades sobre próximos eventos no e-mail</h4>
+        </div>
+
+        <div className="border-bottom"></div>
+      </div>
     </div>
   );
 };
