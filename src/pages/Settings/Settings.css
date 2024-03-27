@@ -9,12 +9,14 @@
 .container-main-settings {
   flex: 1;
   padding: 10px;
-  margin-left: 29%;
+  width: 850px;
+  margin: 0 27%;
   transition: margin-left 0.3s;
 }
 
 .user-account {
   margin-top: 80px;
+  padding-left: 40px;
 }
 
 .user-account h2 {
@@ -27,6 +29,18 @@
   gap: 80px;
   align-items: center;
   margin: 20px 0 60px 0;
+  padding-left: 40px;
+}
+
+.user-info p {
+  font-size: 14px;
+  color: #80868b;
+}
+
+.user-info h4 {
+  font-size: 18px;
+  color: #17181b;
+  font-weight: 550;
 }
 
 .navbar-container {

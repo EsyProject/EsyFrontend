@@ -31,19 +31,21 @@ const Settings = () => {
         <div className="user-account-data">
           <div className="user-info">
             <p>Nome do usuário</p>
-            <p>Manuela Souza</p>
+            <h4>Manuela Souza</h4>
           </div>
 
           <div className="user-info">
             <p>E-mail de acesso</p>
-            <p>Souza.manuela@br.bosch.com</p>
+            <h4>Souza.manuela@br.bosch.com</h4>
           </div>
 
           <div className="user-info">
             <p>Senha</p>
-            <p>••••••••••••••</p>
+            <h4>••••••••••••••</h4>
           </div>
         </div>
+        
+        <div className="border-bottom"></div>
 
       </div>
     </div>
