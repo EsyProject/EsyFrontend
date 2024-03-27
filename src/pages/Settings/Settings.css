@@ -1,0 +1,39 @@
+.settings-container {
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-open .container-main-settings {
+  margin-left: 803px;
+}
+
+.container-main-settings {
+  flex: 1;
+  padding: 10px;
+  max-width: 850px;
+  margin: 0 660px;
+  transition: margin-left 0.3s;
+}
+
+.user-account {
+  margin-top: 80px;
+}
+
+.user-account h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.user-account-data {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  margin: 20px 0 60px 0;
+}
+
+.navbar-container {
+  flex: 1;
+  margin-left: 106px;
+  border-bottom: 1px solid #dadce0;
+  height: 68px;
+  transition: margin-left 0.3s ease;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sidebar, Navbar } from "../../pages/index";
+import "./Settings.css";
 
 const Settings = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -9,7 +10,7 @@ const Settings = () => {
   };
 
   return (
-    <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
+    <div className={`settings-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
         currentPageIcon="tune"
         activePage="settings"
@@ -22,25 +23,28 @@ const Settings = () => {
         toggleSidebar={toggleSidebar}
       />
 
-      <div className="container-main">
-        <div>
-          <h3>Conta de Usuário</h3>
+      <div className="container-main-settings">
+        <div className="user-account">
+          <h2>Conta de Usuário</h2>
+        </div>
 
-          <div>
+        <div className="user-account-data">
+          <div className="user-info">
             <p>Nome do usuário</p>
             <p>Manuela Souza</p>
           </div>
 
-          <div>
+          <div className="user-info">
             <p>E-mail de acesso</p>
             <p>Souza.manuela@br.bosch.com</p>
           </div>
 
-          <div>
+          <div className="user-info">
             <p>Senha</p>
             <p>••••••••••••••</p>
           </div>
         </div>
+
       </div>
     </div>
   );
