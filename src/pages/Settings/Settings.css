@@ -3,14 +3,13 @@
 }
 
 .sidebar-open .container-main-settings {
-  margin-left: 803px;
+  margin-left: 36%;
 }
 
 .container-main-settings {
   flex: 1;
   padding: 10px;
-  max-width: 850px;
-  margin: 0 660px;
+  margin-left: 29%;
   transition: margin-left 0.3s;
 }
 
