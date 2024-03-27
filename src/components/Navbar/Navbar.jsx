@@ -52,7 +52,11 @@ const Navbar = ({ currentPageIcon, activePage, showNavigationTexts }) => {
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
+<<<<<<< HEAD
   showNavigationTexts: PropTypes.bool.isRequired,
+=======
+  showNavigationTexts: PropTypes.bool.isRequired,
+>>>>>>> 4a9af2b649ffed4817a498fc967d680b64dcec0d
 };
 
 export default Navbar;
