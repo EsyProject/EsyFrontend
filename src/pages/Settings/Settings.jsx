@@ -32,7 +32,7 @@ const Settings = () => {
       />
 
       <div className="section-container">
-        <div className="section-header">
+        <div className="user-account">
           <h2>Conta de Usuário</h2>
         </div>
 
@@ -59,32 +59,35 @@ const Settings = () => {
         <div className="border-bottom"></div>
       </div>
 
-      <div className="section-container theme-backup">
-        <div className="theme-section">
-          <div className="section-header">
-            <h2>Aparência do Sistema</h2>
+      <div className="section-container">
+        <div className="theme-backup">
+          <div className="theme-section">
+            <div className="section-header">
+              <h2>Aparência do Sistema</h2>
+            </div>
+
+            <div className="user-account-data">
+              <UserInfo
+                label="Tema e aparência"
+                value="Aparência padrão - Tema claro"
+              />
+            </div>
           </div>
 
-          <div className="user-account-data">
-            <UserInfo
-              label="Tema e aparência"
-              value="Aparência padrão - Tema claro"
-            />
+          <div className="backup-section">
+            <div className="section-header">
+              <h2>Backup e Recuperação</h2>
+            </div>
+
+            <div className="user-account-data">
+              <UserInfo
+                label="E-mail de recuperação"
+                value="Nenhum e-mail foi definido"
+              />
+            </div>
           </div>
         </div>
-
-        <div className="backup-section">
-          <div className="section-header">
-            <h2>Backup e Recuperação</h2>
-          </div>
-
-          <div className="user-account-data">
-            <UserInfo
-              label="E-mail de recuperação"
-              value="Nenhum e-mail foi definido"
-            />
-          </div>
-        </div>
+        <div className="border-bottom"></div>
       </div>
     </div>
   );
