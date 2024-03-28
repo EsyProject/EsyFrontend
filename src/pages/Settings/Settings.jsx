@@ -133,7 +133,6 @@ const Settings = () => {
           <h4>Guardar informações de locais e senhas</h4>
         </div>
 
-        <div className="border-bottom"></div>
       </div>
     </div>
   );
