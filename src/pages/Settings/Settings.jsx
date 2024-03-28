@@ -100,12 +100,12 @@ const Settings = () => {
           <UserInfo label="Permissões de notificações e alertas" />
         </div>
 
-        <div className="user-account-data">
+        <div className="user-account-data permissions">
           <button
             className={`toggle-btn ${toggled ? "toggled" : ""}`}
             onClick={() => setToggled(!toggled)}
           >
-            Toggle
+            <div className="thumb"></div>
           </button>
 
           <h4>Receber novidades sobre próximos eventos no e-mail</h4>
