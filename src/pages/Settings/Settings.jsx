@@ -5,6 +5,7 @@ import "./Settings.css";
 
 const Settings = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [toggled, setToggled] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
