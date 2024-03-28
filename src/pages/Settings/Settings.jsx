@@ -96,11 +96,11 @@ const Settings = () => {
           <h2>Notifcações e Alertas</h2>
         </div>
 
-        <div className="user-account-data">
+        <div className="user-account-notifications">
           <UserInfo label="Permissões de notificações e alertas" />
         </div>
 
-        <div className="user-account-data permissions">
+        <div className="user-account-permissions">
           <button
             className={`toggle-btn ${toggled ? "toggled" : ""}`}
             onClick={() => setToggled(!toggled)}
@@ -109,6 +109,28 @@ const Settings = () => {
           </button>
 
           <h4>Receber novidades sobre próximos eventos no e-mail</h4>
+        </div>
+
+        <div className="user-account-permissions">
+          <button
+            className={`toggle-btn ${toggled ? "toggled" : ""}`}
+            onClick={() => setToggled(!toggled)}
+          >
+            <div className="thumb"></div>
+          </button>
+
+          <h4>Receber alerta de evento próximo</h4>
+        </div>
+
+        <div className="user-account-permissions">
+          <button
+            className={`toggle-btn ${toggled ? "toggled" : ""}`}
+            onClick={() => setToggled(!toggled)}
+          >
+            <div className="thumb"></div>
+          </button>
+
+          <h4>Guardar informações de locais e senhas</h4>
         </div>
 
         <div className="border-bottom"></div>
