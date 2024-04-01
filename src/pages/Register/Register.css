@@ -88,3 +88,9 @@ form {
 .existing-account p {
   font-size: 16px;
 }
+
+.css-b62m3t-container {
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
