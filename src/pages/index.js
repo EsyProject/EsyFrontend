@@ -18,6 +18,7 @@ import Searchbar from "../components/Searchbar/Searchbar";
 import MSelect from "../components/MSelect/MSelect";
 import EventTable from "../components/EventTable/EventTable";
 import Pagination from "../components/Pagination/Pagination";
+import ButtonLink from "../components/ButtonLink/ButtonLink";
 
 import ImageLogin from "../assets/img-login.png";
 import ImageRegisterBack from "../assets/img-register.png";
@@ -36,6 +37,7 @@ export {
   Account,
   Settings,
   InteractiveBubble,
+  ButtonLink,
   Searchbar,
   MSelect,
   AnimatedImage,
