@@ -1,3 +1,4 @@
+/* pages */
 import Home from "./Home/Home";
 import Login from "./Login/Login";
 import Password from "./Password/Password";
@@ -6,7 +7,9 @@ import Historic from "./Historic/Historic";
 import Schedule from "./Schedule/Schedule";
 import Account from "./Account/Account";
 import Settings from "./Settings/Settings";
+import Tickets from "./Tickets/Tickets";
 
+/* components */
 import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
 import AnimatedImage from "../components/AnimatedImage/AnimatedImage";
 import Input from "../components/Input/Input";
@@ -20,6 +23,7 @@ import EventTable from "../components/EventTable/EventTable";
 import Pagination from "../components/Pagination/Pagination";
 import ButtonLink from "../components/ButtonLink/ButtonLink";
 
+/* images */
 import ImageLogin from "../assets/img-login.png";
 import ImageRegisterBack from "../assets/img-register.png";
 import LogoEsy from "../assets/logo.png";
@@ -28,6 +32,7 @@ import LogoEsyClosed from "../assets/logo-closed.png";
 import { IoIosArrowBack } from "react-icons/io";
 
 export {
+  /* pages */
   Home,
   Login,
   Password,
@@ -36,6 +41,9 @@ export {
   Schedule,
   Account,
   Settings,
+  Tickets,
+
+  /* components */
   InteractiveBubble,
   ButtonLink,
   Searchbar,
@@ -48,6 +56,8 @@ export {
   Navbar,
   EventTable,
   Pagination,
+
+  /* images */
   ImageLogin,
   ImageRegisterBack,
   LogoEsy,
