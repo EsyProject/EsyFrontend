@@ -111,7 +111,11 @@
   gap: 42px;
 }
 
-.section-button a {
+.button-container a {
+  text-decoration: none;
+}
+
+.button-container a span {
   color: #0091E0;
   font-weight: 600;
   text-decoration: none;
