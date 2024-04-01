@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { ImageLogin, LogoEsy, AnimatedImage, Input } from '../index';
-import { Link } from 'react-router-dom';
+import { ImageLogin, LogoEsy, AnimatedImage, Input, ButtonLink } from '../index';
 import './Login.css';
 
 const Login = () => {
@@ -38,7 +37,7 @@ const Login = () => {
                 </button>
               </div>
 
-              <Link to="/historic" className="custom-button">Entrar</Link>
+              <ButtonLink to="/historic">Entrar</ButtonLink>
             </form>
 
             <div className="existing-account">
