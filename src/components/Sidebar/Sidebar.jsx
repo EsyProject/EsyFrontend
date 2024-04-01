@@ -79,6 +79,19 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
               onClick={() => setActiveIcon("history")}
             />
           </Link>
+
+          <Link to="/tickets">
+            <SidebarIcon
+              iconName="confirmation_number"
+              text="Tickets"
+              buttonClassName="icon-hover"
+              className="calendar"
+              textClassName="sidebar-text"
+              active={activeIcon === "confirmation_number"}
+              onClick={() => setActiveIcon("confirmation_number")}
+            />
+          </Link>
+
           <div className="border-bottom"></div>
           <div className={`nav-text ${isOpen ? "active" : ""}`}>
             <h5>GERAIS</h5>
