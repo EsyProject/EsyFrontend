@@ -1,6 +1,7 @@
 import { useState } from "react";
 /* import PropTypes from "prop-types"; */
 import { Sidebar, Navbar } from "../../pages/index";
+import "material-symbols";
 import "./Tickets.css";
 
 const Tickets = () => {
@@ -26,7 +27,25 @@ const Tickets = () => {
       />
 
       <div className="tickets-container-main">
-        <div className="container-event">Tickets</div>
+        <div className="container-event">
+          <h1>Hackathon 7ª Edição</h1>
+          <div className="info-wrapper">
+            <div className="info-date">
+              <span className="material-symbols-outlined">calendar_month</span>
+              <h4>10/07/2024</h4>
+            </div>
+
+            <div className="info-date">
+              <span className="material-symbols-outlined">schedule</span>
+              <h4>09:00 às 15:00</h4>
+            </div>
+
+            <div className="info-date">
+              <span className="material-symbols-outlined">location_on</span>
+              <h4>Ca300</h4>
+            </div>
+          </div>
+        </div>
         <div className="container-next-event">Próximos eventos</div>
       </div>
     </div>
