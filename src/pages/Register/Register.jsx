@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { ImageRegisterBack, LogoEsy, AnimatedImage, Input, CustomSelect } from '../index';
-import { Link } from 'react-router-dom';
+import { ImageRegisterBack, LogoEsy, AnimatedImage, Input, CustomSelect, ButtonLink } from '../index';
 import './Register.css';
 
 const options = [
@@ -41,7 +40,7 @@ const Register = () => {
               <Input label="E-mail" id="email" placeholder="Souza.manuela@br.bosch.com" />
               <CustomSelect label="Setor" options={options} placeholder="Selecione" className="custom-select-css-w9q2zk-Input2" />
 
-              <Link to="/password" className="custom-button">Prosseguir</Link>
+              <ButtonLink to="/password">Prosseguir</ButtonLink>
             </form>
 
             <div className="existing-account">
