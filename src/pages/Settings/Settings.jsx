@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { Sidebar, Navbar } from "../../pages/index";
+import { Link } from "react-router-dom";
 import "./Settings.css";
 
 const Settings = () => {
@@ -139,6 +140,15 @@ const Settings = () => {
           </button>
 
           <h4>Guardar informações de locais e senhas</h4>
+        </div>
+      </div>
+
+      <div className="section-container">
+        <div className="button-container">
+          <a href="">Descartar alterações</a>
+          <Link to="/historic" className="custom-button">
+            Salvar alterações
+          </Link>
         </div>
       </div>
     </div>

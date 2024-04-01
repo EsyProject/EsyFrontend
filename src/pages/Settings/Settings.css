@@ -103,3 +103,16 @@
 .toggle-btn.toggled .thumb {
   left: calc(100% - 15px);
 }
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 42px;
+}
+
+.section-button a {
+  color: #0091E0;
+  font-weight: 600;
+  text-decoration: none;
+}
