@@ -11,7 +11,7 @@ const Tickets = () => {
   };
 
   return (
-    <div className={`settings-container ${sidebarOpen ? "sidebar-open" : ""}`}>
+    <div className={`tickets-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
         currentPageIcon="confirmation_number"
         activePage="tickets"
@@ -25,7 +25,10 @@ const Tickets = () => {
         toggleSidebar={toggleSidebar}
       />
 
-      <div className="section-container">Tickets</div>
+      <div className="tickets-container-main">
+        <div className="container-event">Tickets</div>
+        <div className="container-next-event">Próximos eventos</div>
+      </div>
     </div>
   );
 };
