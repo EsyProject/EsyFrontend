@@ -5,7 +5,9 @@ import "./Settings.css";
 
 const Settings = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [toggled, setToggled] = useState(false);
+  const [toggled1, setToggled1] = useState(false);
+  const [toggled2, setToggled2] = useState(false);
+  const [toggled3, setToggled3] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -18,12 +20,18 @@ const Settings = () => {
     </div>
   );
 
+  UserInfo.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string,
+  };
+
   return (
     <div className={`settings-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
         currentPageIcon="tune"
         activePage="settings"
         navigationText="Configurações"
+        showNavigationTexts={false}
       />
 
       <Sidebar
@@ -102,8 +110,8 @@ const Settings = () => {
 
         <div className="user-account-permissions">
           <button
-            className={`toggle-btn ${toggled ? "toggled" : ""}`}
-            onClick={() => setToggled(!toggled)}
+            className={`toggle-btn ${toggled1 ? "toggled" : ""}`}
+            onClick={() => setToggled1(!toggled1)}
           >
             <div className="thumb"></div>
           </button>
@@ -113,8 +121,8 @@ const Settings = () => {
 
         <div className="user-account-permissions">
           <button
-            className={`toggle-btn ${toggled ? "toggled" : ""}`}
-            onClick={() => setToggled(!toggled)}
+            className={`toggle-btn ${toggled2 ? "toggled" : ""}`}
+            onClick={() => setToggled2(!toggled2)}
           >
             <div className="thumb"></div>
           </button>
@@ -124,23 +132,17 @@ const Settings = () => {
 
         <div className="user-account-permissions">
           <button
-            className={`toggle-btn ${toggled ? "toggled" : ""}`}
-            onClick={() => setToggled(!toggled)}
+            className={`toggle-btn ${toggled3 ? "toggled" : ""}`}
+            onClick={() => setToggled3(!toggled3)}
           >
             <div className="thumb"></div>
           </button>
 
           <h4>Guardar informações de locais e senhas</h4>
         </div>
-
       </div>
     </div>
   );
-};
-
-Settings.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
 };
 
 export default Settings;
