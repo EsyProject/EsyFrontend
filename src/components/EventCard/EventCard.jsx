@@ -18,15 +18,15 @@ const EventCard = ({ audience, title, subtitle, date, time, location }) => {
       <div className="card-footer">
         <div className="info">
           <span className="material-symbols-outlined">calendar_month</span>
-          <h4>{date}</h4>
+          <p>{date}</p>
         </div>
         <div className="info">
           <span className="material-symbols-outlined">schedule</span>
-          <h4>{time}</h4>
+          <p>{time}</p>
         </div>
         <div className="info">
           <span className="material-symbols-outlined">location_on</span>
-          <h4>{location}</h4>
+          <p>{location}</p>
         </div>
       </div>
     </div>

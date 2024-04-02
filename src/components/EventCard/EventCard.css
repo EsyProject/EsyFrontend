@@ -93,5 +93,16 @@
 .info {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 12px;
+}
+
+.info p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
