@@ -1,6 +1,6 @@
 import { useState } from "react";
 /* import PropTypes from "prop-types"; */
-import { Sidebar, Navbar, EventCard, Qrcode } from "../../pages/index";
+import { Sidebar, Navbar, EventCard, Qrcode, ButtonLink } from "../../pages/index";
 import "material-symbols";
 import "./Tickets.css";
 
@@ -56,8 +56,22 @@ const Tickets = () => {
           location="Ca300"
         />
 
-        <div className="image-eventcard">
-          <img src={Qrcode} alt="qrcode" />
+        <div className="container-qrcode">
+          <div className="image-eventcard">
+            <img src={Qrcode} alt="qrcode" />
+          </div>
+
+          <p>Código de autenticação</p>
+          <h2>3815296</h2>
+        </div>
+
+        <div className="section-container">
+          <div className="button-container">
+            <a href="">
+              <span>Cancelar participação</span>
+            </a>
+            <ButtonLink to="/historic">Autenticar</ButtonLink>
+          </div>
         </div>
 
         <div className="container-next-event">Próximos eventos</div>
