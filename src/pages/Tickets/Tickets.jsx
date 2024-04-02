@@ -47,8 +47,15 @@ const Tickets = () => {
           </div>
         </div>
 
-        <EventCard />
-        
+        <EventCard
+          audience="Público Principal - Digital Solutions e Mecatrônica"
+          title="hackaton"
+          subtitle="7ª Edição"
+          date="10/07/2024"
+          time="09h00"
+          location="Ca300"
+        />
+
         <div className="container-next-event">Próximos eventos</div>
       </div>
     </div>
