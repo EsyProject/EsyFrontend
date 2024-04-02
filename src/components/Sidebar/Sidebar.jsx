@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { LogoEsy, LogoEsyClosed, IoIosArrowBack } from "../../pages/index";
+import { LogoEsy, LogoEsyClosed } from "../../pages/index";
 import { SidebarIcon } from "../../pages/index";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
@@ -24,7 +24,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
         </div>
         <button className="open-btn" onClick={toggleSidebar}>
           <span className="open-btn-icon">
-            <IoIosArrowBack />
+            <span className="material-symbols-outlined">keyboard_arrow_left</span>
           </span>
         </button>
       </header>
