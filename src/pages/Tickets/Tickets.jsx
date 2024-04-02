@@ -56,7 +56,7 @@ const Tickets = () => {
           location="Ca300"
         />
 
-        <div className="image-below-eventcard">
+        <div className="image-eventcard">
           <img src={Qrcode} alt="qrcode" />
         </div>
 
