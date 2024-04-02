@@ -38,20 +38,25 @@ footer section {
     border-radius: 15px;
     align-items: center;
     justify-content: space-between;
+
+    position: relative;
+    height: 620px;
 }
 
-.banner text {
+.banner .text {
     padding: 67px 0 67px 70px;
+    position: relative;
+    z-index: 1;
 }
 
-.banner text p {
+.banner .text p {
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
 }
 
-.banner text h1 {
+.banner .text h1 {
     font-style: normal;
     font-weight: 700;
     font-size: 80px;
@@ -67,7 +72,7 @@ footer section {
     margin-top: 75px;
 }
 
-.banner text h2 {
+.banner .text h2 {
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
@@ -79,7 +84,7 @@ footer section {
     margin-bottom: 30px;
 }
 
-.banner text button {
+.banner .text button {
     background: linear-gradient(90.71deg, #00A5FF 0%, #005893 100%);
     border-radius: 7.64204px;
     padding: 15px 70px;
@@ -88,89 +93,97 @@ footer section {
     color: #fff;
     border: none;
     margin-bottom: 72px;
+    cursor: pointer;
 }
-
-/***** testes *****/
-/* .container-image-banner {
-    height: 620px;
-    width: 50%;
-    background-size: cover;
-    background-image: url('../../assets/image-banner.png');
-    overflow: hidden;
-    border-radius: 0 15px 15px 0;
-} */
-
-/* .container-image-banner {
-    position: relative;
-    height: 620px;
-    width: 50%;
-    overflow: hidden;
-    border-radius: 0 15px 15px 0;
-    align-items: flex-start;
-}
-
-.container-image-banner :first-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150%;
-    object-fit: cover;
-    border-radius: 0 15px 15px 0;
-    opacity: 30%;
-    display: block;
-}
-
-.container-image-banner :last-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 650px;
-    height: 650px;
-    object-fit: cover;
-    border-radius: 0 15px 15px 0;
-    display: block;
-    opacity: 100%;
-
-    border-radius: 50%;
-    object-fit: cover;
-    margin-top: -130px;
-} */
 
 .container-image-banner {
     position: relative;
-    height: 620px;
-    width: 55%;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
     border-radius: 0 15px 15px 0;
     border: none;
-    margin: none;
+    overflow: hidden;
+
+    background-image: var(--dynamic-image);
+    background-size: cover;
+    margin-left: 80px;
+    background-repeat: no-repeat;
+    background-position: right;
+    box-shadow: inset 50px 0 50px rgba(0, 18, 34, 1);
+
+    align-self: flex-end;
+    z-index: 2;
 }
 
-.container-image-banner img.circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
+.container-image-banner img {
+    width: 100%;
+    height: 100%;
+    clip-path: circle(45% at 50% 35%);
+    object-fit: cover;
+    z-index: 4;
 }
 
-.container-image-banner img.img {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
-    object-fit: cover;
-    mask-image: radial-gradient(circle at center, transparent 0, transparent 75px, black 75px);
-    mask-mode: match-source;
+    background-color: rgba(0, 18, 34, 0.65);
 }
 
+.blur-blue,
+.blur-green {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    object-fit: contain;
+    filter: blur(100px);
+    border-radius: 50%;
+}
 
-/******************/
+.blur-blue {
+    background-color: #0096E8;
+    right: 45%;
+    top: 0;
+    z-index: 3;
+}
+
+.blur-green {
+    background-color: #00E3D8;
+    right: 0;
+    bottom: 0;
+}
+
+.elipse-linear-1,
+.elipse-linear-2,
+.elipse-linear-3 {
+    border-radius: 50%;
+    z-index: 5;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(0, 227, 216, 0.36) 0%, rgba(0, 215, 204, 0) 100%);
+}
+
+.elipse-linear-1 {
+    width: 137px;
+    height: 137px;
+    top: 30px;
+    right: 35px;
+}
+
+.elipse-linear-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 55px;
+    right: 40%;
+}
+
+.elipse-linear-3 {
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    left: 42%;
+}
 
 /* stylizations of the introduction */
 
@@ -394,4 +407,235 @@ footer {
 
 footer section {
     gap: 50px;
+}
+
+/* stylizations of the modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 50px;
+    border-radius: 15px;
+    width: 1100px;
+}
+
+.modal .modal-content h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 66px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.modal .modal-content .row {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.modal .modal-content .row .modal-sub-container h3 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 30px;
+    margin-bottom: 3px;
+    color: #17181B;
+}
+
+.modal .modal-content .row .modal-sub-container p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #80868B;
+}
+
+.close {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    cursor: pointer;
+    font-size: 40px;
+    color: #8787877e;
+    transition: .3s;
+    font-weight: 300;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.flags {
+    margin-top: 20px;
+}
+
+.flag-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    margin-bottom: 8px;
+}
+
+.flag-option {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+    width: -webkit-fill-available;
+    padding: 12px 0;
+    justify-content: center;
+    background-color: #E8EAED;
+}
+
+.flag-option.active,
+.flag-option:hover {
+    color: #fff;
+    background: #0080D0;
+}
+
+.modal .modal-content .btn-submit {
+    background: linear-gradient(90.71deg, #00A5FF 0%, #005893 100%);
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.modal-sub-container {
+    width: 50%;
+}
+
+.custom-textarea {
+    width: 100%;
+    height: 150px;
+    padding: 16px;
+    border: 1px solid #BDC1C6;
+    border-radius: 7px;
+    font-family: "Poppins";
+    font-size: 16px;
+    resize: none;
+    transition: .3s;
+}
+
+.custom-textarea:focus {
+    border: 1px solid #0080D0;
+}
+
+.modal .modal-content .row .modal-sub-container .stars {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-modal-container {
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    margin-bottom: 0;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: pointer;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+label.modal-permission {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.check-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+/* modal image */
+
+/* Modal Overlay */
+.modal-overlay-image {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fundo escuro translúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* Modal Content */
+.modal-content-image {
+    background-color: #fff;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Sombra */
+
+    width: 60%;
+    height: 60%;
+}
+
+/* Modal Close Button */
+.close-button-image {
+    background-color: #007bff;
+    /* Cor do botão */
+    color: #fff;
+    /* Cor do texto */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.close-button-image:hover {
+    background-color: #0056b3;
+    /* Cor do botão ao passar o mouse */
 }
