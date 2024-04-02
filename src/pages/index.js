@@ -29,8 +29,7 @@ import ImageLogin from "../assets/img-login.png";
 import ImageRegisterBack from "../assets/img-register.png";
 import LogoEsy from "../assets/logo.png";
 import LogoEsyClosed from "../assets/logo-closed.png";
-
-import { IoIosArrowBack } from "react-icons/io";
+import Qrcode from "../assets/qrcode-img.png";
 
 export {
   /* pages */
@@ -64,5 +63,5 @@ export {
   ImageRegisterBack,
   LogoEsy,
   LogoEsyClosed,
-  IoIosArrowBack,
+  Qrcode,
 };

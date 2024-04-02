@@ -1,6 +1,6 @@
 import { useState } from "react";
 /* import PropTypes from "prop-types"; */
-import { Sidebar, Navbar, EventCard } from "../../pages/index";
+import { Sidebar, Navbar, EventCard, Qrcode } from "../../pages/index";
 import "material-symbols";
 import "./Tickets.css";
 
@@ -55,6 +55,10 @@ const Tickets = () => {
           time="09h00"
           location="Ca300"
         />
+
+        <div className="image-below-eventcard">
+          <img src={Qrcode} alt="qrcode" />
+        </div>
 
         <div className="container-next-event">Próximos eventos</div>
       </div>
