@@ -22,6 +22,7 @@ import MSelect from "../components/MSelect/MSelect";
 import EventTable from "../components/EventTable/EventTable";
 import Pagination from "../components/Pagination/Pagination";
 import ButtonLink from "../components/ButtonLink/ButtonLink";
+import EventCard from "../components/EventCard/EventCard";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -56,6 +57,7 @@ export {
   Navbar,
   EventTable,
   Pagination,
+  EventCard,
 
   /* images */
   ImageLogin,
