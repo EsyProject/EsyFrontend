@@ -1,29 +1,28 @@
 import PropTypes from "prop-types";
 import "./EventCard.css";
 
-const EventCard = ({ audience, title, subtitle, icon, date, time, location }) => {
+const EventCard = ({ audience, title, subtitle, date, time, location }) => {
   return (
     <div className="event-card">
       <div className="card-header">
-        <span className="material-icons">{icon}</span>
-        <h3>{title}</h3>
+        <p>{audience}</p>
       </div>
       <div className="card-body">
-        <h4>{subtitle}</h4>
-        <p>{audience}</p>
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
       </div>
       <div className="card-footer">
         <div className="info">
-          <span className="material-icons">date_range</span>
-          <p>{date}</p>
+          <span className="material-symbols-outlined">calendar_month</span>
+          <h4>{date}</h4>
         </div>
         <div className="info">
-          <span className="material-icons">schedule</span>
-          <p>{time}</p>
+          <span className="material-symbols-outlined">schedule</span>
+          <h4>{time}</h4>
         </div>
         <div className="info">
-          <span className="material-icons">location_on</span>
-          <p>{location}</p>
+          <span className="material-symbols-outlined">location_on</span>
+          <h4>{location}</h4>
         </div>
       </div>
     </div>
