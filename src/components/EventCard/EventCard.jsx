@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
+
 import "./EventCard.css";
 
 const EventCard = ({ audience, title, subtitle, date, time, location }) => {
   return (
     <div className="event-card">
+      <div className="bubble-top-right"></div>
+      <div className="bubble-bottom-left"></div>
+
       <div className="card-header">
         <p>{audience}</p>
       </div>
