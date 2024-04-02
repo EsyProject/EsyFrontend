@@ -13,7 +13,7 @@ const EventCard = ({ audience, title, subtitle, date, time, location }) => {
       </div>
       <div className="card-body">
         <h2>{title}</h2>
-        <h3>{subtitle}</h3>
+        <h4>{subtitle}</h4>
       </div>
       <div className="card-footer">
         <div className="info">

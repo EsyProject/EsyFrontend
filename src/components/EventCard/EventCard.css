@@ -65,3 +65,14 @@
   position: relative;
   z-index: 1;
 }
+
+.card-header p {
+  font-size: 10px;
+}
+
+.card-body h2 {
+  font-size: 58px;
+  text-transform: uppercase;
+  font-family: 'Bebas Neue';
+  font-weight: 400;
+}
