@@ -1,6 +1,6 @@
 import { useState } from "react";
 /* import PropTypes from "prop-types"; */
-import { Sidebar, Navbar } from "../../pages/index";
+import { Sidebar, Navbar, EventCard } from "../../pages/index";
 import "material-symbols";
 import "./Tickets.css";
 
@@ -46,6 +46,9 @@ const Tickets = () => {
             </div>
           </div>
         </div>
+
+        <EventCard />
+        
         <div className="container-next-event">Próximos eventos</div>
       </div>
     </div>
