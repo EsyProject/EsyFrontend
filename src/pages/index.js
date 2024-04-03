@@ -23,6 +23,7 @@ import EventTable from "../components/EventTable/EventTable";
 import Pagination from "../components/Pagination/Pagination";
 import ButtonLink from "../components/ButtonLink/ButtonLink";
 import EventCard from "../components/EventCard/EventCard";
+import TicketsCard from "../components/TicketsCard/TicketsCard";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -57,6 +58,7 @@ export {
   EventTable,
   Pagination,
   EventCard,
+  TicketsCard,
 
   /* images */
   ImageLogin,
