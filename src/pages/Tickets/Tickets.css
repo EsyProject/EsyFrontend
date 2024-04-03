@@ -24,7 +24,7 @@
 .right-column {
   flex: 1;
   border-left: 1px solid #DADCE0;
-  padding-left: 20px;
+  padding: 50px;
 }
 
 .container-event {
@@ -101,5 +101,16 @@
 }
 
 .button-container-ticket > a {
-  margin: 40px 0 40px 0;
+  margin: 45px 0 45px 0;
+}
+
+.container-next-events h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.container-next-events {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
