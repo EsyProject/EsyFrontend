@@ -1,7 +1,7 @@
 .tickets-card {
   position: relative;
   width: 460px;
-  height: 184px;
+  height: 170px;
   background-color: #ffffff;
   border: 1px solid #dadce0;
   border-radius: 8px;
@@ -60,9 +60,48 @@
   color: #5f6368;
 }
 
+.qrcode {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .qrcode img {
   width: 100px;
   height: 100px;
   border: 1px solid #dadce0;
   border-radius: 4px;
+}
+
+.event-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 28px;
+  border-radius: 5px;
+}
+
+.event-area[data-area^="AMB"] {
+  background: rgba(0, 143, 188, 0.15);
+  color: #008FBC;
+  font-weight: 600;
+}
+
+.event-area[data-area^="HR"] {
+  background: rgba(139, 188, 0, 0.15);
+  color: #8BBC00;
+  font-weight: 600;
+}
+
+.event-area[data-area^="BD"] {
+  background: rgba(184, 0, 188, 0.15);
+  color: #B800BC;
+  font-weight: 600;
+}
+
+.event-area[data-area^="ETS"] {
+  background: rgba(0, 209, 199, 0.15);
+  color: #00BCB2;
+  font-weight: 600;
 }

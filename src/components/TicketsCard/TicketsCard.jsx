@@ -19,9 +19,9 @@ const TicketsCard = ({ date, title, authCode, area, qrcode }) => {
         </div>
       </div>
       <div className="qrcode">
-        <p className="event-area" data-area={area}>
-          {area}
-        </p>
+        <div className="event-area" data-area={area}>
+        {area}
+        </div>
         <img src={qrcode} alt="QR Code" />
       </div>
     </div>
