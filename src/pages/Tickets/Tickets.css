@@ -25,6 +25,10 @@
   flex: 1;
   border-left: 1px solid #DADCE0;
   padding: 50px;
+
+  max-width: 562px;
+  height: calc(100vh - 68px);
+  overflow-y: auto;
 }
 
 .container-event {
