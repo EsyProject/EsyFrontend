@@ -1,6 +1,13 @@
 import { useState } from "react";
 /* import PropTypes from "prop-types"; */
-import { Sidebar, Navbar, EventCard, Qrcode, ButtonLink } from "../../pages/index";
+import {
+  Sidebar,
+  Navbar,
+  EventCard,
+  Qrcode,
+  ButtonLink,
+  TicketsCard,
+} from "../../pages/index";
 import "material-symbols";
 import "./Tickets.css";
 
@@ -75,6 +82,7 @@ const Tickets = () => {
         </div>
 
         <div className="container-next-event">Próximos eventos</div>
+        <TicketsCard />
       </div>
     </div>
   );
