@@ -81,14 +81,48 @@ const Tickets = () => {
           </div>
         </div>
 
-        <div className="container-next-event">Próximos eventos</div>
-        <TicketsCard
-          date="02 Fev 2024"
-          title="Ciclo de Saúde Mental"
-          authCode="3815296"
-          area="AMB - GE"
-          qrcode={Qrcode}
-        />
+        <div className="container-next-events">
+          <h2>Próximos eventos</h2>
+          <TicketsCard
+            date="02 Fev 2024"
+            title="Ciclo de Saúde Mental"
+            authCode="3815296"
+            area="AMB - GE"
+            qrcode={Qrcode}
+          />
+
+          <TicketsCard
+            date="08 Fev 2024"
+            title="Fórum da Sustentabilidade"
+            authCode="3815296"
+            area="HR - GE"
+            qrcode={Qrcode}
+          />
+
+          <TicketsCard
+            date="14 Fev 2024"
+            title="Conferência da Inovação"
+            authCode="3815296"
+            area="BD - DEV"
+            qrcode={Qrcode}
+          />
+
+          <TicketsCard
+            date="22 - 26 Fev 2024"
+            title="Jornada do Conhecimento"
+            authCode="3815296"
+            area="ETS - DS"
+            qrcode={Qrcode}
+          />
+
+          <TicketsCard
+            date="14 Fev 2024"
+            title="Conferência da Inovação"
+            authCode="3815296"
+            area="BD - DEV"
+            qrcode={Qrcode}
+          />
+        </div>
       </div>
     </div>
   );
