@@ -16,14 +16,19 @@
   height: 100%;
   left: 0;
   top: 0;
-  background: #008FBC;
+  background: #008fbc;
   border-radius: 10px 0px 0px 10px;
 }
 
 .date-icon {
   display: flex;
   align-items: center;
-  margin-right: 16px;
+  gap: 10px;
+}
+
+.date-icon p {
+  font-size: 14px;
+  color: #80868b;
 }
 
 .material-icons-outlined {
@@ -32,26 +37,22 @@
 }
 
 .event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   flex-grow: 1;
 }
 
+.auth-code h4,
 .event-details h4 {
-  margin-bottom: 8px;
-  font-size: 16px;
-}
-
-.auth-code {
-  margin-bottom: 8px;
-}
-
-.auth-code h4 {
-  font-size: 14px;
-  font-weight: normal;
-  color: #5f6368;
+  font-size: 18px;
+  font-weight: 500;
+  color: #17181B;
 }
 
 .auth-code p {
   font-size: 14px;
+  color: #17181B;
 }
 
 .event-area {
