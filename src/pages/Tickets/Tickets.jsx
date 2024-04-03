@@ -77,8 +77,8 @@ const Tickets = () => {
             </div>
           </div>
 
-          <div className="section-container">
-            <div className="button-container">
+          <div className="section-container-button">
+            <div className="button-container-ticket">
               <a href="">
                 <span>Cancelar participação</span>
               </a>

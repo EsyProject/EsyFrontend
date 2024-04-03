@@ -3,6 +3,9 @@
   width: 850px;
   margin: 0 17%;
   transition: margin-left 0.3s ease;
+
+  display: flex;
+  gap: 20px;
 }
 
 .sidebar-open .tickets-container-main {
@@ -63,4 +66,32 @@
   font-size: 55px;
   font-weight: 500;
   color: #17181B;
+}
+
+.section-container-button {
+  flex: 1;
+  width: 100%;
+  transition: margin-left 0.3s;
+}
+
+.button-container-ticket {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 42px;
+}
+
+.button-container-ticket a {
+  text-decoration: none;
+  width: 207px;
+}
+
+.button-container-ticket a span {
+  color: #0091E0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button-container-ticket > a {
+  margin: 40px 0 40px 0;
 }
