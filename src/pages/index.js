@@ -24,6 +24,7 @@ import Pagination from "../components/Pagination/Pagination";
 import ButtonLink from "../components/ButtonLink/ButtonLink";
 import EventCard from "../components/EventCard/EventCard";
 import TicketsCard from "../components/TicketsCard/TicketsCard";
+import MessageModal from "../components/MessageModal/MessageModal";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -59,6 +60,7 @@ export {
   Pagination,
   EventCard,
   TicketsCard,
+  MessageModal,
 
   /* images */
   ImageLogin,
