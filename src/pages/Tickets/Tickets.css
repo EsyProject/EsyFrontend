@@ -24,3 +24,28 @@
   font-size: 40px;
   font-weight: 500;
 }
+
+.info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 10px 0 60px 0;
+}
+
+.info-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-date p {
+  color: #282a2d;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.container-details-event {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}

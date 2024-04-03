@@ -39,37 +39,39 @@ const Tickets = () => {
           <div className="info-wrapper">
             <div className="info-date">
               <span className="material-symbols-outlined">calendar_month</span>
-              <h4>10/07/2024</h4>
+              <p>10/07/2024</p>
             </div>
 
             <div className="info-date">
               <span className="material-symbols-outlined">schedule</span>
-              <h4>09:00 às 15:00</h4>
+              <p>09:00 às 15:00</p>
             </div>
 
             <div className="info-date">
               <span className="material-symbols-outlined">location_on</span>
-              <h4>Ca300</h4>
+              <p>Ca300</p>
             </div>
           </div>
         </div>
 
-        <EventCard
-          audience="Público Principal - Digital Solutions e Mecatrônica"
-          title="hackaton"
-          subtitle="7ª Edição"
-          date="10/07/2024"
-          time="09h00"
-          location="Ca300"
-        />
+        <div className="container-details-event">
+          <EventCard
+            audience="Público Principal - Digital Solutions e Mecatrônica"
+            title="hackaton"
+            subtitle="7ª Edição"
+            date="10/07/2024"
+            time="09h00"
+            location="Ca300"
+          />
 
-        <div className="container-qrcode">
-          <div className="image-eventcard">
-            <img src={Qrcode} alt="qrcode" />
+          <div className="container-qrcode">
+            <div className="image-eventcard">
+              <img src={Qrcode} alt="qrcode" />
+            </div>
+
+            <p>Código de autenticação</p>
+            <h2>3815296</h2>
           </div>
-
-          <p>Código de autenticação</p>
-          <h2>3815296</h2>
         </div>
 
         <div className="section-container">
