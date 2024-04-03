@@ -31,6 +31,7 @@
   color: #ffffff;
   overflow: hidden;
   padding: 36px;
+  z-index: 0;
 }
 
 .bubble-top-right {
@@ -43,7 +44,6 @@
   filter: blur(100.5px);
   border-radius: 50%;
   animation: move-top-right 5s infinite alternate ease-in-out;
-  z-index: 0;
 }
 
 .bubble-bottom-left {
@@ -56,7 +56,6 @@
   filter: blur(70.8912px);
   border-radius: 50%;
   animation: move-bottom-left 5s infinite alternate ease-in-out;
-  z-index: 0;
 }
 
 .card-header,
