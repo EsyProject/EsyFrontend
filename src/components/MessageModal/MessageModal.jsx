@@ -1,9 +1,23 @@
-import React from 'react'
+import PropTypes from "prop-types";
+import "material-symbols";
 
-const MessageModal = () => {
+const PopUp = ({ title, text }) => {
   return (
-    <div>MessageModal</div>
-  )
-}
+    <div className="popup-container">
+      <div className="popup-content">
+        <div className="popup-icon">
+          <span className="material-symbols-outlined">check</span>
+        </div>
+        <h1>{title}</h1>
+        <p>{text}</p>
+      </div>
+    </div>
+  );
+};
 
-export default MessageModal
+PopUp.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+export default PopUp;
