@@ -16,3 +16,11 @@
   border-radius: 15px;
 }
 
+.container-event {
+  margin-top: 180px;
+}
+
+.container-event h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
