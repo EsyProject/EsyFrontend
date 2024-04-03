@@ -82,7 +82,13 @@ const Tickets = () => {
         </div>
 
         <div className="container-next-event">Próximos eventos</div>
-        <TicketsCard />
+        <TicketsCard
+          date="02 Fev 2024"
+          title="Ciclo de Saúde Mental"
+          authCode="3815296"
+          area="AMB - GE"
+          qrcode={Qrcode}
+        />
       </div>
     </div>
   );
