@@ -1,1 +1,67 @@
+.tickets-card {
+  position: relative;
+  width: 460px;
+  height: 184px;
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 20px 33px;
+}
 
+.rectangle-ticket {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #008FBC;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.date-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.material-icons-outlined {
+  font-size: 24px;
+  color: #5f6368;
+}
+
+.event-details {
+  flex-grow: 1;
+}
+
+.event-details h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.auth-code {
+  margin-bottom: 8px;
+}
+
+.auth-code h4 {
+  font-size: 14px;
+  font-weight: normal;
+  color: #5f6368;
+}
+
+.auth-code p {
+  font-size: 14px;
+}
+
+.event-area {
+  font-size: 14px;
+  color: #5f6368;
+}
+
+.qrcode img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+}

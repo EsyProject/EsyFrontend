@@ -1,14 +1,17 @@
 import PropTypes from "prop-types";
+import "material-symbols";
 import "./TicketsCard.css";
 
 const TicketsCard = ({ date, title, authCode, area, qrcode }) => {
   return (
     <div className="tickets-card">
-      <div className="date-icon">
-        <span className="material-icons-outlined">calendar_today</span>
-        <p>{date}</p>
-      </div>
+      <div className="rectangle-ticket"></div>
       <div className="event-details">
+        <div className="date-icon">
+          <span className="material-symbols-outlined">calendar_today</span>
+          <p>{date}</p>
+        </div>
+
         <h4>{title}</h4>
         <div className="auth-code">
           <h4>{authCode}</h4>
