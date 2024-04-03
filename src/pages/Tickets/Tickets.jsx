@@ -1,5 +1,5 @@
 import { useState } from "react";
-/* import PropTypes from "prop-types"; */
+
 import {
   Sidebar,
   Navbar,
@@ -7,15 +7,22 @@ import {
   Qrcode,
   ButtonLink,
   TicketsCard,
+  MessageModal,
 } from "../../pages/index";
 import "material-symbols";
 import "./Tickets.css";
 
 const Tickets = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+  };
+
+  // open popup when cancel button is pressed
+  const handleCancel = () => {
+    setShowPopup(true);
   };
 
   return (
@@ -79,12 +86,19 @@ const Tickets = () => {
 
           <div className="section-container-button">
             <div className="button-container-ticket">
-              <a href="">
+              <button onClick={handleCancel}>
                 <span>Cancelar participação</span>
-              </a>
+              </button>
               <ButtonLink to="/historic">Autenticar</ButtonLink>
             </div>
           </div>
+
+          {showPopup && (
+            <MessageModal
+              title="Sentiremos sua falta :("
+              text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
+            />
+          )}
         </div>
 
         <div className="right-column">
