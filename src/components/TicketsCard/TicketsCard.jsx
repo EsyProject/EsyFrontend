@@ -5,7 +5,7 @@ import "./TicketsCard.css";
 const TicketsCard = ({ date, title, authCode, area, qrcode }) => {
   return (
     <div className="tickets-card">
-      <div className="rectangle-ticket"></div>
+      <div className="rectangle-ticket" data-area={area}></div>
       <div className="event-details">
         <div className="date-icon">
           <span className="material-symbols-outlined">calendar_today</span>

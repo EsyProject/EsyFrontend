@@ -16,7 +16,6 @@
   height: 100%;
   left: 0;
   top: 0;
-  background: #008fbc;
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -81,6 +80,26 @@
   height: 28px;
   border-radius: 5px;
 }
+
+/* rectangle-ticket */
+
+.rectangle-ticket[data-area^="AMB"] {
+  background: #008fbc;
+}
+
+.rectangle-ticket[data-area^="HR"] {
+  background: #8BBC00;
+}
+
+.rectangle-ticket[data-area^="BD"] {
+  background: #B800BC;
+}
+
+.rectangle-ticket[data-area^="ETS"] {
+  background: #00BCB2;
+}
+
+/* event-area */
 
 .event-area[data-area^="AMB"] {
   background: rgba(0, 143, 188, 0.15);
