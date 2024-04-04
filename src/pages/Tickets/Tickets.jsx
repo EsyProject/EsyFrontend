@@ -97,12 +97,13 @@ const Tickets = () => {
             </div>
           </div>
 
-          <MessageModal
-            title="Sentiremos sua falta :("
-            text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
-            show={showPopup}
-            onClose={handleCloseModal}
-          />
+          {showPopup && (
+            <MessageModal
+              title="Sentiremos sua falta :("
+              text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
+              onClose={handleCloseModal}
+            />
+          )}
         </div>
 
         <div className="right-column">
