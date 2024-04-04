@@ -16,6 +16,10 @@ const Tickets = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
+  const handleCloseModal = () => {
+    setShowPopup(false);
+  };
+
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -97,6 +101,7 @@ const Tickets = () => {
             <MessageModal
               title="Sentiremos sua falta :("
               text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
+              onClose={handleCloseModal}
             />
           )}
         </div>
