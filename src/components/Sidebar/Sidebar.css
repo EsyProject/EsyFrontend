@@ -1,4 +1,4 @@
-/* Configurações gerais para os textos na barra lateral */
+/* General settings for texts in the sidebar */
 .border {
   justify-content: space-between;
 }
@@ -14,14 +14,14 @@
   color: rgba(23, 24, 27, 0.7);
 }
 
-/* Configurações específicas para o texto de logout */
+/* Specific settings for logout text */
 .sidebar-text-logout {
   color: #ff2b2b;
   opacity: 70%;
   font-weight: 500;
 }
 
-/* Estilos da barra lateral */
+/* Styles for the sidebar */
 .sidebar {
   position: fixed;
   top: 0;
@@ -36,7 +36,7 @@
   overflow: hidden;
 }
 
-/* Estilos do cabeçalho da barra lateral */
+/* Styles for the sidebar header */
 .sidebar-header {
   width: 100%;
   display: flex;
@@ -50,7 +50,7 @@
   gap: 19px;
 }
 
-/* Estilos dos botões na barra lateral */
+/* Styles for buttons in the sidebar */
 .sidebar button {
   height: 50px;
   background-color: transparent;
@@ -63,7 +63,7 @@
   transition: 0.3s;
 }
 
-/* Estilos dos ícones e texto dentro dos botões */
+/* Styles for icons and text inside buttons */
 .sidebar button > span {
   display: inline-flex;
   align-items: center;
@@ -74,11 +74,11 @@
 }
 
 .sidebar.open-sidebar button > span {
-  overflow: visible; /* Mostra o texto */
+  overflow: visible; 
   gap: 12px;
 }
 
-/* Configurações de transição para o efeito hover */
+/* Transition settings for hover effect */
 .border .icon-hover-logout > span,
 .border .icon-hover > span {
   width: 215px;
@@ -108,8 +108,6 @@
   color: #0066a5;
   opacity: 100%;
 }
-
-/* Rectangle 28 */
 
 .icon-hover-logout:hover {
   background: rgba(255, 43, 43, 0.1);
@@ -157,7 +155,7 @@ svg {
   transition: all 0.4s;
 }
 
-/* Estilo  para o ícones */
+/* Style for icons */
 .sidebar-header svg {
   width: 16px;
   height: 16px;
@@ -220,7 +218,7 @@ svg {
   margin-bottom: 15px;
 }
 
-/* Estilo da linha de separação na barra lateral */
+/* Style for separation line in the sidebar */
 .border-bottom {
   margin: 0 auto;
   width: 100%;
@@ -229,7 +227,7 @@ svg {
   opacity: 100%;
 }
 
-/* Estilos para o texto de navegação */
+/* Styles for navigation text */
 .nav-text h5 {
   font-size: 12px;
   font-weight: 500;
@@ -244,7 +242,7 @@ svg {
   text-align: left;
 }
 
-/* Estilos para a navegação dentro da barra lateral */
+/* Styles for navigation inside the sidebar */
 .sidebar > nav {
   flex: 1 1 auto;
   display: flex;
