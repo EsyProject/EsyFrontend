@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "material-symbols";
 import "./MessageModal.css";
 
-const MessageModal = ({ title, text, onClose }) => {
+const MessageModal = ({ title, text, show, onClose }) => {
   const handleBackgroundClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -10,7 +10,7 @@ const MessageModal = ({ title, text, onClose }) => {
   };
 
   return (
-    <div className="messagemodal-container">
+    <div className={`messagemodal-container ${show ? "show" : ""}`}>
       <div className="overlay" onClick={handleBackgroundClick}></div>
       <div className="messagemodal-content">
         <div className="messagemodal-icon">
@@ -27,6 +27,7 @@ MessageModal.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
+  show: PropTypes.func.isRequired,
 };
 
 export default MessageModal;
