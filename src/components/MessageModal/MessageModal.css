@@ -21,30 +21,40 @@
 }
 
 .messagemodal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   width: 900px;
   height: 500px;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   padding: 108px;
-  position: relative;
   z-index: 1000;
 }
 
 .messagemodal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #7ddfa4;
   border-radius: 40px;
   width: 80px;
   height: 80px;
   font-size: 24px;
+  margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.messagemodal-content h1 {
+  font-size: 44px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
-p {
+.messagemodal-content p {
+  color: #282A2D;
   font-size: 18px;
-  line-height: 1.6;
+  font-weight: 400;
 }
