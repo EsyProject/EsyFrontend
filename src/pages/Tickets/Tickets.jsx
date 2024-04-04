@@ -16,17 +16,17 @@ const Tickets = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
+   // open popup when cancel button is pressed
+   const handleCancel = () => {
+    setShowPopup(true);
+  };
+
   const handleCloseModal = () => {
     setShowPopup(false);
   };
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-  };
-
-  // open popup when cancel button is pressed
-  const handleCancel = () => {
-    setShowPopup(true);
   };
 
   return (
