@@ -19,6 +19,11 @@
   visibility: visible;
 }
 
+.messagemodal-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .overlay {
   position: fixed;
   top: 0;
