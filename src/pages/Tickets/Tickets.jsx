@@ -102,6 +102,7 @@ const Tickets = () => {
               title="Sentiremos sua falta :("
               text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
               onClose={handleCloseModal}
+              showModal={showPopup}
             />
           )}
         </div>
