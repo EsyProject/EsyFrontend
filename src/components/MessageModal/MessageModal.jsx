@@ -8,7 +8,7 @@ const MessageModal = ({ title, text }) => {
       <div className="overlay"></div>
       <div className="messagemodal-content">
         <div className="messagemodal-icon">
-          <span className="material-symbols-outlined">check</span>
+          <span className="material-symbols-rounded">check</span>
         </div>
         <h1>{title}</h1>
         <p>{text}</p>
