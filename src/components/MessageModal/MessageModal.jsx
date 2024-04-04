@@ -10,7 +10,7 @@ const MessageModal = ({ title, text, onClose, showModal }) => {
   };
 
   return (
-    <div className={`messagemodal-container ${showModal ? "visible" : "hidden"}`}>
+    <div className={`messagemodal-container ${showModal ? "visible" : ""}`}>
       <div className="overlay" onClick={handleBackgroundClick}></div>
       <div className="messagemodal-content">
         <div className="messagemodal-icon">
