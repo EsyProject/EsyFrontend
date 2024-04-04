@@ -27,7 +27,7 @@ MessageModal.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
-  show: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
 };
 
 export default MessageModal;
