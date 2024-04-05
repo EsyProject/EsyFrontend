@@ -34,6 +34,7 @@
   transition: all 0.35s;
   width: 106px;
   overflow: hidden;
+  user-select: none;
 }
 
 /* Styles for the sidebar header */
