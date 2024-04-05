@@ -5,8 +5,8 @@
   display: flex;
 }
 
-.sidebar-open .tickets-container-main {
-  margin-left: 25%;
+.sidebar-open .left-column {
+  margin: 0 10% 0 23%;
 }
 
 .image-eventcard img {
@@ -19,7 +19,8 @@
 
 .left-column {
   flex: 1;
-  margin: 0 13% 0 18%;
+  margin: 0 13% 0 20%;
+  transition: margin-left 0.3s ease;
 }
 
 .right-column {
@@ -84,7 +85,6 @@
 .section-container-button {
   flex: 1;
   width: 100%;
-  transition: margin-left 0.3s;
 }
 
 .button-container-ticket {
