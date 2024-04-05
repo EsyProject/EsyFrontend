@@ -81,6 +81,7 @@
   color: #9AA0A6;
   opacity: 100%;
   font-size: 22px;
+  user-select: none;
 }
 
 .info-wrapper .material-symbols-outlined {
@@ -88,6 +89,7 @@
   color: #282A2D;
   opacity: 100%;
   font-size: 24px;
+  user-select: none;
 }
 
 .messagemodal-icon .material-symbols-rounded {
