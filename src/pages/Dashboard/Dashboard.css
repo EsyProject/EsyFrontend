@@ -1,1 +1,15 @@
+.historic-container {
+  transition: margin-left 0.3s ease;
+}
 
+.sidebar-open .dashboard-container {
+  margin-left: 300px;
+}
+
+.dashboard-container {
+  flex: 1;
+  padding: 10px;
+  margin-left: 186px;
+  transition: margin-left 0.3s;
+  max-width: 1109px;
+}
