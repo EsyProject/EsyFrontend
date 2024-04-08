@@ -1,0 +1,56 @@
+.rbc-month-view {
+    border-radius: 10px;
+    border: 1px solid #BDC1C6;
+}
+
+.rbc-day-bg+.rbc-day-bg,
+.rbc-header+.rbc-header {
+    border-left: 1px solid #BDC1C6;
+}
+
+.rbc-month-row+.rbc-month-row {
+    border-top: 1px solid #BDC1C6;
+}
+
+.rbc-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #3C4043;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #BDC1C6;
+}
+
+.rbc-off-range-bg {
+    background: #fff;
+}
+
+.rbc-off-range {
+    color: #D7D9DB;
+}
+
+.rbc-button-link {
+    padding-right: 12px;
+    padding-top: 10px;
+}
+
+.rbc-event, .rbc-day-slot .rbc-background-event {
+    border: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    
+    margin: 7px;
+    margin-bottom: 7px;
+    padding: 7px;
+    background-color: rgba(0, 143, 188, 0.1); /* precisa receber da logica da área - kety */
+    border-radius: 9px;
+    border-left: 7px solid #008FBC;
+    color: #000;
+    font-size: 14px;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    text-align: left;
+}
