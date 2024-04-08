@@ -1,3 +1,4 @@
+import config from "../../config.json";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { LogoEsy, LogoEsyClosed } from "../../pages/index";
@@ -5,8 +6,11 @@ import { SidebarIcon } from "../../pages/index";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
-const Sidebar = ({ isOpen, toggleSidebar, activePage, isAdmin }) => {
+const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
   const [activeIcon, setActiveIcon] = useState(null);
+
+  // User type access
+  const userType = config.userType;
 
   // Function to handle icon click and set active icon
   const handleIconClick = (icon) => {
@@ -78,7 +82,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage, isAdmin }) => {
           </Link>
 
           {/* Renders the 'Tickets' link only if the user is an administrator */}
-          {isAdmin && (
+          {userType === "admin" && (
             <Link to="/dashboard">
               <SidebarIcon
                 iconName="dashboard"
@@ -93,7 +97,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage, isAdmin }) => {
           )}
 
           {/* Renders the 'Tickets' link only if the user is not an administrator */}
-          {!isAdmin && (
+          {userType !== "admin" && (
             <Link to="/tickets">
               <SidebarIcon
                 iconName="confirmation_number"
@@ -172,7 +176,7 @@ Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
   activePage: PropTypes.string.isRequired,
-  isAdmin: PropTypes.bool.isRequired,
+  userType: PropTypes.string.isRequired,
 };
 
 export default Sidebar;
