@@ -1,15 +1,40 @@
-.historic-container {
+.dashboard-container {
   transition: margin-left 0.3s ease;
 }
 
-.sidebar-open .dashboard-container {
-  margin-left: 300px;
+.sidebar-open .dashboard-container-main {
+  margin-left: 320px;
 }
 
-.dashboard-container {
+.dashboard-container-main {
   flex: 1;
   padding: 10px;
   margin-left: 186px;
   transition: margin-left 0.3s;
-  max-width: 1109px;
+}
+
+.dashboard-container-main {
+  margin-top: 80px;
+}
+
+.general-analysis h2 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.metrics {
+  display: flex;
+  gap: 15px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 368px;
+  height: 114px;
+  background: rgb(24, 131, 126, 0.1);
+  border-radius: 12px;
+  padding: 28px;
 }
