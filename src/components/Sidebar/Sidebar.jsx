@@ -5,7 +5,7 @@ import { SidebarIcon } from "../../pages/index";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
-const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
+const Sidebar = ({ isOpen, toggleSidebar, activePage, isAdmin }) => {
   const [activeIcon, setActiveIcon] = useState(null);
 
   // Function to handle icon click and set active icon
@@ -77,17 +77,35 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
             />
           </Link>
 
-          <Link to="/tickets">
-            <SidebarIcon
-              iconName="confirmation_number"
-              text="Tickets"
-              buttonClassName="icon-hover"
-              className="calendar"
-              textClassName="sidebar-text"
-              active={activeIcon === "confirmation_number"}
-              onClick={() => setActiveIcon("confirmation_number")}
-            />
-          </Link>
+          {/* Renders the 'Tickets' link only if the user is an administrator */}
+          {isAdmin && (
+            <Link to="/dashboard">
+              <SidebarIcon
+                iconName="dashboard"
+                text="Dashboard"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "dashboard"}
+                onClick={() => handleIconClick("dashboard")}
+              />
+            </Link>
+          )}
+
+          {/* Renders the 'Tickets' link only if the user is not an administrator */}
+          {!isAdmin && (
+            <Link to="/tickets">
+              <SidebarIcon
+                iconName="confirmation_number"
+                text="Tickets"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "confirmation_number"}
+                onClick={() => setActiveIcon("confirmation_number")}
+              />
+            </Link>
+          )}
 
           <Link to="/historic">
             <SidebarIcon
@@ -154,6 +172,7 @@ Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
   activePage: PropTypes.string.isRequired,
+  isAdmin: PropTypes.bool.isRequired,
 };
 
 export default Sidebar;
