@@ -20,6 +20,7 @@
 .general-analysis h2 {
   font-weight: 500;
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .metrics {
@@ -31,10 +32,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
   width: 368px;
   height: 114px;
   background: rgb(24, 131, 126, 0.1);
   border-radius: 12px;
   padding: 28px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 368px;
+  height: 114px;
+  background: rgb(24, 131, 126, 0.1);
+  border-radius: 12px;
+  padding: 28px;
+  position: relative;
+}
+
+.rectangle-metric {
+  position: absolute;
+  width: 16.68px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #18837e;
+  border-radius: 12px 0px 0px 12px;
 }
