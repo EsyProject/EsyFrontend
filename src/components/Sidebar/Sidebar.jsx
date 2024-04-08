@@ -8,20 +8,24 @@ import "./Sidebar.css";
 const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
   const [activeIcon, setActiveIcon] = useState(null);
 
+  // Function to handle icon click and set active icon
   const handleIconClick = (icon) => {
     setActiveIcon(icon);
   };
 
+  // Effect to update active icon when activePage changes
   useEffect(() => {
     setActiveIcon(activePage);
   }, [activePage]);
 
   return (
     <aside className={`sidebar border ${isOpen ? "open-sidebar" : ""}`}>
+      {/* Sidebar header */}
       <header className={`sidebar-header ${isOpen ? "active-header" : ""}`}>
         <div className="sidebar-logo-img">
           <img src={isOpen ? LogoEsy : LogoEsyClosed} alt="logo" />
         </div>
+        {/* Button to toggle sidebar */}
         <button className="open-btn" onClick={toggleSidebar}>
           <span className="open-btn-icon">
             <span className="material-symbols-outlined">
@@ -31,8 +35,10 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
         </button>
       </header>
 
+      {/* Sidebar navigation */}
       <nav className="border">
         <div className="sidebar-content">
+          {/* Navigation links */}
           <Link to="/notifications">
             <SidebarIcon
               iconName="notifications"
@@ -82,7 +88,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
               onClick={() => setActiveIcon("confirmation_number")}
             />
           </Link>
-          
+
           <Link to="/historic">
             <SidebarIcon
               iconName="history"
@@ -123,6 +129,8 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
             />
           </Link>
         </div>
+
+        {/* Logout link */}
         <div className="logout-container">
           <Link to="/login">
             <SidebarIcon
@@ -141,6 +149,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
   );
 };
 
+// PropTypes for Sidebar component
 Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
