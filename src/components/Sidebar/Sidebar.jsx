@@ -69,19 +69,36 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
           <div className={`nav-text ${isOpen ? "active" : ""}`}>
             <h5>EVENTOS</h5>
           </div>
-          <Link to="/schedule">
-            <SidebarIcon
-              iconName="calendar_month"
-              text="Próximos eventos"
-              buttonClassName="icon-hover"
-              className="calendar"
-              textClassName="sidebar-text"
-              active={activeIcon === "calendar"}
-              onClick={() => handleIconClick("calendar")}
-            />
-          </Link>
 
-          {/* Renders the 'Tickets' link only if the user is an administrator */}
+          {userType === "admin" && (
+            <Link to="/schedule">
+              <SidebarIcon
+                iconName="calendar_add_on"
+                text="Novo evento"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "calendar"}
+                onClick={() => handleIconClick("calendar")}
+              />
+            </Link>
+          )}
+
+          {userType !== "admin" && (
+            <Link to="/schedule">
+              <SidebarIcon
+                iconName="calendar_month"
+                text="Próximos eventos"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "calendar"}
+                onClick={() => handleIconClick("calendar")}
+              />
+            </Link>
+          )}
+
+          {/* Renders the 'Dashboard' link only if the user is an administrator */}
           {userType === "admin" && (
             <Link to="/dashboard">
               <SidebarIcon
