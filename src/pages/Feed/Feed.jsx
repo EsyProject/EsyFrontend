@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
 import './Feed.css';
+import 'material-symbols';
 
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
@@ -60,15 +61,24 @@ const Feed = () => {
   // modal for images post
 
   const [modalOpenImage, setModalOpenImage] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState('');
+  const [caption, setCaption] = useState('');
+  const [likes, setLikes] = useState('');
+  const [views, setViews] = useState('');
 
-  const openModalImage = (imageSrc) => {
+  const openModalImage = (imageSrc, captionText, likes, views) => {
     setSelectedImage(imageSrc);
+    setCaption(captionText);
+    setLikes(likes);
+    setViews(views);
     setModalOpenImage(true);
   };
 
   const closeModalImage = () => {
-    setSelectedImage(null);
+    setSelectedImage('');
+    setCaption('');
+    setLikes('');
+    setViews('');
     setModalOpenImage(false);
   };
 
@@ -117,45 +127,45 @@ const Feed = () => {
             evento inspirador.</p>
           <div className="images">
             <div className="container-post">
-              <img src="src\assets\images-feed\img-1.png" alt="" onClick={() => openModalImage("src/assets/images-feed/img-1.png")} />
+              <img src="src\assets\images-feed\img-1.png" alt="" onClick={() => openModalImage("src/assets/images-feed/img-1.png", "Momento da apresentação do projeto.", "42", "50")} />
               <div className="caption">
                 <div className="likes">
-                  <FaHeart />
+                  <span className='material-symbols-rounded'>favorite</span>
                   <p>42</p>
                 </div>
                 <div className="views">
-                  <MdOutlineRemoveRedEye />
+                  <span className='material-symbols-rounded'>visibility</span>
                   <p>50</p>
                 </div>
                 <p>Momento da apresentação do projeto.</p>
               </div>
             </div>
             <div className="container-post">
-              <img src="src\assets\images-feed\img-2.png" alt="" onClick={() => openModalImage("src/assets/images-feed/img-2.png")} />
+              <img src="src\assets\images-feed\img-2.png" alt="" onClick={() => openModalImage("src/assets/images-feed/img-2.png", "Equipe reunida com o troféu em mãos.", "42", "50")} />
               <div className="caption">
                 <div className="likes">
-                  <FaHeart />
+                  <span className='material-symbols-rounded'>favorite</span>
                   <p>42</p>
                 </div>
                 <div className="views">
-                  <MdOutlineRemoveRedEye />
+                  <span className='material-symbols-rounded'>visibility</span>
                   <p>50</p>
                 </div>
                 <p>Equipe reunida com o troféu em mãos.</p>
               </div>
             </div>
             <div className="container-post">
-              <img src="src\assets\images-feed\img-3.png" alt="" onClick={() => openModalImage("src/assets/images-feed/img-3.png")} />
+              <img src="src\assets\images-feed\img-3.png" alt="" onClick={() => openModalImage("src/assets/images-feed/img-3.png", "Equipe descobrindo que alcançou o 1° lugar.", "42", "50")} />
               <div className="caption">
                 <div className="likes">
-                  <FaHeart />
+                  <span className='material-symbols-rounded'>favorite</span>
                   <p>42</p>
                 </div>
                 <div className="views">
-                  <MdOutlineRemoveRedEye />
+                  <span className='material-symbols-rounded'>visibility</span>
                   <p>50</p>
                 </div>
-                <p>Equipe descobrindo que alcançou o 1°...</p>
+                <p>Equipe descobrindo que alcançou o...</p>
               </div>
             </div>
           </div>
@@ -334,15 +344,26 @@ const Feed = () => {
       )}
 
       {modalOpenImage && (
-        <div className="modal-overlay-image" onClick={closeModalImage}>
-        <div className="modal-content-image">
-          <img src={selectedImage} alt="" />
-          <button className="close-button-image" onClick={closeModalImage}>Fechar</button>
+        <div className="modal-image">
+          <div className={`modal-content-image ${modalOpenImage ? '' : 'closed'}`}>
+            <span className="close-button-image" onClick={closeModalImage}>&times;</span>
+            <img src={selectedImage} alt="" />
+            <div className="caption">
+              <div className="caption-sub-container">
+                <div className="likes">
+                  <span className='material-symbols-rounded'>favorite</span>
+                  <p>{likes}</p>
+                </div>
+                <div className="views">
+                  <span className='material-symbols-rounded'>visibility</span>
+                  <p>{views}</p>
+                </div>
+                <p>{caption}</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
       )}
-
-      {/* g fkju ewhuifhilweipofwe */}
     </div>
   )
 }

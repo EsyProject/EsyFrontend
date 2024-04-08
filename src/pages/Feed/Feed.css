@@ -254,6 +254,7 @@ footer section {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .content .last-edition .images .container-post .caption p {
@@ -597,45 +598,145 @@ label.modal-permission {
 
 /* modal image */
 
-/* Modal Overlay */
-.modal-overlay-image {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Fundo escuro translúcido */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutToBottom {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.modal-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 1000;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 2000;
+    justify-content: center;
 }
 
-/* Modal Content */
 .modal-content-image {
-    background-color: #fff;
-    padding: 0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    /* Sombra */
-
-    width: 60%;
-    height: 60%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 70%;
+    animation: slideInFromBottom 0.3s ease forwards;
 }
 
-/* Modal Close Button */
+.modal-content-image.closed {
+    animation: slideOutToBottom 0.3s ease both;
+}
+
+.modal-content-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+    margin: 0;
+    padding: 0;
+}
+
 .close-button-image {
-    background-color: #007bff;
-    /* Cor do botão */
-    color: #fff;
-    /* Cor do texto */
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    right: 20px;
+    top: 20px;
+
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 300;
+
     cursor: pointer;
-    margin-top: 20px;
+    transition: .3s;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
 }
 
 .close-button-image:hover {
-    background-color: #0056b3;
-    /* Cor do botão ao passar o mouse */
+    background-color: #00000033;
+}
+
+.modal-image .modal-content-image .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 40%;
+    padding: 40px;
+    color: white;
+    border-radius: 0px 0px 15px 15px;
+    background: linear-gradient(180deg, rgba(23, 24, 27, 0) 49.98%, rgba(0, 0, 0, 0.8) 100%);
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.modal-image .modal-content-image .caption .caption-sub-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    font-size: 18px;
+}
+
+.modal-image .modal-content-image .caption .caption-sub-container .views,
+.modal-image .modal-content-image .caption .caption-sub-container .likes {
+    gap: 8px;
+}
+
+.views,
+.likes {
+    align-items: center;
+    gap: 5px;
+}
+
+.content .last-edition .images .container-post .caption {
+    gap: 13px;
+}
+
+.likes .material-symbols-rounded {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    color: #1C1B1F;
+    opacity: 100%;
+    font-size: 22px;
+    user-select: none;
+}
+
+.views .material-symbols-rounded {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    color: #1C1B1F;
+    opacity: 100%;
+    font-size: 22px;
+    user-select: none;
+}
+
+.modal-image .modal-content-image .caption .caption-sub-container .views .material-symbols-rounded,
+.modal-image .modal-content-image .caption .caption-sub-container .likes .material-symbols-rounded {
+    color: #fff;
+    font-size: 34px;
 }
