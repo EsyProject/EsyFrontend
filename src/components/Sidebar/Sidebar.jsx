@@ -24,7 +24,9 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
         </div>
         <button className="open-btn" onClick={toggleSidebar}>
           <span className="open-btn-icon">
-            <span className="material-symbols-outlined">keyboard_arrow_left</span>
+            <span className="material-symbols-outlined">
+              keyboard_arrow_left
+            </span>
           </span>
         </button>
       </header>
@@ -68,17 +70,6 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
               onClick={() => handleIconClick("calendar")}
             />
           </Link>
-          <Link to="/historic">
-            <SidebarIcon
-              iconName="history"
-              text="Histórico"
-              buttonClassName="icon-hover"
-              className="clock"
-              textClassName="sidebar-text"
-              active={activeIcon === "history"}
-              onClick={() => setActiveIcon("history")}
-            />
-          </Link>
 
           <Link to="/tickets">
             <SidebarIcon
@@ -89,6 +80,18 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
               textClassName="sidebar-text"
               active={activeIcon === "confirmation_number"}
               onClick={() => setActiveIcon("confirmation_number")}
+            />
+          </Link>
+          
+          <Link to="/historic">
+            <SidebarIcon
+              iconName="history"
+              text="Histórico"
+              buttonClassName="icon-hover"
+              className="clock"
+              textClassName="sidebar-text"
+              active={activeIcon === "history"}
+              onClick={() => setActiveIcon("history")}
             />
           </Link>
 
