@@ -10,7 +10,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
+    <div className={`dashboard-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
         currentPageIcon="dashboard"
         activePage="dashboard"
@@ -24,7 +24,7 @@ const Dashboard = () => {
         toggleSidebar={toggleSidebar}
       />
 
-      <div className="dashboard-container">
+      <div className="dashboard-container-main">
         <div className="general-analysis">
           <h2>Análise quantitativa geral</h2>
           <div className="metrics">
