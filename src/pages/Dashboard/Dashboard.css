@@ -45,7 +45,7 @@
   width: 368px;
   height: 114px;
   border-radius: 12px;
-  padding: 28px;
+  padding: 22px;
   position: relative;
 }
 
@@ -75,17 +75,27 @@
 }
 
 .rectangle-registrations {
-  background: #18837E;
+  background: #18837e;
 }
 
 .rectangle-participations {
-  background: #00884A;
+  background: #00884a;
 }
 
 .rectangle-absences {
-  background: #007BC0;
+  background: #007bc0;
 }
 
 .rectangle-success-rate {
-  background: #9E2896;
+  background: #9e2896;
+}
+
+.metric p {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.metric h1 {
+  font-weight: 500;
+  font-size: 40px;
 }
