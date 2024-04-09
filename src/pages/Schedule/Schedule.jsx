@@ -35,6 +35,8 @@ const Schedule = () => {
         secondLink="/historic"
         ticketsText="Tickets"
         ticketsLink="/tickets"
+        scheduleText="Próximos Eventos"
+        scheduleLink="/schedule"
       />
 
       <Sidebar
