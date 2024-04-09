@@ -17,7 +17,7 @@
   margin-top: 80px;
 }
 
-.general-analysis h2 {
+.dashboard-container-main h2 {
   font-weight: 500;
   font-size: 24px;
   margin-bottom: 10px;
@@ -98,4 +98,8 @@
 .metric h1 {
   font-weight: 500;
   font-size: 40px;
+}
+
+.participant-reviews {
+  margin-top: 44px;
 }
