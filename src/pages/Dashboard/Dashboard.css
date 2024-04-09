@@ -130,21 +130,36 @@
 
 .note-content {
   display: flex;
-  gap: 30px;
+  gap: 25px;
   align-items: center;
 }
 
 .note-content h1 {
   font-weight: 500;
-  font-size: 42px;
+  font-size: 40px;
 }
 
 .rate {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .event-note h3 {
   font-weight: 500;
   font-size: 20px;
+}
+
+.evaluations {
+  width: 410px;
+  height: 535px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.event-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
