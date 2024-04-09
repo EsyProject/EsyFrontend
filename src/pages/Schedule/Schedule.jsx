@@ -33,6 +33,8 @@ const Schedule = () => {
         feedLink="/schedule"
         secondText="Histórico de eventos"
         secondLink="/historic"
+        ticketsText="Tickets"
+        ticketsLink="/tickets"
       />
 
       <Sidebar
