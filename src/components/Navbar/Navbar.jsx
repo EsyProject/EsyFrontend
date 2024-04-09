@@ -8,6 +8,12 @@ const Navbar = ({
   activePage,
   showNavigationTexts,
   navigationText,
+  feedText,
+  feedLink,
+  historicText,
+  historicLink,
+  ticketsText,
+  ticketsLink,
 }) => {
   return (
     <div className="navbar-container">
@@ -17,53 +23,46 @@ const Navbar = ({
           <span className="material-symbols-outlined">{currentPageIcon}</span>
         </div>
 
+        {/* Navigation text */}
         <h2>{navigationText}</h2>
 
-        {/* Link to the schedule page */}
-        {showNavigationTexts && (
-          <Link to="/schedule">
-            <h4 className={activePage === "schedule" ? "active" : ""}>
-              Próximos eventos
-            </h4>
+        {/* Link to event feed page */}
+        {feedText && feedLink && (
+          <Link to={feedLink}>
+            <div className={activePage === "feed" ? "active" : ""}></div>
+            {showNavigationTexts && (
+              <h4 className={activePage === "feed" ? "active" : ""}>
+                {feedText}
+              </h4>
+            )}
           </Link>
         )}
 
-        {/* Link to the historic page */}
-        <Link to="/historic">
-          <div
-            className={
-              activePage === "schedule" ? "active subtitle-underline-next" : ""
-            }
-          ></div>
-          {showNavigationTexts && (
-            <h4 className={activePage === "historic" ? "active" : ""}>
-              Histórico de eventos
-            </h4>
-          )}
-        </Link>
-
-        {/* Link to the tickets page */}
-        {showNavigationTexts && (
-          <Link to="/tickets">
-            <div
-              className={`${
-                activePage === "tickets" ? "active subtitle-underline-tickets" : ""
-              }`}
-            ></div>
-            <h4 className={activePage === "tickets" ? "active" : ""}>
-              Tickets
-            </h4>
+        {/* Link to event history page */}
+        {historicText && historicLink && (
+          <Link to={historicLink}>
+            <div className={activePage === "historic" ? "active" : ""}></div>
+            {showNavigationTexts && (
+              <h4 className={activePage === "historic" ? "active" : ""}>
+                {historicText}
+              </h4>
+            )}
           </Link>
         )}
 
-        {/* Underline for the "Historical Events" navigation */}
-        <div
-          className={
-            activePage === "historic" ? "active subtitle-underline" : ""
-          }
-        ></div>
+        {/* Link to ticket page */}
+        {ticketsText && ticketsLink && (
+          <Link to={ticketsLink}>
+            <div className={activePage === "tickets" ? "active" : ""}></div>
+            {showNavigationTexts && (
+              <h4 className={activePage === "tickets" ? "active" : ""}>
+                {ticketsText}
+              </h4>
+            )}
+          </Link>
+        )}
       </div>
-      {/* Container for notification icon */}
+      {/* Container para o ícone de notificação */}
       <div className="navbar-icon">
         <span className="material-symbols-outlined">notifications</span>
       </div>
@@ -71,12 +70,18 @@ const Navbar = ({
   );
 };
 
-// PropTypes for Navbar component
+// PropTypes para o componente Navbar
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
   showNavigationTexts: PropTypes.bool.isRequired,
   navigationText: PropTypes.string.isRequired,
+  feedText: PropTypes.string,
+  feedLink: PropTypes.string,
+  historicText: PropTypes.string,
+  historicLink: PropTypes.string,
+  ticketsText: PropTypes.string,
+  ticketsLink: PropTypes.string,
 };
 
 export default Navbar;
