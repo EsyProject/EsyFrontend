@@ -113,9 +113,16 @@
 .reviews-title span {
   font-weight: 500;
   font-size: 12px;
-  color: #9AA0A6;
+  color: #9aa0a6;
 }
 
 .participant-reviews-main {
   display: flex;
+}
+
+.event-note {
+  width: 410px;
+  height: 85px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
 }
