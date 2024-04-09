@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
-import Modal from 'react-modal';
+/* eslint-disable react/no-unescaped-entities */
+import { useState } from 'react'
 import './Feed.css';
 import 'material-symbols';
 
 import { FaStar } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa6";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 const Feed = () => {
   const dynamicImage = 'src/assets/image-banner.png';
@@ -291,7 +289,7 @@ const Feed = () => {
                 <p>O que você mais gostou no evento?</p>
                 <div className="flags">
                   <div className="flag-container">
-                    {['Temáticas abordadas', 'Interações sociais'].map((option, index) => (
+                    {['Temáticas abordadas', 'Interações sociais'].map((option) => (
                       <button
                         key={option}
                         className={`flag-option ${selectedOptions.includes(option) ? 'active' : ''}`}
@@ -302,7 +300,7 @@ const Feed = () => {
                     ))}
                   </div>
                   <div className="flag-container">
-                    {['Alimentação', 'Pontualidade', 'Outro'].map((option, index) => (
+                    {['Alimentação', 'Pontualidade', 'Outro'].map((option) => (
                       <button
                         key={option}
                         className={`flag-option ${selectedOptions.includes(option) ? 'active' : ''}`}
