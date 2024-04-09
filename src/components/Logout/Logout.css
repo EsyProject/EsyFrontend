@@ -1,0 +1,84 @@
+.modal-logout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-logout-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 50px;
+    border-radius: 15px;
+    width: auto;
+    box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.modal-logout .modal-logout-content h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 66px;
+    color: #000000;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.modal-logout .modal-logout-content p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 0;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    cursor: pointer;
+    font-size: 40px;
+    color: #8787877e;
+    transition: .3s;
+    font-weight: 300;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.modal-logout .modal-logout-content .button-container .custom-button,
+.modal-logout .modal-logout-content .button-container .exit-button {
+    padding-left: 32px;
+    padding-right: 32px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.modal-logout .modal-logout-content .button-container .exit-button {
+    color: #008FDE;
+    background-color: #fff;
+    height: 50px;
+    border: 2px solid #008FDE;
+    font-weight: 500;
+}
+
+.modal-logout .modal-logout-content .button-container {
+    gap: 10px;
+    margin-top: 30px;
+}
