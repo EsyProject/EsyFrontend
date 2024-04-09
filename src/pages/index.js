@@ -26,6 +26,7 @@ import ButtonLink from "../components/ButtonLink/ButtonLink";
 import EventCard from "../components/EventCard/EventCard";
 import TicketsCard from "../components/TicketsCard/TicketsCard";
 import MessageModal from "../components/MessageModal/MessageModal";
+import StarRating from "../components/StarRating/StarRating";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -63,6 +64,7 @@ export {
   EventCard,
   TicketsCard,
   MessageModal,
+  StarRating,
 
   /* images */
   ImageLogin,
