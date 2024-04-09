@@ -62,8 +62,10 @@ const Dashboard = () => {
                 <div className="event-note">
                   <div className="note-content">
                     <h3>Nota do evento</h3>
-                    <h4>4,98</h4>
-                    <span>★</span>
+                    <div className="rate">
+                      <h4>4,98</h4>
+                      <span>★</span>
+                    </div>
                   </div>
                 </div>
                 <div className="evaluations">
