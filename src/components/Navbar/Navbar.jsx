@@ -28,37 +28,37 @@ const Navbar = ({
 
         {/* Link to event feed page */}
         {feedText && feedLink && (
-          <Link to={feedLink}>
-            <div className={activePage === "feed" ? "active" : ""}></div>
+          <Link to={feedLink} className={activePage === "feed" ? "active" : ""}>
             {showNavigationTexts && (
               <h4 className={activePage === "feed" ? "active" : ""}>
                 {feedText}
               </h4>
             )}
+            {activePage === "feed" && <div className="subtitle-underline-feed"></div>}
           </Link>
         )}
 
         {/* Link to event history page */}
         {secondText && secondLink && (
-          <Link to={secondLink}>
-            <div className={activePage === "historic" ? "active" : ""}></div>
+          <Link to={secondLink} className={activePage === "historic" ? "active" : ""}>
             {showNavigationTexts && (
               <h4 className={activePage === "historic" ? "active" : ""}>
                 {secondText}
               </h4>
             )}
+            {activePage === "historic" && <div className="subtitle-underline"></div>}
           </Link>
         )}
 
         {/* Link to ticket page */}
         {ticketsText && ticketsLink && (
-          <Link to={ticketsLink}>
-            <div className={activePage === "tickets" ? "active" : ""}></div>
+          <Link to={ticketsLink} className={activePage === "tickets" ? "active" : ""}>
             {showNavigationTexts && (
               <h4 className={activePage === "tickets" ? "active" : ""}>
                 {ticketsText}
               </h4>
             )}
+            {activePage === "tickets" && <div className="subtitle-underline-tickets"></div>}
           </Link>
         )}
       </div>
