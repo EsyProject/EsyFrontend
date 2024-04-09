@@ -125,11 +125,18 @@
   height: 85px;
   border: 1px solid #e8eaed;
   border-radius: 12px;
+  padding: 11px 44px 11px 44px;
 }
 
 .note-content {
   display: flex;
   gap: 30px;
+  align-items: center;
+}
+
+.note-content h1 {
+  font-weight: 500;
+  font-size: 42px;
 }
 
 .rate {
