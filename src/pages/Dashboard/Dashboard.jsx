@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sidebar, Navbar } from "../../pages/index";
+import "material-symbols";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -63,7 +64,8 @@ const Dashboard = () => {
                   <div className="note-content">
                     <h3>Nota do evento</h3>
                     <div className="rate">
-                      <h1>4,98</h1> <span>★</span>
+                      <h1>4,98</h1>
+                      <span className="material-symbols-rounded">grade</span>
                     </div>
                   </div>
                 </div>
