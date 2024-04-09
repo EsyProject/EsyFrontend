@@ -163,3 +163,30 @@
   flex-direction: column;
   gap: 15px;
 }
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+}
+
+.avatar h4 {
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.participant-reviews-main .evaluation:nth-child(1) .avatar {
+  background-color: #E472DB; 
+}
+
+.participant-reviews-main .evaluation:nth-child(2) .avatar {
+  background-color: #7277E4;
+}
+
+.participant-reviews-main .evaluation:nth-child(3) .avatar {
+  background-color: #FFA36F;
+}
+
