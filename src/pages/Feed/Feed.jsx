@@ -93,7 +93,7 @@ const Feed = () => {
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
         currentPageIcon="home"
-        activePage="home"
+        activePage="feed"
         navigationText="Home"
         showNavigationTexts={true}
         feedText="Feed de eventos"
