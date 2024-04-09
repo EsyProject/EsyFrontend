@@ -14,12 +14,12 @@ const Schedule = () => {
 
   const events = [
     {
-      title: 'Fórum da Sustentabilidade',
+      title: "Fórum da Sustentabilidade",
       start: new Date(2024, 3, 7, 10, 0), // ano, mês (0-11), dia, hora, minuto
       end: new Date(2024, 3, 7, 12, 0),
     },
     {
-      title: 'Ciclo de Saúde Mental',
+      title: "Ciclo de Saúde Mental",
       start: new Date(2024, 3, 10, 15, 0),
       end: new Date(2024, 3, 10, 17, 0),
     },
@@ -56,6 +56,14 @@ const Schedule = () => {
         activePage="schedule"
         showNavigationTexts={true}
         navigationText="Meus eventos"
+        feedText="Próximos eventos"
+        feedLink="/schedule"
+        secondText="Histórico de eventos"
+        secondLink="/historic"
+        ticketsText="Tickets"
+        ticketsLink="/tickets"
+        scheduleText="Próximos Eventos"
+        scheduleLink="/schedule"
       />
 
       <Sidebar

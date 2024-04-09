@@ -9,6 +9,7 @@ import Account from "./Account/Account";
 import Settings from "./Settings/Settings";
 import Tickets from "./Tickets/Tickets";
 import Dashboard from "./Dashboard/Dashboard";
+import Feed from "./Feed/Feed";
 
 /* components */
 import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
@@ -26,6 +27,7 @@ import ButtonLink from "../components/ButtonLink/ButtonLink";
 import EventCard from "../components/EventCard/EventCard";
 import TicketsCard from "../components/TicketsCard/TicketsCard";
 import MessageModal from "../components/MessageModal/MessageModal";
+import StarRating from "../components/StarRating/StarRating";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -46,6 +48,7 @@ export {
   Settings,
   Tickets,
   Dashboard,
+  Feed,
 
   /* components */
   InteractiveBubble,
@@ -63,6 +66,7 @@ export {
   EventCard,
   TicketsCard,
   MessageModal,
+  StarRating,
 
   /* images */
   ImageLogin,

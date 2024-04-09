@@ -36,6 +36,12 @@ const Tickets = () => {
         activePage="tickets"
         navigationText="Meus eventos"
         showNavigationTexts={true}
+        feedText="Próximos eventos"
+        feedLink="/schedule"
+        secondText="Histórico de eventos"
+        secondLink="/historic"
+        ticketsText="Tickets"
+        ticketsLink="/tickets"
       />
 
       <Sidebar

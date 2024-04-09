@@ -50,6 +50,12 @@ const Historic = () => {
         activePage="historic"
         showNavigationTexts={true}
         navigationText="Meus eventos"
+        feedText="Próximos eventos"
+        feedLink="/schedule"
+        secondText="Histórico de eventos"
+        secondLink="/historic"
+        ticketsText="Tickets"
+        ticketsLink="/tickets"
       />
 
       <Sidebar

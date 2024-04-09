@@ -1,77 +1,73 @@
 import PropTypes from "prop-types";
-import "material-symbols";
 import { Link } from "react-router-dom";
+import "material-symbols";
 import "./Navbar.css";
 
-const Navbar = ({
-  currentPageIcon,
-  activePage,
-  showNavigationTexts,
-  navigationText,
-}) => {
-  return (
-    <div className="navbar-container">
-      <div className="navbar-content">
-        {/* Container for icon */}
-        <div className="rectangle">
-          <span className="material-symbols-outlined">{currentPageIcon}</span>
-        </div>
+const navLinks = [
+  {
+    key: "feed",
+    text: "Feed de Eventos",
+    href: "/feed",
+  },
+  {
+    key: "description",
+    text: "Descrição",
+    href: "/description",
+  },
+  {
+    key: "schedule",
+    text: "Próximos Eventos",
+    href: "/schedule",
+  },
+  {
+    key: "historic",
+    text: "Histórico de Eventos",
+    href: "/historic",
+  },
+  {
+    key: "tickets",
+    text: "Tickets",
+    href: "/tickets",
+  },
+];
 
-        <h2>{navigationText}</h2>
+const NavLink = ({ activePage, showNavigationTexts, text, href }) => (
+  <Link to={href} className={activePage === href ? "active" : ""}>
+    {showNavigationTexts && <h4 className={activePage === href ? "active" : ""}>{text}</h4>}
+    {activePage === href && <div className={`subtitle-underline-${href.substr(1)}`}></div>}
+  </Link>
+);
 
-        {/* Link to the schedule page */}
-        {showNavigationTexts && (
-          <Link to="/schedule">
-            <h4 className={activePage === "schedule" ? "active" : ""}>
-              Próximos eventos
-            </h4>
-          </Link>
-        )}
-
-        {/* Link to the historic page */}
-        <Link to="/historic">
-          <div
-            className={
-              activePage === "schedule" ? "active subtitle-underline-next" : ""
-            }
-          ></div>
-          {showNavigationTexts && (
-            <h4 className={activePage === "historic" ? "active" : ""}>
-              Histórico de eventos
-            </h4>
-          )}
-        </Link>
-
-        {/* Link to the tickets page */}
-        {showNavigationTexts && (
-          <Link to="/tickets">
-            <div
-              className={`${
-                activePage === "tickets" ? "active subtitle-underline-tickets" : ""
-              }`}
-            ></div>
-            <h4 className={activePage === "tickets" ? "active" : ""}>
-              Tickets
-            </h4>
-          </Link>
-        )}
-
-        {/* Underline for the "Historical Events" navigation */}
-        <div
-          className={
-            activePage === "historic" ? "active subtitle-underline" : ""
-          }
-        ></div>
-      </div>
-      {/* Container for notification icon */}
-      <div className="navbar-icon">
-        <span className="material-symbols-outlined">notifications</span>
-      </div>
-    </div>
-  );
+NavLink.propTypes = {
+  activePage: PropTypes.string.isRequired,
+  showNavigationTexts: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 };
 
-// PropTypes for Navbar component
+const Navbar = ({ currentPageIcon, activePage, showNavigationTexts, navigationText }) => (
+  <div className="navbar-container">
+    <div className="navbar-content">
+      <div className="rectangle">
+        <span className="material-symbols-outlined">{currentPageIcon}</span>
+      </div>
+      <h2>{navigationText}</h2>
+      {navLinks.map(({ key, text, href }) => (
+        <NavLink
+          key={key}
+          activePage={activePage}
+          showNavigationTexts={showNavigationTexts}
+          text={text}
+          href={href}
+        />
+      ))}
+    </div>
+    <div className="navbar-icon">
+      <span className="material-symbols-outlined">notifications</span>
+    </div>
+  </div>
+);
+
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,

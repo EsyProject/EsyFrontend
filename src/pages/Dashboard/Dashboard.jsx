@@ -77,10 +77,11 @@ const Dashboard = () => {
                       </div>
                       <div className="user-details">
                         <h5>Isabela Rodrigues</h5>
-                        <span>3 meses atrás</span>
+                        <div className="rating">★★★★★</div>
                       </div>
+                      <span>3 meses atrás</span>
                     </div>
-                    <div className="rating">★★★★★</div>
+
                     <p>
                       Evento excelente! Ótimas palestras e networking incrível.
                     </p>
@@ -93,10 +94,10 @@ const Dashboard = () => {
                       </div>
                       <div className="user-details">
                         <h5>Lucas Oliveira</h5>
-                        <span>3 meses atrás</span>
+                        <div className="rating">★★★★★</div>
                       </div>
+                      <span>3 meses atrás</span>
                     </div>
-                    <div className="rating">★★★★★</div>
                     <p>
                       Adorei o evento! A organização foi impecável e aprendi
                       muito com os workshops
@@ -110,10 +111,11 @@ const Dashboard = () => {
                       </div>
                       <div className="user-details">
                         <h5>Carolina Santos</h5>
-                        <span>3 meses atrás</span>
+                        <div className="rating">★★★★★</div>
                       </div>
+                      <span>3 meses atrás</span>
                     </div>
-                    <div className="rating">★★★★★</div>
+
                     <p>
                       Evento fantástico! As atividades foram muito envolventes e
                       as discussões foram extremamente enriquecedoras
