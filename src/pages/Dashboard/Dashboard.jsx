@@ -29,22 +29,22 @@ const Dashboard = () => {
           <h2>Análise quantitativa geral</h2>
           <div className="metrics">
             <div className="metric registrations">
-              <div className="rectangle-metric"></div>
+              <div className="rectangle-metric rectangle-registrations"></div>
               <p>Inscrições</p>
               <h1>102</h1>
             </div>
             <div className="metric participations">
-              <div className="rectangle-metric"></div>
+              <div className="rectangle-metric rectangle-participations"></div>
               <p>Participações</p>
               <h1>98</h1>
             </div>
             <div className="metric absences">
-              <div className="rectangle-metric"></div>
+              <div className="rectangle-metric rectangle-absences"></div>
               <p>Ausências</p>
               <h1>4</h1>
             </div>
             <div className="metric success-rate">
-              <div className="rectangle-metric"></div>
+              <div className="rectangle-metric rectangle-success-rate"></div>
               <p>Taxa de sucesso</p>
               <h1>99%</h1>
             </div>
