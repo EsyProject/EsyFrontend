@@ -10,8 +10,8 @@ const Navbar = ({
   navigationText,
   feedText,
   feedLink,
-  historicText,
-  historicLink,
+  secondText,
+  secondLink,
   ticketsText,
   ticketsLink,
 }) => {
@@ -39,12 +39,12 @@ const Navbar = ({
         )}
 
         {/* Link to event history page */}
-        {historicText && historicLink && (
-          <Link to={historicLink}>
+        {secondText && secondLink && (
+          <Link to={secondLink}>
             <div className={activePage === "historic" ? "active" : ""}></div>
             {showNavigationTexts && (
               <h4 className={activePage === "historic" ? "active" : ""}>
-                {historicText}
+                {secondText}
               </h4>
             )}
           </Link>
@@ -78,8 +78,8 @@ Navbar.propTypes = {
   navigationText: PropTypes.string.isRequired,
   feedText: PropTypes.string,
   feedLink: PropTypes.string,
-  historicText: PropTypes.string,
-  historicLink: PropTypes.string,
+  secondText: PropTypes.string,
+  secondLink: PropTypes.string,
   ticketsText: PropTypes.string,
   ticketsLink: PropTypes.string,
 };

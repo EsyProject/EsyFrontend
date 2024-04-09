@@ -96,6 +96,10 @@ const Feed = () => {
         activePage="home"
         navigationText="Home"
         showNavigationTexts={true}
+        feedText="Feed de eventos"
+        feedLink="/feed"
+        secondText="Descrição"
+        secondLink="/description"
       />
 
       <Sidebar
