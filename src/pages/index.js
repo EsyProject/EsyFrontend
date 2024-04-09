@@ -7,8 +7,6 @@ import Historic from "./Historic/Historic";
 import Schedule from "./Schedule/Schedule";
 import Account from "./Account/Account";
 import Settings from "./Settings/Settings";
-import Tickets from "./Tickets/Tickets";
-import Dashboard from "./Dashboard/Dashboard";
 
 /* components */
 import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
@@ -44,10 +42,6 @@ export {
   Schedule,
   Account,
   Settings,
-  Tickets,
-  Dashboard,
-
-  /* components */
   InteractiveBubble,
   ButtonLink,
   Searchbar,
