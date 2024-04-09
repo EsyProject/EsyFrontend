@@ -41,6 +41,7 @@ footer section {
 
     position: relative;
     height: 620px;
+    overflow: hidden;
 }
 
 .banner .text {
