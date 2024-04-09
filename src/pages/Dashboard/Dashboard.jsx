@@ -61,7 +61,7 @@ const Dashboard = () => {
               <div className="event-reviews">
                 <div className="event-note">
                   <div className="note-content">
-                    <h2>Nota do evento</h2>
+                    <h3>Nota do evento</h3>
                     <h4>4,98</h4>
                     <span>★</span>
                   </div>
