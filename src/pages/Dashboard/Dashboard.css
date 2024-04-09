@@ -49,16 +49,43 @@
   position: relative;
 }
 
+.registrations {
+  background: rgb(24, 131, 126, 0.1);
+}
+
+.participations {
+  background: rgb(0, 136, 74, 0.1);
+}
+
+.absences {
+  background: rgb(0, 123, 192, 0.1);
+}
+
+.success-rate {
+  background: rgb(158, 40, 150, 0.1);
+}
+
 .rectangle-metric {
   position: absolute;
   width: 16.68px;
   height: 100%;
   left: 0;
   top: 0;
-  background: #18837e;
   border-radius: 12px 0px 0px 12px;
 }
 
-.registrations {
-  background: rgb(24, 131, 126, 0.1);
+.rectangle-registrations {
+  background: #18837E;
+}
+
+.rectangle-participations {
+  background: #00884A;
+}
+
+.rectangle-absences {
+  background: #007BC0;
+}
+
+.rectangle-success-rate {
+  background: #9E2896;
 }
