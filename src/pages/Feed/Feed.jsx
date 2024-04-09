@@ -90,7 +90,7 @@ const Feed = () => {
   };
 
   return (
-    <div className={`dashboard-container ${sidebarOpen ? "sidebar-open" : ""}`}>
+    <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
         currentPageIcon="dashboard"
         activePage="dashboard"
