@@ -34,7 +34,6 @@
   align-items: center;
   width: 368px;
   height: 114px;
-  background: rgb(24, 131, 126, 0.1);
   border-radius: 12px;
   padding: 28px;
 }
@@ -45,7 +44,6 @@
   align-items: center;
   width: 368px;
   height: 114px;
-  background: rgb(24, 131, 126, 0.1);
   border-radius: 12px;
   padding: 28px;
   position: relative;
@@ -59,4 +57,8 @@
   top: 0;
   background: #18837e;
   border-radius: 12px 0px 0px 12px;
+}
+
+.rectangle-metric .registrations {
+  background: rgb(24, 131, 126, 0.1);
 }
