@@ -1,87 +1,78 @@
 import PropTypes from "prop-types";
-import "material-symbols";
 import { Link } from "react-router-dom";
+import "material-symbols";
 import "./Navbar.css";
 
-const Navbar = ({
-  currentPageIcon,
-  activePage,
-  showNavigationTexts,
-  navigationText,
-  feedText,
-  feedLink,
-  secondText,
-  secondLink,
-  ticketsText,
-  ticketsLink,
-}) => {
-  return (
-    <div className="navbar-container">
-      <div className="navbar-content">
-        {/* Container for icon */}
-        <div className="rectangle">
-          <span className="material-symbols-outlined">{currentPageIcon}</span>
-        </div>
+const navLinks = [
+  {
+    key: "feed",
+    text: "Feed de Eventos",
+    href: "/feed",
+  },
+  {
+    key: "description",
+    text: "Descrição",
+    href: "/description",
+  },
+  {
+    key: "schedule",
+    text: "Próximos Eventos",
+    href: "/schedule",
+  },
+  {
+    key: "historic",
+    text: "Histórico de Eventos",
+    href: "/historic",
+  },
+  {
+    key: "tickets",
+    text: "Tickets",
+    href: "/tickets",
+  },
+];
 
-        {/* Navigation text */}
-        <h2>{navigationText}</h2>
+const NavLink = ({ activePage, showNavigationTexts, text, href }) => (
+  <Link to={href} className={activePage === href ? "active" : ""}>
+    {showNavigationTexts && <h4 className={activePage === href ? "active" : ""}>{text}</h4>}
+    {activePage === href && <div className={`subtitle-underline-${href.substr(1)}`}></div>}
+  </Link>
+);
 
-        {/* Link to event feed page */}
-        {feedText && feedLink && (
-          <Link to={feedLink} className={activePage === "feed" ? "active" : ""}>
-            {showNavigationTexts && (
-              <h4 className={activePage === "feed" ? "active" : ""}>
-                {feedText}
-              </h4>
-            )}
-            {activePage === "feed" && <div className="subtitle-underline-feed"></div>}
-          </Link>
-        )}
-
-        {/* Link to event history page */}
-        {secondText && secondLink && (
-          <Link to={secondLink} className={activePage === "historic" ? "active" : ""}>
-            {showNavigationTexts && (
-              <h4 className={activePage === "historic" ? "active" : ""}>
-                {secondText}
-              </h4>
-            )}
-            {activePage === "historic" && <div className="subtitle-underline"></div>}
-          </Link>
-        )}
-
-        {/* Link to ticket page */}
-        {ticketsText && ticketsLink && (
-          <Link to={ticketsLink} className={activePage === "tickets" ? "active" : ""}>
-            {showNavigationTexts && (
-              <h4 className={activePage === "tickets" ? "active" : ""}>
-                {ticketsText}
-              </h4>
-            )}
-            {activePage === "tickets" && <div className="subtitle-underline-tickets"></div>}
-          </Link>
-        )}
-      </div>
-      {/* Container para o ícone de notificação */}
-      <div className="navbar-icon">
-        <span className="material-symbols-outlined">notifications</span>
-      </div>
-    </div>
-  );
+NavLink.propTypes = {
+  activePage: PropTypes.string.isRequired,
+  showNavigationTexts: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 };
 
-// PropTypes para o componente Navbar
+const Navbar = ({ currentPageIcon, activePage, showNavigationTexts, navigationText }) => (
+  <div className="navbar-container">
+    <div className="navbar-content">
+      <div className="rectangle">
+        <span className="material-symbols-outlined">{currentPageIcon}</span>
+      </div>
+      <h2>{navigationText}</h2>
+      {navLinks.map(({ key, text, href }) => (
+        <NavLink
+          key={key}
+          activePage={activePage}
+          showNavigationTexts={showNavigationTexts}
+          text={text}
+          href={href}
+        />
+      ))}
+    </div>
+    <div className="navbar-icon">
+      <span className="material-symbols-outlined">notifications</span>
+    </div>
+  </div>
+);
+
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
   showNavigationTexts: PropTypes.bool.isRequired,
   navigationText: PropTypes.string.isRequired,
-  feedText: PropTypes.string,
-  feedLink: PropTypes.string,
-  secondText: PropTypes.string,
-  secondLink: PropTypes.string,
-  ticketsText: PropTypes.string,
-  ticketsLink: PropTypes.string,
 };
 
 export default Navbar;
