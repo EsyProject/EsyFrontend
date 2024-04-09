@@ -190,3 +190,14 @@
   background-color: #FFA36F;
 }
 
+.user-info {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.user-details {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
