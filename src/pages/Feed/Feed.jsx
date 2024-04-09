@@ -100,7 +100,7 @@ const Feed = () => {
         </div>
         <div className="container-image-banner">
           {/* <div className="shadow"></div> */}
-          <div className="overlay"></div>
+          <div className="overlay-image"></div>
           <div className="blur-green"></div>
           <img src={dynamicImage} alt="" />
         </div>
