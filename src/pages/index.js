@@ -9,6 +9,7 @@ import Account from "./Account/Account";
 import Settings from "./Settings/Settings";
 import Tickets from "./Tickets/Tickets";
 import Dashboard from "./Dashboard/Dashboard";
+import Feed from "./Feed/Feed";
 
 /* components */
 import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
@@ -47,6 +48,7 @@ export {
   Settings,
   Tickets,
   Dashboard,
+  Feed,
 
   /* components */
   InteractiveBubble,
