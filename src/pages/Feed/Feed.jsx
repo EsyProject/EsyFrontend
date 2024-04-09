@@ -92,14 +92,14 @@ const Feed = () => {
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
-        currentPageIcon="dashboard"
-        activePage="dashboard"
-        navigationText="Dashboard"
-        showNavigationTexts={false}
+        currentPageIcon="home"
+        activePage="home"
+        navigationText="Home"
+        showNavigationTexts={true}
       />
 
       <Sidebar
-        activePage="dashboard"
+        activePage="home"
         isOpen={sidebarOpen}
         toggleSidebar={toggleSidebar}
       />
