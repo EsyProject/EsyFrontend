@@ -155,4 +155,11 @@
   height: 535px;
   border: 1px solid #e8eaed;
   border-radius: 12px;
+  padding: 30px;
+}
+
+.event-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
