@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { Sidebar, Navbar } from "../../pages/index";
 import "material-symbols";
@@ -8,6 +9,18 @@ const Dashboard = () => {
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+  };
+
+  const renderIcons = (count) => {
+    const icons = [];
+    for (let i = 0; i < count; i++) {
+      icons.push(
+        <span key={i} className="material-symbols-rounded">
+          grade
+        </span>
+      );
+    }
+    return icons;
   };
 
   return (
@@ -70,56 +83,68 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="evaluations">
-                  <div className="evaluation">
-                    <div className="user-info">
-                      <div className="avatar">
-                        <h4>IR</h4>
+                  <div className="row">
+                    <section>
+                      <div className="profile">
+                        <div className="circle">
+                          <p>IR</p>
+                        </div>
+                        <div className="comment-header">
+                          <div className="row">
+                            <p className="name">Isabela Rodrigues</p>
+                            <p className="month">3 meses atrás</p>
+                          </div>
+                          <div className="stars">{renderIcons(5)}</div>
+                        </div>
                       </div>
-                      <div className="user-details">
-                        <h5>Isabela Rodrigues</h5>
-                        <div className="rating">★★★★★</div>
-                      </div>
-                      <span>3 meses atrás</span>
-                    </div>
-
-                    <p>
-                      Evento excelente! Ótimas palestras e networking incrível.
-                    </p>
+                      <p>
+                        "Evento excelente! Ótimas palestras e networking
+                        incrível"
+                      </p>
+                    </section>
                   </div>
 
-                  <div className="evaluation">
-                    <div className="user-info">
-                      <div className="avatar">
-                        <h4>LO</h4>
+                  <div className="row">
+                    <section>
+                      <div className="profile">
+                        <div className="circle">
+                          <p>LO</p>
+                        </div>
+                        <div className="comment-header">
+                          <div className="row">
+                            <p className="name">Lucas Oliveira</p>
+                            <p className="month">3 meses atrás</p>
+                          </div>
+                          <div className="stars">{renderIcons(5)}</div>
+                        </div>
                       </div>
-                      <div className="user-details">
-                        <h5>Lucas Oliveira</h5>
-                        <div className="rating">★★★★★</div>
-                      </div>
-                      <span>3 meses atrás</span>
-                    </div>
-                    <p>
-                      Adorei o evento! A organização foi impecável e aprendi
-                      muito com os workshops
-                    </p>
+                      <p>
+                        "Adorei o evento! A organização foi impecável e aprendi
+                        muito com os workshops"
+                      </p>
+                    </section>
                   </div>
 
-                  <div className="evaluation">
-                    <div className="user-info">
-                      <div className="avatar">
-                        <h4>CS</h4>
+                  <div className="row">
+                    <section>
+                      <div className="profile">
+                        <div className="circle">
+                          <p>CS</p>
+                        </div>
+                        <div className="comment-header">
+                          <div className="row">
+                            <p className="name">Carolina Santos</p>
+                            <p className="month">3 meses atrás</p>
+                          </div>
+                          <div className="stars">{renderIcons(5)}</div>
+                        </div>
                       </div>
-                      <div className="user-details">
-                        <h5>Carolina Santos</h5>
-                        <div className="rating">★★★★★</div>
-                      </div>
-                      <span>3 meses atrás</span>
-                    </div>
-
-                    <p>
-                      Evento fantástico! As atividades foram muito envolventes e
-                      as discussões foram extremamente enriquecedoras
-                    </p>
+                      <p>
+                        "Evento fantástico! As atividades foram muito
+                        envolventes e as discussões foram extremamente
+                        enriquecedoras"
+                      </p>
+                    </section>
                   </div>
                 </div>
               </div>

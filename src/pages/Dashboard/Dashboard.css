@@ -156,6 +156,9 @@
   border: 1px solid #e8eaed;
   border-radius: 12px;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .event-reviews {
@@ -164,30 +167,16 @@
   gap: 15px;
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  display: grid;
-  place-items: center;
+.event-reviews .evaluations :nth-child(1) .profile .circle {
+  background-color: #e472db;
 }
 
-.avatar h4 {
-  font-weight: 500;
-  font-size: 20px;
-  color: #FFFFFF;
+.event-reviews .evaluations :nth-child(2) .profile .circle {
+  background-color: #7277e4;
 }
 
-.participant-reviews-main .evaluation:nth-child(1) .avatar {
-  background-color: #E472DB; 
-}
-
-.participant-reviews-main .evaluation:nth-child(2) .avatar {
-  background-color: #7277E4;
-}
-
-.participant-reviews-main .evaluation:nth-child(3) .avatar {
-  background-color: #FFA36F;
+.event-reviews .evaluations :nth-child(3) .profile .circle {
+  background-color: #ffa36f;
 }
 
 .user-info {
@@ -198,4 +187,62 @@
 
 .user-details {
   flex-direction: column;
+}
+
+.event-reviews .evaluations .profile {
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.event-reviews .evaluations .profile .circle {
+  font-weight: 500;
+  font-size: 24px;
+  color: #ffffff;
+  background-color: black;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+}
+
+.event-reviews .evaluations .profile .row {
+  align-items: baseline;
+  gap: 10px;
+  display: flex;
+}
+
+.event-reviews .evaluations .profile .row .comment-header .stars {
+  display: flex;
+  flex-direction: row;
+}
+
+.event-reviews .evaluations .profile .row .name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #0e1013;
+}
+
+.event-reviews .evaluations p {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.event-reviews .evaluations .circle p {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.event-reviews .evaluations .profile .row .month {
+  font-weight: 400;
+  font-size: 12px;
+  color: #9aa0a6;
+}
+
+.event-reviews .evaluations .profile .comment-header .stars {
+  gap: 2px;
+  color: #ffcd4d;
 }
