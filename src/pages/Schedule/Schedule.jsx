@@ -57,8 +57,8 @@ const Schedule = () => {
         showNavigationTexts={true}
         navigationText="Meus eventos"
         tabs={[
-          { name: "proximos-eventos", text: "Próximos Eventos", link: "/schedule" },
-          { name: "historico", text: "Histórico", link: "/historic" },
+          { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
+          { name: "historic", text: "Histórico de eventos", link: "/historic" },
           { name: "tickets", text: "Tickets", link: "/tickets" }
         ]}
       />
