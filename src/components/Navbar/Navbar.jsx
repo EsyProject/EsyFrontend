@@ -20,19 +20,21 @@ const Navbar = ({
         {/* Navigation text */}
         <h2>{navigationText}</h2>
 
-        {/* Renderização das guias */}
-        {tabs.map((tab, index) => (
-          <Link key={index} to={tab.link} className={activePage === tab.name ? "active" : ""}>
-            {showNavigationTexts && (
-              <h4 className={activePage === tab.name ? "active" : ""}>
-                {tab.text}
-              </h4>
-            )}
-            {activePage === tab.name && <div className={`subtitle-underline-${tab.name}`}></div>}
-          </Link>
-        ))}
+        {/* Rendering of tabs */}
+        {tabs && tabs.length > 0 && (
+          tabs.map((tab, index) => (
+            <Link key={index} to={tab.link} className={activePage === tab.name ? "active" : ""}>
+              {showNavigationTexts && (
+                <h4 className={activePage === tab.name ? "active" : ""}>
+                  {tab.text}
+                </h4>
+              )}
+              {activePage === tab.name && <div className={`subtitle-underline-${tab.name}`}></div>}
+            </Link>
+          ))
+        )}
       </div>
-      {/* Container para o ícone de notificação */}
+      {/* Container for notification icon */}
       <div className="navbar-icon">
         <span className="material-symbols-outlined">notifications</span>
       </div>
@@ -40,7 +42,7 @@ const Navbar = ({
   );
 };
 
-// PropTypes para o componente Navbar
+// PropTypes for the Navbar component
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
@@ -52,7 +54,7 @@ Navbar.propTypes = {
       text: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
 };
 
 export default Navbar;
