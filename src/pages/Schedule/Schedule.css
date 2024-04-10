@@ -20,5 +20,5 @@
 
 .container-main {
     padding-bottom: 60px;
-    /* padding-right: 30px; */
+    max-width: 1146px;
 }
