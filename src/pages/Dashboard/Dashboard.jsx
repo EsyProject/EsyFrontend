@@ -46,7 +46,10 @@ const Dashboard = () => {
       <div className="dashboard-container-main">
         <div className="left-column-dashboard">
           <div className="general-analysis">
-            <button onClick={toggleMenu}>Abrir/Fechar Menu</button>
+            <button onClick={toggleMenu}>
+              Eventos do mês
+              <span className="material-symbols-rounded">keyboard_double_arrow_right</span>
+            </button>
             <h2>Análise quantitativa geral</h2>
             <div className="metrics">
               <div className="metric registrations">
