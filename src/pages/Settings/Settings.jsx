@@ -14,7 +14,7 @@ const Settings = () => {
   };
 
   const UserInfo = ({ label, value }) => (
-    <div className="user-info">
+    <div className="user-info-settings">
       <p>{label}</p>
       <h4>{value}</h4>
     </div>
