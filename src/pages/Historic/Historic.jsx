@@ -77,7 +77,7 @@ const Historic = () => {
             </h4>
           </div>
 
-          <div className="events absences">
+          <div className="events absences-event">
             <h4>
               Faltas <span>4</span>
             </h4>
