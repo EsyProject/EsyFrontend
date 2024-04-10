@@ -96,10 +96,10 @@ const Feed = () => {
         activePage="feed"
         navigationText="Home"
         showNavigationTexts={true}
-        feedText="Feed de eventos"
-        feedLink="/feed"
-        secondText="Descrição"
-        secondLink="/description"
+        tabs={[
+          { name: "feed", text: "Feed de eventos", link: "/feed" },
+          { name: "descrição", text: "Descrição", link: "/description" },
+        ]}
       />
 
       <Sidebar
