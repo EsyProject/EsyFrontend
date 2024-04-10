@@ -770,3 +770,7 @@ label.modal-permission {
   color: #fff;
   font-size: 34px;
 }
+
+.rbc-off-range-bg {
+  background: transparent;
+}
