@@ -52,7 +52,7 @@ const Historic = () => {
         navigationText="Meus eventos"
         tabs={[
           { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
-          { name: "historic", text: "Histórico", link: "/historic" },
+          { name: "historic", text: "Histórico de eventos", link: "/historic" },
           { name: "tickets", text: "Tickets", link: "/tickets" }
         ]}
       />
