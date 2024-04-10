@@ -98,7 +98,7 @@ const Feed = () => {
         showNavigationTexts={true}
         tabs={[
           { name: "feed", text: "Feed de eventos", link: "/feed" },
-          { name: "descrição", text: "Descrição", link: "/description" },
+          { name: "description", text: "Descrição", link: "/description" },
         ]}
       />
 
