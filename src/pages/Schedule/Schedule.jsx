@@ -56,14 +56,11 @@ const Schedule = () => {
         activePage="schedule"
         showNavigationTexts={true}
         navigationText="Meus eventos"
-        feedText="Próximos eventos"
-        feedLink="/schedule"
-        secondText="Histórico de eventos"
-        secondLink="/historic"
-        ticketsText="Tickets"
-        ticketsLink="/tickets"
-        scheduleText="Próximos Eventos"
-        scheduleLink="/schedule"
+        tabs={[
+          { name: "proximos-eventos", text: "Próximos Eventos", link: "/schedule" },
+          { name: "historico", text: "Histórico", link: "/historic" },
+          { name: "tickets", text: "Tickets", link: "/tickets" }
+        ]}
       />
 
       <Sidebar
