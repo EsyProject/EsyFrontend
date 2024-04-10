@@ -246,3 +246,14 @@
   gap: 2px;
   color: #ffcd4d;
 }
+
+.highlights {
+  width: 779px;
+  height: 635px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
