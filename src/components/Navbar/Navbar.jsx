@@ -1,78 +1,58 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "material-symbols";
 import "./Navbar.css";
 
-const navLinks = [
-  {
-    key: "feed",
-    text: "Feed de Eventos",
-    href: "/feed",
-  },
-  {
-    key: "description",
-    text: "Descrição",
-    href: "/description",
-  },
-  {
-    key: "schedule",
-    text: "Próximos Eventos",
-    href: "/schedule",
-  },
-  {
-    key: "historic",
-    text: "Histórico de Eventos",
-    href: "/historic",
-  },
-  {
-    key: "tickets",
-    text: "Tickets",
-    href: "/tickets",
-  },
-];
+const Navbar = ({
+  currentPageIcon,
+  activePage,
+  showNavigationTexts,
+  navigationText,
+  tabs,
+}) => {
+  return (
+    <div className="navbar-container">
+      <div className="navbar-content">
+        {/* Container for icon */}
+        <div className="rectangle">
+          <span className="material-symbols-outlined">{currentPageIcon}</span>
+        </div>
 
-const NavLink = ({ activePage, showNavigationTexts, text, href }) => (
-  <Link to={href} className={activePage === href ? "active" : ""}>
-    {showNavigationTexts && <h4 className={activePage === href ? "active" : ""}>{text}</h4>}
-    {activePage === href && <div className={`subtitle-underline-${href.substr(1)}`}></div>}
-  </Link>
-);
+        {/* Navigation text */}
+        <h2>{navigationText}</h2>
 
-NavLink.propTypes = {
-  activePage: PropTypes.string.isRequired,
-  showNavigationTexts: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+        {/* Renderização das guias */}
+        {tabs.map((tab, index) => (
+          <Link key={index} to={tab.link} className={activePage === tab.name ? "active" : ""}>
+            {showNavigationTexts && (
+              <h4 className={activePage === tab.name ? "active" : ""}>
+                {tab.text}
+              </h4>
+            )}
+            {activePage === tab.name && <div className={`subtitle-underline-${tab.name}`}></div>}
+          </Link>
+        ))}
+      </div>
+      {/* Container para o ícone de notificação */}
+      <div className="navbar-icon">
+        <span className="material-symbols-outlined">notifications</span>
+      </div>
+    </div>
+  );
 };
 
-const Navbar = ({ currentPageIcon, activePage, showNavigationTexts, navigationText }) => (
-  <div className="navbar-container">
-    <div className="navbar-content">
-      <div className="rectangle">
-        <span className="material-symbols-outlined">{currentPageIcon}</span>
-      </div>
-      <h2>{navigationText}</h2>
-      {navLinks.map(({ key, text, href }) => (
-        <NavLink
-          key={key}
-          activePage={activePage}
-          showNavigationTexts={showNavigationTexts}
-          text={text}
-          href={href}
-        />
-      ))}
-    </div>
-    <div className="navbar-icon">
-      <span className="material-symbols-outlined">notifications</span>
-    </div>
-  </div>
-);
-
+// PropTypes para o componente Navbar
 Navbar.propTypes = {
   currentPageIcon: PropTypes.string.isRequired,
   activePage: PropTypes.string.isRequired,
   showNavigationTexts: PropTypes.bool.isRequired,
   navigationText: PropTypes.string.isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Navbar;

@@ -99,7 +99,7 @@ h4.active {
   color: #17181b;
 }
 
-.subtitle-underline-historic {
+.subtitle-underline {
   position: absolute;
   width: 143px;
   height: 4px;
@@ -122,7 +122,7 @@ h4.active {
   transition: transform 0.3s ease, width 0.3s ease;
 }
 
-.subtitle-underline-schedule {
+.subtitle-underline-next {
   position: absolute;
   width: 130px;
   height: 4px;
