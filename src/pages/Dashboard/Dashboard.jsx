@@ -44,11 +44,13 @@ const Dashboard = () => {
       />
 
       <div className="dashboard-container-main">
-        <div className="left-column-dashboard">
+        <div className={`left-column-dashboard ${menuOpen ? "menu-open" : ""}`}>
           <div className="general-analysis">
             <button onClick={toggleMenu}>
               Eventos do mês
-              <span className="material-symbols-rounded">keyboard_double_arrow_right</span>
+              <span className="material-symbols-rounded">
+                keyboard_double_arrow_right
+              </span>
             </button>
             <h2>Análise quantitativa geral</h2>
             <div className="metrics">
