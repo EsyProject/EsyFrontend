@@ -278,7 +278,7 @@
 
 .suggestion h5 {
   font-size: 14px;
-  color: #2E3134;
+  color: #2e3134;
   margin-bottom: 10px;
 }
 
@@ -287,7 +287,6 @@
   font-size: 24px;
   margin-bottom: 23px;
 }
-
 
 .dashboard-container-main {
   transition: margin-left 0.3s ease;
@@ -313,4 +312,24 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+}
+
+.general-analysis button {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding-left: 16px;
+  width: 153px;
+  height: 34px;
+  left: 1306px;
+  top: 239px;
+
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 15px 15px 0px 0px;
+  transform: rotate(-90deg);
+
+  font-weight: 500;
+  font-size: 12px;
+  z-index: 1;
 }
