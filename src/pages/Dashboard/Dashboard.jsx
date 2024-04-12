@@ -199,6 +199,17 @@ const Dashboard = () => {
               </div>
             </div>
 
+            {/* <div className="button-container-dashboard">
+                <button onClick={toggleMenu}>
+                  Eventos do mês
+                  <span className="material-symbols-rounded">
+                    keyboard_double_arrow_right
+                  </span>
+                </button>
+            </div> */}
+
+            <div className={`container-button-menu ${menuOpen ? "menu-container-open" : "menu-container-closed"}`}>
+      
             <div className="button-container-dashboard">
                 <button onClick={toggleMenu}>
                   Eventos do mês
@@ -206,6 +217,11 @@ const Dashboard = () => {
                     keyboard_double_arrow_right
                   </span>
                 </button>
+            </div>
+   
+              <div className="container-menu">
+                <p>ALALALALAL</p>
+              </div>
             </div>
           </div>
         </div>

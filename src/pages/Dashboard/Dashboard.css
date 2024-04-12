@@ -22,10 +22,21 @@
   display: flex;
 }
 
-.left-column-dashboard.menu-open {
-  width: 1213px;
-  margin-right: 80px;
+.left-column-dashboard{
+  width: fit-content;
+  transition: width .3s ease;
 }
+
+.left-column-dashboard.menu-open {
+  width: 1161px;;
+  margin-right: 80px;
+  transition: width .3s ease;
+}
+
+.left-column-dashboard.menu-open .participant-reviews .participant-reviews-main .highlights{
+  width: auto;
+}
+
 
 .general-analysis {
   margin-top: 50px;
@@ -117,8 +128,13 @@
 .participant-reviews-main {
   display: flex;
   gap: 17px;
+  flex-wrap: wrap;
 }
 
+.left-column-dashboard.menu-open > .participant-reviews > .participant-reviews-main > .improvement-suggestions {
+  width: 100%;
+  height: auto;
+}
 .event-note {
   width: 410px;
   height: 80px;
@@ -313,20 +329,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
   width: 153px;
   height: 34px;
-  left: 95%;
-  top: 143px;
+  /* padding: 10px; */
   background: #ffffff;
   border: 1px solid #dadce0;
   border-radius: 15px 15px 0px 0px;
   transform: rotate(-90deg);
   border-bottom: none;
+  position: absolute;
+  bottom: 0;
+  left: 39%;
+  cursor: pointer;
 }
 
 .button-container-dashboard {
   display: flex;
   justify-content: center;
   width: 153px;
+  height: 200px;
+  right: 100%;
+  position: absolute;
 }
+
+.container-button-menu{
+  background-color: #00884a;
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  top: 68px;
+  width: 500px;
+  transition: .2s all ease;
+  right: 0;
+}
+
+.menu-container-closed {
+  right: -26.5%; 
+  transition: right .3s ease;
+}
+
+.menu-container-open {
+  right: 0; 
+  transition: right .3s ease;
+}
+
+.container-menu{
+  background-color: #7277e4;
+  width: 100%;
+}
+
