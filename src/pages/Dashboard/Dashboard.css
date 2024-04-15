@@ -22,21 +22,23 @@
   display: flex;
 }
 
-.left-column-dashboard{
+.left-column-dashboard {
   width: fit-content;
-  transition: width .3s ease;
+  transition: width 0.3s ease;
 }
 
 .left-column-dashboard.menu-open {
-  width: 1161px;;
+  width: 1161px;
   margin-right: 80px;
-  transition: width .3s ease;
+  transition: width 0.3s ease;
 }
 
-.left-column-dashboard.menu-open .participant-reviews .participant-reviews-main .highlights{
-  width: auto;
+.left-column-dashboard.menu-open
+  .participant-reviews
+  .participant-reviews-main
+  .highlights {
+  width: 733px;
 }
-
 
 .general-analysis {
   margin-top: 50px;
@@ -131,10 +133,14 @@
   flex-wrap: wrap;
 }
 
-.left-column-dashboard.menu-open > .participant-reviews > .participant-reviews-main > .improvement-suggestions {
+.left-column-dashboard.menu-open
+  > .participant-reviews
+  > .participant-reviews-main
+  > .improvement-suggestions {
   width: 100%;
   height: auto;
 }
+
 .event-note {
   width: 410px;
   height: 80px;
@@ -352,29 +358,28 @@
   position: absolute;
 }
 
-.container-button-menu{
+.container-button-menu {
   background-color: #00884a;
   display: flex;
   position: fixed;
   height: 100vh;
   top: 68px;
   width: 500px;
-  transition: .2s all ease;
+  transition: 0.2s all ease;
   right: 0;
 }
 
 .menu-container-closed {
-  right: -26.5%; 
-  transition: right .3s ease;
+  right: -26.5%;
+  transition: right 0.3s ease;
 }
 
 .menu-container-open {
-  right: 0; 
-  transition: right .3s ease;
+  right: 0;
+  transition: right 0.3s ease;
 }
 
-.container-menu{
+.container-menu {
   background-color: #7277e4;
   width: 100%;
 }
-
