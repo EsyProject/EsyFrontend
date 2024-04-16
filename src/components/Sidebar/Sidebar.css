@@ -35,6 +35,7 @@
   width: 106px;
   overflow: hidden;
   user-select: none;
+  z-index: 1000;
 }
 
 /* Styles for the sidebar header */

@@ -345,7 +345,7 @@
   border-bottom: none;
   position: absolute;
   bottom: 0;
-  left: 39%;
+  left: 34%;
   cursor: pointer;
 }
 
@@ -372,6 +372,10 @@
 .menu-container-closed {
   right: -26.5%;
   transition: right 0.3s ease;
+}
+
+.menu-container-open button {
+  left: 38%;
 }
 
 .menu-container-open {
