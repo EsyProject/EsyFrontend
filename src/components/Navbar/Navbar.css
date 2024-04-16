@@ -1,3 +1,7 @@
+body {
+  padding-top: 68px; /* Ajuste conforme a altura da barra de navegação */
+}
+
 .sidebar-open .navbar-container {
   margin-left: 248px;
 }
@@ -8,16 +12,19 @@
 }
 
 .navbar-container {
-  flex: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   margin-left: 106px;
+  background-color: #ffffff;
   border-bottom: 1px solid #dadce0;
   height: 68px;
-  transition: margin-left 0.3s;
-}
-
-.navbar-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  z-index: 999;
+  transition: margin-left 0.3s;
 }
 
 .navbar-content {
@@ -74,14 +81,6 @@
   color: #80868b;
 }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  position: relative;
-}
-
 .navbar-content {
   display: flex;
   align-items: center;
@@ -90,8 +89,8 @@
 .navbar-icon {
   display: flex;
   align-items: center;
-  margin-left: auto;
-  padding: 33px;
+  margin-right: auto;
+  margin-left: 82%;
 }
 
 h4.active {
@@ -133,7 +132,7 @@ h4.active {
   border-radius: 5px 5px 0px 0px;
   transition: transform 0.3s ease, width 0.3s ease;
 }
-
+rectangle 
 .subtitle-underline-tickets {
   position: absolute;
   width: 50px;
