@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Home, Login, Password, Register, Historic, Schedule, Settings, Account, Tickets, Dashboard, Feed } from './pages/index'
+import { Home, Login, Password, Register, Historic, Schedule, Settings, Account, Tickets, Dashboard, Feed, Reservation } from './pages/index'
 
 const App = () => {
   return (
@@ -17,6 +17,7 @@ const App = () => {
           <Route path='/tickets' element={<Tickets />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/feed' element={<Feed />} />
+          <Route path='/description' element={<Reservation />} />
         </Routes>
       </Router>
     </main>

@@ -10,6 +10,7 @@ import Settings from "./Settings/Settings";
 import Tickets from "./Tickets/Tickets";
 import Dashboard from "./Dashboard/Dashboard";
 import Feed from "./Home/Home";
+import Reservation from "./Reservation/Reservation";
 
 /* components */
 import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
@@ -49,6 +50,7 @@ export {
   Tickets,
   Dashboard,
   Feed,
+  Reservation,
 
   /* components */
   InteractiveBubble,
