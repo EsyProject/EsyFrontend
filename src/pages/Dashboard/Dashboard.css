@@ -325,12 +325,6 @@
   padding: 20px;
 }
 
-.container-next-events h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
 .button-container-dashboard button {
   display: flex;
   align-items: center;
