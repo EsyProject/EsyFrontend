@@ -6,6 +6,10 @@ body {
   margin-left: 248px;
 }
 
+.sidebar-open .navbar-icon {
+  padding-right: 280px;
+}
+
 .sidebar-open .subtitle-underline {
   left: 400px;
   transition: transform 0.3s ease;
@@ -89,8 +93,7 @@ body {
 .navbar-icon {
   display: flex;
   align-items: center;
-  margin-right: auto;
-  margin-left: 82%;
+  padding-right: 130px;
 }
 
 h4.active {
@@ -132,7 +135,7 @@ h4.active {
   border-radius: 5px 5px 0px 0px;
   transition: transform 0.3s ease, width 0.3s ease;
 }
-rectangle 
+
 .subtitle-underline-tickets {
   position: absolute;
   width: 50px;
