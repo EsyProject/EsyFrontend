@@ -5,6 +5,47 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* calendar style */
+.react-calendar {
+  border-radius: 10px;
+}
+
+.react-calendar button {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+}
+
+.react-calendar__tile--active {
+  background: rgba(0, 164, 253, 0.2);
+  color: #027bbd;
+}
+
+.react-calendar__tile--now {
+  background: rgb(0, 123, 192, 0.1);
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: rgba(0, 164, 253, 0.2);
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #e8eaed;
+}
+
+.react-calendar {
+  border: 1px solid #e0e0e0;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: none;
+}
+
+/* material symbols style */
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
   color: #17181b;
