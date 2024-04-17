@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import { Sidebar, Navbar } from "../../pages/index";
 import "material-symbols";
 import "./Dashboard.css";
@@ -7,6 +9,7 @@ import "./Dashboard.css";
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [value, onChange] = useState(new Date());
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -199,28 +202,26 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {/* <div className="button-container-dashboard">
+            <div
+              className={`container-button-menu ${
+                menuOpen ? "menu-container-open" : "menu-container-closed"
+              }`}
+            >
+              <div className="button-container-dashboard">
                 <button onClick={toggleMenu}>
                   Eventos do mês
                   <span className="material-symbols-rounded">
                     keyboard_double_arrow_right
                   </span>
                 </button>
-            </div> */}
+              </div>
 
-            <div className={`container-button-menu ${menuOpen ? "menu-container-open" : "menu-container-closed"}`}>
-      
-            <div className="button-container-dashboard">
-                <button onClick={toggleMenu}>
-                  Eventos do mês
-                  <span className="material-symbols-rounded">
-                    keyboard_double_arrow_right
-                  </span>
-                </button>
-            </div>
-   
               <div className="container-menu">
-                <p>ALALALALAL</p>
+                <div className="container-calendar">
+                </div>
+                <div>
+                  <Calendar onChange={onChange} value={value} />
+                </div>
               </div>
             </div>
           </div>

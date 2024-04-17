@@ -325,19 +325,12 @@
   padding: 20px;
 }
 
-.container-next-events h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
 .button-container-dashboard button {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 153px;
   height: 34px;
-  /* padding: 10px; */
   background: #ffffff;
   border: 1px solid #dadce0;
   border-radius: 15px 15px 0px 0px;
@@ -345,7 +338,7 @@
   border-bottom: none;
   position: absolute;
   bottom: 0;
-  left: 34%;
+  left: 37%;
   cursor: pointer;
 }
 
@@ -359,18 +352,16 @@
 }
 
 .container-button-menu {
-  background-color: #00884a;
   display: flex;
   position: fixed;
   height: 100vh;
   top: 68px;
-  width: 500px;
   transition: 0.2s all ease;
   right: 0;
 }
 
 .menu-container-closed {
-  right: -26.5%;
+  left: 100%;
   transition: right 0.3s ease;
 }
 
@@ -384,6 +375,9 @@
 }
 
 .container-menu {
-  background-color: #7277e4;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  border-left: 1px solid #dadce0;
+  padding: 62px;
 }

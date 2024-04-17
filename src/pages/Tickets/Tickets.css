@@ -26,7 +26,7 @@
 .right-column {
   flex: 1;
   border-left: 1px solid #dadce0;
-  padding: 50px;
+  padding: 20px;
 
   max-width: 562px;
   height: calc(100vh - 68px);
@@ -110,7 +110,7 @@
 }
 
 .container-next-events h2 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
 }
 
