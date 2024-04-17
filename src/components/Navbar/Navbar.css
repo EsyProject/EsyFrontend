@@ -147,3 +147,14 @@ h4.active {
   border-radius: 5px 5px 0px 0px;
   transition: transform 0.3s ease, width 0.3s ease;
 }
+
+.subtitle-underline-description {
+  position: absolute;
+  width: 71px;
+  height: 4px;
+  left: 318px;
+  top: 63px;
+  background: #0066a5;
+  border-radius: 5px 5px 0px 0px;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
