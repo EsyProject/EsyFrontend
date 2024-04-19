@@ -86,6 +86,12 @@
   font-size: 13px;
 }
 
+.date-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* rectangle-event */
 
 .rectangle-event[data-area^="AMB"] {
