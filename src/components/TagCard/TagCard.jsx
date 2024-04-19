@@ -7,9 +7,11 @@ const TagCard = ({ date, title, description, area }) => {
     <div className="simple-event-card">
       <div className="rectangle-event" data-area={area}></div>
       <div className="event-details">
-        <div className="date-icon">
-          <span className="material-symbols-outlined">calendar_today</span>
-          <p>{date}</p>
+        <div className="date-area">
+          <div className="date-icon">
+            <span className="material-symbols-outlined">calendar_today</span>
+            <p>{date}</p>
+          </div>
 
           <div className="event-area" data-area={area}>
             {area}
