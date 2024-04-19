@@ -30,7 +30,6 @@ TagCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   area: PropTypes.string.isRequired,
-  qrcode: PropTypes.string.isRequired,
 };
 
 export default TagCard;
