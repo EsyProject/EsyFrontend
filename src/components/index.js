@@ -17,6 +17,7 @@ import StarRating from "../components/StarRating/StarRating";
 import Logout from "../components/Logout/Logout";
 import ProfileModal from "../components/ProfileModal/ProfileModal";
 import Timetable from "../components/Timetable/Timetable";
+import TagCard from "../components/TagCard/TagCard";
 
 export {
   InteractiveBubble,
@@ -38,4 +39,5 @@ export {
   TicketsCard,
   MessageModal,
   StarRating,
+  TagCard,
 };
