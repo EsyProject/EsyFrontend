@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { Sidebar, Navbar } from "../../components/index";
+import { Sidebar, Navbar, TagCard } from "../../components/index";
 import "material-symbols";
 import "./Dashboard.css";
 
@@ -218,10 +218,14 @@ const Dashboard = () => {
 
               <div className="container-menu">
                 <div className="container-calendar">
-                </div>
-                <div>
                   <Calendar onChange={onChange} value={value} />
                 </div>
+                <TagCard
+                  date="15 de abril de 2024"
+                  title="Meu Evento"
+                  description="Descrição do meu evento."
+                  area="Sala 1"
+                />
               </div>
             </div>
           </div>
