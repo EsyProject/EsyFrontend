@@ -221,10 +221,17 @@ const Dashboard = () => {
                   <Calendar onChange={onChange} value={value} />
                 </div>
                 <TagCard
-                  date="15 de abril de 2024"
-                  title="Meu Evento"
-                  description="Descrição do meu evento."
-                  area="Sala 1"
+                  date="22 - 26 Fev 2024"
+                  title="Jornada do Conhecimento"
+                  description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+                  area="ETS - DS"
+                />
+
+                <TagCard
+                  date="22 - 26 Fev 2024"
+                  title="Jornada do Conhecimento"
+                  description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+                  area="ETS - DS"
                 />
               </div>
             </div>
