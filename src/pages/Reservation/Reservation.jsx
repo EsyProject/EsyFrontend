@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar, Navbar, EventCard } from "../../pages/index";
+import { Sidebar, Navbar, EventCard } from "../../components/index";
 import AreaModal from "../../components/AreaModal/AreaModal";
 import "./Reservation.css"
 

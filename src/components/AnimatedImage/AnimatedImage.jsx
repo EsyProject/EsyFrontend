@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { InteractiveBubble } from "../../pages/index";
+import { InteractiveBubble } from "../index";
 import "./AnimatedImage.css";
 
 const AnimatedImage = ({ imageUrl }) => {

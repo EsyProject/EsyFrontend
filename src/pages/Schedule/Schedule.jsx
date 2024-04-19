@@ -1,8 +1,5 @@
 import { useState } from "react";
-import { Sidebar, Navbar } from "../../pages/index";
-import Timetable from "../../components/Timetable/Timetable";
-import Logout from "../../components/Logout/Logout";
-import ProfileModal from "../../components/ProfileModal/ProfileModal";
+import { Sidebar, Navbar, Timetable, Logout, ProfileModal } from "../../components/index";
 import "./Schedule.css"
 
 const Schedule = () => {

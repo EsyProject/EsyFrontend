@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { Sidebar, Navbar } from "../../pages/index";
+import { Sidebar, Navbar } from "../../components/index";
 import "material-symbols";
 import "./Dashboard.css";
 

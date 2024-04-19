@@ -2,7 +2,7 @@ import config from "../../config.json";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { LogoEsy, LogoEsyClosed } from "../../pages/index";
-import { SidebarIcon } from "../../pages/index";
+import { SidebarIcon } from "../../components/index";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 

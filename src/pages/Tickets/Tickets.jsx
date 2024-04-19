@@ -4,11 +4,11 @@ import {
   Sidebar,
   Navbar,
   EventCard,
-  Qrcode,
   ButtonLink,
   TicketsCard,
   MessageModal,
-} from "../../pages/index";
+} from "../../components/index";
+import { Qrcode } from "../index";
 import "material-symbols";
 import "./Tickets.css";
 
@@ -16,8 +16,8 @@ const Tickets = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-   // open popup when cancel button is pressed
-   const handleCancel = () => {
+  // open popup when cancel button is pressed
+  const handleCancel = () => {
     setShowPopup(true);
   };
 
@@ -39,7 +39,7 @@ const Tickets = () => {
         tabs={[
           { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
           { name: "historic", text: "Histórico de eventos", link: "/historic" },
-          { name: "tickets", text: "Tickets", link: "/tickets" }
+          { name: "tickets", text: "Tickets", link: "/tickets" },
         ]}
       />
 

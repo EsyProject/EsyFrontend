@@ -12,24 +12,6 @@ import Dashboard from "./Dashboard/Dashboard";
 import Feed from "./Home/Home";
 import Reservation from "./Reservation/Reservation";
 
-/* components */
-import InteractiveBubble from "../components/InteractiveBubble/InteractiveBubble";
-import AnimatedImage from "../components/AnimatedImage/AnimatedImage";
-import Input from "../components/Input/Input";
-import CustomSelect from "../components/CustomSelect/CustomSelect";
-import Sidebar from "../components/Sidebar/Sidebar";
-import SidebarIcon from "../components/SidebarIcon/SidebarIcon";
-import Navbar from "../components/Navbar/Navbar";
-import Searchbar from "../components/Searchbar/Searchbar";
-import MSelect from "../components/MSelect/MSelect";
-import EventTable from "../components/EventTable/EventTable";
-import Pagination from "../components/Pagination/Pagination";
-import ButtonLink from "../components/ButtonLink/ButtonLink";
-import EventCard from "../components/EventCard/EventCard";
-import TicketsCard from "../components/TicketsCard/TicketsCard";
-import MessageModal from "../components/MessageModal/MessageModal";
-import StarRating from "../components/StarRating/StarRating";
-
 /* images */
 import ImageLogin from "../assets/img-login.png";
 import ImageRegisterBack from "../assets/img-register.png";
@@ -51,24 +33,6 @@ export {
   Dashboard,
   Feed,
   Reservation,
-
-  /* components */
-  InteractiveBubble,
-  ButtonLink,
-  Searchbar,
-  MSelect,
-  AnimatedImage,
-  Input,
-  CustomSelect,
-  Sidebar,
-  SidebarIcon,
-  Navbar,
-  EventTable,
-  Pagination,
-  EventCard,
-  TicketsCard,
-  MessageModal,
-  StarRating,
 
   /* images */
   ImageLogin,

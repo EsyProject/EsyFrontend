@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { Sidebar, Navbar, ButtonLink } from "../../pages/index";
+import { Sidebar, Navbar, ButtonLink } from "../../components/index";
 import "./Settings.css";
 
 const Settings = () => {

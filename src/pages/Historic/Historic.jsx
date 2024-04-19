@@ -6,7 +6,7 @@ import {
   MSelect,
   EventTable,
   Pagination,
-} from "../../pages/index";
+} from "../../components/index";
 import eventsList from "../../components/Searchbar/data";
 import "./Historic.css";
 

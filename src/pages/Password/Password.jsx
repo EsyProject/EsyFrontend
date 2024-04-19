@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import {
-  ImageRegisterBack,
-  LogoEsy,
-  AnimatedImage,
-  ButtonLink,
-} from "../index";
+import { ImageRegisterBack, LogoEsy } from "../index";
+import { ButtonLink, AnimatedImage } from "../../components/index";
 import "./Password.css";
 
 const Password = () => {

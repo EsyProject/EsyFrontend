@@ -1,12 +1,6 @@
 import { useEffect } from "react";
-import {
-  ImageRegisterBack,
-  LogoEsy,
-  AnimatedImage,
-  Input,
-  CustomSelect,
-  ButtonLink,
-} from "../index";
+import { ImageRegisterBack, LogoEsy } from "../index";
+import { Input, CustomSelect, ButtonLink, AnimatedImage } from "../../components/index";
 import "./Register.css";
 
 const options = [

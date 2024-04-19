@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
-import { Sidebar, Navbar } from "../index";
+import { Sidebar, Navbar } from "../../components/index";
 import "./Home.css";
 import "material-symbols";
 

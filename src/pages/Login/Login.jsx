@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { ImageLogin, LogoEsy, AnimatedImage, Input, ButtonLink } from '../index';
+import { ImageLogin, LogoEsy } from '../index';
+import { Input, ButtonLink, AnimatedImage } from '../../components/index';
 import './Login.css';
 
 const Login = () => {
