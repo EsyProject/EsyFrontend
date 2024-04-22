@@ -287,6 +287,7 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .suggestion {
@@ -380,4 +381,9 @@
   width: 100%;
   border-left: 1px solid #dadce0;
   padding: 45px;
+  gap: 20px;
+}
+
+.container-calendar {
+  margin: 0 auto;
 }
