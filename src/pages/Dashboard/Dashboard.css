@@ -53,7 +53,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: calc((100% - 15px) / 4);
   height: 105px;
   border-radius: 12px;
   padding: 22px;
@@ -277,6 +277,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.sidebar-open .highlights {
+  width: 634px;
 }
 
 .improvement-suggestions {

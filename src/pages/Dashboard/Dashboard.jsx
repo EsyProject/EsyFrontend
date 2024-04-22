@@ -166,7 +166,7 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div className="highlights">
+                  <div className={`highlights ${sidebarOpen ? "sidebar-open" : ""}`}>
                     <h2>Pontos de destaque</h2>
                   </div>
 
