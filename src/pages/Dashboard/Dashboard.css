@@ -28,7 +28,7 @@
 }
 
 .left-column-dashboard.menu-open {
-  width: 1161px;
+  width: 994px;
   margin-right: 80px;
   transition: width 0.3s ease;
 }
@@ -37,7 +37,7 @@
   .participant-reviews
   .participant-reviews-main
   .highlights {
-  width: 733px;
+  width: 565px;
 }
 
 .general-analysis {
