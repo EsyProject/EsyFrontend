@@ -48,7 +48,11 @@ const Dashboard = () => {
 
       <div className="dashboard-container-main">
         <div className="dashboard-content">
-          <div className="dashboard-columns">
+          <div
+            className={`dashboard-columns ${
+              menuOpen ? "menu-open" : ""
+            }`}
+          >
             <div
               className={`left-column-dashboard ${
                 menuOpen && sidebarOpen ? "menu-open" : ""

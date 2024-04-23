@@ -18,6 +18,10 @@
   margin-bottom: 10px;
 }
 
+.dashboard-columns.menu-open {
+  width: 1132px;
+}
+
 .left-column-dashboard {
   width: fit-content;
   transition: width 0.3s ease;
@@ -130,6 +134,15 @@
 }
 
 .left-column-dashboard.menu-open
+  > .participant-reviews
+  > .participant-reviews-main
+  > .improvement-suggestions {
+  width: 100%;
+  height: auto;
+}
+
+.dashboard-columns.menu-open
+  > .left-column-dashboard
   > .participant-reviews
   > .participant-reviews-main
   > .improvement-suggestions {
