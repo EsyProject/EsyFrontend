@@ -18,10 +18,6 @@
   margin-bottom: 10px;
 }
 
-.dashboard-columns {
-  display: flex;
-}
-
 .left-column-dashboard {
   width: fit-content;
   transition: width 0.3s ease;
