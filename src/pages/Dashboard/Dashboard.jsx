@@ -48,11 +48,7 @@ const Dashboard = () => {
 
       <div className="dashboard-container-main">
         <div className="dashboard-content">
-          <div
-            className={`dashboard-columns ${
-              menuOpen ? "menu-open" : ""
-            }`}
-          >
+          <div className={`dashboard-columns ${menuOpen ? "menu-open" : ""}`}>
             <div
               className={`left-column-dashboard ${
                 menuOpen && sidebarOpen ? "menu-open" : ""
@@ -174,7 +170,7 @@ const Dashboard = () => {
 
                   <div
                     className={`highlights ${
-                      sidebarOpen ? "sidebar-open" : ""
+                      menuOpen && !sidebarOpen ? "menu-open" : ""
                     }`}
                   >
                     <h2>Pontos de destaque</h2>
