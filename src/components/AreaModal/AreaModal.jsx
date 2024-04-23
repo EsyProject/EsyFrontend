@@ -15,6 +15,8 @@ const AreaModal = ({ onClose }) => {
                     }
                 `}
             </style>
+
+            {/* <div className={`modal-area-content ${openModalArea ? "" : "closed"}`}></div> */}
             <div className="modal-area-content">
                 <div className="modal-area-content-child area-image"></div>
                 <div className="modal-area-content-child area-text">

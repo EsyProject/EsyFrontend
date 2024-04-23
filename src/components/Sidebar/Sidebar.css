@@ -36,6 +36,7 @@
   overflow: hidden;
   user-select: none;
   z-index: 1000;
+  background-color: #fff;
 }
 
 /* Styles for the sidebar header */
