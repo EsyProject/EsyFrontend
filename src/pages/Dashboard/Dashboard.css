@@ -18,8 +18,8 @@
   margin-bottom: 10px;
 }
 
-.dashboard-columns {
-  display: flex;
+.dashboard-columns.menu-open {
+  width: 1132px;
 }
 
 .left-column-dashboard {
@@ -28,7 +28,7 @@
 }
 
 .left-column-dashboard.menu-open {
-  width: 1161px;
+  width: 994px;
   margin-right: 80px;
   transition: width 0.3s ease;
 }
@@ -37,7 +37,7 @@
   .participant-reviews
   .participant-reviews-main
   .highlights {
-  width: 733px;
+  width: 565px;
 }
 
 .general-analysis {
@@ -53,7 +53,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: calc((100% - 15px) / 4);
   height: 105px;
   border-radius: 12px;
   padding: 22px;
@@ -134,6 +134,15 @@
 }
 
 .left-column-dashboard.menu-open
+  > .participant-reviews
+  > .participant-reviews-main
+  > .improvement-suggestions {
+  width: 100%;
+  height: auto;
+}
+
+.dashboard-columns.menu-open
+  > .left-column-dashboard
   > .participant-reviews
   > .participant-reviews-main
   > .improvement-suggestions {
@@ -279,6 +288,10 @@
   justify-content: space-around;
 }
 
+.sidebar-open .highlights {
+  width: 634px;
+}
+
 .improvement-suggestions {
   width: 426px;
   height: 545px;
@@ -287,6 +300,7 @@
   padding: 30px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .suggestion {
@@ -380,4 +394,9 @@
   width: 100%;
   border-left: 1px solid #dadce0;
   padding: 45px;
+  gap: 20px;
+}
+
+.container-calendar {
+  margin: 0 auto;
 }

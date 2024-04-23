@@ -48,9 +48,11 @@ const Dashboard = () => {
 
       <div className="dashboard-container-main">
         <div className="dashboard-content">
-          <div className="dashboard-columns">
+          <div className={`dashboard-columns ${menuOpen ? "menu-open" : ""}`}>
             <div
-              className={`left-column-dashboard ${menuOpen ? "menu-open" : ""}`}
+              className={`left-column-dashboard ${
+                menuOpen && sidebarOpen ? "menu-open" : ""
+              }`}
             >
               <div className="general-analysis">
                 <h2>Análise quantitativa geral</h2>
@@ -166,7 +168,11 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div className="highlights">
+                  <div
+                    className={`highlights ${
+                      menuOpen && !sidebarOpen ? "menu-open" : ""
+                    }`}
+                  >
                     <h2>Pontos de destaque</h2>
                   </div>
 
