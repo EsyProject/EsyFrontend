@@ -1,0 +1,30 @@
+.wrapper {
+    max-height: 500px;
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.wrapper .item {
+    min-height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 0px;
+    height: 40px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: rgb(169, 169, 169);
+    border-radius: 20px;
+    border: 10px solid #fff;    
+}

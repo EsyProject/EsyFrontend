@@ -13,8 +13,7 @@ const Reservation = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  // teste do modal de informações da área
-
+  // modal de informações da área
   const [isModalAreaOpen, setIsModalAreaOpen] = useState(false);
   const openModalArea = () => {
     setIsModalAreaOpen(true);
@@ -22,6 +21,19 @@ const Reservation = () => {
   const closeModalArea = () => {
     setIsModalAreaOpen(false);
   };
+
+  // imagens para o carrossel
+  const images = [
+    'src/assets/images-reservation/img1.png',
+    'src/assets/images-reservation/img2.png',
+    'src/assets/images-reservation/img3.png',
+    'src/assets/images-reservation/img4.png',
+    'src/assets/images-reservation/img5.png',
+    'src/assets/images-reservation/img6.png',
+    'src/assets/images-reservation/img7.png',
+    'src/assets/images-reservation/img8.png',
+    'src/assets/images-reservation/img9.png',
+  ];
 
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -100,9 +112,10 @@ const Reservation = () => {
         <div className="container-child-column">
           <h1 className="description-title">Edições anteriores</h1>
           <p className="description-content-text">Confira os projetos que conquistaram o pódio nas edições anteriores do Hackathon</p>
-          {/* <Carousel images={images} /> */}
         </div>
       </div>
+
+      <Carousel images={images} />
     </div>
   );
 };
