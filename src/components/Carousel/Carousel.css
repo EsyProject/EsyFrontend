@@ -86,11 +86,11 @@
 
 .wrapper::-webkit-scrollbar-track {
     background: #fff;
-}
+}                                                 
 
 .wrapper::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background-color: rgb(169, 169, 169);
+    background-color: #dadce0;
     border-radius: 20px;
     border: 10px solid #fff;
 }
