@@ -24,15 +24,70 @@ const Reservation = () => {
 
   // imagens para o carrossel
   const images = [
-    'src/assets/images-reservation/img1.png',
-    'src/assets/images-reservation/img2.png',
-    'src/assets/images-reservation/img3.png',
-    'src/assets/images-reservation/img4.png',
-    'src/assets/images-reservation/img5.png',
-    'src/assets/images-reservation/img6.png',
-    'src/assets/images-reservation/img7.png',
-    'src/assets/images-reservation/img8.png',
-    'src/assets/images-reservation/img9.png',
+    {
+      src: "src/assets/images-reservation/img1.png",
+      text: {
+        title: "Bosch Uva",
+        description: "2° Lugar - Hackathon 6ª Edição (janeiro de 2024)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img2.png",
+      text: {
+        title: "Happdine",
+        description: "1° Lugar - Hackathon 6ª Edição (janeiro de 2024)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img3.png",
+      text: {
+        title: "Empathy Connect",
+        description: "3° Lugar - Hackathon 6ª Edição (janeiro de 2024)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img4.png",
+      text: {
+        title: "S.I.R. Arcade",
+        description: "1° Lugar - Hackathon 5ª Edição (julho de 2023)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img5.png",
+      text: {
+        title: "Motronic",
+        description: "2° Lugar - Hackathon 5ª Edição (julho de 2023)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img6.png",
+      text: {
+        title: "Eulle",
+        description: "3° Lugar - Hackathon 5ª Edição (julho de 2023)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img7.png",
+      text: {
+        title: "Greenbo",
+        description: "1° Lugar - Hackathon 4ª Edição (janeiro de 2023)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img8.png",
+      text: {
+        title: "Undefined",
+        description: "Undefined description"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img9.png",
+      text: {
+        title: "Undefined",
+        description: "Descrição Undefined"
+      }
+    },
+    // Adicione mais objetos conforme necessário
   ];
 
   return (

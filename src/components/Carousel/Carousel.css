@@ -1,21 +1,87 @@
 .wrapper {
-    max-height: 500px;
     display: flex;
     overflow-x: auto;
     gap: 15px;
-
     margin-bottom: 30px;
 }
 
-.wrapper .item {
+.item {
+    min-width: 648px;
     min-height: 500px;
-    background-size: contain;
+    max-width: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 14px;
+    overflow: hidden;
+
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.item img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+}
+
+.item:hover img {
+    transform: scale(1.10);
+}
+
+.overlay {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 59.5%, rgba(0, 0, 0, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    position: absolute;
+    bottom: 45px;
+    left: 35px;
+
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2000;
+}
+
+.item:hover .text {
+    opacity: 1;
+}
+
+.text p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.3026px;
+    line-height: 26px;
+    color: #FFFFFF;
+    margin-left: 5px;
+    text-align: left;
+}
+
+.text h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44.4923px;
+    line-height: 67px;
+    color: #FFFFFF;
+    margin-left: 0;
+    margin-bottom: -5px;
+    text-align: left;
 }
 
 .wrapper::-webkit-scrollbar {
-    width: 0px;
-    height: 40px;
+    width: 10px;
+    height: 30px;
 }
 
 .wrapper::-webkit-scrollbar-track {
@@ -26,5 +92,5 @@
     cursor: pointer;
     background-color: rgb(169, 169, 169);
     border-radius: 20px;
-    border: 10px solid #fff;    
+    border: 10px solid #fff;
 }
