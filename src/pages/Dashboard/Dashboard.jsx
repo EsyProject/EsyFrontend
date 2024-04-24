@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { Sidebar, Navbar, TagCard } from "../../components/index";
+import { Sidebar, Navbar, TagCard, ColumnsChart } from "../../components/index";
 import "material-symbols";
 import "./Dashboard.css";
 
@@ -174,6 +174,9 @@ const Dashboard = () => {
                     }`}
                   >
                     <h2>Pontos de destaque</h2>
+
+                    <ColumnsChart />
+
                   </div>
 
                   <div className="improvement-suggestions">

@@ -18,7 +18,7 @@ import Logout from "../components/Logout/Logout";
 import ProfileModal from "../components/ProfileModal/ProfileModal";
 import Timetable from "../components/Timetable/Timetable";
 import TagCard from "../components/TagCard/TagCard";
-import ColumnsChart from "../components/ColumnsChart/ColumnsChart";
+import ColumnsChart from "./ColumnsChart/ColumnsChart";
 
 export {
   InteractiveBubble,
