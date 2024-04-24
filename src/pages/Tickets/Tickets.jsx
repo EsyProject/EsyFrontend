@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import QRCode from "qrcode.react";
 
 import {
   Sidebar,
@@ -8,13 +9,19 @@ import {
   TicketsCard,
   MessageModal,
 } from "../../components/index";
-import { Qrcode } from "../index";
 import "material-symbols";
 import "./Tickets.css";
 
 const Tickets = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [authCode, setAuthCode] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAuthCode("3815295");
+    }, 1000);
+  }, []);
 
   // open popup when cancel button is pressed
   const handleCancel = () => {
@@ -85,7 +92,7 @@ const Tickets = () => {
 
             <div className="container-qrcode">
               <div className="image-eventcard">
-                <img src={Qrcode} alt="qrcode" />
+                <QRCode value={authCode} />
               </div>
 
               <p>Código de autenticação</p>
@@ -120,7 +127,7 @@ const Tickets = () => {
               title="Ciclo de Saúde Mental"
               authCode="3815296"
               area="AMB - GE"
-              qrcode={Qrcode}
+              qrcode={authCode}
             />
 
             <TicketsCard
@@ -128,7 +135,7 @@ const Tickets = () => {
               title="Fórum da Sustentabilidade"
               authCode="3815296"
               area="HR - GE"
-              qrcode={Qrcode}
+              qrcode={authCode}
             />
 
             <TicketsCard
@@ -136,7 +143,7 @@ const Tickets = () => {
               title="Conferência da Inovação"
               authCode="3815296"
               area="BD - DEV"
-              qrcode={Qrcode}
+              qrcode={authCode}
             />
 
             <TicketsCard
@@ -144,7 +151,7 @@ const Tickets = () => {
               title="Jornada do Conhecimento"
               authCode="3815296"
               area="ETS - DS"
-              qrcode={Qrcode}
+              qrcode={authCode}
             />
 
             <TicketsCard
@@ -152,7 +159,7 @@ const Tickets = () => {
               title="Conferência da Inovação"
               authCode="3815296"
               area="BD - DEV"
-              qrcode={Qrcode}
+              qrcode={authCode}
             />
           </div>
         </div>
