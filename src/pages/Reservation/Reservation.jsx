@@ -6,6 +6,7 @@ import "./Reservation.css"
 // apenas para fins de teste
 import ReactDOM from 'react-dom';
 import Carousel from "../../components/Carousel/Carousel";
+import ReaderQR from "../../components/ReaderQR/ReaderQR";
 
 const Reservation = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -160,6 +161,7 @@ const Reservation = () => {
               {/* link para acessar informações da área */}
               <button onClick={openModalArea} className="btn-link">Saiba mais sobre a área do evento</button>
               {isModalAreaOpen && <AreaModal onClose={closeModalArea} />}
+              <ReaderQR />
             </div>
           </div>
         </div>
