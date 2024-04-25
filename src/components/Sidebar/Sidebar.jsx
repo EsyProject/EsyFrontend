@@ -193,7 +193,7 @@ Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
   activePage: PropTypes.string.isRequired,
-  userType: PropTypes.string.isRequired,
+  userType: PropTypes.string,
 };
 
 export default Sidebar;
