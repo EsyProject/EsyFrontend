@@ -1,0 +1,22 @@
+.creation-container {
+    transition: margin-left 0.3s ease;
+}
+
+.creation-container-main {
+    flex: 1;
+    display: flex;
+    margin-left: 186px;
+    justify-content: space-between;
+    transition: margin-left 0.3s;
+}
+
+.container-menu {
+    flex: 1;
+    border-left: 1px solid #dadce0;
+    padding: 20px;
+    max-width: 500px;
+    height: calc(100vh - 68px);
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+}
