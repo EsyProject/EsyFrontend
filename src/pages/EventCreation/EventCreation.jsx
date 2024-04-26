@@ -52,23 +52,38 @@ const EventCreation = () => {
 
             <div className="creation-container-main">
                 <div className="container-create-event">
-                    <h2 className='title'>Descrição</h2>
-                    <p className='subtitle'>Informações sobre o evento</p>
-                    <Input label='Nome do evento' id='event_name' placeholder='Ex.: Hackathon 7° Edição' className="input-style" />
+                    <div className="creation-container-child">
+                        <h2 className='title'>Descrição</h2>
+                        <p className='subtitle'>Informações sobre o evento</p>
+                        <div className="container-create-event">
+                            <div className="container-create-event-child">
+                                <Input label='Nome do evento' id='event_name' placeholder='Ex.: Hackathon 7° Edição' className="input-style" />
 
-                    <CustomSelect
-                        label="Área responsável"
-                        options={options_area}
-                        placeholder="Selecione"
-                        className="custom-select-css-w9q2zk-Input2"
-                    />
+                                <CustomSelect
+                                    label="Área responsável"
+                                    options={options_area}
+                                    placeholder="Selecione"
+                                    className="custom-select-css-w9q2zk-Input2"
+                                />
 
-                    <CustomSelect
-                        label="Acesso ao evento"
-                        options={options_access}
-                        placeholder="Selecione"
-                        className="custom-select-css-w9q2zk-Input2"
-                    />
+                                <CustomSelect
+                                    label="Acesso ao evento"
+                                    options={options_access}
+                                    placeholder="Selecione"
+                                    className="custom-select-css-w9q2zk-Input2"
+                                />
+                            </div>
+                            <div className="container-create-event-child">
+                                <textarea
+                                    className="custom-textarea"
+                                    placeholder="Este é o texto que aparecerá no feed de atualizações para que os colaboradores possam saber sobre seu evento."
+                                ></textarea>
+
+                                <label htmlFor="image_banner">Imagem para o banner</label>
+                                <input type="file" id="image_banner" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="container-menu">
