@@ -2,9 +2,22 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { Sidebar, Navbar, TagCard } from "../../components/index";
+import { Sidebar, Navbar, TagCard, Input, ButtonLink, CustomSelect } from "../../components/index";
 import "material-symbols";
 import './EventCreation.css'
+
+const options_area = [
+    { value: "", label: "Selecione" },
+    { value: "option1", label: "ETS" },
+    { value: "option2", label: "BISB" },
+    { value: "option3", label: "BD" },
+];
+
+const options_access = [
+    { value: "", label: "Selecione" },
+    { value: "option1", label: "Somente membros do setor" },
+    { value: "option2", label: "Evento aberto a todos os colaboradores Bosch" },
+];
 
 const EventCreation = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -38,12 +51,24 @@ const EventCreation = () => {
             />
 
             <div className="creation-container-main">
-                <div className="container-register">
-                    <input></input>
+                <div className="container-create-event">
+                    <h2 className='title'>Descrição</h2>
+                    <p className='subtitle'>Informações sobre o evento</p>
+                    <Input label='Nome do evento' id='event_name' placeholder='Ex.: Hackathon 7° Edição' className="input-style" />
 
-                    <input></input>
+                    <CustomSelect
+                        label="Área responsável"
+                        options={options_area}
+                        placeholder="Selecione"
+                        className="custom-select-css-w9q2zk-Input2"
+                    />
 
-                    <input></input>
+                    <CustomSelect
+                        label="Acesso ao evento"
+                        options={options_access}
+                        placeholder="Selecione"
+                        className="custom-select-css-w9q2zk-Input2"
+                    />
                 </div>
 
                 <div className="container-menu">
