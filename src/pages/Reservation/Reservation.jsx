@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Sidebar, Navbar, EventCard } from "../../components/index";
 import AreaModal from "../../components/AreaModal/AreaModal";
+import Footer from "../../components/Footer/Footer";
 import "./Reservation.css"
 
 // apenas para fins de teste
@@ -88,7 +89,6 @@ const Reservation = () => {
         description: "Descrição Undefined"
       }
     },
-    // Adicione mais objetos conforme necessário
   ];
 
   return (
@@ -161,7 +161,7 @@ const Reservation = () => {
               {/* link para acessar informações da área */}
               <button onClick={openModalArea} className="btn-link">Saiba mais sobre a área do evento</button>
               {isModalAreaOpen && <AreaModal onClose={closeModalArea} />}
-              <ReaderQR />
+              {/* <ReaderQR /> */}
             </div>
           </div>
         </div>
@@ -169,10 +169,11 @@ const Reservation = () => {
         <div className="container-child-column">
           <h1 className="description-title">Edições anteriores</h1>
           <p className="description-content-text">Confira os projetos que conquistaram o pódio nas edições anteriores do Hackathon</p>
+          <Carousel images={images} />
+          <Footer />
         </div>
       </div>
 
-      <Carousel images={images} />
     </div>
   );
 };
