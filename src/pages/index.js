@@ -11,6 +11,7 @@ import Tickets from "./Tickets/Tickets";
 import Dashboard from "./Dashboard/Dashboard";
 import Feed from "./Home/Home";
 import Reservation from "./Reservation/Reservation";
+import EventCreation from "./EventCreation/EventCreation";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -33,6 +34,7 @@ export {
   Dashboard,
   Feed,
   Reservation,
+  EventCreation,
 
   /* images */
   ImageLogin,
