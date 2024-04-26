@@ -55,7 +55,7 @@ const EventCreation = () => {
                     <div className="creation-container-child">
                         <h2 className='title'>Descrição</h2>
                         <p className='subtitle'>Informações sobre o evento</p>
-                        <div className="container-create-event">
+                        <div className="container-event-description">
                             <div className="container-create-event-child">
                                 <Input label='Nome do evento' id='event_name' placeholder='Ex.: Hackathon 7° Edição' className="input-style" />
 
@@ -81,6 +81,26 @@ const EventCreation = () => {
 
                                 <label htmlFor="image_banner">Imagem para o banner</label>
                                 <input type="file" id="image_banner" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="creation-container-realization">
+                        <h2 className='title'>Realização</h2>
+                        <p className='subtitle'>Informações sobre local e horário</p>
+                        <div className="container-event-description">
+                            <div className="container-create-event-child">
+                                <Input label='Local' id='event_name' placeholder='Ex.: Ca300' className="input-style" />
+
+                                <CustomSelect
+                                    label="Plataforma de transmissão online"
+                                    options={options_area}
+                                    placeholder="Selecione"
+                                    className="custom-select-css-w9q2zk-Input2"
+                                />
+                            </div>
+                            <div className="container-create-event-child">
+                                <Input label='Nome do evento' id='event_name' placeholder='Ex.: Hackathon 7° Edição' className="input-style" />
                             </div>
                         </div>
                     </div>
