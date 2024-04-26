@@ -1,3 +1,7 @@
+.sidebar-open .creation-container-main {
+    margin-left: 320px;
+}
+
 .creation-container {
     transition: margin-left 0.3s ease;
 }
@@ -20,4 +24,3 @@
     display: flex;
     align-items: center;
 }
-
