@@ -71,7 +71,7 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
           </div>
 
           {userType === "admin" && (
-            <Link to="/schedule">
+            <Link to="/create">
               <SidebarIcon
                 iconName="calendar_add_on"
                 text="Novo evento"
