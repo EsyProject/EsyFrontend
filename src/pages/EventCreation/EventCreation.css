@@ -1,5 +1,5 @@
 .sidebar-open .creation-container-main {
-    margin-left: 249px;
+    margin-left: 320px;
 }
 
 .creation-container {
@@ -9,7 +9,7 @@
 .creation-container-main {
     flex: 1;
     display: flex;
-    margin-left: 105px;
+    margin-left: 186px;
     justify-content: space-between;
     transition: margin-left 0.3s;
 }
@@ -33,6 +33,8 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: calc(100% - 500px);
+    padding-right: 80px;
 }
 
 .container-event-description {
@@ -43,4 +45,10 @@
 
 .container-create-event-child {
     width: 100%;
+}
+
+.container-event-details {
+    display: flex;
+    width: 100%;
+    gap: 15px;   
 }
