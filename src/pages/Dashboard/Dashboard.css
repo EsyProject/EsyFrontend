@@ -1,5 +1,6 @@
 .dashboard-container {
   transition: margin-left 0.3s ease;
+  margin-top: 119px;
 }
 
 .sidebar-open .dashboard-container-main {
