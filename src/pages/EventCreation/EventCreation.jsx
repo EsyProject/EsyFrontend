@@ -2,9 +2,14 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { Sidebar, Navbar, TagCard, Input, ButtonLink, CustomSelect } from "../../components/index";
+import { Sidebar, Navbar, TagCard, Input, CustomSelect } from "../../components/index";
 import "material-symbols";
 import './EventCreation.css'
+
+// teste
+
+import InputDate from "../../components/InputDate/InputDate";
+import InputHour from "../../components/InputHour/InputHour";
 
 const options_area = [
     { value: "", label: "Selecione" },
@@ -99,8 +104,29 @@ const EventCreation = () => {
                                     className="custom-select-css-w9q2zk-Input2"
                                 />
                             </div>
+                            <div className="container-event-details">
+                                <div className="container-create-event-child">
+                                    <InputDate label='Data de início' id='event_date_start' placeholder='dd/mm/aaaa' className="input-style" />
+                                    <InputDate label='Data de término' id='event_date_finish' placeholder='dd/mm/aaaa' className="input-style" />
+                                </div>
+                                <div className="container-create-event-child">
+                                    <InputHour label='Horário de início' id='event_time_start' placeholder='00:00' className="input-style" />
+                                    <InputHour label='Horário de término' id='event_time_finish' placeholder='00:00' className="input-style" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="creation-container-tickets">
+                        <h2 className='title'>Ingressos</h2>
+                        <p className='subtitle'>Quando as reservas de ingressos começam e terminam?</p>
+
+                        <div className="container-event-description">
                             <div className="container-create-event-child">
-                                <Input label='Nome do evento' id='event_name' placeholder='Ex.: Hackathon 7° Edição' className="input-style" />
+                                <InputDate label='Data de início' id='event_date_start' placeholder='dd/mm/aaaa' className="input-style" />
+                            </div>
+                            <div className="container-create-event-child">
+                                <InputHour label='Horário de início' id='event_time_start' placeholder='00:00' className="input-style" />
                             </div>
                         </div>
                     </div>
