@@ -12,6 +12,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import Feed from "./Home/Home";
 import Reservation from "./Reservation/Reservation";
 import EventCreation from "./EventCreation/EventCreation";
+import LoginSSO from "./LoginSSO/LoginSSO";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -35,6 +36,7 @@ export {
   Feed,
   Reservation,
   EventCreation,
+  LoginSSO,
 
   /* images */
   ImageLogin,
