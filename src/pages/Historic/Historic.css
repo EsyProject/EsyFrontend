@@ -15,7 +15,6 @@
   justify-content: center;
   margin: 0 auto;
   height: calc(100vh - 68px);
-  padding-bottom: 65px;
   margin-left: 440px;
   transition: margin-left 0.3s ease;
 }
