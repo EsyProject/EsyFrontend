@@ -79,18 +79,22 @@ const EventCreation = () => {
                                 />
                             </div>
                             <div className="container-create-event-child">
+                                <h4 className="label-textarea">Descrição</h4>
                                 <textarea
                                     className="custom-textarea"
                                     placeholder="Este é o texto que aparecerá no feed de atualizações para que os colaboradores possam saber sobre seu evento."
                                 ></textarea>
 
-                                <label htmlFor="image_banner">Imagem para o banner</label>
-                                <input type="file" id="image_banner" />
+                                {/* <label htmlFor="image_banner">Imagem para o banner</label>
+                                <input type="file" id="image_banner" /> */}
+
+                                <h4 className="label-textarea">Imagem para o banner</h4>
+                                <input type="file" id="image_banner" accept="image/*" class="custom-input input-image" />
                             </div>
                         </div>
                     </div>
 
-                    {/* <div className="creation-container-realization">
+                    <div className="creation-container-realization">
                         <h2 className='title'>Realização</h2>
                         <p className='subtitle'>Informações sobre local e horário</p>
                         <div className="container-event-description">
@@ -115,7 +119,7 @@ const EventCreation = () => {
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
 
                     <div className="creation-container-tickets">
                         <h2 className='title'>Ingressos</h2>
@@ -132,7 +136,13 @@ const EventCreation = () => {
                             </div>
                         </div>
                     </div>
+
+                    <div className="btn-container">
+                        <button>Concluir criação do evento</button>
+                        <button>Limpar</button>
+                    </div>
                 </div>
+
 
                 <div className="container-menu">
                     <div className="container-calendar">
