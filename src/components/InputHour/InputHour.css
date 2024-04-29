@@ -6,3 +6,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     margin-top: 0px;
     cursor: pointer;
 }
+
+label {
+    white-space: nowrap;
+}

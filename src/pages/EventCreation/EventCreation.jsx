@@ -90,7 +90,7 @@ const EventCreation = () => {
                         </div>
                     </div>
 
-                    <div className="creation-container-realization">
+                    {/* <div className="creation-container-realization">
                         <h2 className='title'>Realização</h2>
                         <p className='subtitle'>Informações sobre local e horário</p>
                         <div className="container-event-description">
@@ -115,18 +115,20 @@ const EventCreation = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="creation-container-tickets">
                         <h2 className='title'>Ingressos</h2>
                         <p className='subtitle'>Quando as reservas de ingressos começam e terminam?</p>
 
                         <div className="container-event-description">
-                            <div className="container-create-event-child">
-                                <InputDate label='Data de início' id='event_date_start' placeholder='dd/mm/aaaa' className="input-style" />
+                            <div className="container-event-details">
+                                <InputDate label='Data de início' id='event_date_tickets_start' placeholder='dd/mm/aaaa' className="input-style" />
+                                <InputHour label='Horário de início' id='event_time_tickets_start' placeholder='00:00' className="input-style" />
                             </div>
-                            <div className="container-create-event-child">
-                                <InputHour label='Horário de início' id='event_time_start' placeholder='00:00' className="input-style" />
+                            <div className="container-event-details">
+                                <InputDate label='Data de início' id='event_date_tickets_start' placeholder='dd/mm/aaaa' className="input-style" />
+                                <InputHour label='Horário de início' id='event_time_tickets_start' placeholder='00:00' className="input-style" />
                             </div>
                         </div>
                     </div>
