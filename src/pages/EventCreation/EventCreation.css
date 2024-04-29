@@ -1,5 +1,5 @@
 .sidebar-open .creation-container-main {
-    margin-left: 320px;
+    margin-left: 249px;
 }
 
 .creation-container {
@@ -9,7 +9,7 @@
 .creation-container-main {
     flex: 1;
     display: flex;
-    margin-left: 186px;
+    margin-left: 105px;
     justify-content: space-between;
     transition: margin-left 0.3s;
 }
@@ -33,6 +33,8 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 61%;
+    margin: 0 auto;
 }
 
 .container-event-description {
@@ -43,4 +45,17 @@
 
 .container-create-event-child {
     width: 100%;
+}
+
+.container-textarea {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container-textarea h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 5px;
+    margin-top: 10px;
 }
