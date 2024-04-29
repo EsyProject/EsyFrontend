@@ -1,5 +1,6 @@
 .dashboard-container {
   transition: margin-left 0.3s ease;
+  margin-top: 119px;
 }
 
 .sidebar-open .dashboard-container-main {
@@ -28,7 +29,7 @@
 }
 
 .left-column-dashboard.menu-open {
-  width: 994px;
+  width: 1037px;
   margin-right: 80px;
   transition: width 0.3s ease;
 }
@@ -37,7 +38,7 @@
   .participant-reviews
   .participant-reviews-main
   .highlights {
-  width: 565px;
+  width: 610px;
 }
 
 .general-analysis {

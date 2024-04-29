@@ -2,16 +2,21 @@
   transition: margin-left 0.3s ease;
 }
 
-.sidebar-open .container-main {
-  margin-left: 300px;
+.sidebar-open .container-main-historic {
+  transition: margin-left 0.3s ease;
+  margin-left: 530px;
 }
 
-.container-main {
+.container-main-historic {
   flex: 1;
-  padding: 10px;
-  margin-left: 156px;
-  transition: margin-left 0.3s;
-  max-width: 1109px;
+  max-width: 1091px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  height: calc(100vh - 68px);
+  margin-left: 440px;
+  transition: margin-left 0.3s ease;
 }
 
 .events-wrapper {

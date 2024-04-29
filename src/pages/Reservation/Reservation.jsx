@@ -5,9 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import "./Reservation.css"
 
 // apenas para fins de teste
-import ReactDOM from 'react-dom';
 import Carousel from "../../components/Carousel/Carousel";
-import ReaderQR from "../../components/ReaderQR/ReaderQR";
 
 const Reservation = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

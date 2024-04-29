@@ -3,6 +3,7 @@
   width: 100%;
   transition: margin-left 0.3s ease;
   display: flex;
+  margin-top: 68px;
 }
 
 .sidebar-open .left-column {

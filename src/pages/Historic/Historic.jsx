@@ -63,7 +63,7 @@ const Historic = () => {
         toggleSidebar={toggleSidebar}
       />
 
-      <div className="container-main">
+      <div className="container-main-historic">
         <div className="events-wrapper">
           <div className="events amount">
             <h4>

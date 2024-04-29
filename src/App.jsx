@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Home, Login, Password, Register, Historic, Schedule, Settings, Account, Tickets, Dashboard, Feed, Reservation, EventCreation } from './pages/index'
+import { Home, Login, Password, Register, Historic, Schedule, Settings, Account, Tickets, Dashboard, Feed, Reservation, EventCreation, LoginSSO } from './pages/index'
 
 const App = () => {
   return (
@@ -19,6 +19,7 @@ const App = () => {
           <Route path='/feed' element={<Feed />} />
           <Route path='/description' element={<Reservation />} />
           <Route path='/create' element={<EventCreation />} />
+          <Route path='/loginsso' element={<LoginSSO />} />
         </Routes>
       </Router>
     </main>
