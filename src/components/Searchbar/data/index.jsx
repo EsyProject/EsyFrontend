@@ -5,7 +5,8 @@ const eventsList = [
     time: "10:00",
     local: "Ca300",
     area: "BISB",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
   {
     name: "Seminário sobre Inteligência Artificial e Machine Learning",
@@ -13,7 +14,8 @@ const eventsList = [
     time: "14:00",
     local: "Ca600",
     area: "BD - IA",
-    presence: "NÃO"
+    presence: "NÃO",
+    evaluation: "❌"
   },
   {
     name: "Feira de Tecnologia e Inovação",
@@ -21,7 +23,8 @@ const eventsList = [
     time: "09:30",
     local: "Ca170",
     area: "BD - LA",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
   {
     name: "Palestra sobre Cibersegurança e Proteção de Dados",
@@ -29,7 +32,8 @@ const eventsList = [
     time: "13:00",
     local: "Ca600",
     area: "ETS - DS",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
   {
     name: "Conferência de Realidade Virtual e Aumentada",
@@ -37,7 +41,8 @@ const eventsList = [
     time: "11:00",
     local: "Ca300",
     area: "BD - RA",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "❌"
   },
   
   {
@@ -46,7 +51,8 @@ const eventsList = [
     time: "08:00",
     local: "Centro de Inovação",
     area: "BISB",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
   {
     name: "Workshop de UX Design",
@@ -54,7 +60,8 @@ const eventsList = [
     time: "10:30",
     local: "Sala de Treinamento",
     area: "ETS - DS",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "❌"
   },
   {
     name: "Congresso de Big date",
@@ -62,7 +69,8 @@ const eventsList = [
     time: "09:00",
     local: "Salão Nobre",
     area: "BD - LA",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
   {
     name: "Curso de Python para Iniciantes",
@@ -70,7 +78,8 @@ const eventsList = [
     time: "15:00",
     local: "Sala 103",
     area: "ETS - DS",
-    presence: "NÃO"
+    presence: "NÃO",
+    evaluation: "❌"
   },
   {
     name: "Conferência de Cibersegurança",
@@ -78,7 +87,8 @@ const eventsList = [
     time: "12:30",
     local: "Auditório Central",
     area: "BISB",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
   {
     name: "Workshop de Desenvolvimento de Aplicativos Móveis",
@@ -86,7 +96,8 @@ const eventsList = [
     time: "10:00",
     local: "Ca300",
     area: "BISB",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
   {
     name: "Seminário sobre Inteligência Artificial e Machine Learning",
@@ -94,7 +105,8 @@ const eventsList = [
     time: "14:00",
     local: "Ca600",
     area: "BD - IA",
-    presence: "NÃO"
+    presence: "NÃO",
+    evaluation: "❌"
   },
   {
     name: "Feira de Tecnologia e Inovação",
@@ -102,7 +114,8 @@ const eventsList = [
     time: "09:30",
     local: "Ca170",
     area: "BD - LA",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "❌"
   },
   {
     name: "Palestra sobre Cibersegurança e Proteção de Dados",
@@ -110,7 +123,8 @@ const eventsList = [
     time: "13:00",
     local: "Ca600",
     area: "ETS - DS",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "❌"
   },
   {
     name: "Conferência de Realidade Virtual e Aumentada",
@@ -118,7 +132,8 @@ const eventsList = [
     time: "11:00",
     local: "Ca300",
     area: "BD - RA",
-    presence: "SIM"
+    presence: "SIM",
+    evaluation: "✅"
   },
 /* 
   {
