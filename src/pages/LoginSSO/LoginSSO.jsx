@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { ImageLogin, LogoEsy } from '../index';
-import { Input, ButtonLink, AnimatedImage } from '../../components/index';
-import './LoginSSO.css';
+import { ImageLogin, LogoEsy } from "../index";
+import { ButtonLink, AnimatedImage } from "../../components/index";
+import "./LoginSSO.css";
 
 const LoginSSO = () => {
   return (
@@ -10,7 +8,7 @@ const LoginSSO = () => {
       <div className="container-main-register">
         <div className="container-register">
           <div className="logo-img-login">
-            <img src={LogoEsy} alt='logo' />
+            <img src={LogoEsy} alt="logo" />
           </div>
           <div className="form-container-password">
             <h2>Login</h2>
@@ -28,7 +26,7 @@ const LoginSSO = () => {
         <AnimatedImage imageUrl={ImageLogin} />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default LoginSSO
+export default LoginSSO;
