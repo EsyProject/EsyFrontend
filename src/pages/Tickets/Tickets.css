@@ -65,7 +65,7 @@
 .container-details-event {
   display: flex;
   align-items: center;
-  gap: 35px;
+  justify-content: space-between;
 }
 
 .container-qrcode {
