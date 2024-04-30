@@ -9,6 +9,7 @@ import {
   TicketsCard,
   MessageModal,
 } from "../../components/index";
+import { Qrcode } from "../index";
 import "material-symbols";
 import "./Tickets.css";
 
@@ -127,7 +128,7 @@ const Tickets = () => {
               title="Ciclo de Saúde Mental"
               authCode="3815296"
               area="AMB - GE"
-              qrcode={authCode}
+              qrcode={Qrcode}
             />
 
             <TicketsCard
@@ -135,7 +136,7 @@ const Tickets = () => {
               title="Fórum da Sustentabilidade"
               authCode="3815296"
               area="HR - GE"
-              qrcode={authCode}
+              qrcode={Qrcode}
             />
 
             <TicketsCard
@@ -143,7 +144,7 @@ const Tickets = () => {
               title="Conferência da Inovação"
               authCode="3815296"
               area="BD - DEV"
-              qrcode={authCode}
+              qrcode={Qrcode}
             />
 
             <TicketsCard
@@ -151,7 +152,7 @@ const Tickets = () => {
               title="Jornada do Conhecimento"
               authCode="3815296"
               area="ETS - DS"
-              qrcode={authCode}
+              qrcode={Qrcode}
             />
 
             <TicketsCard
@@ -159,7 +160,7 @@ const Tickets = () => {
               title="Conferência da Inovação"
               authCode="3815296"
               area="BD - DEV"
-              qrcode={authCode}
+              qrcode={Qrcode}
             />
           </div>
         </div>
