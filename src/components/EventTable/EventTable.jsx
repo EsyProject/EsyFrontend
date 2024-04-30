@@ -15,6 +15,7 @@ const EventTable = ({ events }) => {
             <th className="th-event-local">Local</th>
             <th className="th-event-area">Área</th>
             <th className="th-event-presence">Presença</th>
+            <th className="th-event-assessment">Avaliação</th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ const EventTable = ({ events }) => {
                   {event.presence}
                 </div>
               </td>
+              <td className="td-event-assessment">{event.assessment}</td>
             </tr>
           ))}
         </tbody>
@@ -55,6 +57,7 @@ EventTable.propTypes = {
       local: PropTypes.string.isRequired,
       area: PropTypes.string.isRequired,
       presence: PropTypes.string.isRequired,
+      assessment: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
