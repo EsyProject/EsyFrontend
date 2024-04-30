@@ -34,6 +34,10 @@
   margin-top: 100px;
 }
 
+.input-style {
+    user-select: none;
+}
+
 .container-create-event {
   display: flex;
   flex-direction: column;
@@ -208,8 +212,19 @@ input[type="file"] {
   color: #fff;
 }
 
-
+.creation-container .custom-select__control,
 .creation-container .css-1jmvyrc-control,
 .creation-container .custom-input input {
   height: 45px;
+}
+
+.custom-input input:focus,
+textarea:focus {
+  outline: none; 
+  border-color: #2684ff; 
+  box-shadow: 0 0 0 1px #2684ff;
+}
+
+.custom-select__input-container select:focus {
+  outline: none;
 }
