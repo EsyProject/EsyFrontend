@@ -10,3 +10,9 @@
   height: 32.84px;
   margin-left: 40px;
 }
+
+.form-container-password .subtitle-login {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}

@@ -5,13 +5,6 @@ import { Input, ButtonLink, AnimatedImage } from '../../components/index';
 import './LoginSSO.css';
 
 const LoginSSO = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState('');
-
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
-  };
-
   return (
     <>
       <div className="container-main-register">
@@ -21,28 +14,13 @@ const LoginSSO = () => {
           </div>
           <div className="form-container-password">
             <h2>Login</h2>
-            <form>
-              <Input label='E-mail' id='email' placeholder='Souza.manuela@br.bosch.com' className="input-style" />
 
-              <label htmlFor='password'>Senha</label>
-              <div className="password-input">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  id='password'
-                  name='password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="button" onClick={handleTogglePassword}>
-                  {showPassword ? <FiEye size={20} /> : <FiEyeOff size={20} />}
-                </button>
-              </div>
+            <p className='subtitle-login'>Transforme a organização de eventos em uma experiência esy!</p>
 
-              <ButtonLink to="/historic">Entrar</ButtonLink>
-            </form>
-
+            <ButtonLink to="/historic">Entrar</ButtonLink>
+            
             <div className="existing-account">
-              <p>Ainda não possui uma conta? <a href="/register"><span>Cadastre-se aqui</span></a></p>
+              <p>Sua criação de eventos tão simples quanto um <a href="/register"><span>clique</span></a></p>
             </div>
           </div>
         </div>
