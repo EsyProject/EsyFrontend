@@ -75,3 +75,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.container-not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 445px;
+}

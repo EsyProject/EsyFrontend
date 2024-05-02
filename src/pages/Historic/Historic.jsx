@@ -53,7 +53,7 @@ const Historic = () => {
         tabs={[
           { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
           { name: "historic", text: "Histórico de eventos", link: "/historic" },
-          { name: "tickets", text: "Tickets", link: "/tickets" }
+          { name: "tickets", text: "Tickets", link: "/tickets" },
         ]}
       />
 
@@ -113,14 +113,22 @@ const Historic = () => {
           />
         </div>
 
-        <EventTable events={filteredEvents.slice(offset, offset + 5)} />
+        {filteredEvents.length === 0 ? (
+          <div className="container-not-found">
+            <p>Não existe nenhum evento realizado com esse nome</p>
+          </div>
+        ) : (
+          <>
+            <EventTable events={filteredEvents.slice(offset, offset + 5)} />
 
-        <Pagination
-          limit={5}
-          total={totalEvents}
-          offset={offset}
-          setOffset={setOffset}
-        />
+            <Pagination
+              limit={5}
+              total={totalEvents}
+              offset={offset}
+              setOffset={setOffset}
+            />
+          </>
+        )}
       </div>
     </div>
   );
