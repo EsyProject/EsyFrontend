@@ -1,9 +1,15 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
 import PropTypes from "prop-types";
 import "./EventTable.css";
 
 const EventTable = ({ events }) => {
+  const getIcon = (evaluation) => {
+    return evaluation === "true" ? (
+      <i className="material-icons green">check_box</i>
+    ) : (
+      <span className="material-icons red">disabled_by_default</span>
+    );
+  };
+
   return (
     <div className="container-table">
       <table>
@@ -38,7 +44,9 @@ const EventTable = ({ events }) => {
                   {event.presence}
                 </div>
               </td>
-              <td className="td-event-evaluation">{event.evaluation}</td>
+              <td className="td-event-evaluation">
+                {getIcon(event.evaluation)}
+              </td>
             </tr>
           ))}
         </tbody>

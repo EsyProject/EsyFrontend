@@ -140,3 +140,11 @@ body::-webkit-scrollbar-thumb {
   background-color: #e0e0e0;
   border: 6px solid white;
 }
+
+.green {
+  color: #00bc40;
+}
+
+.red {
+  color: #df3737;
+}
