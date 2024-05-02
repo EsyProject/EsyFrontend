@@ -181,15 +181,17 @@ const Home = () => {
                   }
                 />
                 <div className="caption">
-                  <div className="likes">
-                    <span className="material-symbols-rounded">favorite</span>
-                    <p>42</p>
+                  <div className="user-interactions">
+                    <div className="likes">
+                      <span className="material-symbols-rounded">favorite</span>
+                      <p>42</p>
+                    </div>
+                    <div className="views">
+                      <span className="material-symbols-rounded">visibility</span>
+                      <p>50</p>
+                    </div>
                   </div>
-                  <div className="views">
-                    <span className="material-symbols-rounded">visibility</span>
-                    <p>50</p>
-                  </div>
-                  <p>Momento da apresentação do projeto.</p>
+                  <p className="caption-text">Momento da apresentação do projeto.</p>
                 </div>
               </div>
               <div className="container-post">
@@ -206,6 +208,7 @@ const Home = () => {
                   }
                 />
                 <div className="caption">
+                <div className="user-interactions">
                   <div className="likes">
                     <span className="material-symbols-rounded">favorite</span>
                     <p>42</p>
@@ -214,7 +217,8 @@ const Home = () => {
                     <span className="material-symbols-rounded">visibility</span>
                     <p>50</p>
                   </div>
-                  <p>Equipe reunida com o troféu em mãos.</p>
+                </div>
+                  <p className="caption-text">Equipe reunida com o troféu em mãos.</p>
                 </div>
               </div>
               <div className="container-post">
@@ -231,6 +235,7 @@ const Home = () => {
                   }
                 />
                 <div className="caption">
+                <div className="user-interactions">
                   <div className="likes">
                     <span className="material-symbols-rounded">favorite</span>
                     <p>42</p>
@@ -239,7 +244,8 @@ const Home = () => {
                     <span className="material-symbols-rounded">visibility</span>
                     <p>50</p>
                   </div>
-                  <p>Equipe descobrindo que alcançou o...</p>
+                </div>
+                  <p className="caption-text">Equipe descobrindo que alcançou o...</p>
                 </div>
               </div>
             </div>
@@ -385,9 +391,8 @@ const Home = () => {
                         (option) => (
                           <button
                             key={option}
-                            className={`flag-option ${
-                              selectedOptions.includes(option) ? "active" : ""
-                            }`}
+                            className={`flag-option ${selectedOptions.includes(option) ? "active" : ""
+                              }`}
                             onClick={() => handleOptionSelect(option)}
                           >
                             {option}
@@ -400,9 +405,8 @@ const Home = () => {
                         (option) => (
                           <button
                             key={option}
-                            className={`flag-option ${
-                              selectedOptions.includes(option) ? "active" : ""
-                            }`}
+                            className={`flag-option ${selectedOptions.includes(option) ? "active" : ""
+                              }`}
                             onClick={() => handleOptionSelect(option)}
                           >
                             {option}
@@ -455,9 +459,8 @@ const Home = () => {
         {modalOpenImage && (
           <div className="modal-image">
             <div
-              className={`modal-content-image ${
-                modalOpenImage ? "" : "closed"
-              }`}
+              className={`modal-content-image ${modalOpenImage ? "" : "closed"
+                }`}
             >
               <span className="close-button-image" onClick={closeModalImage}>
                 &times;
