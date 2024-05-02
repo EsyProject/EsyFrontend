@@ -10,7 +10,7 @@ const LoginSSO = () => {
           <div className="logo-img-login">
             <img src={LogoEsy} alt="logo" />
           </div>
-          <div className="form-container-password">
+          <div className="container-login">
             <h2>Login</h2>
 
             <p className='subtitle-login'>Transforme a organização de eventos em uma experiência esy!</p>
