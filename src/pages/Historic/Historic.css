@@ -4,32 +4,32 @@
 
 .sidebar-open .container-main-historic {
   transition: margin-left 0.3s ease;
-  margin-left: 530px;
+  margin-left: 455px;
 }
 
 .container-main-historic {
   flex: 1;
-  max-width: 1091px;
+  max-width: 1215px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   height: calc(100vh - 68px);
-  margin-left: 440px;
+  margin-left: 385px;
   transition: margin-left 0.3s ease;
 }
 
 .events-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 51px;
 }
 
 .events {
   display: flex;
   align-items: center;
   height: 58px;
-  border: 1px solid #e8eaed;
+  border: 1px solid #bdc1c6;
   border-radius: 10px;
   padding-left: 25px;
   margin-top: 50px;

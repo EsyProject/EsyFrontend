@@ -1,12 +1,9 @@
-/* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { Sidebar, Navbar, TagCard, Input, CustomSelect } from "../../components/index";
 import "material-symbols";
 import './EventCreation.css'
-
-// teste
 
 import InputDate from "../../components/InputDate/InputDate";
 import InputHour from "../../components/InputHour/InputHour";
@@ -85,11 +82,8 @@ const EventCreation = () => {
                                     placeholder="Este é o texto que aparecerá no feed de atualizações para que os colaboradores possam saber sobre seu evento."
                                 ></textarea>
 
-                                {/* <label htmlFor="image_banner">Imagem para o banner</label>
-                                <input type="file" id="image_banner" /> */}
-
                                 <h4 className="label-textarea">Imagem para o banner</h4>
-                                <input type="file" id="image_banner" accept="image/*" class="custom-input input-image" />
+                                <input type="file" id="image_banner" accept="image/*" className="custom-input input-image" />
                             </div>
                         </div>
                     </div>
@@ -144,7 +138,7 @@ const EventCreation = () => {
                 </div>
 
 
-                <div className="container-menu">
+                <div className="container-menu-create">
                     <div className="container-calendar">
                         <Calendar onChange={onChange} value={value} />
                     </div>

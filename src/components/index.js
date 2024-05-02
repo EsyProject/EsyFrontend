@@ -19,6 +19,7 @@ import ProfileModal from "../components/ProfileModal/ProfileModal";
 import Timetable from "../components/Timetable/Timetable";
 import TagCard from "../components/TagCard/TagCard";
 import ColumnsChart from "./ColumnsChart/ColumnsChart";
+import ReaderQR from "./ReaderQR/ReaderQR";
 
 export {
   InteractiveBubble,
@@ -42,4 +43,5 @@ export {
   StarRating,
   TagCard,
   ColumnsChart,
+  ReaderQR,
 };
