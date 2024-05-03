@@ -10,8 +10,8 @@ const Input = ({ label, id, placeholder }) => (
 
 // PropTypes validation for the Input component
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  label: PropTypes.string,
+  id: PropTypes.number,
   placeholder: PropTypes.string.isRequired,
 };
 

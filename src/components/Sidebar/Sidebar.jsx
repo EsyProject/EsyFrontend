@@ -48,10 +48,10 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
               iconName="qr_code_scanner"
               text="Autenticar"
               buttonClassName="icon-hover"
-              className="notification"
+              className="autentication"
               textClassName="sidebar-text"
-              active={activeIcon === "notifications"}
-              onClick={() => handleIconClick("notifications")}
+              active={activeIcon === "authentication"}
+              onClick={() => handleIconClick("authentication")}
             />
           </Link>
           <Link to="/">

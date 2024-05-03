@@ -1,0 +1,56 @@
+.authentication-container {
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-open .container-main-authentication {
+  transition: margin-left 0.3s ease;
+  margin-left: 455px;
+}
+
+.container-main-authentication {
+  flex: 1;
+  max-width: 1215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100vh;
+  margin-left: 385px;
+  transition: margin-left 0.3s ease;
+  align-items: center;
+}
+
+.reder {
+  width: 285px;
+  height: 285px;
+  border: 0.68184px solid #000000;
+  border-radius: 14.7px;
+  margin-top: 40px;
+}
+
+.guidance {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+
+.input-container {
+  margin-top: 20px;
+  width: 400px;
+}
+
+.input-container .custom-input input {
+  border: 1px solid #000000;
+  border-radius: 7px;
+  height: 50px;
+  width: auto;
+  padding-left: 20px;
+}
+
+.custom-input input {
+  font-size: 16px;
+}
+
+.container-button-authentication {
+  margin-top: 20px;
+}
