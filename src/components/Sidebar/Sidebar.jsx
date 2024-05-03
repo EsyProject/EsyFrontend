@@ -43,10 +43,10 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
       <nav className="border">
         <div className="sidebar-content">
           {/* Navigation links */}
-          <Link to="/notifications">
+          <Link to="/authentication">
             <SidebarIcon
-              iconName="notifications"
-              text="Notificações"
+              iconName="qr_code_scanner"
+              text="Autenticar"
               buttonClassName="icon-hover"
               className="notification"
               textClassName="sidebar-text"
