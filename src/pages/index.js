@@ -13,6 +13,7 @@ import Feed from "./Home/Home";
 import Reservation from "./Reservation/Reservation";
 import EventCreation from "./EventCreation/EventCreation";
 import LoginSSO from "./LoginSSO/LoginSSO";
+import Authentication from "./Authentication/Authentication";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -37,6 +38,7 @@ export {
   Reservation,
   EventCreation,
   LoginSSO,
+  Authentication,
 
   /* images */
   ImageLogin,

@@ -11,6 +11,7 @@ import {
   Reservation,
   EventCreation,
   LoginSSO,
+  Authentication,
 } from "./pages/index";
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/feed" element={<Feed />} />
           <Route path="/description" element={<Reservation />} />
           <Route path="/create" element={<EventCreation />} />
+          <Route path="/authentication" element={<Authentication />} />
         </Routes>
       </main>
     </Router>
