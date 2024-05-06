@@ -22,6 +22,7 @@
 
 .reder {
   margin-top: 40px;
+  transform: scaleX(-1);
 }
 
 .guidance {
