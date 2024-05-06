@@ -1,13 +1,32 @@
-import { useState } from "react";
-import { Sidebar, Navbar, Input, ButtonLink, ReaderQR } from "../../components/index";
+import { useState, useEffect } from "react";
+import {
+  Sidebar,
+  Navbar,
+  Input,
+  ButtonLink,
+  ReaderQR,
+} from "../../components/index";
 import "./Authentication.css";
 
 const Authentication = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [qrCodeValue, setQrCodeValue] = useState("");
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const handleQrCodeScan = (value) => {
+    if (!qrCodeValue) {
+      console.log("QR code scanned:", value);
+      setQrCodeValue(value);
+    }
+  };
+
+  // Atualizar o valor do input sempre que qrCodeValue mudar
+  useEffect(() => {
+    setQrCodeValue(qrCodeValue);
+  }, [qrCodeValue]);
 
   return (
     <div
@@ -33,13 +52,17 @@ const Authentication = () => {
         <p className="subtitle">Aponte a foto do seu Qr code para a câmera</p>
 
         <div className="reder">
-          <ReaderQR />
+          <ReaderQR onQrCodeScan={handleQrCodeScan} />{" "}
         </div>
 
         <div className="input-container">
           <p className="guidance">Ou entre com o código manualmente</p>
 
-          <Input placeholder="Ex.: 5845215" className="input-style" />
+          <Input
+            placeholder="Ex.: 5845215"
+            className="input-style"
+            value={qrCodeValue}
+          />
 
           <div className="container-button-authentication">
             <ButtonLink>Autenticar</ButtonLink>
