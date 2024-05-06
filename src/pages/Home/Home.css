@@ -839,21 +839,3 @@ label.modal-permission {
     gap: 0px;
   }
 }
-
-@media screen and (max-width: 1690px) {
-  footer {
-    display: flex;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 10px;
-  }
-}
-
-@media screen and (max-width: 1233px) {
-  footer section {
-    display: flex;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: -30px !important;
-  }
-}
