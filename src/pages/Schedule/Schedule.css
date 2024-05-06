@@ -1,25 +1,34 @@
+.sidebar-open .container-main-schedule {
+  margin-left: 490px;
+}
+
 .schedule-title {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 36px;
-    color: #17181B;
-    margin-bottom: 0;
-    margin-top: 50px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: #17181b;
+  margin-bottom: 0;
 }
 
 .schedule-subtitle {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #80868B;
-    margin-top: 0;
-    margin-bottom: 30px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #80868b;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
 
-.container-main {
-    padding-bottom: 60px;
-    max-width: 1146px;
-    margin-top: 68px;
+.container-main-schedule {
+  flex: 1;
+  max-width: 1215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100vh;
+  margin-left: 385px;
+  transition: margin-left 0.3s ease;
 }
