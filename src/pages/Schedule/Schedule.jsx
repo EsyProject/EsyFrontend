@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sidebar, Navbar, Timetable, Logout, ProfileModal } from "../../components/index";
+import { Sidebar, Navbar, Timetable } from "../../components/index";
 import "./Schedule.css"
 
 const Schedule = () => {
@@ -22,30 +22,6 @@ const Schedule = () => {
     },
   ];
 
-  // teste do modal de logout
-
-  const [isModalLogoutOpen, setIsModalLogoutOpen] = useState(false);
-  
-  const openModalLogout = () => {
-    setIsModalLogoutOpen(true);
-  };
-
-  const closeModalLogout = () => {
-    setIsModalLogoutOpen(false);
-  };
-
-  // teste do modal de perfil
-
-  const [isModalProfileOpen, setIsModalProfileOpen] = useState(false);
-
-  const openModalProfile = () => {
-    setIsModalProfileOpen(true);
-  };
-
-  const closeModalProfile = () => {
-    setIsModalProfileOpen(false);
-  };
-
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
@@ -66,18 +42,10 @@ const Schedule = () => {
         toggleSidebar={toggleSidebar}
       />
 
-      <div className="container-main">
+      <div className="container-main-schedule">
         <h1 className="schedule-title">Minha agenda</h1>
         <p className="schedule-subtitle">Eventos programados para este mês</p>
         <Timetable events={events} />
-
-        {/* colocar isso na sidebar, na parte do logout */}
-        <button onClick={openModalLogout}>Logout</button>
-        {isModalLogoutOpen && <Logout onClose={closeModalLogout} />}
-        
-        {/* colocar isso na sidebar, na parte do perfil */}
-        <button onClick={openModalProfile}>Profile</button>
-        {isModalProfileOpen && <ProfileModal onClose={closeModalProfile} />}
       </div>
     </div>
   );
