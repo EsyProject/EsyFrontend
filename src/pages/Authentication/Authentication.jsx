@@ -23,10 +23,14 @@ const Authentication = () => {
     }
   };
 
-  // Atualizar o valor do input sempre que qrCodeValue mudar
+  // Update the input value whenever qrCodeValue changes
   useEffect(() => {
     setQrCodeValue(qrCodeValue);
   }, [qrCodeValue]);
+
+  const handleInputChange = (event) => {
+    setQrCodeValue(event.target.value);
+  };
 
   return (
     <div
@@ -52,7 +56,7 @@ const Authentication = () => {
         <p className="subtitle">Aponte a foto do seu Qr code para a câmera</p>
 
         <div className="reder">
-          <ReaderQR onQrCodeScan={handleQrCodeScan} />{" "}
+          <ReaderQR onQrCodeScan={handleQrCodeScan} />
         </div>
 
         <div className="input-container">
@@ -62,6 +66,7 @@ const Authentication = () => {
             placeholder="Ex.: 5845215"
             className="input-style"
             value={qrCodeValue}
+            onChange={handleInputChange}
           />
 
           <div className="container-button-authentication">
