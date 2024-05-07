@@ -10,8 +10,8 @@
 
 .modal-profile-modal-content {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 70%;
+    left: 13%;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 30px 45px 30px 45px;
@@ -50,7 +50,7 @@
     color: #000000;
 }
 
-.modal-profile-modal .modal-profile-modal-content p {
+.modal-profile-modal .modal-profile-modal-content .links a {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -58,6 +58,8 @@
     margin-top: 0;
     margin-bottom: 0px;
     text-align: left;
+    text-decoration: none;
+    color: #000000;
 }
 
 .modal-profile-modal .modal-profile-modal-content .links {
