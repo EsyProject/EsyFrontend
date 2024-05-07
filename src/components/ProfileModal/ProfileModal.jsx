@@ -38,7 +38,6 @@ const ProfileModal = ({ onClose }) => {
 
         <div className="links">
           <Link to="/settings">Configurações</Link>
-          <Link to="/settings">Permissões</Link>
           <hr />
           <p>Log out</p>
         </div>
