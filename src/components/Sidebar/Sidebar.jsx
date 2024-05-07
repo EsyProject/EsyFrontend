@@ -2,12 +2,22 @@ import config from "../../config.json";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { LogoEsy, LogoEsyClosed } from "../../pages/index";
-import { SidebarIcon } from "../../components/index";
+import { SidebarIcon, ProfileModal } from "../../components/index";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
   const [activeIcon, setActiveIcon] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+
+  // open popup when cancel button is pressed
+  const handleCancel = () => {
+    setShowPopup(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowPopup(false);
+  };
 
   // User type access
   const userType = config.userType;
@@ -145,17 +155,20 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
             <h5>GERAIS</h5>
           </div>
 
-          <Link to="/account">
-            <SidebarIcon
-              iconName="person"
-              text="Conta"
-              buttonClassName="icon-hover"
-              className="calendar"
-              textClassName="sidebar-text"
-              active={activeIcon === "account"}
-              onClick={() => handleIconClick("account")}
-            />
-          </Link>
+          <SidebarIcon
+            iconName="person"
+            text="Conta"
+            buttonClassName="icon-hover"
+            className="calendar"
+            textClassName="sidebar-text"
+            active={activeIcon === "account"}
+            onClick={handleCancel}
+          />
+
+          {showPopup && (
+            <ProfileModal onClose={handleCloseModal} showModal={showPopup} />
+          )}
+
           <Link to="/settings">
             <SidebarIcon
               iconName="tune"
