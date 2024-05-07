@@ -1,35 +1,54 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./ProfileModal.css";
 
 const ProfileModal = ({ onClose }) => {
-    const colors = ['#D543CB', '#4AB073', '#54ABA5', '#0096E8', '#7EBDFF', '#A1DFDB'];
-    const [actualColor, setActualColor] = useState(colors[0]);
+  const colors = useMemo(
+    () => ["#D543CB", "#4AB073", "#54ABA5", "#0096E8", "#7EBDFF", "#A1DFDB"],
+    []
+  );
+  const [actualColor, setActualColor] = useState(colors[0]);
+  const modalRef = useRef(null);
 
-    useEffect(() => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        setActualColor(randomColor);
-    }, []);
+  useEffect(() => {
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    setActualColor(randomColor);
 
-    return (
-        <div className="modal-profile-modal">
-            <div className="modal-profile-modal-content">
-                <div className="circle" style={{ backgroundColor: actualColor }}>
-                    <h1>M</h1>
-                </div>
-                <h2>Manuela Rocha</h2>
+    // event listener to capture clicks outside the modal
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
 
-                <div className="links">
-                    <p>Configurações</p>
-                    <p>Permissões</p><hr />
-                    <p>Log out</p>
-                </div>
-                {/* nessa parte precisamos mudar para link, de modo a tornar de fato funcional */}
-                {/* também é necessário arrumar a parte da posição do modal de profile 
-                (será que deixar no meio realmente é bom?) */}
-            </div>
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose, colors]);
+
+  return (
+    <div className="modal-profile-modal">
+      <div ref={modalRef} className="modal-profile-modal-content">
+        <div className="circle" style={{ backgroundColor: actualColor }}>
+          <h1>M</h1>
         </div>
-    );
+        <h2>Manuela Rocha</h2>
+
+        <div className="links">
+          <Link to="/settings">Configurações</Link>
+          <Link to="/settings">Permissões</Link>
+          <hr />
+          <p>Log out</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+ProfileModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ProfileModal;
