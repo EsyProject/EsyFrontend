@@ -46,6 +46,7 @@
   display: flex;
   gap: 50px;
   padding-right: 60px;
+  margin-top: 68px;
 }
 
 .container-main .container-child .description-content {
