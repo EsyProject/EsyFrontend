@@ -2,17 +2,23 @@ import config from "../../config.json";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { LogoEsy, LogoEsyClosed } from "../../pages/index";
-import { SidebarIcon, ProfileModal } from "../../components/index";
+import { SidebarIcon, ProfileModal, Logout } from "../../components/index";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
   const [activeIcon, setActiveIcon] = useState(null);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [logoutOpen, setLogoutOpen] = useState(false);
 
   // Function to handle profile icon click
   const handleProfileIconClick = () => {
     setProfileModalOpen(!profileModalOpen);
+  };
+
+  // Function to handle logout icon click
+  const handleLogoutIconClick = () => {
+    setLogoutOpen(!logoutOpen);
   };
 
   // Effect to update active icon when active page changes
@@ -186,17 +192,20 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
 
         {/* Logout link */}
         <div className="logout-container">
-          <Link to="/login">
-            <SidebarIcon
-              iconName="logout"
-              text="Log out"
-              buttonClassName="icon-hover-logout"
-              className="logout icon-svg"
-              textClassName="sidebar-text-logout"
-              active={activeIcon === "logout"}
-              onClick={() => handleIconClick("logout")}
-            />
-          </Link>
+          <SidebarIcon
+            iconName="logout"
+            text="Log out"
+            buttonClassName="icon-hover-logout"
+            className="logout icon-svg"
+            textClassName="sidebar-text-logout"
+            active={activeIcon === "logout"}
+            onClick={handleLogoutIconClick}
+          />
+
+          {/* Renders the logout modal if it is open */}
+          {logoutOpen && (
+            <Logout onClose={() => setLogoutOpen(false)} />
+          )}
         </div>
       </nav>
     </aside>
