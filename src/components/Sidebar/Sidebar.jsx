@@ -8,16 +8,17 @@ import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
   const [activeIcon, setActiveIcon] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
 
-  // open popup when cancel button is pressed
-  const handleCancel = () => {
-    setShowPopup(true);
+  // Function to handle profile icon click
+  const handleProfileIconClick = () => {
+    setProfileModalOpen(!profileModalOpen);
   };
 
-  const handleCloseModal = () => {
-    setShowPopup(false);
-  };
+  // Effect to update active icon when active page changes
+  useEffect(() => {
+    setActiveIcon(activePage);
+  }, [activePage]);
 
   // User type access
   const userType = config.userType;
@@ -158,15 +159,16 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
           <SidebarIcon
             iconName="person"
             text="Conta"
-            buttonClassName="icon-hover"
+            buttonClassName={`icon-hover ${profileModalOpen ? "active" : ""}`}
             className="calendar"
             textClassName="sidebar-text"
             active={activeIcon === "account"}
-            onClick={handleCancel}
+            onClick={handleProfileIconClick}
           />
 
-          {showPopup && (
-            <ProfileModal onClose={handleCloseModal} showModal={showPopup} />
+          {/* Renders the profile modal if it is open */}
+          {profileModalOpen && (
+            <ProfileModal onClose={() => setProfileModalOpen(false)} />
           )}
 
           <Link to="/settings">
