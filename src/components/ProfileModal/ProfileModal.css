@@ -50,7 +50,8 @@
     color: #000000;
 }
 
-.modal-profile-modal .modal-profile-modal-content .links a {
+.modal-profile-modal .modal-profile-modal-content .links a,
+.modal-profile-modal .modal-profile-modal-content .links button {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
