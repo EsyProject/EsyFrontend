@@ -60,8 +60,7 @@
 
 .modal-logout .modal-logout-content .button-container .custom-button,
 .modal-logout .modal-logout-content .button-container .exit-button {
-    padding-left: 32px;
-    padding-right: 32px;
+    width: 180px;
     font-size: 16px;
     cursor: pointer;
     display: flex;
