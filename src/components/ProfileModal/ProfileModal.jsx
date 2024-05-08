@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Logout } from "../../components/index";
 import "./ProfileModal.css";
 
 const ProfileModal = ({ onClose }) => {
@@ -10,6 +11,12 @@ const ProfileModal = ({ onClose }) => {
   );
   const [actualColor, setActualColor] = useState(colors[0]);
   const modalRef = useRef(null);
+  const [showPopup, setShowPopup] = useState(false);
+
+  // open popup when cancel button is pressed
+  const handleCancel = () => {
+    setShowPopup(true);
+  };
 
   useEffect(() => {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -39,9 +46,15 @@ const ProfileModal = ({ onClose }) => {
         <div className="links">
           <Link to="/settings">Configurações</Link>
           <hr />
-          <p>Log out</p>
+          <button onClick={handleCancel}>
+            <p>Log out</p>
+          </button>
         </div>
       </div>
+
+      {showPopup && (
+        <Logout />
+      )}
     </div>
   );
 };
