@@ -1,6 +1,7 @@
 import { ImageLogin, LogoEsy } from "../index";
-import { ButtonLink, AnimatedImage } from "../../components/index";
+import { AnimatedImage } from "../../components/index";
 import "./LoginSSO.css";
+import LoginButton from "../../components/LoginButton/LoginButton";
 
 const LoginSSO = () => {
   return (
@@ -15,7 +16,8 @@ const LoginSSO = () => {
 
             <p className='subtitle-login'>Transforme a organização de eventos em uma experiência esy!</p>
 
-            <ButtonLink to="/historic">Entrar</ButtonLink>
+            <LoginButton />
+            {/* <ButtonLink to="/historic">Entrar</ButtonLink> */}
             
             <div className="existing-account">
               <p>Sua criação de eventos tão simples quanto um <a href="/register"><span>clique</span></a></p>
