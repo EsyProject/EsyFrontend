@@ -7,12 +7,18 @@ import './EventCreation.css'
 
 import InputDate from "../../components/InputDate/InputDate";
 import InputHour from "../../components/InputHour/InputHour";
+import { Axios } from "axios";
+import { name } from "@azure/msal-browser/dist/packageMetadata";
 
 const options_area = [
     { value: "", label: "Selecione" },
     { value: "option1", label: "ETS" },
     { value: "option2", label: "BISB" },
     { value: "option3", label: "BD" },
+    { value: "option3", label: "PS" },
+    { value: "option3", label: "PT" },
+    { value: "option3", label: "FCM" },
+    { value: "option3", label: "GS" },
 ];
 
 const options_access = [
@@ -20,6 +26,49 @@ const options_access = [
     { value: "option1", label: "Somente membros do setor" },
     { value: "option2", label: "Evento aberto a todos os colaboradores Bosch" },
 ];
+
+const options_local = [
+    { value: "", label: "Selecione" },
+    { value: "option1", label: "CA590"},
+    { value: "option1", label: "CA560"},
+    { value: "option1", label: "CA530"},
+    { value: "option1", label: "CA540"},
+    { value: "option1", label: "CA536"},
+    { value: "option1", label: "CA550"},
+    { value: "option1", label: "CA551"},
+    { value: "option1", label: "CA129"},
+    { value: "option1", label: "CA390"},
+    { value: "option1", label: "CA600"},
+    { value: "option1", label: "CA400"},
+    { value: "option1", label: "CA401"},
+    { value: "option1", label: "CA350"},
+    { value: "option1", label: "CA370"},
+    { value: "option1", label: "CA204"},
+    { value: "option1", label: "CA200"},
+    { value: "option1", label: "CA360"},
+    { value: "option1", label: "CA340"},
+    { value: "option1", label: "CA205"},
+    { value: "option1", label: "CA220"},
+    { value: "option1", label: "CA320"},
+    { value: "option1", label: "CA300"},
+    { value: "option1", label: "CA325"},
+    { value: "option1", label: "CA169"},
+    { value: "option1", label: "CA165"},
+    { value: "option1", label: "CA341"},
+    { value: "option1", label: "CA126"},
+    { value: "option1", label: "CA147"},
+    { value: "option1", label: "CA148"},
+    { value: "option1", label: "CA149"},
+    { value: "option1", label: "CA140"},
+    { value: "option1", label: "CA160"},
+    { value: "option1", label: "CA150"},
+    { value: "option1", label: "CA151"},
+    { value: "option1", label: "CA100"},
+    { value: "option1", label: "CA180"},
+    { value: "option1", label: "CA183"},
+];
+
+// Fecth API
 
 const EventCreation = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -93,7 +142,12 @@ const EventCreation = () => {
                         <p className='subtitle'>Informações sobre local e horário</p>
                         <div className="container-event-description">
                             <div className="container-create-event-child">
-                                <Input label='Local' id='event_name' placeholder='Ex.: Ca300' className="input-style" />
+                                <CustomSelect
+                                    label="Local"
+                                    options={options_local}
+                                    placeholder="Selecione"
+                                    className="custom-select-css-w9q2zk-Input2"
+                                />
 
                                 <CustomSelect
                                     label="Plataforma de transmissão online"
