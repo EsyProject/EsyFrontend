@@ -264,3 +264,13 @@ svg {
 .sidebar-header button {
   width: 7px;
 }
+
+/* teste de css para a camera */
+
+/* video {
+  object-fit: cover !important;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  width: 320px !important;
+  height: 320px !important;
+} */

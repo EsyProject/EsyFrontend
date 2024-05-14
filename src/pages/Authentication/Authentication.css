@@ -4,18 +4,20 @@
 
 .sidebar-open .container-main-authentication {
   transition: margin-left 0.3s ease;
-  margin-left: 455px;
+  /* margin-left: 455px; */
+  margin-left: 255px;
 }
 
 .container-main-authentication {
   flex: 1;
-  max-width: 1215px;
+  /* max-width: 1215px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   height: 100vh;
-  margin-left: 385px;
+  /* margin-left: 385px; */
+  margin-left: 105px;
   transition: margin-left 0.3s ease;
   align-items: center;
 }

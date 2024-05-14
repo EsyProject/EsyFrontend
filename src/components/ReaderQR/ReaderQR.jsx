@@ -28,8 +28,12 @@ class ReaderQR extends Component {
 
   render() {
     const previewStyle = {
-      height: 240,
-      width: 320
+      height: 400,
+      width: 400,
+      objectFit: 'cover',
+      borderRadius: '10px'
+    // overflow-clip-margin: content-box;
+    // overflow: clip
     };
 
     return (
