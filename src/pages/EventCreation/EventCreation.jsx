@@ -7,8 +7,6 @@ import './EventCreation.css'
 
 import InputDate from "../../components/InputDate/InputDate";
 import InputHour from "../../components/InputHour/InputHour";
-import { Axios } from "axios";
-import { name } from "@azure/msal-browser/dist/packageMetadata";
 
 const options_area = [
     { value: "", label: "Selecione" },

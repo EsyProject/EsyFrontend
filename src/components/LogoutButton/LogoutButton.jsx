@@ -13,7 +13,7 @@ export default function LogoutButton() {
   return (
     <div>
       <button onClick={() => handleLogout("popup")} color="inherit">
-        Login
+        logout
       </button>
     </div>
   );
