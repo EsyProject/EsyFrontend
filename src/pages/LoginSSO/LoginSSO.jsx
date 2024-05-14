@@ -1,8 +1,20 @@
-import { ImageLogin, LogoEsy } from "../index";
+import { useEffect } from "react";
+import { useMsal } from "@azure/msal-react";
+import { useNavigate } from "react-router-dom";
+import { ImageLogin, LogoEsy } from "../index"; 
 import { AnimatedImage, LoginButton } from "../../components/index";
 import "./LoginSSO.css";
 
 const LoginSSO = () => {
+  const { accounts, inProgress } = useMsal();
+  const navigate = useNavigate();
+ 
+  useEffect(() => {
+    if (accounts[0] && inProgress == "none") {
+      navigate("/");
+    }
+  }, [accounts, inProgress, navigate]);
+
   return (
     <>
       <div className="container-main-register">
