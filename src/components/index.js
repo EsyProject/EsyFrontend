@@ -20,6 +20,7 @@ import Timetable from "../components/Timetable/Timetable";
 import TagCard from "../components/TagCard/TagCard";
 import ColumnsChart from "./ColumnsChart/ColumnsChart";
 import ReaderQR from "./ReaderQR/ReaderQR";
+import LoginButton from "./LoginButton/LoginButton";
 
 export {
   InteractiveBubble,
@@ -42,6 +43,7 @@ export {
   MessageModal,
   StarRating,
   TagCard,
+  LoginButton,
   ColumnsChart,
   ReaderQR,
 };
