@@ -23,7 +23,7 @@ const customStyles = {
 };
 
 // Custom Select component
-const CustomSelect = ({ options, placeholder, label }) => (
+const CustomSelect = ({ options, placeholder, label, value, onChange }) => (
   <div className="custom-select">
     <label>{label}</label>
     <Select
@@ -32,6 +32,8 @@ const CustomSelect = ({ options, placeholder, label }) => (
       styles={customStyles}
       classNamePrefix="custom-select"
       className="custom-select-css-w9q2zk-Input2"
+      value={options.find(option => option.value === value)}
+      onChange={onChange}
     />
   </div>
 );
@@ -41,6 +43,8 @@ CustomSelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
   placeholder: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default CustomSelect;
