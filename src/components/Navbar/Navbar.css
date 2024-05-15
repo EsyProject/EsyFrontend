@@ -32,6 +32,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 15px;
+  width: calc(100% - 120px);
 }
 
 .navbar-content h4 {
@@ -161,4 +162,34 @@ h4.active {
   background: #0066a5;
   border-radius: 5px 5px 0px 0px;
   transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.user-data {
+  width: auto;
+  height: 42px;
+}
+
+.navbar-content-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-content-child .user-data .profile .img-profile {
+  width: 42px;
+  height: 42px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-data h2 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 27px;
+  color: #17181b;
+  cursor: pointer;
 }
