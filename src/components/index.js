@@ -21,6 +21,7 @@ import TagCard from "../components/TagCard/TagCard";
 import ColumnsChart from "./ColumnsChart/ColumnsChart";
 import ReaderQR from "./ReaderQR/ReaderQR";
 import LoginButton from "./LoginButton/LoginButton";
+import PreloaderImage from "./PreloaderImage/PreloaderImage";
 
 export {
   InteractiveBubble,
@@ -43,6 +44,7 @@ export {
   MessageModal,
   StarRating,
   TagCard,
+  PreloaderImage,
   LoginButton,
   ColumnsChart,
   ReaderQR,
