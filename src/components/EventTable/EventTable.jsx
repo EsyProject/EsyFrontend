@@ -4,9 +4,9 @@ import "./EventTable.css";
 const EventTable = ({ events }) => {
   const getIcon = (evaluation) => {
     return evaluation === "true" ? (
-      <i className="material-icons green">check_box</i>
+      <i className="material-icons green">circle</i>
     ) : (
-      <span className="material-icons red">disabled_by_default</span>
+      <span className="material-icons red">circle</span>
     );
   };
 
