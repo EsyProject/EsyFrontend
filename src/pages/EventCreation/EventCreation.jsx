@@ -16,60 +16,54 @@ import InputHour from "../../components/InputHour/InputHour";
 
 const options_area = [
   { value: "", label: "Selecione" },
-  { value: "option1", label: "ETS" },
-  { value: "option2", label: "BISB" },
-  { value: "option3", label: "BD" },
-  { value: "option3", label: "PS" },
-  { value: "option3", label: "PT" },
-  { value: "option3", label: "FCM" },
-  { value: "option3", label: "GS" },
-];
-
-const options_access = [
-  { value: "", label: "Selecione" },
-  { value: "option1", label: "Somente membros do setor" },
-  { value: "option2", label: "Evento aberto a todos os colaboradores Bosch" },
+  { value: "ETS", label: "ETS" },
+  { value: "BISB", label: "BISB" },
+  { value: "BD", label: "BD" },
+  { value: "PS", label: "PS" },
+  { value: "PT", label: "PT" },
+  { value: "FCM", label: "FCM" },
+  { value: "GS", label: "GS" },
 ];
 
 const options_local = [
   { value: "", label: "Selecione" },
-  { value: "option1", label: "CA590" },
-  { value: "option1", label: "CA560" },
-  { value: "option1", label: "CA530" },
-  { value: "option1", label: "CA540" },
-  { value: "option1", label: "CA536" },
-  { value: "option1", label: "CA550" },
-  { value: "option1", label: "CA551" },
-  { value: "option1", label: "CA129" },
-  { value: "option1", label: "CA390" },
-  { value: "option1", label: "CA600" },
-  { value: "option1", label: "CA400" },
-  { value: "option1", label: "CA401" },
-  { value: "option1", label: "CA350" },
-  { value: "option1", label: "CA370" },
-  { value: "option1", label: "CA204" },
-  { value: "option1", label: "CA200" },
-  { value: "option1", label: "CA360" },
-  { value: "option1", label: "CA340" },
-  { value: "option1", label: "CA205" },
-  { value: "option1", label: "CA220" },
-  { value: "option1", label: "CA320" },
-  { value: "option1", label: "CA300" },
-  { value: "option1", label: "CA325" },
-  { value: "option1", label: "CA169" },
-  { value: "option1", label: "CA165" },
-  { value: "option1", label: "CA341" },
-  { value: "option1", label: "CA126" },
-  { value: "option1", label: "CA147" },
-  { value: "option1", label: "CA148" },
-  { value: "option1", label: "CA149" },
-  { value: "option1", label: "CA140" },
-  { value: "option1", label: "CA160" },
-  { value: "option1", label: "CA150" },
-  { value: "option1", label: "CA151" },
-  { value: "option1", label: "CA100" },
-  { value: "option1", label: "CA180" },
-  { value: "option1", label: "CA183" },
+  { value: "CA590", label: "CA590" },
+  { value: "CA560", label: "CA560" },
+  { value: "CA530", label: "CA530" },
+  { value: "CA540", label: "CA540" },
+  { value: "CA536", label: "CA536" },
+  { value: "CA550", label: "CA550" },
+  { value: "CA551", label: "CA551" },
+  { value: "CA129", label: "CA129" },
+  { value: "CA390", label: "CA390" },
+  { value: "CA600", label: "CA600" },
+  { value: "CA400", label: "CA400" },
+  { value: "CA401", label: "CA401" },
+  { value: "CA350", label: "CA350" },
+  { value: "CA370", label: "CA370" },
+  { value: "CA204", label: "CA204" },
+  { value: "CA200", label: "CA200" },
+  { value: "CA360", label: "CA360" },
+  { value: "CA340", label: "CA340" },
+  { value: "CA205", label: "CA205" },
+  { value: "CA220", label: "CA220" },
+  { value: "CA320", label: "CA320" },
+  { value: "CA300", label: "CA300" },
+  { value: "CA325", label: "CA325" },
+  { value: "CA169", label: "CA169" },
+  { value: "CA165", label: "CA165" },
+  { value: "CA341", label: "CA341" },
+  { value: "CA126", label: "CA126" },
+  { value: "CA147", label: "CA147" },
+  { value: "CA148", label: "CA148" },
+  { value: "CA149", label: "CA149" },
+  { value: "CA140", label: "CA140" },
+  { value: "CA160", label: "CA160" },
+  { value: "CA150", label: "CA150" },
+  { value: "CA151", label: "CA151" },
+  { value: "CA100", label: "CA100" },
+  { value: "CA180", label: "CA180" },
+  { value: "CA183", label: "CA183" },
 ];
 
 // Fecth API
@@ -81,7 +75,6 @@ const EventCreation = () => {
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
   const [eventArea, setEventArea] = useState("");
-  const [eventAccess, setEventAccess] = useState("");
   const [eventBanner, setEventBanner] = useState(null);
 
   const toggleSidebar = () => {
@@ -101,7 +94,6 @@ const EventCreation = () => {
       eventName,
       eventDescription,
       eventArea,
-      eventAccess,
       eventBanner: eventBanner ? eventBanner.name : null,
     });
   };
@@ -156,15 +148,13 @@ const EventCreation = () => {
                   }
                 />
 
-                <CustomSelect
-                  label="Acesso ao evento"
-                  options={options_access}
-                  placeholder="Selecione"
-                  className="custom-select-css-w9q2zk-Input2"
-                  value={eventAccess}
-                  onChange={(selectedOption) =>
-                    setEventAccess(selectedOption.value)
-                  }
+                <h4 className="label-textarea">Imagem para o banner</h4>
+                <input
+                  type="file"
+                  id="image_banner"
+                  accept="image/*"
+                  className="custom-input input-image"
+                  onChange={handleFileChange}
                 />
               </div>
               <div className="container-create-event-child">
@@ -175,15 +165,6 @@ const EventCreation = () => {
                   value={eventDescription}
                   onChange={(e) => setEventDescription(e.target.value)}
                 ></textarea>
-
-                <h4 className="label-textarea">Imagem para o banner</h4>
-                <input
-                  type="file"
-                  id="image_banner"
-                  accept="image/*"
-                  className="custom-input input-image"
-                  onChange={handleFileChange}
-                />
               </div>
             </div>
           </div>
@@ -200,12 +181,6 @@ const EventCreation = () => {
                   className="custom-select-css-w9q2zk-Input2"
                 />
 
-                <CustomSelect
-                  label="Plataforma de transmissão online"
-                  options={options_area}
-                  placeholder="Selecione"
-                  className="custom-select-css-w9q2zk-Input2"
-                />
               </div>
               <div className="container-event-details">
                 <div className="container-create-event-child">
