@@ -34,9 +34,8 @@ const Authentication = () => {
 
   return (
     <div
-      className={`authentication-container ${
-        sidebarOpen ? "sidebar-open" : ""
-      }`}
+      className={`authentication-container ${sidebarOpen ? "sidebar-open" : ""
+        }`}
     >
       <Navbar
         currentPageIcon="qr_code_scanner"
@@ -52,27 +51,30 @@ const Authentication = () => {
       />
 
       <div className="container-main-authentication">
-        <h2 className="title">Scan QR code</h2>
-        <p className="subtitle">Aponte a foto do seu Qr code para a câmera</p>
+        <section className="container-authentication-child">
+          <h2 className="title">Scan QR code</h2>
+          <p className="subtitle">Aponte a foto do seu Qr code para a câmera</p>
 
-        <div className="reder">
-          <ReaderQR onQrCodeScan={handleQrCodeScan} />
-        </div>
-
-        <div className="input-container">
-          <p className="guidance">Ou entre com o código manualmente</p>
-
-          <Input
-            placeholder="Ex.: 5845215"
-            className="input-style"
-            value={qrCodeValue}
-            onChange={handleInputChange}
-          />
-
-          <div className="container-button-authentication">
-            <ButtonLink>Autenticar</ButtonLink>
+          <div className="reder">
+            <ReaderQR onQrCodeScan={handleQrCodeScan} />
           </div>
-        </div>
+        </section>
+        <section className="container-authentication-child">
+          <div className="input-container">
+            <p className="guidance">Ou entre com o código manualmente</p>
+
+            <Input
+              placeholder="Ex.: 5845215"
+              className="input-style"
+              value={qrCodeValue}
+              onChange={handleInputChange}
+            />
+
+            <div className="container-button-authentication">
+              <ButtonLink>Autenticar</ButtonLink>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

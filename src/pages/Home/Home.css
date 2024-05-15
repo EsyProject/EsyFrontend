@@ -653,3 +653,9 @@ footer section {
     gap: 0px;
   }
 }
+
+@media screen and (max-width: 1190px) {
+  .elipse-linear-2 {
+    display: none;
+  }
+}
