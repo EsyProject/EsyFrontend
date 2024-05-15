@@ -3,11 +3,16 @@ import PropTypes from "prop-types";
 import { Sidebar, Navbar, ButtonLink } from "../../components/index";
 import "./Settings.css";
 
+import { useMsal } from "@azure/msal-react";
+
 const Settings = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [toggled1, setToggled1] = useState(false);
   const [toggled2, setToggled2] = useState(false);
   const [toggled3, setToggled3] = useState(false);
+
+  const { instance } = useMsal();
+  const account = instance.getActiveAccount();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -47,10 +52,10 @@ const Settings = () => {
           </div>
 
           <div className="user-account-data">
-            <UserInfo label="Nome do usuário" value="Manuela Souza" />
+            <UserInfo label="Nome do usuário" value={account?.name} />
             <UserInfo
               label="E-mail de acesso"
-              value="Souza.manuela@br.bosch.com"
+              value={account?.username}
             />
             <UserInfo label="Senha" value="••••••••••••••" />
           </div>
