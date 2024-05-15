@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { PreloaderImage } from "../../components/index";
+import { Loading } from "../../pages/index";
 import "./Navbar.css";
 
 import {
@@ -19,6 +21,7 @@ const Navbar = ({
   tabs,
 }) => {
   const [imageUrl, setImageUrl] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const { instance, inProgress } = useMsal();
   const account = instance.getActiveAccount();
@@ -28,6 +31,7 @@ const Navbar = ({
       callMsGraph()
         .then((response) => {
           setImageUrl(response?.blobUrl);
+          setLoading(false);
         })
         .catch((e) => {
           if (e instanceof InteractionRequiredAuthError) {
@@ -76,9 +80,13 @@ const Navbar = ({
         <section className="navbar-content-child">
           <div className="user-data navbar-content-child">
             <h2>{account?.name}</h2>
-            <div className="profile">
-              <img src={imageUrl} alt="img-profile" className="img-profile" />
-            </div>
+            {loading ? (
+              <PreloaderImage src={Loading} alt="Loading..." />
+            ) : (
+              <div className="profile">
+                <img src={imageUrl} alt="img-profile" className="img-profile" />
+              </div>
+            )}
           </div>
         </section>
       </div>

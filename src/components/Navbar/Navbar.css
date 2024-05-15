@@ -193,3 +193,13 @@ h4.active {
   color: #17181b;
   cursor: pointer;
 }
+
+.circle {
+  display: flex;
+  align-items: center;
+}
+
+.user-data .circle img {
+  width: 42px;
+  height: 42px;
+}
