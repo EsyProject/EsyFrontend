@@ -21,6 +21,7 @@ import ImageRegisterBack from "../assets/img-register.png";
 import LogoEsy from "../assets/logo.png";
 import LogoEsyClosed from "../assets/logo-closed.png";
 import Qrcode from "../assets/qrcode-img.png";
+import Loading from "../assets/images-general/loading.gif";
 
 export {
   /* pages */
@@ -46,4 +47,5 @@ export {
   LogoEsy,
   LogoEsyClosed,
   Qrcode,
+  Loading,
 };
