@@ -1,15 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { Sidebar, Navbar, TagCard, ColumnsChart } from "../../components/index";
 import "material-symbols";
 import "./Dashboard.css";
+import { useAverageOfEvent } from "../../services/queries";
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [value, onChange] = useState(new Date());
+  const [averageRating, setAverageRating] = useState(null);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -18,6 +20,16 @@ const Dashboard = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  // Buscar e definir a nota média do evento utilizando o hook useAverageOfEvent
+  const { data: averageData } = useAverageOfEvent("1");
+
+  // Atualizar o estado da nota média quando os dados são carregados
+  useEffect(() => {
+    if (averageData) {
+      setAverageRating(averageData.average);
+    }
+  }, [averageData]);
 
   const renderIcons = (count) => {
     const icons = [];
@@ -93,7 +105,11 @@ const Dashboard = () => {
                         <div className="note-content">
                           <h3>Nota do evento</h3>
                           <div className="rate">
-                            <h1>4,98</h1>
+                            <h1>
+                              {averageData
+                                ? averageData.average
+                                : "Carregando..."}
+                            </h1>
                             <span className="material-symbols-rounded">
                               grade
                             </span>
@@ -176,7 +192,6 @@ const Dashboard = () => {
                     <h2>Pontos de destaque</h2>
 
                     <ColumnsChart />
-
                   </div>
 
                   <div className="improvement-suggestions">
