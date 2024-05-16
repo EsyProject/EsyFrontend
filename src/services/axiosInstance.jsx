@@ -1,16 +1,14 @@
 import axios from "axios";
-import { msalInstance } from "../authSSO/msalInstance";
+import { msalInstance } from "../lib/sso/msalInstance";
  
-// URL em que fazemos as requisições da API
+const API_URL = "http://10.234.81.170:6968";
  
-const API_URL = "http://URLAQUI/api/v1/";
- 
-// Definindo a instância da URL para as requisições utilizando AXIOS
+// Defining the URL instance for requests using AXIOS
 const instance = axios.create({
   baseURL: API_URL,
 });
  
-
+// Function to acquire the token and add it to the request header
 async function acquireToken(config) {
   const token = msalInstance.getActiveAccount()?.idToken;
   console.log(token);
@@ -18,7 +16,8 @@ async function acquireToken(config) {
  
   return config;
 }
- 
+
+// Adding the interceptor for all requests
 instance.interceptors.request.use(acquireToken);
  
 export default instance;
