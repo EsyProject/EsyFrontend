@@ -12,13 +12,13 @@ const Schedule = () => {
   const events = [
     {
       title: "Fórum da Sustentabilidade",
-      start: new Date(2024, 3, 7, 10, 0), // ano, mês (0-11), dia, hora, minuto
-      end: new Date(2024, 3, 7, 12, 0),
+      start: new Date(2024, 4, 7, 10, 0), // ano, mês (0-11), dia, hora, minuto
+      end: new Date(2024, 4, 7, 12, 0),
     },
     {
       title: "Ciclo de Saúde Mental",
-      start: new Date(2024, 3, 10, 15, 0),
-      end: new Date(2024, 3, 10, 17, 0),
+      start: new Date(2024, 4, 10, 15, 0),
+      end: new Date(2024, 4, 10, 17, 0),
     },
   ];
 
@@ -43,9 +43,11 @@ const Schedule = () => {
       />
 
       <div className="container-main-schedule">
-        <h1 className="schedule-title">Minha agenda</h1>
-        <p className="schedule-subtitle">Eventos programados para este mês</p>
-        <Timetable events={events} />
+        <div className="container-schedule-content">
+          <h1 className="schedule-title">Minha agenda</h1>
+          <p className="schedule-subtitle">Eventos programados para este mês</p>
+          <Timetable events={events} />
+        </div>
       </div>
     </div>
   );

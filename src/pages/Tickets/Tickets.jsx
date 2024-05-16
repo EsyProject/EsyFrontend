@@ -93,7 +93,7 @@ const Tickets = () => {
 
             <div className="container-qrcode">
               <div className="image-eventcard">
-                <QRCode value={authCode} />
+                <QRCode value={authCode} className="custom-qr" />
               </div>
 
               <p>Código de autenticação</p>

@@ -23,7 +23,6 @@
 
 .rbc-off-range-bg {
     background: #ffffff;
-    /* teste */
 }
 
 .rbc-off-range {
@@ -152,10 +151,6 @@
 
 .rbc-toolbar button:hover {
     background-color: #dadce0;
-}
-
-.rbc-calendar {
-    padding-right: 40px;
 }
 
 .rbc-today {

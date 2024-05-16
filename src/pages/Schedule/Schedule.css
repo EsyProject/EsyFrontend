@@ -22,18 +22,34 @@
 }
 
 .container-main-schedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-left: 105px;
+  width: 100%;
+}
+
+.container-schedule-content {
   flex: 1;
-  max-width: 1215px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   height: 100vh;
-  margin-left: 385px;
-  transition: margin-left 0.3s ease;
+  max-width: 1215px;
+  width: 100%;
 }
 
 .rbc-agenda-view {
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 1420px) {
+  .container-schedule-content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }

@@ -2,16 +2,12 @@
   transition: margin-left 0.3s ease;
 }
 
-.sidebar-open .section-container {
-  margin-left: 34%;
-}
-
 .section-container {
   flex: 1;
   padding: 0 10px;
-  width: 850px;
-  margin: 0 27%;
-  transition: margin-left 0.3s;
+  width: 750px;
+  margin: 0 auto;
+  transition: padding-left 0.3s;
 }
 
 .user-account {
@@ -129,4 +125,11 @@
 
 .sections {
   margin-top: 7rem;
+  padding-left: 105px;
+  transition: padding-left 0.3s;
+}
+
+.sidebar-open .sections {
+  padding-left: 245px;
+  transition: padding-left 0.3s;
 }

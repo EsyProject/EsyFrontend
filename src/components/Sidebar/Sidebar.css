@@ -67,7 +67,7 @@
 }
 
 /* Styles for icons and text inside buttons */
-.sidebar button > span {
+.sidebar button>span {
   display: inline-flex;
   align-items: center;
   gap: 35px;
@@ -76,14 +76,14 @@
   transition: all 0.3s;
 }
 
-.sidebar.open-sidebar button > span {
-  overflow: visible; 
+.sidebar.open-sidebar button>span {
+  overflow: visible;
   gap: 12px;
 }
 
 /* Transition settings for hover effect */
-.border .icon-hover-logout > span,
-.border .icon-hover > span {
+.border .icon-hover-logout>span,
+.border .icon-hover>span {
   width: 215px;
   height: 50px;
   align-items: center;
@@ -246,7 +246,7 @@ svg {
 }
 
 /* Styles for navigation inside the sidebar */
-.sidebar > nav {
+.sidebar>nav {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -263,4 +263,18 @@ svg {
 
 .sidebar-header button {
   width: 7px;
+}
+
+
+
+
+
+/* teste de responsividade para mobile */
+@media screen and (max-width: 940px),
+only screen and (min-device-width: 320px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1),
+only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  body.hideSidebar .toggleSidebar {
+    left: 0;
+  }
 }
