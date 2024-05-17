@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCreateEvent, useCreateTicket } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import {
@@ -66,16 +67,90 @@ const options_local = [
   { value: "CA183", label: "CA183" },
 ];
 
-// Fecth API
-
 const EventCreation = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [value, setValue] = useState(new Date());
 
+  // Event
   const [eventName, setEventName] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
   const [eventArea, setEventArea] = useState("");
+  const [eventDescription, setEventDescription] = useState("");
   const [eventBanner, setEventBanner] = useState(null);
+
+  // New event information states
+  const [selectedLocal, setSelectedLocal] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
+  const createEventMutation = useCreateEvent();
+
+  // Tickets
+  const [ticketStartDate, setTicketStartDate] = useState("");
+  const [ticketStartTime, setTicketStartTime] = useState("");
+  const [ticketEndDate, setTicketEndDate] = useState("");
+  const [ticketEndTime, setTicketEndTime] = useState("");
+
+  const createTicketMutation = useCreateTicket();
+
+  const handleCreateEvent = async () => {
+    try {
+      // Checks if all event fields are filled in
+      if (
+        !eventName ||
+        !eventArea ||
+        !eventDescription ||
+        !eventBanner ||
+        !selectedLocal ||
+        !startDate ||
+        !endDate ||
+        !startTime ||
+        !endTime
+      ) {
+        console.error("Por favor, preencha todos os campos do evento.");
+        return;
+      }
+
+      // Create the event
+      const eventData = await createEventMutation.mutateAsync({
+        nameOfEvent: eventName,
+        responsible_area: eventArea,
+        description: eventDescription,
+        images: eventBanner,
+        selectedLocal: selectedLocal,
+        startDate: startDate,
+        endDate: endDate,
+        startTime: startTime,
+        endTime: endTime,
+      });
+
+      console.log("Evento criado com sucesso:", eventData);
+
+      // Checks if all ticket fields are filled in
+      if (
+        !ticketStartDate ||
+        !ticketStartTime ||
+        !ticketEndDate ||
+        !ticketEndTime
+      ) {
+        console.error("Por favor, preencha todos os campos dos ingressos.");
+        return;
+      }
+
+      // Create tickets after the event is created successfully
+      const ticketData = await createTicketMutation.mutateAsync({
+        initialDateTicket: ticketStartDate,
+        initialTimeTicket: ticketStartTime,
+        finishDateTicket: ticketEndDate,
+        finishTimeTicket: ticketEndTime,
+      });
+
+      console.log("Ingresso criado com sucesso:", ticketData);
+    } catch (error) {
+      console.error("Erro ao criar evento ou ingresso:", error);
+    }
+  };
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -87,15 +162,6 @@ const EventCreation = () => {
 
   const handleFileChange = (e) => {
     setEventBanner(e.target.files[0]);
-  };
-
-  const handleSubmit = () => {
-    console.log({
-      eventName,
-      eventDescription,
-      eventArea,
-      eventBanner: eventBanner ? eventBanner.name : null,
-    });
   };
 
   return (
@@ -179,8 +245,11 @@ const EventCreation = () => {
                   options={options_local}
                   placeholder="Selecione"
                   className="custom-select-css-w9q2zk-Input2"
+                  value={selectedLocal}
+                  onChange={(selectedOption) =>
+                    setSelectedLocal(selectedOption.value)
+                  }
                 />
-
               </div>
               <div className="container-event-details">
                 <div className="container-create-event-child">
@@ -189,12 +258,16 @@ const EventCreation = () => {
                     id="event_date_start"
                     placeholder="dd/mm/aaaa"
                     className="input-style"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)} 
                   />
                   <InputDate
                     label="Data de término"
                     id="event_date_finish"
                     placeholder="dd/mm/aaaa"
                     className="input-style"
+                    value={endDate} 
+                    onChange={(e) => setEndDate(e.target.value)}
                   />
                 </div>
                 <div className="container-create-event-child">
@@ -203,12 +276,16 @@ const EventCreation = () => {
                     id="event_time_start"
                     placeholder="00:00"
                     className="input-style"
+                    value={startTime} 
+                    onChange={(e) => setStartTime(e.target.value)}
                   />
                   <InputHour
                     label="Horário de término"
                     id="event_time_finish"
                     placeholder="00:00"
                     className="input-style"
+                    value={endTime} 
+                    onChange={(e) => setEndTime(e.target.value)}
                   />
                 </div>
               </div>
@@ -228,33 +305,41 @@ const EventCreation = () => {
                   id="event_date_tickets_start"
                   placeholder="dd/mm/aaaa"
                   className="input-style"
+                  value={ticketStartDate}
+                  onChange={(e) => setTicketStartDate(e.target.value)}
                 />
                 <InputHour
-                  label="Horário de início"
-                  id="event_time_tickets_start"
+                  label="Horário de início dos ingressos"
                   placeholder="00:00"
                   className="input-style"
+                  value={ticketStartTime}
+                  onChange={(e) => setTicketStartTime(e.target.value)}
                 />
               </div>
               <div className="container-event-details">
                 <InputDate
-                  label="Data de início"
-                  id="event_date_tickets_start"
+                  label="Data de término dos ingressos"
                   placeholder="dd/mm/aaaa"
                   className="input-style"
+                  value={ticketEndDate}
+                  onChange={(e) => setTicketEndDate(e.target.value)}
                 />
+
                 <InputHour
-                  label="Horário de início"
-                  id="event_time_tickets_start"
+                  label="Horário de término dos ingressos"
                   placeholder="00:00"
                   className="input-style"
+                  value={ticketEndTime}
+                  onChange={(e) => setTicketEndTime(e.target.value)}
                 />
               </div>
             </div>
           </div>
 
           <div className="btn-container">
-            <button onClick={handleSubmit}>Concluir criação do evento</button>
+            <button onClick={handleCreateEvent}>
+              Concluir criação do evento
+            </button>
             <button>Limpar</button>
           </div>
         </div>
