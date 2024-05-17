@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCreateEvent, useCreateTicket } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { useForm } from "react-hook-form";
 import {
   Sidebar,
   Navbar,
@@ -69,95 +70,35 @@ const options_local = [
 
 const EventCreation = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [value, setValue] = useState(new Date());
 
-  // Event
-  const [eventName, setEventName] = useState("");
-  const [eventArea, setEventArea] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
-  const [eventBanner, setEventBanner] = useState(null);
-
-  // New event information states
-  const [selectedLocal, setSelectedLocal] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    getValues,
+  } = useForm();
   const createEventMutation = useCreateEvent();
-
-  // Tickets
-  const [ticketStartDate, setTicketStartDate] = useState("");
-  const [ticketStartTime, setTicketStartTime] = useState("");
-  const [ticketEndDate, setTicketEndDate] = useState("");
-  const [ticketEndTime, setTicketEndTime] = useState("");
-
   const createTicketMutation = useCreateTicket();
 
-  const handleCreateEvent = async () => {
-    try {
-      // Checks if all event fields are filled in
-      if (
-        !eventName ||
-        !eventArea ||
-        !eventDescription ||
-        !eventBanner ||
-        !selectedLocal ||
-        !startDate ||
-        !endDate ||
-        !startTime ||
-        !endTime
-      ) {
-        console.error("Por favor, preencha todos os campos do evento.");
-        return;
-      }
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
 
-      // Create the event
-      const eventData = await createEventMutation.mutateAsync({
-        nameOfEvent: eventName,
-        responsible_area: eventArea,
-        description: eventDescription,
-        images: eventBanner,
-        selectedLocal: selectedLocal,
-        startDate: startDate,
-        endDate: endDate,
-        startTime: startTime,
-        endTime: endTime,
-      });
-
-      console.log("Evento criado com sucesso:", eventData);
-
-      // Checks if all ticket fields are filled in
-      if (
-        !ticketStartDate ||
-        !ticketStartTime ||
-        !ticketEndDate ||
-        !ticketEndTime
-      ) {
-        console.error("Por favor, preencha todos os campos dos ingressos.");
-        return;
-      }
-
-      // Create tickets after the event is created successfully
-      const ticketData = await createTicketMutation.mutateAsync({
-        initialDateTicket: ticketStartDate,
-        initialTimeTicket: ticketStartTime,
-        finishDateTicket: ticketEndDate,
-        finishTimeTicket: ticketEndTime,
-      });
-
-      console.log("Ingresso criado com sucesso:", ticketData);
-    } catch (error) {
-      console.error("Erro ao criar evento ou ingresso:", error);
-    }
+  const handleCreateEvent = (data) => {
+    console.log(data);
+    createEventMutation.mutate(data, {
+      onSuccess: () => {
+        console.log("Evento criado com sucesso");
+      },
+      onError: (error) => {
+        console.log(error);
+      },
+    });
   };
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-  };
-
-  const onChange = (date) => {
-    setValue(date);
   };
 
   const handleFileChange = (e) => {
@@ -188,165 +129,176 @@ const EventCreation = () => {
       />
 
       <div className="creation-container-main">
-        <div className="container-create-event">
-          <div className="creation-container-child">
-            <h2 className="title">Descrição</h2>
-            <p className="subtitle">Informações sobre o evento</p>
-            <div className="container-event-description">
-              <div className="container-create-event-child">
-                <Input
-                  label="Nome do evento"
-                  id="event_name"
-                  placeholder="Ex.: Hackathon 7° Edição"
-                  className="input-style"
-                  value={eventName}
-                  onChange={(e) => setEventName(e.target.value)}
-                />
+        <form onSubmit={handleSubmit(handleCreateEvent)}>
+          <div className="container-create-event">
+            <div className="creation-container-child">
+              <h2 className="title">Descrição</h2>
+              <p className="subtitle">Informações sobre o evento</p>
+              <div className="container-event-description">
+                <div className="container-create-event-child">
+                  <Input
+                    label="Nome do evento"
+                    id="nameOfEvent"
+                    placeholder="Ex.: Hackathon 7° Edição"
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
+                  />
 
-                <CustomSelect
-                  label="Área responsável"
-                  options={options_area}
-                  placeholder="Selecione"
-                  className="custom-select-css-w9q2zk-Input2"
-                  value={eventArea}
-                  onChange={(selectedOption) =>
-                    setEventArea(selectedOption.value)
-                  }
-                />
+                  <CustomSelect
+                    label="Área responsável"
+                    id="responsible_area"
+                    options={options_area}
+                    placeholder="Selecione"
+                    className="custom-select-css-w9q2zk-Input2"
+                    onChange={(selectedOption) =>
+                      setValue("responsible_area", selectedOption)
+                    }
+                  />
 
-                <h4 className="label-textarea">Imagem para o banner</h4>
-                <input
-                  type="file"
-                  id="image_banner"
-                  accept="image/*"
-                  className="custom-input input-image"
-                  onChange={handleFileChange}
-                />
-              </div>
-              <div className="container-create-event-child">
-                <h4 className="label-textarea">Descrição</h4>
-                <textarea
-                  className="custom-textarea"
-                  placeholder="Este é o texto que aparecerá no feed de atualizações para que os colaboradores possam saber sobre seu evento."
-                  value={eventDescription}
-                  onChange={(e) => setEventDescription(e.target.value)}
-                ></textarea>
+                  <h4 className="label-textarea">Imagem para o banner</h4>
+                  <input
+                    type="file"
+                    id="imgUrl"
+                    accept="image/*"
+                    className="custom-input input-image"
+                    onChange={handleFileChange}
+                    {...register("imgUrl", {
+                      required: "Campo obrigatório",
+                    })}
+                  />
+                </div>
+                <div className="container-create-event-child">
+                  <h4 className="label-textarea">Descrição</h4>
+                  <textarea
+                    className="custom-textarea"
+                    placeholder="Este é o texto que aparecerá no feed de atualizações para que os colaboradores possam saber sobre seu evento."
+                    {...register("description", {
+                      required: "Campo obrigatório",
+                    })}
+                  ></textarea>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="creation-container-realization">
-            <h2 className="title">Realização</h2>
-            <p className="subtitle">Informações sobre local e horário</p>
-            <div className="container-event-description">
-              <div className="container-create-event-child">
-                <CustomSelect
-                  label="Local"
-                  options={options_local}
-                  placeholder="Selecione"
-                  className="custom-select-css-w9q2zk-Input2"
-                  value={selectedLocal}
-                  onChange={(selectedOption) =>
-                    setSelectedLocal(selectedOption.value)
-                  }
-                />
-              </div>
-              <div className="container-event-details">
+            <div className="creation-container-realization">
+              <h2 className="title">Realização</h2>
+              <p className="subtitle">Informações sobre local e horário</p>
+              <div className="container-event-description">
                 <div className="container-create-event-child">
+                  <CustomSelect
+                    label="Local"
+                    id="localEvent"
+                    options={options_local}
+                    placeholder="Selecione"
+                    className="custom-select-css-w9q2zk-Input2"
+                    onChange={(selectedOption) =>
+                      setValue("localEvent", selectedOption)
+                    }
+                  />
+                </div>
+                <div className="container-event-details">
+                  <div className="container-create-event-child">
+                    <InputDate
+                      label="Data de início"
+                      id="initialDate"
+                      placeholder="dd/mm/aaaa"
+                      className="input-style"
+                      register={register}
+                      validationRules={{ required: "Campo obrigatório" }}
+                    />
+                    <InputDate
+                      label="Data de término"
+                      id="finishDate"
+                      placeholder="dd/mm/aaaa"
+                      className="input-style"
+                      register={register}
+                      validationRules={{ required: "Campo obrigatório" }}
+                    />
+                  </div>
+                  <div className="container-create-event-child">
+                    <InputHour
+                      label="Horário de início"
+                      id="initialTime"
+                      placeholder="00:00"
+                      className="input-style"
+                      register={register}
+                      validationRules={{ required: "Campo obrigatório" }}
+                    />
+                    <InputHour
+                      label="Horário de término"
+                      id="finishTime"
+                      placeholder="00:00"
+                      className="input-style"
+                      register={register}
+                      validationRules={{ required: "Campo obrigatório" }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="creation-container-tickets">
+              <h2 className="title">Ingressos</h2>
+              <p className="subtitle">
+                Quando as reservas de ingressos começam e terminam?
+              </p>
+
+              <div className="container-event-description">
+                <div className="container-event-details">
                   <InputDate
                     label="Data de início"
-                    id="event_date_start"
+                    id="ticketStartDate"
                     placeholder="dd/mm/aaaa"
                     className="input-style"
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)} 
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
                   />
+                  <InputHour
+                    label="Horário de início dos ingressos"
+                    id="ticketStartTime"
+                    placeholder="00:00"
+                    className="input-style"
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
+                  />
+                </div>
+                <div className="container-event-details">
                   <InputDate
-                    label="Data de término"
-                    id="event_date_finish"
+                    label="Data de término dos ingressos"
+                    id="ticketEndDate"
                     placeholder="dd/mm/aaaa"
                     className="input-style"
-                    value={endDate} 
-                    onChange={(e) => setEndDate(e.target.value)}
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
                   />
-                </div>
-                <div className="container-create-event-child">
+
                   <InputHour
-                    label="Horário de início"
-                    id="event_time_start"
+                    label="Horário de término dos ingressos"
+                    id="ticketEndTime"
                     placeholder="00:00"
                     className="input-style"
-                    value={startTime} 
-                    onChange={(e) => setStartTime(e.target.value)}
-                  />
-                  <InputHour
-                    label="Horário de término"
-                    id="event_time_finish"
-                    placeholder="00:00"
-                    className="input-style"
-                    value={endTime} 
-                    onChange={(e) => setEndTime(e.target.value)}
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
                   />
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="creation-container-tickets">
-            <h2 className="title">Ingressos</h2>
-            <p className="subtitle">
-              Quando as reservas de ingressos começam e terminam?
-            </p>
-
-            <div className="container-event-description">
-              <div className="container-event-details">
-                <InputDate
-                  label="Data de início"
-                  id="event_date_tickets_start"
-                  placeholder="dd/mm/aaaa"
-                  className="input-style"
-                  value={ticketStartDate}
-                  onChange={(e) => setTicketStartDate(e.target.value)}
-                />
-                <InputHour
-                  label="Horário de início dos ingressos"
-                  placeholder="00:00"
-                  className="input-style"
-                  value={ticketStartTime}
-                  onChange={(e) => setTicketStartTime(e.target.value)}
-                />
-              </div>
-              <div className="container-event-details">
-                <InputDate
-                  label="Data de término dos ingressos"
-                  placeholder="dd/mm/aaaa"
-                  className="input-style"
-                  value={ticketEndDate}
-                  onChange={(e) => setTicketEndDate(e.target.value)}
-                />
-
-                <InputHour
-                  label="Horário de término dos ingressos"
-                  placeholder="00:00"
-                  className="input-style"
-                  value={ticketEndTime}
-                  onChange={(e) => setTicketEndTime(e.target.value)}
-                />
-              </div>
+            <div className="btn-container">
+              <button type="submit">Concluir criação do evento</button>
+              <button type="button" onClick={() => reset()}>
+                Limpar
+              </button>
             </div>
           </div>
-
-          <div className="btn-container">
-            <button onClick={handleCreateEvent}>
-              Concluir criação do evento
-            </button>
-            <button>Limpar</button>
-          </div>
-        </div>
+        </form>
 
         <div className="container-menu-create">
           <div className="container-calendar">
-            <Calendar onChange={onChange} value={value} />
+            <Calendar
+              onChange={(date) => setValue("date", date)}
+              value={getValues("date")}
+            />
           </div>
           <TagCard
             date="22 - 26 Fev 2024"
