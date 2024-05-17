@@ -58,110 +58,114 @@ const Tickets = () => {
       />
 
       <div className="tickets-container-main">
-        <div className="left-column">
-          <div className="container-event">
-            <h1>Hackathon 7ª Edição</h1>
-            <div className="info-wrapper">
-              <div className="info-date">
-                <span className="material-symbols-outlined">
-                  calendar_month
-                </span>
-                <p>10/07/2024</p>
-              </div>
+        <div className="tickets-content-left">
+          <div className="left-column">
+            <div className="container-event">
+              <h1>Hackathon 7ª Edição</h1>
+              <div className="info-wrapper">
+                <div className="info-date">
+                  <span className="material-symbols-outlined">
+                    calendar_month
+                  </span>
+                  <p>10/07/2024</p>
+                </div>
 
-              <div className="info-date">
-                <span className="material-symbols-outlined">schedule</span>
-                <p>09:00 às 15:00</p>
-              </div>
+                <div className="info-date">
+                  <span className="material-symbols-outlined">schedule</span>
+                  <p>09:00 às 15:00</p>
+                </div>
 
-              <div className="info-date">
-                <span className="material-symbols-outlined">location_on</span>
-                <p>Ca300</p>
+                <div className="info-date">
+                  <span className="material-symbols-outlined">location_on</span>
+                  <p>Ca300</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="container-details-event">
-            <EventCard
-              audience="Público Principal - Digital Solutions e Mecatrônica"
-              title="hackaton"
-              subtitle="7ª Edição"
-              date="10/07/2024"
-              time="09h00"
-              location="Ca300"
-            />
+            <div className="container-details-event">
+              <EventCard
+                audience="Público Principal - Digital Solutions e Mecatrônica"
+                title="hackaton"
+                subtitle="7ª Edição"
+                date="10/07/2024"
+                time="09h00"
+                location="Ca300"
+              />
 
-            <div className="container-qrcode">
-              <div className="image-eventcard">
-                <QRCode value={authCode} className="custom-qr" />
+              <div className="container-qrcode">
+                <div className="image-eventcard">
+                  <QRCode value={authCode} className="custom-qr" />
+                </div>
+
+                <p>Código de autenticação</p>
+                <h2>3815296</h2>
               </div>
-
-              <p>Código de autenticação</p>
-              <h2>3815296</h2>
             </div>
-          </div>
 
-          <div className="section-container-button">
-            <div className="button-container-ticket">
-              <button onClick={handleCancel}>
-                <span>Cancelar participação</span>
-              </button>
-              <ButtonLink to="/historic">Autenticar</ButtonLink>
+            <div className="section-container-button">
+              <div className="button-container-ticket">
+                <button onClick={handleCancel}>
+                  <span>Cancelar participação</span>
+                </button>
+                <ButtonLink to="/historic">Autenticar</ButtonLink>
+              </div>
             </div>
-          </div>
 
-          {showPopup && (
-            <MessageModal
-              title="Sentiremos sua falta :("
-              text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
-              onClose={handleCloseModal}
-              showModal={showPopup}
-            />
-          )}
+            {showPopup && (
+              <MessageModal
+                title="Sentiremos sua falta :("
+                text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
+                onClose={handleCloseModal}
+                showModal={showPopup}
+              />
+            )}
+          </div>
         </div>
 
         <div className="right-column">
-          <div className="container-next-events">
-            <h2>Próximos eventos</h2>
-            <TicketsCard
-              date="02 Fev 2024"
-              title="Ciclo de Saúde Mental"
-              authCode="3815296"
-              area="AMB - GE"
-              qrcode={Qrcode}
-            />
+          <div className="tickets-content-right">
+            <div className="container-next-events">
+              <h2>Próximos eventos</h2>
+              <TicketsCard
+                date="02 Fev 2024"
+                title="Ciclo de Saúde Mental"
+                authCode="3815296"
+                area="AMB - GE"
+                qrcode={Qrcode}
+              />
 
-            <TicketsCard
-              date="08 Fev 2024"
-              title="Fórum da Sustentabilidade"
-              authCode="3815296"
-              area="HR - GE"
-              qrcode={Qrcode}
-            />
+              <TicketsCard
+                date="08 Fev 2024"
+                title="Fórum da Sustentabilidade"
+                authCode="3815296"
+                area="HR - GE"
+                qrcode={Qrcode}
+              />
 
-            <TicketsCard
-              date="14 Fev 2024"
-              title="Conferência da Inovação"
-              authCode="3815296"
-              area="BD - DEV"
-              qrcode={Qrcode}
-            />
+              <TicketsCard
+                date="14 Fev 2024"
+                title="Conferência da Inovação"
+                authCode="3815296"
+                area="BD - DEV"
+                qrcode={Qrcode}
+              />
 
-            <TicketsCard
-              date="22 - 26 Fev 2024"
-              title="Jornada do Conhecimento"
-              authCode="3815296"
-              area="ETS - DS"
-              qrcode={Qrcode}
-            />
+              <TicketsCard
+                date="22 - 26 Fev 2024"
+                title="Jornada do Conhecimento"
+                authCode="3815296"
+                area="ETS - DS"
+                qrcode={Qrcode}
+              />
 
-            <TicketsCard
-              date="14 Fev 2024"
-              title="Conferência da Inovação"
-              authCode="3815296"
-              area="BD - DEV"
-              qrcode={Qrcode}
-            />
+              <TicketsCard
+                date="14 Fev 2024"
+                title="Conferência da Inovação"
+                authCode="3815296"
+                area="BD - DEV"
+                qrcode={Qrcode}
+              />
+            </div>
           </div>
         </div>
       </div>

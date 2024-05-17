@@ -38,3 +38,30 @@
   font-weight: 600;
   margin-top: 10px;
 }
+
+/* responsive application */
+@media screen and (max-width: 1150px) {
+  .container-register {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    height: 91vh;
+  }
+
+  .container-main-register .container-register {
+    width: 100%;
+  }
+
+  .gradient-bg {
+    width: 0;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .container-login {
+    padding: 50px;
+    width: 100%;
+  }
+}
