@@ -1,8 +1,4 @@
-// aqui será escrito as funções de consulta da aplicação
-// é necessario criar algo entre a aplicação e as resposta da api para lidar com os erros de revalidação por exemplo
-// chave de consulta e função de consulta
-
-// hooks/useApiQueries.js
+// Used to fetch (read) data from an API
 import { useQuery } from "@tanstack/react-query";
 import {
   getAllEvents,
