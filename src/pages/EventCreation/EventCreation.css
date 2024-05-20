@@ -42,10 +42,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: calc(100% - 500px);
   padding-right: 80px;
-  margin-top: 30px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .container-event-description {

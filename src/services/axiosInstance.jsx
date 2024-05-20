@@ -9,7 +9,7 @@ export const headers = {
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE"
 }; 
 
-const API_URL = "http://10.234.81.170:6968";
+const API_URL = "http://10.234.89.187:6968";
  
 // Defining the URL instance for requests using AXIOS
 const instance = axios.create({
