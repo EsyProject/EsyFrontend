@@ -13,7 +13,7 @@ InputDate.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired, // Alterado para string
   placeholder: PropTypes.string.isRequired,
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func,
   validationRules: PropTypes.object,
 };
 

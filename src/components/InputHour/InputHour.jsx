@@ -13,7 +13,7 @@ InputHour.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  register: PropTypes.func.isRequired,
+  register: PropTypes.func,
   validationRules: PropTypes.object,
 };
 
