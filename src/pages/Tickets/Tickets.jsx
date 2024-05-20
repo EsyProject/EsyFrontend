@@ -124,8 +124,8 @@ const Tickets = () => {
 
         <div className="right-column">
           <div className="tickets-content-right">
+            <h2>Próximos eventos</h2>
             <div className="container-next-events">
-              <h2>Próximos eventos</h2>
               <TicketsCard
                 date="02 Fev 2024"
                 title="Ciclo de Saúde Mental"
