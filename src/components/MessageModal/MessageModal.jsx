@@ -26,8 +26,8 @@ const MessageModal = ({ title, text, onClose, showModal }) => {
 MessageModal.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
-  showModal: PropTypes.bool.isRequired,
+  onClose: PropTypes.func,
+  showModal: PropTypes.bool,
 };
 
 export default MessageModal;
