@@ -1,28 +1,53 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 50%;
+  margin-right: 15px;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 50%;
+  margin-right: 15px;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
 .custom-input label {
-    font-size: 16px;
-    font-weight: 600;
-    margin-left: 5px;
-    margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 5px;
+  margin-top: 10px;
 }
 
 .custom-input input {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .custom-input input {
-    border: 1px solid #BDC1C6;
-    border-radius: 7px;
-    height: 50px;
-    width: auto;
-    padding-left: 20px;
+  border: 1px solid #bdc1c6;
+  border-radius: 7px;
+  height: 50px;
+  width: auto;
+  padding-left: 20px;
 }
 
 .custom-input input::placeholder {
-    color: #9AA0A6;
+  color: #9aa0a6;
 }
 
 .custom-input {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  white-space: nowrap;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875em;
 }

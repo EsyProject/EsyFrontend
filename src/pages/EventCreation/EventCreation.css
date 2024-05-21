@@ -9,7 +9,7 @@
 .creation-container-main {
   flex: 1;
   display: flex;
-  margin-left: 186px;
+  margin-left: 255px;
   justify-content: space-between;
   transition: margin-left 0.3s;
 }
@@ -43,7 +43,7 @@
   flex-direction: column;
   gap: 1.5rem;
   padding-right: 80px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .container-event-description {
@@ -111,7 +111,7 @@
 }
 
 .container-create-event-child .custom-textarea {
-  height: 215px;
+  height: 218px;
 }
 
 .container-create-event-child .label-textarea {
@@ -127,7 +127,7 @@ input[type="file"]::-webkit-file-upload-button {
   border-radius: 5px;
 
   color: #fff;
-  padding: 7px 14px;
+  padding: 4px 14px;
   border: none;
   cursor: pointer;
   font-family: Poppins, sans-serif;
@@ -140,7 +140,7 @@ input[type="file"] {
   width: 100%;
   border: 1px solid #bdc1c6;
   border-radius: 7px;
-  height: 45px;
+  height: 40px;
   padding: 5px;
   padding-left: 7px;
 }
