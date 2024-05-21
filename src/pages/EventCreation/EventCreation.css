@@ -1,5 +1,5 @@
 .sidebar-open .creation-container-main {
-  margin-left: 320px;
+  margin-left: 315px;
 }
 
 .creation-container {
@@ -9,7 +9,7 @@
 .creation-container-main {
   flex: 1;
   display: flex;
-  margin-left: 255px;
+  margin-left: 175px;
   justify-content: space-between;
   transition: margin-left 0.3s;
 }
@@ -43,13 +43,19 @@
   flex-direction: column;
   gap: 1.5rem;
   padding-right: 80px;
-  margin-bottom: 18px;
+  margin-bottom: 58px;
+  margin-top: 30px;
 }
 
 .container-event-description {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  width: calc(100vw - (491px + 70px + 175px));
+}
+
+.sidebar-open .container-event-description {
+  width: calc(100vw - (491px + 70px + 315px));
 }
 
 .container-create-event-child {
@@ -215,9 +221,29 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: 100%;
-    padding-right: 80px;
+    width: calc(100vw - 195px);
+    padding-right: 60px;
   }
+
+  .sidebar-open .container-create-event {
+    width: calc(100vw - 335px);
+  }
+
+  .sidebar-open .container-event-description {
+    width: 100%;
+}
+
+  /* .container-event-description {
+    width: 100%;
+  }
+
+  .sidebar-open .container-create-event {
+    width: calc(100vw - 315px);
+  } */
+
+  .container-event-description {
+    width: 100%;
+}
 }
 
 @media screen and (max-width: 1200px) {

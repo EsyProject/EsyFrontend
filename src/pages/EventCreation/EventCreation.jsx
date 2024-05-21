@@ -278,6 +278,7 @@ const EventCreation = () => {
               </div>
             </div>
 
+
             <div className="creation-container-tickets">
               <h2 className="title">Ingressos</h2>
               <p className="subtitle">
@@ -297,7 +298,7 @@ const EventCreation = () => {
                   />
                   <Input
                     type="time"
-                    label="Horário de início dos ingressos"
+                    label="Horário de início"
                     id="initialTimeTicket"
                     placeholder="00:00"
                     className="input-style"
@@ -308,7 +309,7 @@ const EventCreation = () => {
                 <div className="container-event-details">
                   <Input
                     type="date"
-                    label="Data de término dos ingressos"
+                    label="Data de término"
                     id="finishDateTicket"
                     placeholder="dd/mm/aaaa"
                     className="input-style"
@@ -318,7 +319,7 @@ const EventCreation = () => {
 
                   <Input
                     type="time"
-                    label="Horário de término dos ingressos"
+                    label="Horário de término"
                     id="finishTimeTicket"
                     placeholder="00:00"
                     className="input-style"
