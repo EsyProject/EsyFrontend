@@ -20,7 +20,6 @@ const instance = axios.create({
 // Function to acquire the token and add it to the request header
 async function acquireToken(config) {
   const token = msalInstance.getActiveAccount()?.idToken;
-  console.log(token);
   config.headers.Authorization = `Bearer ${token}`;
  
   return config;

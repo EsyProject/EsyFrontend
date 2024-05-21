@@ -24,98 +24,98 @@ const App = () => {
       <Route
         path="/"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Home />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
       <Route
         path="/historic"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Historic />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/schedule"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Schedule />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/settings"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Settings />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/account"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Account />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/tickets"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Tickets />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/dashboard"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Dashboard />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/feed"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Feed />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/description"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Reservation />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/create"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <EventCreation />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
 
       <Route
         path="/authentication"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Authentication />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       ></Route>
     </Routes>
