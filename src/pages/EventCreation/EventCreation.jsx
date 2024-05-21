@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCreateEvent, useCreateTicket } from "../../services/mutations";
+import { useCreateEvent } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
@@ -74,12 +74,17 @@ const EventCreation = () => {
     formState: { errors },
     setValue,
     getValues,
+    reset,
   } = useForm();
   const createEventMutation = useCreateEvent();
-  const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
   useEffect(() => {}, [errors]);
+
+  const handleReset = () => {
+    reset();
+    setEventBanner(null);
+  };  
 
   const handleFileChange = (e) => {
     setEventBanner(e.target.files[0]);
@@ -97,6 +102,7 @@ const EventCreation = () => {
     formData.append("nameOfEvent", data.nameOfEvent);
     formData.append("responsible_area", data.responsible_area);
 
+    // If imgUrl is a list of files, add them to FormData
     if (data.imgUrl && data.imgUrl.length > 0) {
       for (let i = 0; i < data.imgUrl.length; i++) {
         formData.append("images", data.imgUrl[i]);
@@ -107,38 +113,8 @@ const EventCreation = () => {
       formData.append("imgUrl", eventBanner);
     }
 
-    createEventMutation.mutate(formData, {
-      onSuccess: (eventResponse) => {
-        console.log("Evento criado com sucesso", eventResponse);
-        
-        const ticketData = {
-          eventId: eventResponse.data.id, 
-          initialDateTicket: data.initialDateTicket,
-          initialTimeTicket: data.initialTimeTicket,
-          finishDateTicket: data.finishDateTicket,
-          finishTimeTicket: data.finishTimeTicket,
-        };
-
-        handleCreateTicket(ticketData);
-      },
-      onError: (error) => {
-        console.log("Erro ao criar evento", error);
-      },
-    });
+    createEventMutation.mutate(formData);
   };
-
-  const handleCreateTicket = (data) => {
-    console.log("Creating ticket with data:", data);
-    createTicketMutation.mutate(data, {
-      onSuccess: () => {
-        console.log("Ticket criado com sucesso");
-      },
-      onError: (error) => {
-        console.log("Erro ao criar ticket", error);
-      },
-    });
-  };
-
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -332,7 +308,7 @@ const EventCreation = () => {
 
             <div className="btn-container">
               <button type="submit">Concluir criação do evento</button>
-              <button type="button">Limpar</button>
+              <button type="button" onClick={handleReset}>Limpar</button>
             </div>
           </div>
         </form>
