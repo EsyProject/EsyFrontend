@@ -79,30 +79,42 @@ const EventCreation = () => {
     getValues,
   } = useForm();
   const createEventMutation = useCreateEvent();
-  const createTicketMutation = useCreateTicket();
+  const [eventBanner, setEventBanner] = useState(null);
 
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
+  useEffect(() => {}, [errors]);
+
+  const handleFileChange = (e) => {
+    setEventBanner(e.target.files[0]);
+  };
 
   const handleCreateEvent = (data) => {
-    console.log(data);
-    createEventMutation.mutate(data, {
-      onSuccess: () => {
-        console.log("Evento criado com sucesso");
-      },
-      onError: (error) => {
-        console.log(error);
-      },
-    });
+    const formData = new FormData();
+
+    formData.append("description", data.description);
+    formData.append("finishDate", data.finishDate);
+    formData.append("finishTime", data.finishTime);
+    formData.append("initialDate", data.initialDate);
+    formData.append("initialTime", data.initialTime);
+    formData.append("localEvent", data.localEvent);
+    formData.append("nameOfEvent", data.nameOfEvent);
+    formData.append("responsible_area", data.responsible_area);
+
+    // If imgUrl is a list of files, add them to FormData
+    if (data.imgUrl && data.imgUrl.length > 0) {
+      for (let i = 0; i < data.imgUrl.length; i++) {
+        formData.append("images", data.imgUrl[i]);
+      }
+    }
+
+    if (eventBanner) {
+      formData.append("imgUrl", eventBanner);
+    }
+
+    createEventMutation.mutate(formData);
   };
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-  };
-
-  const handleFileChange = (e) => {
-    setEventBanner(e.target.files[0]);
   };
 
   return (
@@ -156,15 +168,13 @@ const EventCreation = () => {
                   />
 
                   <h4 className="label-textarea">Imagem para o banner</h4>
-                  <input
+                  <Input
                     type="file"
                     id="imgUrl"
                     accept="image/*"
-                    className="custom-input input-image"
                     onChange={handleFileChange}
-                    {...register("imgUrl", {
-                      required: "Campo obrigatório",
-                    })}
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
                   />
                 </div>
                 <div className="container-create-event-child">
@@ -237,7 +247,7 @@ const EventCreation = () => {
               </div>
             </div>
 
-            <div className="creation-container-tickets">
+            {/* <div className="creation-container-tickets">
               <h2 className="title">Ingressos</h2>
               <p className="subtitle">
                 Quando as reservas de ingressos começam e terminam?
@@ -282,13 +292,11 @@ const EventCreation = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="btn-container">
               <button type="submit">Concluir criação do evento</button>
-              <button type="button" onClick={() => reset()}>
-                Limpar
-              </button>
+              <button type="button">Limpar</button>
             </div>
           </div>
         </form>

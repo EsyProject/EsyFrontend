@@ -3,23 +3,21 @@ import axiosInstance from "./axiosInstance";
 
 // Event
 export const createEvent = async (data) => {
-  const formData = new FormData();
 
-  Object.keys(data).forEach((key) => {
-    if (key === "image") {
-      formData.append(key, data[key]);
-    } else {
-      formData.append(key, data[key]);
-    }
-  });
-
-  return (
-    await axiosInstance.post("/event", formData, {
+  for (let pair of data.entries()) {
+    console.log("haai", pair[0]+ ': ' + pair[1]);
+}
+  try {
+    const response = await axiosInstance.post("/event", data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-    })
-  ).data;
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao enviar requisição:", error);
+    throw error;
+  }
 };
 
 export const getAllEvents = async () => {
