@@ -1,13 +1,27 @@
 import PropTypes from 'prop-types';
 import './Input.css'; 
 
-const Input = ({ label, id, placeholder, register, validationRules, value, onChange }) => (
+const Input = ({ label, id, placeholder, register, validationRules, value, onChange, type = 'text', accept }) => (
   <div className='custom-input'>
     <label htmlFor={id}>{label}</label>
     {register ? (
-      <input type='text' id={id} placeholder={placeholder} {...register(id, validationRules)} />
+      <input
+        type={type}
+        id={id}
+        placeholder={placeholder}
+        {...register(id, validationRules)}
+        onChange={onChange}
+        accept={accept}
+      />
     ) : (
-      <input type='text' id={id} placeholder={placeholder} value={value} onChange={onChange} />
+      <input
+        type={type}
+        id={id}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        accept={accept}
+      />
     )}
   </div>
 );
@@ -21,6 +35,8 @@ Input.propTypes = {
   validationRules: PropTypes.object,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  type: PropTypes.string,
+  accept: PropTypes.string,
 };
 
 export default Input;
