@@ -13,9 +13,6 @@ import {
 import "material-symbols";
 import "./EventCreation.css";
 
-import InputDate from "../../components/InputDate/InputDate";
-import InputHour from "../../components/InputHour/InputHour";
-
 const options_area = [
   { value: "", label: "Selecione" },
   { value: "ETS", label: "ETS" },
@@ -79,6 +76,7 @@ const EventCreation = () => {
     getValues,
   } = useForm();
   const createEventMutation = useCreateEvent();
+  const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
   useEffect(() => {}, [errors]);
@@ -99,7 +97,6 @@ const EventCreation = () => {
     formData.append("nameOfEvent", data.nameOfEvent);
     formData.append("responsible_area", data.responsible_area);
 
-    // If imgUrl is a list of files, add them to FormData
     if (data.imgUrl && data.imgUrl.length > 0) {
       for (let i = 0; i < data.imgUrl.length; i++) {
         formData.append("images", data.imgUrl[i]);
@@ -110,8 +107,38 @@ const EventCreation = () => {
       formData.append("imgUrl", eventBanner);
     }
 
-    createEventMutation.mutate(formData);
+    createEventMutation.mutate(formData, {
+      onSuccess: (eventResponse) => {
+        console.log("Evento criado com sucesso", eventResponse);
+        
+        const ticketData = {
+          eventId: eventResponse.data.id, 
+          initialDateTicket: data.initialDateTicket,
+          initialTimeTicket: data.initialTimeTicket,
+          finishDateTicket: data.finishDateTicket,
+          finishTimeTicket: data.finishTimeTicket,
+        };
+
+        handleCreateTicket(ticketData);
+      },
+      onError: (error) => {
+        console.log("Erro ao criar evento", error);
+      },
+    });
   };
+
+  const handleCreateTicket = (data) => {
+    console.log("Creating ticket with data:", data);
+    createTicketMutation.mutate(data, {
+      onSuccess: () => {
+        console.log("Ticket criado com sucesso");
+      },
+      onError: (error) => {
+        console.log("Erro ao criar ticket", error);
+      },
+    });
+  };
+
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -167,8 +194,8 @@ const EventCreation = () => {
                     }
                   />
 
-                  <h4 className="label-textarea">Imagem para o banner</h4>
                   <Input
+                    label="Imagem para o banner"
                     type="file"
                     id="imgUrl"
                     accept="image/*"
@@ -208,7 +235,8 @@ const EventCreation = () => {
                 </div>
                 <div className="container-event-details">
                   <div className="container-create-event-child">
-                    <InputDate
+                    <Input
+                      type="date"
                       label="Data de início"
                       id="initialDate"
                       placeholder="dd/mm/aaaa"
@@ -216,7 +244,8 @@ const EventCreation = () => {
                       register={register}
                       validationRules={{ required: "Campo obrigatório" }}
                     />
-                    <InputDate
+                    <Input
+                      type="date"
                       label="Data de término"
                       id="finishDate"
                       placeholder="dd/mm/aaaa"
@@ -226,7 +255,8 @@ const EventCreation = () => {
                     />
                   </div>
                   <div className="container-create-event-child">
-                    <InputHour
+                    <Input
+                      type="time"
                       label="Horário de início"
                       id="initialTime"
                       placeholder="00:00"
@@ -234,7 +264,8 @@ const EventCreation = () => {
                       register={register}
                       validationRules={{ required: "Campo obrigatório" }}
                     />
-                    <InputHour
+                    <Input
+                      type="time"
                       label="Horário de término"
                       id="finishTime"
                       placeholder="00:00"
@@ -247,7 +278,7 @@ const EventCreation = () => {
               </div>
             </div>
 
-            {/* <div className="creation-container-tickets">
+            <div className="creation-container-tickets">
               <h2 className="title">Ingressos</h2>
               <p className="subtitle">
                 Quando as reservas de ingressos começam e terminam?
@@ -255,17 +286,19 @@ const EventCreation = () => {
 
               <div className="container-event-description">
                 <div className="container-event-details">
-                  <InputDate
+                  <Input
+                    type="date"
                     label="Data de início"
-                    id="ticketStartDate"
+                    id="initialDateTicket"
                     placeholder="dd/mm/aaaa"
                     className="input-style"
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
                   />
-                  <InputHour
+                  <Input
+                    type="time"
                     label="Horário de início dos ingressos"
-                    id="ticketStartTime"
+                    id="initialTimeTicket"
                     placeholder="00:00"
                     className="input-style"
                     register={register}
@@ -273,18 +306,20 @@ const EventCreation = () => {
                   />
                 </div>
                 <div className="container-event-details">
-                  <InputDate
+                  <Input
+                    type="date"
                     label="Data de término dos ingressos"
-                    id="ticketEndDate"
+                    id="finishDateTicket"
                     placeholder="dd/mm/aaaa"
                     className="input-style"
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
                   />
 
-                  <InputHour
+                  <Input
+                    type="time"
                     label="Horário de término dos ingressos"
-                    id="ticketEndTime"
+                    id="finishTimeTicket"
                     placeholder="00:00"
                     className="input-style"
                     register={register}
@@ -292,7 +327,7 @@ const EventCreation = () => {
                   />
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <div className="btn-container">
               <button type="submit">Concluir criação do evento</button>
