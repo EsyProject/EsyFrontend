@@ -276,3 +276,11 @@ textarea:focus {
     gap: 0;
   }
 }
+
+.textarea-error {
+  border: 1px solid red !important;
+}
+
+.textarea-error:hover {
+  border-color: hsl(0, 100%, 50%);
+}

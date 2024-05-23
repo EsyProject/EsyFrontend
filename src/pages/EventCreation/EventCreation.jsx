@@ -75,12 +75,15 @@ const EventCreation = () => {
     setValue,
     getValues,
     reset,
+    clearErrors,
   } = useForm();
   const createEventMutation = useCreateEvent();
   const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
-  useEffect(() => {}, [errors]);
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
 
   const handleReset = () => {
     reset();
@@ -94,13 +97,13 @@ const EventCreation = () => {
   const handleCreateEvent = (data) => {
     const formData = new FormData();
 
+    formData.append("nameOfEvent", data.nameOfEvent);
     formData.append("description", data.description);
     formData.append("finishDate", data.finishDate);
     formData.append("finishTime", data.finishTime);
     formData.append("initialDate", data.initialDate);
     formData.append("initialTime", data.initialTime);
     formData.append("localEvent", data.localEvent);
-    formData.append("nameOfEvent", data.nameOfEvent);
     formData.append("responsible_area", data.responsible_area);
 
     // If imgUrl is a list of files, add them to FormData
@@ -124,7 +127,6 @@ const EventCreation = () => {
 
     createEventMutation.mutate(formData, {
       onSuccess: (eventData) => {
-
         // Verifique se eventData possui um event_id
         if (eventData && eventData.event_id) {
           const ticketData = {
@@ -191,18 +193,30 @@ const EventCreation = () => {
                     placeholder="Ex.: Hackathon 7° Edição"
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
+                    clearErrors={clearErrors}
                   />
+                  <p className="error-message">
+                    {errors.nameOfEvent && errors.nameOfEvent.message}
+                  </p>
 
                   <CustomSelect
                     label="Área responsável"
                     id="responsible_area"
                     options={options_area}
                     placeholder="Selecione"
-                    className="custom-select-css-w9q2zk-Input2"
+                    className={`custom-select-css-w9q2zk-Input2 ${
+                      errors.description && "textarea-error"
+                    }`}
                     onChange={(selectedOption) =>
                       setValue("responsible_area", selectedOption)
                     }
                   />
+                  {errors.responsible_area && (
+                    <p className="error-message">
+                      {errors.responsible_area.message}
+                    </p>
+                  )}
 
                   <Input
                     label="Imagem para o banner"
@@ -212,17 +226,32 @@ const EventCreation = () => {
                     onChange={handleFileChange}
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
+                    clearErrors={clearErrors}
                   />
+                  <p className="error-message">
+                    {errors.imgUrl && errors.imgUrl.message}
+                  </p>
                 </div>
                 <div className="container-create-event-child">
                   <h4 className="label-textarea">Descrição</h4>
                   <textarea
-                    className="custom-textarea"
+                    className={`custom-textarea ${
+                      errors.description && "textarea-error"
+                    }`}
                     placeholder="Este é o texto que aparecerá no feed de atualizações para que os colaboradores possam saber sobre seu evento."
                     {...register("description", {
                       required: "Campo obrigatório",
                     })}
+                    onChange={(e) => {
+                      setValue("description", e.target.value);
+                    }}
                   ></textarea>
+                  {errors.description && (
+                    <p className="error-message">
+                      {errors.description.message}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -253,7 +282,13 @@ const EventCreation = () => {
                       className="input-style"
                       register={register}
                       validationRules={{ required: "Campo obrigatório" }}
+                      errors={errors}
+                      clearErrors={clearErrors}
                     />
+                    <p className="error-message">
+                      {errors.nameOfEvent && errors.nameOfEvent.message}
+                    </p>
+
                     <Input
                       type="date"
                       label="Data de término"
@@ -262,7 +297,12 @@ const EventCreation = () => {
                       className="input-style"
                       register={register}
                       validationRules={{ required: "Campo obrigatório" }}
+                      errors={errors}
+                      clearErrors={clearErrors}
                     />
+                    <p className="error-message">
+                      {errors.nameOfEvent && errors.nameOfEvent.message}
+                    </p>
                   </div>
                   <div className="container-create-event-child">
                     <Input
@@ -273,7 +313,13 @@ const EventCreation = () => {
                       className="input-style"
                       register={register}
                       validationRules={{ required: "Campo obrigatório" }}
+                      errors={errors}
+                      clearErrors={clearErrors}
                     />
+                    <p className="error-message">
+                      {errors.nameOfEvent && errors.nameOfEvent.message}
+                    </p>
+
                     <Input
                       type="time"
                       label="Horário de término"
@@ -282,7 +328,12 @@ const EventCreation = () => {
                       className="input-style"
                       register={register}
                       validationRules={{ required: "Campo obrigatório" }}
+                      errors={errors}
+                      clearErrors={clearErrors}
                     />
+                    <p className="error-message">
+                      {errors.nameOfEvent && errors.nameOfEvent.message}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -304,7 +355,14 @@ const EventCreation = () => {
                     className="input-style"
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
+                    clearErrors={clearErrors}
                   />
+                  <p className="error-message">
+                    {errors.initialDateTicket &&
+                      errors.initialDateTicket.message}
+                  </p>
+
                   <Input
                     type="time"
                     label="Horário de início"
@@ -313,7 +371,13 @@ const EventCreation = () => {
                     className="input-style"
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
+                    clearErrors={clearErrors}
                   />
+                  <p className="error-message">
+                    {errors.initialTimeTicket &&
+                      errors.initialTimeTicket.message}
+                  </p>
                 </div>
                 <div className="container-event-details">
                   <Input
@@ -324,7 +388,13 @@ const EventCreation = () => {
                     className="input-style"
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
+                    clearErrors={clearErrors}
                   />
+                  <p className="error-message">
+                    {errors.finishDateTicket &&
+                      errors.finishDateTicket.message}
+                  </p>
 
                   <Input
                     type="time"
@@ -334,7 +404,13 @@ const EventCreation = () => {
                     className="input-style"
                     register={register}
                     validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
+                    clearErrors={clearErrors}
                   />
+                  <p className="error-message">
+                    {errors.finishTimeTicket &&
+                      errors.finishTimeTicket.message}
+                  </p>
                 </div>
               </div>
             </div>
