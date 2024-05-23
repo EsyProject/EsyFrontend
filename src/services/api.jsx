@@ -72,8 +72,9 @@ export const getSuggestionsBasedOnAssessment = async (eventId) => {
 };
 
 // Ticket Event
-export const createTicket = async (data) => {
-  return (await axiosInstance.post("/ticket", data)).data;
+export const createTicket = async (eventId, data) => {
+  console.log("API call to create ticket with eventId:", eventId);
+  return (await axiosInstance.post(`/ticket/${eventId}`, data)).data;
 };
 
 export const updateTicket = async (ticketId, data) => {

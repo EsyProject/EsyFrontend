@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCreateEvent } from "../../services/mutations";
+import { useCreateEvent, useCreateTicket } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
@@ -77,6 +77,7 @@ const EventCreation = () => {
     reset,
   } = useForm();
   const createEventMutation = useCreateEvent();
+  const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
   useEffect(() => {}, [errors]);
@@ -84,7 +85,7 @@ const EventCreation = () => {
   const handleReset = () => {
     reset();
     setEventBanner(null);
-  };  
+  };
 
   const handleFileChange = (e) => {
     setEventBanner(e.target.files[0]);
@@ -113,7 +114,40 @@ const EventCreation = () => {
       formData.append("imgUrl", eventBanner);
     }
 
-    createEventMutation.mutate(formData);
+    // Adiciona dados dos ingressos ao formData
+    formData.append("initialDateTicket", data.initialDateTicket);
+    formData.append("initialTimeTicket", data.initialTimeTicket);
+    formData.append("finishDateTicket", data.finishDateTicket);
+    formData.append("finishTimeTicket", data.finishTimeTicket);
+
+    console.log("FormData:", formData);
+
+    createEventMutation.mutate(formData, {
+      onSuccess: (eventData) => {
+
+        // Verifique se eventData possui um event_id
+        if (eventData && eventData.event_id) {
+          const ticketData = {
+            initialDate: data.initialDateTicket,
+            initialTime: data.initialTimeTicket,
+            finishDate: data.finishDateTicket,
+            finishTime: data.finishTimeTicket,
+          };
+
+          console.log("Creating ticket with eventId:", eventData.event_id);
+          console.log("Dados do ticket: ", ticketData);
+          createTicketMutation.mutate({
+            eventId: eventData.event_id,
+            ...ticketData,
+          });
+        } else {
+          console.error("Event data does not have an event_id:", eventData);
+        }
+      },
+      onError: (error) => {
+        console.error("Error creating event:", error);
+      },
+    });
   };
 
   const toggleSidebar = () => {
@@ -254,7 +288,6 @@ const EventCreation = () => {
               </div>
             </div>
 
-
             <div className="creation-container-tickets">
               <h2 className="title">Ingressos</h2>
               <p className="subtitle">
@@ -308,7 +341,9 @@ const EventCreation = () => {
 
             <div className="btn-container">
               <button type="submit">Concluir criação do evento</button>
-              <button type="button" onClick={handleReset}>Limpar</button>
+              <button type="button" onClick={handleReset}>
+                Limpar
+              </button>
             </div>
           </div>
         </form>

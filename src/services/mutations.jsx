@@ -94,7 +94,7 @@ export function useCreateTicket() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data) => createTicket(data),
+    mutationFn: ({ eventId, ...data }) => createTicket(eventId, data), 
     onMutate: () => {
       console.log("Creating ticket...");
     },
