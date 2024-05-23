@@ -36,8 +36,8 @@ export const getMyEvents = async () => {
   return (await axiosInstance.get("/event/myEvent")).data;
 };
 
-export const getEventFeed = async () => {
-  return (await axiosInstance.get("/event/feed")).data;
+export const getEventFeed = async (eventId) => {
+  return (await axiosInstance.get(`/event/feed/${eventId}`)).data;
 };
 
 export const getCardEvent = async () => {

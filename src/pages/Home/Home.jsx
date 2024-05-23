@@ -4,10 +4,14 @@ import { Sidebar, Navbar } from "../../components/index";
 import EvaluationModal from "../../components/EvaluationModal/EvaluationModal";
 import "./Home.css";
 import "material-symbols";
+import { useEventFeed } from "../../services/queries";
 
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
+  const eventId = "1";
+  const { data: eventDetails, isLoading } = useEventFeed(eventId);
+
   const dynamicImage = "src/assets/image-banner.png";
   // const dynamicImage = 'src/assets/dog.jpg';
 
@@ -51,6 +55,12 @@ const Home = () => {
     setModalOpenImage(false);
   };
 
+  if (isLoading) {
+    return <p>Carregando...</p>;
+  }
+
+  const { nameOfEvent, responsible_area, local, imgUrl, description } = eventDetails || {};
+
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
@@ -81,11 +91,11 @@ const Home = () => {
 
         <section className="banner">
           <div className="text">
-            <p>ETS - Engineering Technical School</p>
-            <h1>Hackathon</h1>
+            <p>{responsible_area}</p>
+            <h1>{nameOfEvent}</h1>
             <h2>Venha conhecer a competição de tecnologia e inovação da ETS</h2>
             <button onClick={openModal}>Saber mais</button>
-            <p>7ª Edição - Julho de 2024</p>
+            <p>{local}</p>
           </div>
           <div className="container-image-banner">
             {/* <div className="shadow"></div> */}
@@ -101,27 +111,16 @@ const Home = () => {
 
         <div className="content">
           <section className="introduction">
-            <p>
-              Hackathon é um evento semestral de destaque em nosso calendário,
-              especialmente voltado para{" "}
-              <b>as áreas de tecnologia e inovação</b>, reunindo aprendizes dos
-              cursos de <b>Digital Solutions e Mecatrônica.</b> Esse evento não
-              apenas promove o aprendizado prático e o desenvolvimento de
-              habilidades essenciais, mas também fomenta um{" "}
-              <span className="mark-green">
-                espírito de colaboração e inovação
-              </span>{" "}
-              entre nossos aprendizes.
-            </p>
+          {description}
             <h1>
               O que é o{" "}
               <span className="mark-blue">
-                <b>Hackathon</b>?
+                <b>{nameOfEvent}</b>?
               </span>
             </h1>
           </section>
           <section className="last-edition">
-            <h1>Edição anterior do Hackathon</h1>
+            <h1>Edição anterior do {nameOfEvent}</h1>
             <p>
               Confira alguns dos momentos emocionantes e experiências
               compartilhadas pela equipe vencedora da edição anterior, Happdine,
