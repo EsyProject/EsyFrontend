@@ -1,62 +1,48 @@
-import PropTypes from "prop-types";
-import Select from "react-select";
-import "./CustomSelect.css";
+import PropTypes from 'prop-types';
+import './CustomSelect.css';
 
-// Custom styles for the Select component
-const customStyles = (hasError) => ({
-  control: (provided) => ({
-    ...provided,
-    border: hasError ? "1px solid red" : "1px solid #BDC1C6",
-    borderRadius: "7px",
-    height: "50px",
-    width: "auto",
-    paddingBottom: "0px",
-    paddingTop: "0px",
-    paddingLeft: "20px",
-    paddingRight: "0px",
-    margin: "0px",
-  }),
-  placeholder: (provided) => ({
-    ...provided,
-    color: "#9AA0A6",
-  }),
-});
-
-// Custom Select component
 const CustomSelect = ({
   label,
   id,
   options,
-  placeholder,
-  onChange,
-  hasError,
+  register,
+  validationRules,
+  errors,
   clearErrors,
-}) => (
-  <div className="custom-select">
-    <label htmlFor={id}>{label}</label>
-    <Select
-      id={id}
-      options={options}
-      placeholder={placeholder}
-      styles={customStyles(hasError)}
-      classNamePrefix="custom-select"
-      className="custom-select-css-w9q2zk-Input2"
-      onChange={(selectedOption) => {
-        onChange && onChange(selectedOption?.value);
-        clearErrors && clearErrors();
-      }}
-    />  
-  </div>
-);
+}) => {
 
-// PropTypes validation for the CustomSelect component
+  const handleSelectChange = () => {
+    clearErrors(id);
+  };
+
+  return (
+    <div className="custom-select">
+      <label htmlFor={id}>{label}</label>
+      <div className={`select-container ${errors[id] && "select-error"}`}>
+        <select
+          id={id}
+          onChange={handleSelectChange}
+          {...register(id, validationRules)}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      {errors[id] && <p className="error-message">{errors[id].message}</p>}
+    </div>
+  );
+};
+
 CustomSelect.propTypes = {
-  label: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  hasError: PropTypes.bool,
+  label: PropTypes.string,
+  id: PropTypes.string,
+  options: PropTypes.array,
+  register: PropTypes.func,
+  validationRules: PropTypes.object,
+  errors: PropTypes.object,
   clearErrors: PropTypes.func,
 };
 

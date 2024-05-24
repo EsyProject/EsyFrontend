@@ -1,29 +1,50 @@
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bdc1c6;
+  border-radius: 7px;
+  height: 45px;
+  width: 100%;
+  padding: 0 20px;
+}
+
 .custom-select label {
-    font-size: 16px;
-    font-weight: 600;
-    margin-left: 5px;
-    margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 5px;
+  margin-top: 10px;
 }
 
 .custom-select select {
-    font-size: 16px;
+  font-size: 16px;
+  color: black;
+  border-radius: 0;
+  height: 50px;
+  width: 100%;
+  border-color: #fff;
 }
 
-.custom-select select {
-    border: 1px solid #BDC1C6;
-    border-radius: 7px;
-    height: 50px;
-    width: auto;
-    padding-left: 20px;
+select {
+    border: none;
+    outline: none;
+}
+
+.custom-select select::placeholder {
+  color: #9aa0a6;
 }
 
 .custom-select select::placeholder,
 .custom-select select option[value=""][disabled] {
-    color: #9AA0A6;
+  color: #9aa0a6;
 }
 
 .custom-select {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.select-error {
+  border: 1px solid red !important;
 }
