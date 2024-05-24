@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './Input.css'; 
+import './Input.css';
 
 const Input = ({ label, id, placeholder, register, validationRules, value, onChange, type = 'text', accept, errors, clearErrors }) => (
   <div className={`custom-input ${errors[id] && "input-error"}`}>
@@ -11,7 +11,7 @@ const Input = ({ label, id, placeholder, register, validationRules, value, onCha
         placeholder={placeholder}
         {...register(id, validationRules)}
         onChange={() => {
-          onChange && onChange() 
+          onChange && onChange()
           clearErrors()
         }}
         accept={accept}
@@ -27,6 +27,10 @@ const Input = ({ label, id, placeholder, register, validationRules, value, onCha
         accept={accept}
       />
     )}
+    <p className="error-message">
+      {errors.nameOfEvent && errors.nameOfEvent.message}
+    </p>
+
   </div>
 );
 
