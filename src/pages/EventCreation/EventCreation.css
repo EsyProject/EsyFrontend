@@ -41,7 +41,7 @@
 .container-create-event {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   padding-right: 80px;
   margin-bottom: 18px;
 }
@@ -116,7 +116,7 @@
 }
 
 .container-create-event-child .custom-textarea {
-  height: 218px;
+  height: 221px;
 }
 
 .container-create-event-child .label-textarea {
@@ -279,6 +279,7 @@ textarea:focus {
 
 .textarea-error {
   border: 1px solid red !important;
+  height: 268px !important;
 }
 
 .textarea-error:hover {

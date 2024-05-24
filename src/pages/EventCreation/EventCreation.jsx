@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useCreateEvent, useCreateTicket } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -81,10 +81,6 @@ const EventCreation = () => {
   const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
-
   const handleReset = () => {
     reset();
     setEventBanner(null);
@@ -95,8 +91,6 @@ const EventCreation = () => {
   };
 
   const handleCreateEvent = (data) => {
-    console.log("Valor do campo localEvent:", data.localEvent);
-    
     const formData = new FormData();
 
     formData.append("nameOfEvent", data.nameOfEvent);
@@ -132,17 +126,22 @@ const EventCreation = () => {
         // Verifique se eventData possui um event_id
         if (eventData && eventData.event_id) {
           const ticketData = {
-            initialDate: data.initialDateTicket,
-            initialTime: data.initialTimeTicket,
-            finishDate: data.finishDateTicket,
-            finishTime: data.finishTimeTicket,
+            initialDateTicket: data.initialDateTicket,
+            initialTimeTicket: data.initialTimeTicket,
+            finishDateTicket: data.finishDateTicket,
+            finishTimeTicket: data.finishTimeTicket,
           };
 
           console.log("Creating ticket with eventId:", eventData.event_id);
           console.log("Dados do ticket: ", ticketData);
           createTicketMutation.mutate({
             eventId: eventData.event_id,
-            ...ticketData,
+            ... {
+              initialDateTicket: data.initialDateTicket,
+              initialTimeTicket: data.initialTimeTicket,
+              finishDateTicket: data.finishDateTicket,
+              finishTimeTicket: data.finishTimeTicket,
+            },
           });
         } else {
           console.error("Event data does not have an event_id:", eventData);
@@ -203,22 +202,10 @@ const EventCreation = () => {
                     label="Área responsável"
                     id="responsible_area"
                     options={options_area}
-                    placeholder="Selecione"
-                    onChange={(selectedOption) => {
-                      setValue("responsible_area", selectedOption);
-                    }}
-                    {...register("responsible_area", {
-                      required: "Campo obrigatório",
-                      validate: value => value !== "" || "Campo obrigatório",
-                    })}
-                    hasError={!!errors.responsible_area}
-                    clearErrors={clearErrors}
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
                   />
-                  {errors.responsible_area && (
-                    <p className="error-message">
-                      {errors.responsible_area.message}
-                    </p>
-                  )}
 
                   <Input
                     label="Imagem para o banner"
@@ -264,22 +251,10 @@ const EventCreation = () => {
                     label="Local"
                     id="localEvent"
                     options={options_local}
-                    placeholder="Selecione"
-                    onChange={(selectedOption) => {
-                      setValue("localEvent", selectedOption);
-                    }}
-                    {...register("localEvent", {
-                      required: "Campo obrigatório",
-                      validate: value => value !== "" || "Campo obrigatório",
-                    })}
-                    hasError={!!errors.localEvent}
-                    clearErrors={clearErrors}
+                    register={register}
+                    validationRules={{ required: "Campo obrigatório" }}
+                    errors={errors}
                   />
-                  {errors.localEvent && (
-                    <p className="error-message">
-                      {errors.localEvent.message}
-                    </p>
-                  )}
                 </div>
                 <div className="container-event-details">
                   <div className="container-create-event-child">
