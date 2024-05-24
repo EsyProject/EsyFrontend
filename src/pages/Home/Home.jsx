@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sidebar, Navbar } from "../../components/index";
 import EvaluationModal from "../../components/EvaluationModal/EvaluationModal";
 import "./Home.css";
@@ -9,8 +9,17 @@ import { useEventFeed } from "../../services/queries";
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
-  const eventId = "1";
-  const { data: eventDetails, isLoading } = useEventFeed(eventId);
+  const [eventFeedData, setEventFeed] = useState(null);
+
+   // Buscar e definir a nota média do evento utilizando o hook useAverageOfEvent
+   const { data: eventFeed } = useEventFeed("21");
+
+   // Atualizar o estado da nota média quando os dados são carregados
+   useEffect(() => {
+     if (eventFeed) {
+      setEventFeed(eventFeed.average);
+     }
+   }, [eventFeed]);
 
   const dynamicImage = "src/assets/image-banner.png";
   // const dynamicImage = 'src/assets/dog.jpg';
@@ -55,11 +64,7 @@ const Home = () => {
     setModalOpenImage(false);
   };
 
-  if (isLoading) {
-    return <p>Carregando...</p>;
-  }
-
-  const { nameOfEvent, responsible_area, local, imgUrl, description } = eventDetails || {};
+  const { nameOfEvent, responsible_area, local, imgUrl, description } = eventFeed || {};
 
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
