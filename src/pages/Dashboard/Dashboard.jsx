@@ -62,9 +62,8 @@ const Dashboard = () => {
         <div className="dashboard-content">
           <div className={`dashboard-columns ${menuOpen ? "menu-open" : ""}`}>
             <div
-              className={`left-column-dashboard ${
-                menuOpen && sidebarOpen ? "menu-open" : ""
-              }`}
+              className={`left-column-dashboard ${menuOpen && sidebarOpen ? "menu-open" : ""
+                }`}
             >
               <div className="general-analysis">
                 <h2>Análise quantitativa geral</h2>
@@ -99,7 +98,9 @@ const Dashboard = () => {
                 </div>
 
                 <div className="participant-reviews-main">
-                  <div className="container-reviews">
+
+                  {/* container 1 - comentarios */}
+                  <div className="container-reviews box1">
                     <div className="event-reviews">
                       <div className="event-note">
                         <div className="note-content">
@@ -184,17 +185,18 @@ const Dashboard = () => {
                     </div>
                   </div>
 
+                  {/* container 2 - chart */}
                   <div
-                    className={`highlights ${
-                      menuOpen && !sidebarOpen ? "menu-open" : ""
-                    }`}
+                    className={`highlights box2 ${menuOpen && !sidebarOpen ? "menu-open" : ""
+                      }`}
                   >
                     <h2>Pontos de destaque</h2>
 
                     <ColumnsChart />
                   </div>
 
-                  <div className="improvement-suggestions">
+                  {/* container 3 - sugestões */}
+                  <div className="improvement-suggestions box3">
                     <h2>Sugestões de melhorias</h2>
 
                     <div className="sugestions">
@@ -227,9 +229,8 @@ const Dashboard = () => {
             </div>
 
             <div
-              className={`container-button-menu ${
-                menuOpen ? "menu-container-open" : "menu-container-closed"
-              }`}
+              className={`container-button-menu ${menuOpen ? "menu-container-open" : "menu-container-closed"
+                }`}
             >
               <div className="button-container-dashboard">
                 <button onClick={toggleMenu}>
