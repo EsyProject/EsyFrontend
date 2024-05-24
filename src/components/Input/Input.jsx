@@ -10,12 +10,11 @@ const Input = ({ label, id, placeholder, register, validationRules, value, onCha
         id={id}
         placeholder={placeholder}
         {...register(id, validationRules)}
-        onChange={() => {
-          onChange && onChange()
-          clearErrors()
+        onChange={(event) => {
+          onChange && onChange(event); 
+          clearErrors();
         }}
         accept={accept}
-
       />
     ) : (
       <input
@@ -27,6 +26,7 @@ const Input = ({ label, id, placeholder, register, validationRules, value, onCha
         accept={accept}
       />
     )}
+
     <p className="error-message">
       {errors.nameOfEvent && errors.nameOfEvent.message}
     </p>

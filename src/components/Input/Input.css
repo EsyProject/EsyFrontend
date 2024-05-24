@@ -33,10 +33,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   padding-left: 20px;
 }
 
-.custom-input input::placeholder {
-  color: #9aa0a6;
-}
-
 .custom-input {
   display: flex;
   flex-direction: column;
