@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Sidebar,
   Navbar,
@@ -6,11 +6,18 @@ import {
   ButtonLink,
   ReaderQR,
 } from "../../components/index";
+import { useForm } from "react-hook-form";
 import "./Authentication.css";
 
 const Authentication = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [qrCodeValue, setQrCodeValue] = useState("");
+
+  const {
+    register,
+    formState: { errors },
+    clearErrors,
+  } = useForm();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -21,15 +28,6 @@ const Authentication = () => {
       console.log("QR code scanned:", value);
       setQrCodeValue(value);
     }
-  };
-
-  // Update the input value whenever qrCodeValue changes
-  useEffect(() => {
-    setQrCodeValue(qrCodeValue);
-  }, [qrCodeValue]);
-
-  const handleInputChange = (event) => {
-    setQrCodeValue(event.target.value);
   };
 
   return (
@@ -64,10 +62,12 @@ const Authentication = () => {
             <p className="guidance">Ou entre com o código manualmente</p>
 
             <Input
+              id="qrCode"
               placeholder="Ex.: 5845215"
-              className="input-style"
-              value={qrCodeValue}
-              onChange={handleInputChange}
+              register={register}
+              validationRules={{ required: "Campo obrigatório" }}
+              errors={errors}
+              clearErrors={clearErrors}
             />
 
             <div className="container-button-authentication">
