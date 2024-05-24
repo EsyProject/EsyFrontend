@@ -3,6 +3,7 @@ import { useCreateEvent, useCreateTicket } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
+import { format } from 'date-fns';
 import {
   Sidebar,
   Navbar,
@@ -81,6 +82,14 @@ const EventCreation = () => {
   const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
+  const formatDate = (date) => {
+    return format(new Date(date), 'dd/MM/yyyy');
+  };
+  
+  const formatTime = (time) => {
+    return format(new Date(`1970-01-01T${time}:00`), 'HH:mm:ss');
+  };
+
   const handleReset = () => {
     reset();
     setEventBanner(null);
@@ -90,68 +99,62 @@ const EventCreation = () => {
     setEventBanner(e.target.files[0]);
   };
 
-  const handleCreateEvent = (data) => {
-    const formData = new FormData();
-
-    formData.append("nameOfEvent", data.nameOfEvent);
-    formData.append("finishDate", data.finishDate);
-    formData.append("finishTime", data.finishTime);
-    formData.append("initialDate", data.initialDate);
-    formData.append("initialTime", data.initialTime);
-    formData.append("localEvent", data.localEvent);
-    formData.append("responsible_area", data.responsible_area);
-    formData.append("description", data.description);
-
-    // If imgUrl is a list of files, add them to FormData
-    if (data.imgUrl && data.imgUrl.length > 0) {
-      for (let i = 0; i < data.imgUrl.length; i++) {
-        formData.append("images", data.imgUrl[i]);
-      }
-    }
-
-    if (eventBanner) {
-      formData.append("imgUrl", eventBanner);
-    }
-
-    // Adiciona dados dos ingressos ao formData
-    formData.append("initialDateTicket", data.initialDateTicket);
-    formData.append("initialTimeTicket", data.initialTimeTicket);
-    formData.append("finishDateTicket", data.finishDateTicket);
-    formData.append("finishTimeTicket", data.finishTimeTicket);
-
-    console.log("FormData:", formData);
-
-    createEventMutation.mutate(formData, {
-      onSuccess: (eventData) => {
-        // Verifique se eventData possui um event_id
-        if (eventData && eventData.event_id) {
-          const ticketData = {
-            initialDateTicket: data.initialDateTicket,
-            initialTimeTicket: data.initialTimeTicket,
-            finishDateTicket: data.finishDateTicket,
-            finishTimeTicket: data.finishTimeTicket,
-          };
-
-          console.log("Creating ticket with eventId:", eventData.event_id);
-          console.log("Dados do ticket: ", ticketData);
-          createTicketMutation.mutate({
-            eventId: eventData.event_id,
-            ... {
-              initialDateTicket: data.initialDateTicket,
-              initialTimeTicket: data.initialTimeTicket,
-              finishDateTicket: data.finishDateTicket,
-              finishTimeTicket: data.finishTimeTicket,
-            },
-          });
-        } else {
-          console.error("Event data does not have an event_id:", eventData);
+  const handleCreateEvent = async (data) => {
+    try {
+      const formData = new FormData();
+  
+      formData.append("nameOfEvent", data.nameOfEvent);
+      formData.append("finishDate", data.finishDate);
+      formData.append("finishTime", data.finishTime);
+      formData.append("initialDate", data.initialDate);
+      formData.append("initialTime", data.initialTime);
+      formData.append("localEvent", data.localEvent);
+      formData.append("responsible_area", data.responsible_area);
+      formData.append("description", data.description);
+  
+      if (data.imgUrl && data.imgUrl.length > 0) {
+        for (let i = 0; i < data.imgUrl.length; i++) {
+          formData.append("images", data.imgUrl[i]);
         }
-      },
-      onError: (error) => {
-        console.error("Error creating event:", error);
-      },
-    });
+      }
+  
+      if (eventBanner) {
+        formData.append("imgUrl", eventBanner);
+      }
+  
+      // Formatação das datas e horários dos ingressos
+      const initialDateTicketFormatted = formatDate(data.initialDateTicket);
+      const finishDateTicketFormatted = formatDate(data.finishDateTicket);
+      const initialTimeTicketFormatted = formatTime(data.initialTimeTicket);
+      const finishTimeTicketFormatted = formatTime(data.finishTimeTicket);
+  
+      formData.append("initialDateTicket", initialDateTicketFormatted);
+      formData.append("initialTimeTicket", initialTimeTicketFormatted);
+      formData.append("finishDateTicket", finishDateTicketFormatted);
+      formData.append("finishTimeTicket", finishTimeTicketFormatted);
+  
+      const eventData = await createEventMutation.mutateAsync(formData);
+  
+      if (eventData && eventData.event_id) {
+        const ticketData = {
+          initialDateTicket: initialDateTicketFormatted,
+          initialTimeTicket: initialTimeTicketFormatted,
+          finishDateTicket: finishDateTicketFormatted,
+          finishTimeTicket: finishTimeTicketFormatted,
+        };
+  
+        await createTicketMutation.mutateAsync({
+          eventId: eventData.event_id,
+          ...ticketData,
+        });
+      } else {
+        console.error("Event data does not have an event_id:", eventData);
+      }
+    } catch (error) {
+      console.error("Error creating event:", error);
+    }
   };
+  
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
