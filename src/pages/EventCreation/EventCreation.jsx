@@ -95,16 +95,18 @@ const EventCreation = () => {
   };
 
   const handleCreateEvent = (data) => {
+    console.log("Valor do campo localEvent:", data.localEvent);
+    
     const formData = new FormData();
 
     formData.append("nameOfEvent", data.nameOfEvent);
-    formData.append("description", data.description);
     formData.append("finishDate", data.finishDate);
     formData.append("finishTime", data.finishTime);
     formData.append("initialDate", data.initialDate);
     formData.append("initialTime", data.initialTime);
     formData.append("localEvent", data.localEvent);
     formData.append("responsible_area", data.responsible_area);
+    formData.append("description", data.description);
 
     // If imgUrl is a list of files, add them to FormData
     if (data.imgUrl && data.imgUrl.length > 0) {
@@ -196,21 +198,21 @@ const EventCreation = () => {
                     errors={errors}
                     clearErrors={clearErrors}
                   />
-                  <p className="error-message">
-                    {errors.nameOfEvent && errors.nameOfEvent.message}
-                  </p>
 
                   <CustomSelect
                     label="Área responsável"
                     id="responsible_area"
                     options={options_area}
                     placeholder="Selecione"
-                    className={`custom-select-css-w9q2zk-Input2 ${
-                      errors.description && "textarea-error"
-                    }`}
-                    onChange={(selectedOption) =>
-                      setValue("responsible_area", selectedOption)
-                    }
+                    onChange={(selectedOption) => {
+                      setValue("responsible_area", selectedOption);
+                    }}
+                    {...register("responsible_area", {
+                      required: "Campo obrigatório",
+                      validate: value => value !== "" || "Campo obrigatório",
+                    })}
+                    hasError={!!errors.responsible_area}
+                    clearErrors={clearErrors}
                   />
                   {errors.responsible_area && (
                     <p className="error-message">
@@ -229,24 +231,21 @@ const EventCreation = () => {
                     errors={errors}
                     clearErrors={clearErrors}
                   />
-                  <p className="error-message">
-                    {errors.imgUrl && errors.imgUrl.message}
-                  </p>
                 </div>
                 <div className="container-create-event-child">
                   <h4 className="label-textarea">Descrição</h4>
                   <textarea
-                    className={`custom-textarea ${
-                      errors.description && "textarea-error"
-                    }`}
+                    className={`custom-textarea ${errors.description ? "textarea-error" : ""}`}
                     placeholder="Este é o texto que aparecerá no feed de atualizações para que os colaboradores possam saber sobre seu evento."
                     {...register("description", {
                       required: "Campo obrigatório",
                     })}
                     onChange={(e) => {
                       setValue("description", e.target.value);
+                      clearErrors("description");
                     }}
                   ></textarea>
+
                   {errors.description && (
                     <p className="error-message">
                       {errors.description.message}
@@ -266,11 +265,21 @@ const EventCreation = () => {
                     id="localEvent"
                     options={options_local}
                     placeholder="Selecione"
-                    className="custom-select-css-w9q2zk-Input2"
-                    onChange={(selectedOption) =>
-                      setValue("localEvent", selectedOption)
-                    }
+                    onChange={(selectedOption) => {
+                      setValue("localEvent", selectedOption);
+                    }}
+                    {...register("localEvent", {
+                      required: "Campo obrigatório",
+                      validate: value => value !== "" || "Campo obrigatório",
+                    })}
+                    hasError={!!errors.localEvent}
+                    clearErrors={clearErrors}
                   />
+                  {errors.localEvent && (
+                    <p className="error-message">
+                      {errors.localEvent.message}
+                    </p>
+                  )}
                 </div>
                 <div className="container-event-details">
                   <div className="container-create-event-child">
@@ -285,9 +294,6 @@ const EventCreation = () => {
                       errors={errors}
                       clearErrors={clearErrors}
                     />
-                    <p className="error-message">
-                      {errors.nameOfEvent && errors.nameOfEvent.message}
-                    </p>
 
                     <Input
                       type="date"
@@ -300,9 +306,6 @@ const EventCreation = () => {
                       errors={errors}
                       clearErrors={clearErrors}
                     />
-                    <p className="error-message">
-                      {errors.nameOfEvent && errors.nameOfEvent.message}
-                    </p>
                   </div>
                   <div className="container-create-event-child">
                     <Input
@@ -316,9 +319,6 @@ const EventCreation = () => {
                       errors={errors}
                       clearErrors={clearErrors}
                     />
-                    <p className="error-message">
-                      {errors.nameOfEvent && errors.nameOfEvent.message}
-                    </p>
 
                     <Input
                       type="time"
@@ -331,9 +331,6 @@ const EventCreation = () => {
                       errors={errors}
                       clearErrors={clearErrors}
                     />
-                    <p className="error-message">
-                      {errors.nameOfEvent && errors.nameOfEvent.message}
-                    </p>
                   </div>
                 </div>
               </div>
@@ -358,10 +355,6 @@ const EventCreation = () => {
                     errors={errors}
                     clearErrors={clearErrors}
                   />
-                  <p className="error-message">
-                    {errors.initialDateTicket &&
-                      errors.initialDateTicket.message}
-                  </p>
 
                   <Input
                     type="time"
@@ -374,10 +367,6 @@ const EventCreation = () => {
                     errors={errors}
                     clearErrors={clearErrors}
                   />
-                  <p className="error-message">
-                    {errors.initialTimeTicket &&
-                      errors.initialTimeTicket.message}
-                  </p>
                 </div>
                 <div className="container-event-details">
                   <Input
@@ -391,10 +380,6 @@ const EventCreation = () => {
                     errors={errors}
                     clearErrors={clearErrors}
                   />
-                  <p className="error-message">
-                    {errors.finishDateTicket &&
-                      errors.finishDateTicket.message}
-                  </p>
 
                   <Input
                     type="time"
@@ -407,10 +392,6 @@ const EventCreation = () => {
                     errors={errors}
                     clearErrors={clearErrors}
                   />
-                  <p className="error-message">
-                    {errors.finishTimeTicket &&
-                      errors.finishTimeTicket.message}
-                  </p>
                 </div>
               </div>
             </div>
