@@ -4,6 +4,8 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
 import { format } from 'date-fns';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Sidebar,
   Navbar,
@@ -85,7 +87,7 @@ const EventCreation = () => {
   const formatDate = (date) => {
     return format(new Date(date), 'dd/MM/yyyy');
   };
-  
+
   const formatTime = (time) => {
     return format(new Date(`1970-01-01T${time}:00`), 'HH:mm:ss');
   };
@@ -102,7 +104,7 @@ const EventCreation = () => {
   const handleCreateEvent = async (data) => {
     try {
       const formData = new FormData();
-  
+
       formData.append("nameOfEvent", data.nameOfEvent);
       formData.append("finishDate", data.finishDate);
       formData.append("finishTime", data.finishTime);
@@ -111,30 +113,42 @@ const EventCreation = () => {
       formData.append("localEvent", data.localEvent);
       formData.append("responsible_area", data.responsible_area);
       formData.append("description", data.description);
-  
+
       if (data.imgUrl && data.imgUrl.length > 0) {
         for (let i = 0; i < data.imgUrl.length; i++) {
           formData.append("images", data.imgUrl[i]);
         }
       }
-  
+
       if (eventBanner) {
         formData.append("imgUrl", eventBanner);
       }
-  
+
       // Formatação das datas e horários dos ingressos
       const initialDateTicketFormatted = formatDate(data.initialDateTicket);
       const finishDateTicketFormatted = formatDate(data.finishDateTicket);
       const initialTimeTicketFormatted = formatTime(data.initialTimeTicket);
       const finishTimeTicketFormatted = formatTime(data.finishTimeTicket);
-  
+
       formData.append("initialDateTicket", initialDateTicketFormatted);
       formData.append("initialTimeTicket", initialTimeTicketFormatted);
       formData.append("finishDateTicket", finishDateTicketFormatted);
       formData.append("finishTimeTicket", finishTimeTicketFormatted);
-  
-      const eventData = await createEventMutation.mutateAsync(formData);
-  
+
+      const eventPromise = createEventMutation.mutateAsync(formData);
+      toast.promise(
+        eventPromise,
+        {
+          pending: 'Criando o evento...',
+          success: 'Evento criado com sucesso!',
+          error: 'Erro ao criar evento!'
+        }
+      );
+
+      const errorMessage = data.response?.data?.message
+
+      const eventData = await eventPromise;
+
       if (eventData && eventData.event_id) {
         const ticketData = {
           initialDateTicket: initialDateTicketFormatted,
@@ -142,11 +156,22 @@ const EventCreation = () => {
           finishDateTicket: finishDateTicketFormatted,
           finishTimeTicket: finishTimeTicketFormatted,
         };
-  
-        await createTicketMutation.mutateAsync({
+
+        const ticketPromise = createTicketMutation.mutateAsync({
           eventId: eventData.event_id,
           ...ticketData,
         });
+
+        toast.promise(
+          ticketPromise,
+          {
+            pending: 'Criando ticket...',
+            success: 'Ticket criado com sucesso!',
+            error: 'Erro ao criar ticket!'
+          }
+        );
+
+        await ticketPromise;
       } else {
         console.error("Event data does not have an event_id:", eventData);
       }
@@ -154,7 +179,7 @@ const EventCreation = () => {
       console.error("Error creating event:", error);
     }
   };
-  
+
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -184,6 +209,7 @@ const EventCreation = () => {
       />
 
       <div className="creation-container-main">
+        <ToastContainer />
         <form onSubmit={handleSubmit(handleCreateEvent)}>
           <div className="container-create-event">
             <div className="creation-container-child">
