@@ -4,28 +4,23 @@ import { Sidebar, Navbar } from "../../components/index";
 import EvaluationModal from "../../components/EvaluationModal/EvaluationModal";
 import "./Home.css";
 import "material-symbols";
-import { useEventFeed } from "../../services/queries";
+import { useEventById } from "../../services/queries";
 
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
-  const [eventFeedData, setEventFeed] = useState(null);
+  const eventId = "3"; 
+  const { data: eventFeed } = useEventById(eventId);
 
-   // Buscar e definir a nota média do evento utilizando o hook useAverageOfEvent
-   const { data: eventFeed } = useEventFeed("21");
+  const [eventFeedData, setEventFeedData] = useState(null);
 
-   // Atualizar o estado da nota média quando os dados são carregados
-   useEffect(() => {
-     if (eventFeed) {
-      setEventFeed(eventFeed.average);
-     }
-   }, [eventFeed]);
-
-  const dynamicImage = "src/assets/image-banner.png";
-  // const dynamicImage = 'src/assets/dog.jpg';
+  useEffect(() => {
+    if (eventFeed) {
+      setEventFeedData(eventFeed);
+    }
+  }, [eventFeed]);
 
   const [modalOpen, setModalOpen] = useState(false);
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -41,30 +36,23 @@ const Home = () => {
   };
 
   // modal for images post
-
   const [modalOpenImage, setModalOpenImage] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [caption, setCaption] = useState("");
-  const [likes, setLikes] = useState("");
-  const [views, setViews] = useState("");
 
-  const openModalImage = (imageSrc, captionText, likes, views) => {
+  const openModalImage = (imageSrc, captionText) => {
     setSelectedImage(imageSrc);
     setCaption(captionText);
-    setLikes(likes);
-    setViews(views);
     setModalOpenImage(true);
   };
 
   const closeModalImage = () => {
     setSelectedImage("");
     setCaption("");
-    setLikes("");
-    setViews("");
     setModalOpenImage(false);
   };
 
-  const { nameOfEvent, responsible_area, local, imgUrl, description } = eventFeed || {};
+  const { nameOfEvent, responsible_area, local, description, imgUrl } = eventFeedData || {};
 
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -89,7 +77,7 @@ const Home = () => {
         <style>
           {`
           :root {
-            --dynamic-image: url('${dynamicImage}');
+            --dynamic-image: url('${imgUrl}');
           }
         `}
         </style>
@@ -106,7 +94,7 @@ const Home = () => {
             {/* <div className="shadow"></div> */}
             <div className="overlay-image"></div>
             <div className="blur-green"></div>
-            <img src={dynamicImage} alt="" />
+            <img src={imgUrl} alt="" />
           </div>
           <div className="blur-blue"></div>
           <div className="elipse-linear-1"></div>
@@ -116,7 +104,7 @@ const Home = () => {
 
         <div className="content">
           <section className="introduction">
-          {description}
+            {description}
             <h1>
               O que é o{" "}
               <span className="mark-blue">
@@ -140,23 +128,11 @@ const Home = () => {
                   onClick={() =>
                     openModalImage(
                       "src/assets/images-feed/img-1.png",
-                      "Momento da apresentação do projeto.",
-                      "42",
-                      "50"
+                      "Momento da apresentação do projeto."
                     )
                   }
                 />
                 <div className="caption">
-                  <div className="user-interactions">
-                    <div className="likes">
-                      <span className="material-symbols-rounded">favorite</span>
-                      <p>42</p>
-                    </div>
-                    <div className="views">
-                      <span className="material-symbols-rounded">visibility</span>
-                      <p>50</p>
-                    </div>
-                  </div>
                   <p className="caption-text">Momento da apresentação do projeto.</p>
                 </div>
               </div>
@@ -168,22 +144,10 @@ const Home = () => {
                     openModalImage(
                       "src/assets/images-feed/img-2.png",
                       "Equipe reunida com o troféu em mãos.",
-                      "42",
-                      "50"
                     )
                   }
                 />
                 <div className="caption">
-                <div className="user-interactions">
-                  <div className="likes">
-                    <span className="material-symbols-rounded">favorite</span>
-                    <p>42</p>
-                  </div>
-                  <div className="views">
-                    <span className="material-symbols-rounded">visibility</span>
-                    <p>50</p>
-                  </div>
-                </div>
                   <p className="caption-text">Equipe reunida com o troféu em mãos.</p>
                 </div>
               </div>
@@ -195,22 +159,10 @@ const Home = () => {
                     openModalImage(
                       "src/assets/images-feed/img-3.png",
                       "Equipe descobrindo que alcançou o 1° lugar.",
-                      "42",
-                      "50"
                     )
                   }
                 />
                 <div className="caption">
-                <div className="user-interactions">
-                  <div className="likes">
-                    <span className="material-symbols-rounded">favorite</span>
-                    <p>42</p>
-                  </div>
-                  <div className="views">
-                    <span className="material-symbols-rounded">visibility</span>
-                    <p>50</p>
-                  </div>
-                </div>
                   <p className="caption-text">Equipe descobrindo que alcançou o...</p>
                 </div>
               </div>
@@ -325,7 +277,7 @@ const Home = () => {
           </section>
         </footer>
 
-        {modalOpen && <EvaluationModal onClose={closeModal} />}
+        {modalOpen && <EvaluationModal onClose={closeModal} eventId={eventId} />}
 
         {modalOpenImage && (
           <div className="modal-image">
@@ -339,14 +291,6 @@ const Home = () => {
               <img src={selectedImage} alt="" />
               <div className="caption">
                 <div className="caption-sub-container">
-                  <div className="likes">
-                    <span className="material-symbols-rounded">favorite</span>
-                    <p>{likes}</p>
-                  </div>
-                  <div className="views">
-                    <span className="material-symbols-rounded">visibility</span>
-                    <p>{views}</p>
-                  </div>
                   <p>{caption}</p>
                 </div>
               </div>
