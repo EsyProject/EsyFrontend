@@ -11,7 +11,17 @@ const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [value, onChange] = useState(new Date());
+
+  const { data: averageData } = useAverageOfEvent("1");
+
   const [averageRating, setAverageRating] = useState(null);
+
+  // Update average score state when data is loaded
+  useEffect(() => {
+    if (averageData) {
+      setAverageRating(averageData.average);
+    }
+  }, [averageData]);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -20,16 +30,6 @@ const Dashboard = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
-  // Buscar e definir a nota média do evento utilizando o hook useAverageOfEvent
-  const { data: averageData } = useAverageOfEvent("1");
-
-  // Atualizar o estado da nota média quando os dados são carregados
-  useEffect(() => {
-    if (averageData) {
-      setAverageRating(averageData.average);
-    }
-  }, [averageData]);
 
   const renderIcons = (count) => {
     const icons = [];
@@ -42,6 +42,8 @@ const Dashboard = () => {
     }
     return icons;
   };
+
+  const { average } = averageRating || {};
 
   return (
     <div className={`dashboard-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -62,9 +64,8 @@ const Dashboard = () => {
         <div className="dashboard-content">
           <div className={`dashboard-columns ${menuOpen ? "menu-open" : ""}`}>
             <div
-              className={`left-column-dashboard ${
-                menuOpen && sidebarOpen ? "menu-open" : ""
-              }`}
+              className={`left-column-dashboard ${menuOpen && sidebarOpen ? "menu-open" : ""
+                }`}
             >
               <div className="general-analysis">
                 <h2>Análise quantitativa geral</h2>
@@ -106,9 +107,9 @@ const Dashboard = () => {
                           <h3>Nota do evento</h3>
                           <div className="rate">
                             <h1>
-                              {averageData
-                                ? averageData.average
-                                : "Carregando..."}
+                              {average
+                                ? average
+                                : "0..."}
                             </h1>
                             <span className="material-symbols-rounded">
                               grade
@@ -185,9 +186,8 @@ const Dashboard = () => {
                   </div>
 
                   <div
-                    className={`highlights ${
-                      menuOpen && !sidebarOpen ? "menu-open" : ""
-                    }`}
+                    className={`highlights ${menuOpen && !sidebarOpen ? "menu-open" : ""
+                      }`}
                   >
                     <h2>Pontos de destaque</h2>
 
@@ -227,9 +227,8 @@ const Dashboard = () => {
             </div>
 
             <div
-              className={`container-button-menu ${
-                menuOpen ? "menu-container-open" : "menu-container-closed"
-              }`}
+              className={`container-button-menu ${menuOpen ? "menu-container-open" : "menu-container-closed"
+                }`}
             >
               <div className="button-container-dashboard">
                 <button onClick={toggleMenu}>
