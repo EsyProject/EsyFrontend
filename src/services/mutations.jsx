@@ -68,7 +68,7 @@ export function useCreateAssessment() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data) => createAssessment(data),
+    mutationFn: (data) => createAssessment(data.eventId, data), // Pass eventId as the first argument
     onMutate: () => {
       console.log("Creating assessment...");
     },
@@ -86,8 +86,10 @@ export function useCreateAssessment() {
         await queryClient.invalidateQueries({ queryKey: ["assessments"] });
       }
     },
-  });
+  }); 
 }
+
+
 
 // Mutation for creating a ticket
 export function useCreateTicket() {
