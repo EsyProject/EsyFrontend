@@ -14,6 +14,7 @@ import Reservation from "./Reservation/Reservation";
 import EventCreation from "./EventCreation/EventCreation";
 import LoginSSO from "./LoginSSO/LoginSSO";
 import Authentication from "./Authentication/Authentication";
+import Error from "./Error/Error";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -40,6 +41,7 @@ export {
   EventCreation,
   LoginSSO,
   Authentication,
+  Error,
 
   /* images */
   ImageLogin,

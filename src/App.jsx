@@ -12,6 +12,7 @@ import {
   EventCreation,
   LoginSSO,
   Authentication,
+  Error,
 } from "./pages/index";
 
 import ProtectedRoute from "./lib/sso/protectedRoute";
@@ -20,6 +21,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginSSO />} />
+      
+      <Route path="/error" element={<Error />} />
 
       <Route
         path="/"

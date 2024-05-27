@@ -1,0 +1,32 @@
+.error-container-main {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+}
+
+h1.error-code {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 170px;
+    line-height: 262px;
+}
+
+p.error-status {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+p.error-request-message {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28.3081px;
+    line-height: 42px;
+}
+
+.bike-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
