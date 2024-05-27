@@ -549,6 +549,8 @@ footer section {
 
 .content .last-edition .images .container-post .caption {
   gap: 13px;
+  align-items: center;
+  justify-content: center;
 }
 
 .likes .material-symbols-rounded {
