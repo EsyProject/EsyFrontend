@@ -44,10 +44,11 @@ export function useMyEvents() {
   });
 }
 
-export function useEventFeed() {
+export function useEventFeed(eventId) {
   return useQuery({
-    queryKey: ["eventFeed"],
-    queryFn: getEventFeed,
+    queryKey: ["eventFeed", { eventId }],
+    queryFn: () => getEventFeed(eventId),
+    enabled: !!eventId,
   });
 }
 
