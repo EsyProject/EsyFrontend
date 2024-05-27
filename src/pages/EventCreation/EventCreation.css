@@ -10,7 +10,7 @@
   flex: 1;
   display: flex;
   margin-left: 175px;
-  justify-content: space-between;
+  justify-content: flex-start;
   transition: margin-left 0.3s;
 }
 
