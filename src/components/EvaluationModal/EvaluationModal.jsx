@@ -4,7 +4,6 @@ import { useCreateAssessment } from "../../services/mutations";
 import { FaStar } from "react-icons/fa";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Input } from "../../components/index";
 import PropTypes from 'prop-types';
 import "./EvaluationModal.css";
 
@@ -54,15 +53,15 @@ const EvaluationModal = ({ onClose, eventId }) => {
             highlightPoint: mappedHighlightPoint, // Single selected value
             assessment,
         };
-    
+
         console.log('Dados de avaliação ao enviar:', evaluationData);
-    
+
         try {
             const evaluationPromise = createAssessmentMutation.mutateAsync({
                 eventId, // Access eventId from props
                 ...evaluationData,
             });
-    
+
             toast.promise(
                 evaluationPromise,
                 {
@@ -84,7 +83,7 @@ const EvaluationModal = ({ onClose, eventId }) => {
             console.error("Erro ao enviar avaliação:", error);
         }
     };
-    
+
     return (
         <div className="modal">
             <div className="modal-content">
@@ -139,38 +138,41 @@ const EvaluationModal = ({ onClose, eventId }) => {
 
                             <h3>Sugestões</h3>
                             <p>Gostaria de dar alguma sugestão de melhoria (anônimo)?</p>
-                            <Input
-                                label="Sugestões"
-                                id="suggestion"
+                            <textarea
+                                className={`custom-textarea ${errors.suggestion ? "textarea-error" : ""}`}
                                 placeholder="Digite aqui"
-                                register={register}
-                                validationRules={{ required: "Campo obrigatório" }}
-                                errors={errors}
-                                clearErrors={clearErrors}
-                            />
+                                {...register("suggestion", {
+                                    required: "Campo obrigatório",
+                                })}
+                                onChange={(e) => {
+                                    setValue("suggestion", e.target.value);
+                                    clearErrors("suggestion");
+                                }}
+                            ></textarea>
                         </div>
 
                         <div className="modal-sub-container">
                             <h3>Comentários</h3>
                             <p>Gostaria de compartilhar algum comentário sobre o evento ou a plataforma com os demais membros do Esy?</p>
-
-                            <Input
-                                label="Comentários"
-                                id="description_comment"
+                            <textarea
+                                className={`custom-textarea ${errors.description_comment ? "textarea-error" : ""}`}
                                 placeholder="Digite aqui"
-                                register={register}
-                                validationRules={{ required: "Campo obrigatório" }}
-                                errors={errors}
-                                clearErrors={clearErrors}
-                            />
+                                {...register("description_comment", {
+                                    required: "Campo obrigatório",
+                                })}
+                                onChange={(e) => {
+                                    setValue("description_comment", e.target.value);
+                                    clearErrors("description_comment");
+                                }}
+                            ></textarea>
 
                             <div className="check-container">
                                 <input
                                     type="checkbox"
                                     id="isChecked"
-                                    name="isChecked"                                 
+                                    name="isChecked"
                                 />
-                                
+
                                 <label className="modal-permission" htmlFor="isChecked">
                                     Autorizo a publicação do comentário e avaliação no feed principal.
                                 </label>
