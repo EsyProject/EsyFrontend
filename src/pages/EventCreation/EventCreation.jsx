@@ -84,6 +84,15 @@ const EventCreation = () => {
   const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
+  const isFutureDate = (date) => {
+    const today = new Date();
+    const inputDate = new Date(date);
+    // Remove time part to only compare the dates
+    today.setHours(0, 0, 0, 0);
+    inputDate.setHours(0, 0, 0, 0);
+    return inputDate >= today;
+  };
+
   const formatDate = (date) => {
     return format(new Date(date), 'dd/MM/yyyy');
   };
@@ -103,6 +112,18 @@ const EventCreation = () => {
 
   const handleCreateEvent = async (data) => {
     try {
+      // Verifique se as datas do evento são futuras
+      if (!isFutureDate(data.initialDate) || !isFutureDate(data.finishDate)) {
+        toast.error("O evento só pode ser criado ao contar desta data");
+        return;
+      }
+
+      // Verifique se as datas dos ingressos são futuras
+      if (!isFutureDate(data.initialDateTicket) || !isFutureDate(data.finishDateTicket)) {
+        toast.error("Os ingressos só podem ser criados ao contar desta data");
+        return;
+      }
+
       const formData = new FormData();
 
       formData.append("nameOfEvent", data.nameOfEvent);
@@ -145,8 +166,6 @@ const EventCreation = () => {
         }
       );
 
-      const errorMessage = data.response?.data?.message
-
       const eventData = await eventPromise;
 
       if (eventData && eventData.event_id) {
@@ -179,7 +198,6 @@ const EventCreation = () => {
       console.error("Error creating event:", error);
     }
   };
-
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
