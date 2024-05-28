@@ -9,7 +9,7 @@ import { useEventById } from "../../services/queries";
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
-  const eventId = "3"; 
+  const eventId = "2"; 
   const { data: eventFeed } = useEventById(eventId);
 
   const [eventFeedData, setEventFeedData] = useState(null);
@@ -54,6 +54,8 @@ const Home = () => {
 
   const { nameOfEvent, responsible_area, local, description, imgUrl } = eventFeedData || {};
 
+  const displayResponsibleArea = responsible_area === "ETS" ? "ETS - Engineering Technical School" : responsible_area;
+
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
@@ -84,7 +86,7 @@ const Home = () => {
 
         <section className="banner">
           <div className="text">
-            <p>{responsible_area}</p>
+            <p>{displayResponsibleArea}</p>
             <h1>{nameOfEvent}</h1>
             <h2>Venha conhecer a competição de tecnologia e inovação da ETS</h2>
             <button onClick={openModal}>Saber mais</button>
