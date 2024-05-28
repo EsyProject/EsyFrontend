@@ -21,8 +21,6 @@ const App = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginSSO />} />
-      
-      <Route path="/error" element={<Error />} />
 
       <Route
         path="/"
@@ -121,6 +119,8 @@ const App = () => {
           </ProtectedRoute>
         }
       ></Route>
+
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 };
