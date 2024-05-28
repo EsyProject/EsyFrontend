@@ -12,6 +12,7 @@ import {
   EventCreation,
   LoginSSO,
   Authentication,
+  EventUpdate,
   Error,
 } from "./pages/index";
 
@@ -116,6 +117,15 @@ const App = () => {
         element={
           <ProtectedRoute>
             <Authentication />
+          </ProtectedRoute>
+        }
+      ></Route>
+      
+      <Route
+        path="/update"
+        element={
+          <ProtectedRoute>
+            <EventUpdate />
           </ProtectedRoute>
         }
       ></Route>

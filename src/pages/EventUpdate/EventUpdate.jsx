@@ -14,7 +14,7 @@ import {
   CustomSelect,
 } from "../../components/index";
 import "material-symbols";
-import "./EventCreation.css";
+import "./EventUpdate.css";
 
 const options_area = [
   { value: "", label: "Selecione" },
@@ -68,7 +68,7 @@ const options_local = [
   { value: "CA183", label: "CA183" },
 ];
 
-const EventCreation = () => {
+const EventUpdate = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const {
@@ -139,9 +139,9 @@ const EventCreation = () => {
       toast.promise(
         eventPromise,
         {
-          pending: 'Criando o evento...',
-          success: 'Evento criado com sucesso!',
-          error: 'Erro ao criar evento!'
+          pending: 'Atualizando o evento...',
+          success: 'Evento atualizado com sucesso!',
+          error: 'Erro ao atualizar evento!'
         }
       );
 
@@ -165,9 +165,9 @@ const EventCreation = () => {
         toast.promise(
           ticketPromise,
           {
-            pending: 'Criando ticket...',
-            success: 'Ticket criado com sucesso!',
-            error: 'Erro ao criar ticket!'
+            pending: 'Atualizando ticket...',
+            success: 'Ticket atualizado com sucesso!',
+            error: 'Erro ao atualizar ticket!'
           }
         );
 
@@ -189,7 +189,7 @@ const EventCreation = () => {
     <div className={`creation-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
         currentPageIcon="calendar_add_on"
-        activePage="create"
+        activePage="update"
         navigationText="Novo evento"
         showNavigationTexts={true}
         tabs={[
@@ -200,9 +200,9 @@ const EventCreation = () => {
             link: "/update",
           },
           {
-            name: "historic",
+            name: "schedule",
             text: "Eventos programados para o mês",
-            link: "/historic",
+            link: "/schedule",
           },
         ]}
       />
@@ -230,6 +230,7 @@ const EventCreation = () => {
                     validationRules={{ required: "Campo obrigatório" }}
                     errors={errors}
                     clearErrors={clearErrors}
+                    value="teste"
                   />
 
                   <CustomSelect
@@ -407,9 +408,9 @@ const EventCreation = () => {
 
             <div className="btn-container">
               <button type="button" onClick={handleReset}>
-                Limpar
+                Cancelar e voltar
               </button>
-              <button type="submit">Concluir criação do evento</button>
+              <button type="submit">Atualizar evento</button>
             </div>
           </div>
         </form>
@@ -440,4 +441,4 @@ const EventCreation = () => {
   );
 };
 
-export default EventCreation;
+export default EventUpdate;

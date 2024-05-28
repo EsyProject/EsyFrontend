@@ -15,6 +15,7 @@ import EventCreation from "./EventCreation/EventCreation";
 import LoginSSO from "./LoginSSO/LoginSSO";
 import Authentication from "./Authentication/Authentication";
 import Error from "./Error/Error";
+import EventUpdate from "./EventUpdate/EventUpdate";
 
 /* images */
 import ImageLogin from "../assets/img-login.png";
@@ -42,6 +43,7 @@ export {
   LoginSSO,
   Authentication,
   Error,
+  EventUpdate,
 
   /* images */
   ImageLogin,
