@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Input } from "../../components/index";
+import PropTypes from 'prop-types';
 import "./EvaluationModal.css";
 
 const EvaluationModal = ({ onClose, eventId }) => {
@@ -13,20 +14,22 @@ const EvaluationModal = ({ onClose, eventId }) => {
         handleSubmit,
         formState: { errors },
         setValue,
-        getValues,
         reset,
         clearErrors,
     } = useForm();
-    const [highlightPoint, setHighlightPoint] = useState([]);
+    const [highlightPoint, setHighlightPoint] = useState("");
     const [assessment, setAssessment] = useState(0);
     const createAssessmentMutation = useCreateAssessment();
 
+    const optionMapping = {
+        "Temáticas abordadas": "TOPICS_ADDRESSED",
+        "Alimentação": "FOOD",
+        "Pontualidade": "PUNCTUALITY",
+        "Interações sociais": "SOCIAL_INTERACTIONS",
+    };
+
     const handleOptionSelect = (option) => {
-        setHighlightPoint(prev =>
-            prev.includes(option)
-                ? prev.filter(highlightPoint => highlightPoint !== option)
-                : [...prev, option]
-        );
+        setHighlightPoint(option === highlightPoint ? "" : option);
     };
 
     const handleStarClick = (starIndex) => {
@@ -35,9 +38,20 @@ const EvaluationModal = ({ onClose, eventId }) => {
     };
 
     const onSubmit = async (data) => {
+        if (assessment === 0) {
+            toast.error("Por favor, selecione pelo menos uma estrela.");
+            return;
+        }
+
+        if (highlightPoint === "") {
+            toast.error("Por favor, selecione um ponto de destaque.");
+            return;
+        }
+
+        const mappedHighlightPoint = optionMapping[highlightPoint];
         const evaluationData = {
             ...data,
-            highlightPoint,
+            highlightPoint: mappedHighlightPoint, // Single selected value
             assessment,
         };
     
@@ -45,7 +59,7 @@ const EvaluationModal = ({ onClose, eventId }) => {
     
         try {
             const evaluationPromise = createAssessmentMutation.mutateAsync({
-                eventId: eventId, // Access eventId from props
+                eventId, // Access eventId from props
                 ...evaluationData,
             });
     
@@ -59,13 +73,18 @@ const EvaluationModal = ({ onClose, eventId }) => {
             );
             await evaluationPromise;
             reset(); // Reset form after successful submission
-            onClose(); // Close the modal after successful submission
+
+            // Reset stars and highlight point selection
+            setAssessment(0);
+            setHighlightPoint("");
+
+            // Close modal after 5 seconds
+            setTimeout(onClose, 5000);
         } catch (error) {
             console.error("Erro ao enviar avaliação:", error);
         }
     };
     
-
     return (
         <div className="modal">
             <div className="modal-content">
@@ -97,7 +116,7 @@ const EvaluationModal = ({ onClose, eventId }) => {
                                         <button
                                             key={option}
                                             type="button"
-                                            className={`flag-option ${highlightPoint.includes(option) ? "active" : ""}`}
+                                            className={`flag-option ${highlightPoint === option ? "active" : ""}`}
                                             onClick={() => handleOptionSelect(option)}
                                         >
                                             {option}
@@ -109,7 +128,7 @@ const EvaluationModal = ({ onClose, eventId }) => {
                                         <button
                                             key={option}
                                             type="button"
-                                            className={`flag-option ${highlightPoint.includes(option) ? "active" : ""}`}
+                                            className={`flag-option ${highlightPoint === option ? "active" : ""}`}
                                             onClick={() => handleOptionSelect(option)}
                                         >
                                             {option}
@@ -166,6 +185,11 @@ const EvaluationModal = ({ onClose, eventId }) => {
             </div>
         </div>
     );
+};
+
+EvaluationModal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    eventId: PropTypes.string.isRequired,
 };
 
 export default EvaluationModal;
