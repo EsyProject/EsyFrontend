@@ -82,3 +82,13 @@ export const updateTicket = async (ticketId, data) => {
     await axiosInstance.patch(`/ticket/${ticketId}`, data)
   ).data;
 };
+
+export const getTicket = async (eventId) => {
+  try {
+    const response = await axiosInstance.post(`/ticket/getTicket/${eventId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar ticket:", error);
+    throw error;
+  }
+};
