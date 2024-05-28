@@ -14,6 +14,7 @@ import {
   Authentication,
   EventUpdate,
   Error,
+  AllEvents,
 } from "./pages/index";
 
 import ProtectedRoute from "./lib/sso/protectedRoute";
@@ -126,6 +127,15 @@ const App = () => {
         element={
           <ProtectedRoute>
             <EventUpdate />
+          </ProtectedRoute>
+        }
+      ></Route>
+
+      <Route
+        path="/allevents"
+        element={
+          <ProtectedRoute>
+            <AllEvents />
           </ProtectedRoute>
         }
       ></Route>
