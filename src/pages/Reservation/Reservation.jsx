@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Sidebar, Navbar, EventCard } from "../../components/index";
+import { useNavigate } from "react-router-dom";
+import { Sidebar, Navbar, EventCard, MessageModal } from "../../components/index";
 import AreaModal from "../../components/AreaModal/AreaModal";
 import Footer from "../../components/Footer/Footer";
 import "./Reservation.css";
@@ -8,12 +9,18 @@ import { useGetTicket } from "../../services/mutations";
 import Carousel from "../../components/Carousel/Carousel";
 
 const Reservation = () => {
-  const eventId = "2";
+  const eventId = "14";
   const { data: eventFeed } = useEventById(eventId);
-
   const [eventFeedData, setEventFeedData] = useState(null);
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [qrCodeNumber, setQrCodeNumber] = useState(null);
+  const navigate = useNavigate();
+
+  const handleCloseModal = () => {
+    setShowPopup(false);
+    navigate("/tickets", { state: { qrCodeNumber } });
+  };
 
   useEffect(() => {
     if (eventFeed) {
@@ -102,7 +109,6 @@ const Reservation = () => {
   ];
 
   const { nameOfEvent, responsible_area, localEvent, description, initialTime, finishTime, initialDate } = eventFeedData || {};
-
   const displayResponsibleArea = responsible_area === "ETS" ? "ETS - Engineering Technical School" : responsible_area;
 
   // Função para formatar a hora
@@ -114,7 +120,15 @@ const Reservation = () => {
   const { mutate: getTicket } = useGetTicket();
 
   const handleParticipateClick = () => {
-    getTicket(eventId);
+    getTicket(eventId, {
+      onSuccess: (data) => {
+        setQrCodeNumber(data.qrCodeNumber); // Captura o qrCodeNumber da resposta
+        setShowPopup(true);
+      },
+      onError: (error) => {
+        console.error("Error acquiring ticket:", error);
+      },
+    });
   };
 
   return (
@@ -181,6 +195,15 @@ const Reservation = () => {
               {isModalAreaOpen && <AreaModal onClose={closeModalArea} />}
             </div>
           </div>
+
+          {showPopup && (
+            <MessageModal
+              title="Reserva concluída"
+              text="Reserva no evento realizada com sucesso. Fique atento à data e horário do evento e visite a aba de calendário e a aba de tickets para realizar sua autenticação na entrada do evento."
+              onClose={handleCloseModal}
+              showModal={showPopup}
+            />
+          )}
         </div>
 
         <div className="container-child-column">
