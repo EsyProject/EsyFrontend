@@ -7,6 +7,7 @@ import {
   createTicket,
   updateTicket,
   getTicket,
+  updateTicketImage,
 } from "./api";
 
 // Mutation for creating an event
@@ -90,8 +91,6 @@ export function useCreateAssessment() {
   });
 }
 
-
-
 // Mutation for creating a ticket
 export function useCreateTicket() {
   const queryClient = useQueryClient();
@@ -168,6 +167,33 @@ export function useGetTicket() {
         console.error(error);
       } else {
         await queryClient.invalidateQueries({ queryKey: ["tickets"] });
+      }
+    },
+  });
+}
+
+// Mutation for updating a ticket image
+export function useUpdateTicketImage() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ eventId, ticketId, images }) => updateTicketImage(eventId, ticketId, images),
+    onMutate: () => {
+      console.log("Updating ticket image...");
+    },
+    onError: (error) => {
+      console.error("Error updating ticket image:", error);
+    },
+    onSuccess: (data) => {
+      console.log("Ticket image updated successfully:", data);
+    },
+    onSettled: async (_, error, { eventId, ticketId }) => {
+      console.log("Update ticket image mutation settled");
+      if (error) {
+        console.error(error);
+      } else {
+        await queryClient.invalidateQueries({ queryKey: ["tickets"] });
+        await queryClient.invalidateQueries({ queryKey: ["ticket", { eventId, ticketId }] });
       }
     },
   });
