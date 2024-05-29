@@ -34,13 +34,13 @@ const EventCard = ({ audience, title, subtitle, date, time, location }) => {
 };
 
 EventCard.propTypes = {
-  audience: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  audience: PropTypes.string,
+  title: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  date: PropTypes.string,
   time: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
+  location: PropTypes.string,
 };
 
 export default EventCard;
