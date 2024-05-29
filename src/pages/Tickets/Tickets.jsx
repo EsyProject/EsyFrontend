@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import QRCode from "qrcode.react";
+import { useEventById } from "../../services/queries";
+import { useLocation } from "react-router-dom";
 
 import {
   Sidebar,
@@ -14,15 +16,46 @@ import "material-symbols";
 import "./Tickets.css";
 
 const Tickets = () => {
+  const location = useLocation();
+  const qrCodeNumber = location.state?.qrCodeNumber || "Nenhum QR Code Number encontrado.";
+  const eventId = "14";
+  const { data: eventFeed } = useEventById(eventId);
+  const [eventFeedData, setEventFeedData] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [authCode, setAuthCode] = useState("");
 
   useEffect(() => {
-    setTimeout(() => {
-      setAuthCode("3815295");
-    }, 1000);
-  }, []);
+    if (eventFeed) {
+      setEventFeedData(eventFeed);
+    }
+  }, [eventFeed]);
+
+  useEffect(() => {
+    setAuthCode(qrCodeNumber);
+  }, [qrCodeNumber]);
+
+  // Função para obter a URL da imagem do QR code
+  const getQRCodeImageURL = () => {
+    const canvas = document.createElement("canvas");
+    const qrCode = (
+      <QRCode value={authCode} renderAs="canvas" level="H" size={256} />
+    );
+    ReactDOM.render(qrCode, canvas, () => {
+      const imageURL = canvas.toDataURL("image/png");
+      ReactDOM.unmountComponentAtNode(canvas);
+      return imageURL;
+    });
+  };
+
+  const handleSaveQRCode = async () => {
+    const imageUrl = getQRCodeImageURL();
+    updateTicketImageMutation.mutate({
+      eventId,
+      ticketId,
+      images: [imageUrl],
+    });
+  };
 
   // open popup when cancel button is pressed
   const handleCancel = () => {
@@ -36,6 +69,15 @@ const Tickets = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  // Função para formatar a hora
+  const formatTime = (time) => {
+    if (!time) return "";
+    return time.slice(0, 5);
+  };
+
+  const { nameOfEvent, responsible_area, localEvent, initialTime, finishTime, initialDate } = eventFeedData || {};
+  const displayResponsibleArea = responsible_area === "ETS" ? "ETS - Engineering Technical School" : responsible_area;
 
   return (
     <div className={`tickets-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -61,35 +103,35 @@ const Tickets = () => {
         <div className="tickets-content-left">
           <div className="left-column">
             <div className="container-event">
-              <h1>Hackathon 7ª Edição</h1>
+              <h1>{nameOfEvent}</h1>
               <div className="info-wrapper">
                 <div className="info-date">
                   <span className="material-symbols-outlined">
                     calendar_month
                   </span>
-                  <p>10/07/2024</p>
+                  <p>{initialDate}</p>
                 </div>
 
                 <div className="info-date">
                   <span className="material-symbols-outlined">schedule</span>
-                  <p>09:00 às 15:00</p>
+                  <p>{formatTime(initialTime)} às {formatTime(finishTime)}</p>
                 </div>
 
                 <div className="info-date">
                   <span className="material-symbols-outlined">location_on</span>
-                  <p>Ca300</p>
+                  <p>{localEvent}</p>
                 </div>
               </div>
             </div>
 
             <div className="container-details-event">
               <EventCard
-                audience="Público Principal - Digital Solutions e Mecatrônica"
-                title="hackaton"
+                audience={displayResponsibleArea}
+                title={nameOfEvent}
                 subtitle="7ª Edição"
-                date="10/07/2024"
-                time="09h00"
-                location="Ca300"
+                date={initialDate}
+                time={formatTime(initialTime)}
+                location={localEvent}
               />
 
               <div className="container-qrcode">
@@ -98,7 +140,7 @@ const Tickets = () => {
                 </div>
 
                 <p>Código de autenticação</p>
-                <h2>3815296</h2>
+                <h2>{authCode}</h2>
               </div>
             </div>
 
