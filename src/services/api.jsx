@@ -92,3 +92,8 @@ export const getTicket = async (eventId) => {
     throw error;
   }
 };
+
+export async function updateTicketImage(eventId, ticketId, images) {
+  const response = await axiosInstance.patch(`/ticket/${eventId}/${ticketId}`, { images });
+  return response.data;
+}
