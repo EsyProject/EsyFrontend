@@ -279,7 +279,7 @@ textarea:focus {
 
 .textarea-error {
   border: 1px solid red !important;
-  height: 268px !important;
+  /* height: 268px !important; */
 }
 
 .textarea-error:hover {
