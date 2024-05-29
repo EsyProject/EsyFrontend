@@ -9,12 +9,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
   Sidebar,
   Navbar,
-  TagCard,
+  // CardView,
   Input,
   CustomSelect,
 } from "../../components/index";
 import "material-symbols";
 import "./AllEvents.css";
+
+import CardView from "../../components/CardView/CardView";
 
 const options_area = [
   { value: "", label: "Selecione" },
@@ -233,52 +235,73 @@ const AllEvents = () => {
 
       <div className="all-events-container-main">
         <div className="all-events-content">
-          <TagCard
+          <CardView
             date="22 - 26 Fev 2024"
             title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+            description="Caem os muros, tirem as pedras
+            Nossa unidade não é real (nossa unidade)
+            Se a verdade é o que pregamos
+            Por que erramos não sendo um?
+            
+            Muitos se defendem
+            Escondem a fraqueza
+            Atrás de mentiras que encobrem
+            Quem realmente são
+            Muros que nos envergonham
+            
+            Caem os muros, tirem as pedras
+            Nossa unidade não é real (nossa unidade)
+            Se a verdade é o que pregamos
+            Por que erramos não sendo um?
+            
+            Muitos se defendem
+            Escondem a fraqueza
+            Atrás de mentiras que encobrem
+            Quem realmente são
+            Muros que nos envergonham"
+            area="ETS - DS"
+            img="src/assets/dog.jpg"
+          />
+
+          <CardView
+            date="22 - 26 Fev 2024"
+            title="Jornada do Conhecimento"
+            description="Evento que ocorre anualmente e visa promover uma visão ampla acerca das diferentes áreas da... "
             area="ETS - DS"
           />
 
-          <TagCard
+          <CardView
             date="22 - 26 Fev 2024"
             title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+            description="Evento que ocorre anualmente e visa promover uma visão ampla acerca das diferentes áreas da... "
             area="ETS - DS"
           />
 
-          <TagCard
+          <CardView
             date="22 - 26 Fev 2024"
             title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+            description="Evento que ocorre anualmente e visa promover uma visão ampla acerca das diferentes áreas da... "
             area="ETS - DS"
           />
 
-          <TagCard
+          <CardView
             date="22 - 26 Fev 2024"
             title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+            description="Evento que ocorre anualmente e visa promover uma visão ampla acerca das diferentes áreas da... "
             area="ETS - DS"
           />
 
-          <TagCard
+          <CardView
             date="22 - 26 Fev 2024"
             title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+            description="Evento que ocorre anualmente e visa promover uma visão ampla acerca das diferentes áreas da... "
             area="ETS - DS"
           />
 
-          <TagCard
+          <CardView
             date="22 - 26 Fev 2024"
             title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
-            area="ETS - DS"
-          />
-
-          <TagCard
-            date="22 - 26 Fev 2024"
-            title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
+            description="Evento que ocorre anualmente e visa promover uma visão ampla acerca das diferentes áreas da... "
             area="ETS - DS"
           />
         </div>

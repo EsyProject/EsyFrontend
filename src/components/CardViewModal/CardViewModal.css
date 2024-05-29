@@ -1,0 +1,35 @@
+.card-view-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.card-view-modal-content {
+    background: white;
+    padding: 0;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.card-view-modal-close-btn {
+    margin-top: 20px;
+}
+
+.card-view-modal-container-main .card-view-modal-content-local img {
+    width: 200px;
+    height: auto;
+}
+
+/* testes */
+
+.card-view-modal-container-main {
+    display: flex;
+}
