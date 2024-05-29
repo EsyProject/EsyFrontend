@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState, useEffect } from "react";
-import { Sidebar, Navbar } from "../../components/index";
+import { Sidebar, Navbar, PreloaderImage } from "../../components/index";
 import EvaluationModal from "../../components/EvaluationModal/EvaluationModal";
+import { Loading } from "../../pages/index";
 import "./Home.css";
 import "material-symbols";
 import { useEventById } from "../../services/queries";
@@ -9,8 +10,8 @@ import { useEventById } from "../../services/queries";
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
-  const eventId = "2"; 
-  const { data: eventFeed } = useEventById(eventId);
+  const eventId = "1"; 
+  const { data: eventFeed, isLoading } = useEventById(eventId);
 
   const [eventFeedData, setEventFeedData] = useState(null);
 
@@ -55,6 +56,10 @@ const Home = () => {
   const { nameOfEvent, responsible_area, local, description, imgUrl } = eventFeedData || {};
 
   const displayResponsibleArea = responsible_area === "ETS" ? "ETS - Engineering Technical School" : responsible_area;
+
+  if (isLoading) {
+    return <div className="loading-img"><PreloaderImage src={Loading} alt="Loading..." /></div>
+  }
 
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
