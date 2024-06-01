@@ -149,6 +149,11 @@ const EvaluationModal = ({ onClose, eventId }) => {
                                     clearErrors("suggestion");
                                 }}
                             ></textarea>
+                            {errors.suggestion && (
+                                <p className="error-message">
+                                    {errors.suggestion.message}
+                                </p>
+                            )}
                         </div>
 
                         <div className="modal-sub-container">
@@ -165,6 +170,11 @@ const EvaluationModal = ({ onClose, eventId }) => {
                                     clearErrors("description_comment");
                                 }}
                             ></textarea>
+                            {errors.description_comment && (
+                                <p className="error-message">
+                                    {errors.description_comment.message}
+                                </p>
+                            )}
 
                             <div className="check-container">
                                 <input
