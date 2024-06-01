@@ -22,6 +22,7 @@ import ColumnsChart from "./ColumnsChart/ColumnsChart";
 import ReaderQR from "./ReaderQR/ReaderQR";
 import LoginButton from "./LoginButton/LoginButton";
 import PreloaderImage from "./PreloaderImage/PreloaderImage";
+import QrCodeModal from "./QrCodeModal/QrCodeModal";
 
 export {
   InteractiveBubble,
@@ -45,6 +46,7 @@ export {
   StarRating,
   TagCard,
   PreloaderImage,
+  QrCodeModal,
   LoginButton,
   ColumnsChart,
   ReaderQR,
