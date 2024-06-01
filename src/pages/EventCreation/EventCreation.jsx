@@ -3,7 +3,7 @@ import { useCreateEvent, useCreateTicket } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
-import { format } from 'date-fns';
+import { format, addDays } from 'date-fns';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
@@ -94,7 +94,9 @@ const EventCreation = () => {
   };
 
   const formatDate = (date) => {
-    return format(new Date(date), 'dd/MM/yyyy');
+    const adjustedDate = addDays(new Date(date), 1);
+
+    return format(adjustedDate, 'yyyy-MM-dd');
   };
 
   const formatTime = (time) => {
