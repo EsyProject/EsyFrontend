@@ -12,7 +12,9 @@ const Input = ({ label, id, placeholder, register, validationRules, value, onCha
         {...register(id, validationRules)}
         onChange={(event) => {
           onChange && onChange(event); 
-          clearErrors();
+          if (clearErrors) {
+            clearErrors(id); 
+          }
         }}
         accept={accept}
       />
@@ -28,16 +30,15 @@ const Input = ({ label, id, placeholder, register, validationRules, value, onCha
     )}
 
     <p className="error-message">
-      {errors.nameOfEvent && errors.nameOfEvent.message}
+      {errors[id] && errors[id].message}
     </p>
-
   </div>
 );
 
 // PropTypes validation for the Input component
 Input.propTypes = {
   label: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   register: PropTypes.func,
   validationRules: PropTypes.object,
