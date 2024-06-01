@@ -7,9 +7,9 @@ import {
   Sidebar,
   Navbar,
   EventCard,
-  ButtonLink,
   TicketsCard,
   MessageModal,
+  QrCodeModal,
 } from "../../components/index";
 import { Qrcode } from "../index";
 import "material-symbols";
@@ -17,12 +17,13 @@ import "./Tickets.css";
 
 const Tickets = () => {
   const location = useLocation();
-  const qrCodeNumber = location.state?.qrCodeNumber || "Nenhum QR Code Number encontrado.";
+  const qrCodeNumber = location.state?.qrCodeNumber || "...";
   const eventId = "14";
   const { data: eventFeed } = useEventById(eventId);
   const [eventFeedData, setEventFeedData] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [showPopupQr, setShowPopupQr] = useState(false);
   const [authCode, setAuthCode] = useState("");
 
   useEffect(() => {
@@ -35,28 +36,6 @@ const Tickets = () => {
     setAuthCode(qrCodeNumber);
   }, [qrCodeNumber]);
 
-  // Função para obter a URL da imagem do QR code
-  const getQRCodeImageURL = () => {
-    const canvas = document.createElement("canvas");
-    const qrCode = (
-      <QRCode value={authCode} renderAs="canvas" level="H" size={256} />
-    );
-    ReactDOM.render(qrCode, canvas, () => {
-      const imageURL = canvas.toDataURL("image/png");
-      ReactDOM.unmountComponentAtNode(canvas);
-      return imageURL;
-    });
-  };
-
-  const handleSaveQRCode = async () => {
-    const imageUrl = getQRCodeImageURL();
-    updateTicketImageMutation.mutate({
-      eventId,
-      ticketId,
-      images: [imageUrl],
-    });
-  };
-
   // open popup when cancel button is pressed
   const handleCancel = () => {
     setShowPopup(true);
@@ -64,6 +43,14 @@ const Tickets = () => {
 
   const handleCloseModal = () => {
     setShowPopup(false);
+  };
+
+  const handleAuth = () => {
+    setShowPopupQr(true);
+  };
+
+  const handleCloseModalQr = () => {
+    setShowPopupQr(false);
   };
 
   const toggleSidebar = () => {
@@ -149,7 +136,9 @@ const Tickets = () => {
                 <button onClick={handleCancel}>
                   <span>Cancelar participação</span>
                 </button>
-                <ButtonLink to="/historic">Autenticar</ButtonLink>
+                <button className="custom-button" onClick={handleAuth}>
+                  <span>Autenticar</span>
+                </button>
               </div>
             </div>
 
@@ -159,6 +148,15 @@ const Tickets = () => {
                 text="Cancelamento de reserva efetuado com sucesso, porém sentiremos falta de você. Esperamos que em uma próxima oportunidade você esteja presente junto conosco."
                 onClose={handleCloseModal}
                 showModal={showPopup}
+              />
+            )}
+
+            {showPopupQr && (
+              <QrCodeModal
+                image={Qrcode}
+                code={authCode}
+                onClose={handleCloseModalQr}
+                showModal={showPopupQr}
               />
             )}
           </div>
