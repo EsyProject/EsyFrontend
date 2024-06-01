@@ -183,6 +183,11 @@ label.modal-permission {
   gap: 15px;
 }
 
+.modal .modal-content .row .modal-sub-container .error-message {
+  color: red;
+  font-size: 0.875em;
+}
+
 @media screen and (max-width: 1180px) {
   .modal .modal-content .row {
     flex-direction: column;
