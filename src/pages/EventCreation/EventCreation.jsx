@@ -99,7 +99,7 @@ const EventCreation = () => {
   const formatDate = (date) => {
     const adjustedDate = addDays(new Date(date), 1);
 
-    return format(adjustedDate, 'yyyy-MM-dd');
+    return format(adjustedDate, 'dd/MM/yyyy');
   };
 
   const formatTime = (time) => {
@@ -444,17 +444,26 @@ const EventCreation = () => {
               value={getValues("date")}
             />
           </div>
-          {isLoading && <p>Carregando eventos...</p>}
-          {isError && <p>Erro ao carregar eventos.</p>}
-          {events && events.map((event) => (
-            <TagCard
-              key={event.id}
-              title={event.nameOfEvent}
-              description={event.description}
-              date={event.initialDate}
-              time={event.initialTime}
-            />
-          ))}
+          <div className="events-list">
+          <h3>Eventos Cadastrados</h3>
+          {isLoading ? (
+            <p>Carregando...</p>
+          ) : isError ? (
+            <p>Erro ao carregar eventos</p>
+          ) : events && events.length > 0 ? (
+            events.map((event) => (
+              <TagCard
+                key={event.event_id}
+                date={event.initialDate}
+                title={event.nameOfEvent}
+                description={event.description}
+                area={event.responsible_area}
+              />
+            ))
+          ) : (
+            <p>Nenhum evento cadastrado</p>
+          )}
+        </div>
         </div>
       </div>
     </div>

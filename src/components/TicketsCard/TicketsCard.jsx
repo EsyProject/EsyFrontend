@@ -33,7 +33,7 @@ TicketsCard.propTypes = {
   title: PropTypes.string.isRequired,
   authCode: PropTypes.string.isRequired,
   area: PropTypes.string.isRequired,
-  qrcode: PropTypes.string.isRequired,
+  qrcode: PropTypes.string,
 };
 
 export default TicketsCard;
