@@ -6,16 +6,22 @@ import {
   ButtonLink,
   ReaderQR,
 } from "../../components/index";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
+import { useConfirmTicket } from "../../services/mutations";
+import beepSound from "../../assets/sounds/beep.mp3";
 import "./Authentication.css";
 
 const Authentication = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [qrCodeValue, setQrCodeValue] = useState("");
+  const confirmTicketMutation = useConfirmTicket();
 
   const {
     register,
     formState: { errors },
+    handleSubmit,
     clearErrors,
   } = useForm();
 
@@ -23,13 +29,48 @@ const Authentication = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const handleQrCodeScan = (value) => {
+  const handleQrCodeScan = async (qrCode) => {
     if (!qrCodeValue) {
-      console.log("QR code scanned:", value);
-      setQrCodeValue(value);
+      console.log("QR code scanned:", qrCode);
+      setQrCodeValue(qrCode);
+  
+      // Play the beep sound
+      const audio = new Audio(beepSound);
+      audio.play();
+  
+      handleAuthentication(qrCode);
     }
   };
-
+  
+  const handleManualInsertion = async (data) => {
+    const qrCode = data.qrCode;
+    console.log("Manual QR code insertion:", qrCode);
+  
+    // Play the beep sound
+    const audio = new Audio(beepSound);
+    audio.play();
+  
+    handleAuthentication(qrCode);
+  };
+  
+  const handleAuthentication = async (qrCode) => {
+    const [randomNumber, eventId, ticketId] = qrCode.split('/');
+  
+    try {
+      // Perform ticket authentication
+      const confirmationResult = await confirmTicketMutation.mutateAsync({ eventId, ticketId });
+  
+      console.log("Ticket confirmed successfully:", confirmationResult);
+      setQrCodeValue(""); // Resets the QR code value after successful authentication
+    } catch (error) {
+      console.error("Erro ao autenticar o ticket:", error);
+    }
+  
+    console.log("Random Number:", randomNumber);
+    console.log("Event id:", eventId);
+    console.log("Ticket id:", ticketId);
+  };
+  
   return (
     <div
       className={`authentication-container ${sidebarOpen ? "sidebar-open" : ""
@@ -49,6 +90,7 @@ const Authentication = () => {
       />
 
       <div className="container-main-authentication">
+        <ToastContainer />
         <section className="container-authentication-child">
           <h2 className="title">Scan QR code</h2>
           <p className="subtitle">Aponte a foto do seu Qr code para a câmera</p>
@@ -58,22 +100,24 @@ const Authentication = () => {
           </div>
         </section>
         <section className="container-authentication-child">
-          <div className="input-container">
-            <p className="guidance">Ou entre com o código manualmente</p>
+          <form onSubmit={handleSubmit(handleManualInsertion)}>
+            <div className="input-container">
+              <p className="guidance">Ou entre com o código manualmente</p>
 
-            <Input
-              id="qrCode"
-              placeholder="Ex.: 5845215"
-              register={register}
-              validationRules={{ required: "Campo obrigatório" }}
-              errors={errors}
-              clearErrors={clearErrors}
-            />
+              <Input
+                id="qrCode"
+                placeholder="Ex.: 5845215"
+                register={register}
+                validationRules={{ required: "Campo obrigatório" }}
+                errors={errors}
+                clearErrors={clearErrors}
+              />
 
-            <div className="container-button-authentication">
-              <ButtonLink>Autenticar</ButtonLink>
+              <div className="container-button-authentication">
+                <ButtonLink type="submit">Autenticar</ButtonLink>
+              </div>
             </div>
-          </div>
+          </form>
         </section>
       </div>
     </div>
