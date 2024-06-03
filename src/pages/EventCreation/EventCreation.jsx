@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCreateEvent, useCreateTicket } from "../../services/mutations";
+import { useAllEvents } from '../../services/queries';
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
@@ -83,6 +84,7 @@ const EventCreation = () => {
   const createEventMutation = useCreateEvent();
   const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
+  const { data: events, isLoading, isError } = useAllEvents();
 
   const isFutureDate = (date) => {
     const yesterday = new Date();
@@ -115,13 +117,13 @@ const EventCreation = () => {
 
   const handleCreateEvent = async (data) => {
     try {
-      // Verifique se as datas do evento são futuras
+      // Checks if event data is future
       if (!isFutureDate(data.initialDate) || !isFutureDate(data.finishDate)) {
         toast.error("Você não pode criar um evento com uma data no passado");
         return;
       }
 
-      // Verifique se as datas dos ingressos são futuras
+      // Checks if ticket data is future
       if (!isFutureDate(data.initialDateTicket) || !isFutureDate(data.finishDateTicket)) {
         toast.error("Você não pode criar ingressos com uma data no passado");
         return;
@@ -442,19 +444,17 @@ const EventCreation = () => {
               value={getValues("date")}
             />
           </div>
-          <TagCard
-            date="22 - 26 Fev 2024"
-            title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
-            area="ETS - DS"
-          />
-
-          <TagCard
-            date="22 - 26 Fev 2024"
-            title="Jornada do Conhecimento"
-            description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
-            area="ETS - DS"
-          />
+          {isLoading && <p>Carregando eventos...</p>}
+          {isError && <p>Erro ao carregar eventos.</p>}
+          {events && events.map((event) => (
+            <TagCard
+              key={event.id}
+              title={event.nameOfEvent}
+              description={event.description}
+              date={event.initialDate}
+              time={event.initialTime}
+            />
+          ))}
         </div>
       </div>
     </div>
