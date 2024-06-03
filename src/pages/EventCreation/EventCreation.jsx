@@ -85,12 +85,13 @@ const EventCreation = () => {
   const [eventBanner, setEventBanner] = useState(null);
 
   const isFutureDate = (date) => {
-    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
     const inputDate = new Date(date);
     // Remove time part to only compare the dates
-    today.setHours(0, 0, 0, 0);
+    yesterday.setHours(0, 0, 0, 0);
     inputDate.setHours(0, 0, 0, 0);
-    return inputDate >= today;
+    return inputDate >= yesterday;
   };
 
   const formatDate = (date) => {
@@ -116,13 +117,13 @@ const EventCreation = () => {
     try {
       // Verifique se as datas do evento são futuras
       if (!isFutureDate(data.initialDate) || !isFutureDate(data.finishDate)) {
-        toast.error("O evento só pode ser criado ao contar desta data");
+        toast.error("Você não pode criar um evento com uma data no passado");
         return;
       }
 
       // Verifique se as datas dos ingressos são futuras
       if (!isFutureDate(data.initialDateTicket) || !isFutureDate(data.finishDateTicket)) {
-        toast.error("Os ingressos só podem ser criados ao contar desta data");
+        toast.error("Você não pode criar ingressos com uma data no passado");
         return;
       }
 
