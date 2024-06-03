@@ -1,5 +1,6 @@
 .custom-button {
   height: 50px;
+  width: 100%;
   background: linear-gradient(90.71deg, #00a5ff 0%, #005893 100%);
   border-radius: 7px;
   color: #fff;
