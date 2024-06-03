@@ -1,5 +1,6 @@
 // definition of functions that perform writing operations
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from 'react-toastify';
 import {
   createEvent,
   /* updateEvent, */
@@ -208,12 +209,17 @@ export function useConfirmTicket() {
     mutationFn: ({ eventId, ticketId }) => confirmTicket(eventId, ticketId),
     onMutate: () => {
       console.log('Confirming ticket...');
+      toast.loading('Autenticando...');
     },
     onError: (error) => {
+      toast.dismiss(); 
       console.error('Error confirming ticket:', error);
+      toast.error(`Erro ao autenticar o ticket: ${error.message}`); 
     },
     onSuccess: (data) => {
+      toast.dismiss(); 
       console.log('Ticket confirmed successfully:', data);
+      toast.success('Autenticação feita com sucesso!');
     },
     onSettled: async (_, error, { eventId, ticketId }) => {
       console.log('Confirm ticket mutation settled');
