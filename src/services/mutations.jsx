@@ -8,6 +8,7 @@ import {
   updateTicket,
   getTicket,
   updateTicketImage,
+  confirmTicket,
 } from "./api";
 
 // Mutation for creating an event
@@ -194,6 +195,33 @@ export function useUpdateTicketImage() {
       } else {
         await queryClient.invalidateQueries({ queryKey: ["tickets"] });
         await queryClient.invalidateQueries({ queryKey: ["ticket", { eventId, ticketId }] });
+      }
+    },
+  });
+}
+
+// Mutation for confirm ticket
+export function useConfirmTicket() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ eventId, ticketId }) => confirmTicket(eventId, ticketId),
+    onMutate: () => {
+      console.log('Confirming ticket...');
+    },
+    onError: (error) => {
+      console.error('Error confirming ticket:', error);
+    },
+    onSuccess: (data) => {
+      console.log('Ticket confirmed successfully:', data);
+    },
+    onSettled: async (_, error, { eventId, ticketId }) => {
+      console.log('Confirm ticket mutation settled');
+      if (error) {
+        console.error(error);
+      } else {
+        await queryClient.invalidateQueries({ queryKey: ['tickets'] });
+        await queryClient.invalidateQueries({ queryKey: ['ticket', { eventId, ticketId }] });
       }
     },
   });
