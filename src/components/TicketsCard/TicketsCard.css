@@ -92,6 +92,10 @@
   background: #8BBC00;
 }
 
+.rectangle-ticket[data-area^="GS"] {
+  background: #8BBC00;
+}
+
 .rectangle-ticket[data-area^="BD"] {
   background: #B800BC;
 }
@@ -109,6 +113,12 @@
 }
 
 .event-area[data-area^="HR"] {
+  background: rgba(139, 188, 0, 0.15);
+  color: #8BBC00;
+  font-weight: 600;
+}
+
+.event-area[data-area^="GS"] {
   background: rgba(139, 188, 0, 0.15);
   color: #8BBC00;
   font-weight: 600;

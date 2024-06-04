@@ -130,6 +130,10 @@
   background: #8bbc00;
 }
 
+.rectangle-event[data-area^="GS"] {
+  background: #8bbc00;
+}
+
 .rectangle-event[data-area^="BD"] {
   background: #b800bc;
 }

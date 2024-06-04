@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useCreateEvent, useCreateTicket } from "../../services/mutations";
-import { useAllEvents } from '../../services/queries';
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
@@ -26,6 +25,14 @@ const options_area = [
   { value: "PT", label: "PT" },
   { value: "FCM", label: "FCM" },
   { value: "GS", label: "GS" },
+];
+
+const options_recurrence = [
+  { value: "", label: "Não se repete" },
+  { value: "Diariamente", label: "Diariamente" },
+  { value: "Semanalmente", label: "Semanalmente" },
+  { value: "Mensalmente", label: "Mensalmente" },
+  { value: "Anualmente", label: "Anualmente" },
 ];
 
 const options_local = [
@@ -84,7 +91,6 @@ const EventCreation = () => {
   const createEventMutation = useCreateEvent();
   const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
-  const { data: events, isLoading, isError } = useAllEvents();
 
   const isFutureDate = (date) => {
     const yesterday = new Date();
@@ -312,6 +318,14 @@ const EventCreation = () => {
                     validationRules={{ required: "Campo obrigatório" }}
                     errors={errors}
                   />
+
+                  <CustomSelect
+                    label="Recorrência"
+                    id="recurrence"
+                    options={options_recurrence}
+                    register={register}
+                    errors={errors}
+                  />
                 </div>
                 <div className="container-event-details">
                   <div className="container-create-event-child">
@@ -444,26 +458,26 @@ const EventCreation = () => {
               value={getValues("date")}
             />
           </div>
-          <div className="events-list">
-          <h3>Eventos Cadastrados</h3>
-          {isLoading ? (
-            <p>Carregando...</p>
-          ) : isError ? (
-            <p>Erro ao carregar eventos</p>
-          ) : events && events.length > 0 ? (
-            events.map((event) => (
-              <TagCard
-                key={event.event_id}
-                date={event.initialDate}
-                title={event.nameOfEvent}
-                description={event.description}
-                area={event.responsible_area}
-              />
-            ))
-          ) : (
-            <p>Nenhum evento cadastrado</p>
-          )}
-        </div>
+          <TagCard
+            date="22 - 29 Jul 2024"
+            title="Hackathon"
+            description="Evento que Reúne programadores ligados ao desenvolvimento de software onde tem a duração de uma semana."
+            area="ETS - DS"
+          />
+
+          <TagCard
+            date="01 - 05 Ago 2024"
+            title="Tech Lunch"
+            description="Encontro voltado aos desenvolvedores de software e tecnologia, com foco em discutir temas técnicos e networking interno."
+            area="BD - DEV"
+          />
+
+          <TagCard
+            date="16 - 17 Ago 2024"
+            title="Workshop"
+            description="Evento que traz a proposta de vivenciar ainda mais a Melhoria Contínua de processos aliada a um universo de soluções e tecnologias."
+            area="GS - LA"
+          />
         </div>
       </div>
     </div>
