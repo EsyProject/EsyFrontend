@@ -17,8 +17,9 @@ import "./Tickets.css";
 
 const Tickets = () => {
   const location = useLocation();
-  const qrCodeNumber = location.state?.qrCodeNumber || "...";
-  const eventId = "14";
+  const code = location.state?.code || "...";
+  const [qrCodeNumber, eventId, ticketId] = code.split('.');
+
   const { data: eventFeed } = useEventById(eventId);
   const [eventFeedData, setEventFeedData] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -33,8 +34,8 @@ const Tickets = () => {
   }, [eventFeed]);
 
   useEffect(() => {
-    setAuthCode(qrCodeNumber);
-  }, [qrCodeNumber]);
+    setAuthCode(code);
+  }, [code]);
 
   // open popup when cancel button is pressed
   const handleCancel = () => {
