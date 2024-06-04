@@ -9,19 +9,18 @@ import { useGetTicket } from "../../services/mutations";
 import Carousel from "../../components/Carousel/Carousel";
 
 const Reservation = () => {
-  const eventId = "14";
+  const eventId = "13";
   const { data: eventFeed } = useEventById(eventId);
   const [eventFeedData, setEventFeedData] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [qrCodeNumber, setQrCodeNumber] = useState(null);
+  const [ticketId, setTicketId] = useState(null);
   const navigate = useNavigate();
+  const [qrCodeNumber, setQrCodeNumber] = useState(null);
 
-  const handleCloseModal = () => {
-    setShowPopup(false);
-    navigate("/tickets", { state: { qrCodeNumber } });
-  };
-
+  // Adicionando estado para armazenar o ID do evento e do ticket
+  const [eventIdForTicket, setEventIdForTicket] = useState(null);
+  
   useEffect(() => {
     if (eventFeed) {
       setEventFeedData(eventFeed);
@@ -122,13 +121,28 @@ const Reservation = () => {
   const handleParticipateClick = () => {
     getTicket(eventId, {
       onSuccess: (data) => {
-        setQrCodeNumber(data.qrCodeNumber); // Captura o qrCodeNumber da resposta
+        setEventIdForTicket(eventId);
+        setTicketId(data.ticket_id);
+  
+        setQrCodeNumber(data.qrCodeNumber);
         setShowPopup(true);
+  
+        console.log("ID do Evento:", eventId);
+        console.log("ID do Ticket:", data.ticket_id);
+        console.log("Qrcode Number:", data.qrCodeNumber);
       },
       onError: (error) => {
         console.error("Error acquiring ticket:", error);
       },
     });
+  };
+  
+
+  const handleCloseModal = () => {
+    setShowPopup(false);
+    const code = `${qrCodeNumber}.${eventId}.${ticketId}`;
+    console.log(`${code}`)
+    navigate("/tickets", { state: { code: code } });
   };
 
   return (
