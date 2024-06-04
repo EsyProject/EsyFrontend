@@ -60,17 +60,6 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
       <nav className="border">
         <div className="sidebar-content">
           {/* Navigation links */}
-          <Link to="/authentication">
-            <SidebarIcon
-              iconName="qr_code_scanner"
-              text="Autenticar"
-              buttonClassName="icon-hover"
-              className="autentication"
-              textClassName="sidebar-text"
-              active={activeIcon === "authentication"}
-              onClick={() => handleIconClick("authentication")}
-            />
-          </Link>
           <Link to="/">
             <SidebarIcon
               iconName="home"
@@ -82,50 +71,16 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
               onClick={() => handleIconClick("home")}
             />
           </Link>
-          <div className="border-bottom"></div>
-          <div className={`nav-text ${isOpen ? "active" : ""}`}>
-            <h5>EVENTOS</h5>
-          </div>
-
           {userType === "admin" && (
-            <Link to="/create">
+            <Link to="/authentication">
               <SidebarIcon
-                iconName="calendar_add_on"
-                text="Novo evento"
+                iconName="qr_code_scanner"
+                text="Autenticar"
                 buttonClassName="icon-hover"
-                className="calendar"
+                className="autentication"
                 textClassName="sidebar-text"
-                active={activeIcon === "calendar"}
-                onClick={() => handleIconClick("calendar")}
-              />
-            </Link>
-          )}
-
-          {userType !== "admin" && (
-            <Link to="/schedule">
-              <SidebarIcon
-                iconName="calendar_month"
-                text="Próximos eventos"
-                buttonClassName="icon-hover"
-                className="calendar"
-                textClassName="sidebar-text"
-                active={activeIcon === "calendar"}
-                onClick={() => handleIconClick("calendar")}
-              />
-            </Link>
-          )}
-
-          {/* Renders the 'Dashboard' link only if the user is an administrator */}
-          {userType === "admin" && (
-            <Link to="/dashboard">
-              <SidebarIcon
-                iconName="dashboard"
-                text="Dashboard"
-                buttonClassName="icon-hover"
-                className="calendar"
-                textClassName="sidebar-text"
-                active={activeIcon === "dashboard"}
-                onClick={() => handleIconClick("dashboard")}
+                active={activeIcon === "authentication"}
+                onClick={() => handleIconClick("authentication")}
               />
             </Link>
           )}
@@ -145,17 +100,82 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
             </Link>
           )}
 
-          <Link to="/historic">
+          <div className="border-bottom"></div>
+          <div className={`nav-text ${isOpen ? "active" : ""}`}>
+            <h5>EVENTOS</h5>
+          </div>
+
+          {userType === "admin" && (
+            <Link to="/create">
+              <SidebarIcon
+                iconName="calendar_add_on"
+                text="Novo evento"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "calendar"}
+                onClick={() => handleIconClick("calendar")}
+              />
+            </Link>
+          )}
+
+          {/* {userType !== "admin" && ( */}
+          <Link to="/schedule">
             <SidebarIcon
-              iconName="history"
-              text="Histórico"
+              iconName="calendar_month"
+              text="Agenda"
               buttonClassName="icon-hover"
-              className="clock"
+              className="schedule"
               textClassName="sidebar-text"
-              active={activeIcon === "history"}
-              onClick={() => setActiveIcon("history")}
+              active={activeIcon === "schedule"}
+              onClick={() => handleIconClick("schedule")}
             />
           </Link>
+          {/* )} */}
+
+          {/* Renders the 'Dashboard' link only if the user is an administrator */}
+          {userType === "admin" && (
+            <Link to="/dashboard">
+              <SidebarIcon
+                iconName="dashboard"
+                text="Dashboard"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "dashboard"}
+                onClick={() => handleIconClick("dashboard")}
+              />
+            </Link>
+          )}
+
+          {/* Renders the 'All events' link only if the user is an administrator */}
+          {userType === "admin" && (
+            <Link to="/allevents">
+              <SidebarIcon
+                iconName="apps"
+                text="Todos os eventos"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "apps"}
+                onClick={() => handleIconClick("apps")}
+              />
+            </Link>
+          )}
+
+          {userType !== "admin" && (
+            <Link to="/historic">
+              <SidebarIcon
+                iconName="history"
+                text="Histórico"
+                buttonClassName="icon-hover"
+                className="clock"
+                textClassName="sidebar-text"
+                active={activeIcon === "history"}
+                onClick={() => setActiveIcon("history")}
+              />
+            </Link>
+          )}
 
           <div className="border-bottom"></div>
           <div className={`nav-text ${isOpen ? "active" : ""}`}>

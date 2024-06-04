@@ -228,7 +228,7 @@ const AllEvents = () => {
       />
 
       <Sidebar
-        activePage="calendar"
+        activePage="apps"
         isOpen={sidebarOpen}
         toggleSidebar={toggleSidebar}
       />
