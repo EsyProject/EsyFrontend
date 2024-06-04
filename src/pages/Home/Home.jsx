@@ -5,21 +5,44 @@ import EvaluationModal from "../../components/EvaluationModal/EvaluationModal";
 import { Loading } from "../../pages/index";
 import "./Home.css";
 import "material-symbols";
-import { useEventById } from "../../services/queries";
+import { useEventById, useAssessmentWithEvent } from "../../services/queries";
 
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
-  const eventId = "1"; 
+  const eventId = "1";
   const { data: eventFeed, isLoading } = useEventById(eventId);
+  const { data: assessmentData } = useAssessmentWithEvent(eventId);
 
   const [eventFeedData, setEventFeedData] = useState(null);
+  const [assessments, setAssessments] = useState([{}, {}, {}]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (eventFeed) {
       setEventFeedData(eventFeed);
     }
   }, [eventFeed]);
+
+  useEffect(() => {
+    if (assessmentData?.assessments) {
+      // Se houver pelo menos três avaliações, atualize os dados
+      setAssessments([
+        assessmentData.assessments[0] || {},
+        assessmentData.assessments[1] || {},
+        assessmentData.assessments[2] || {},
+      ]);
+    }
+  }, [assessmentData]);
+
+  // Timeout to hide loading screen after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -57,7 +80,15 @@ const Home = () => {
 
   const displayResponsibleArea = responsible_area === "ETS" ? "ETS - Engineering Technical School" : responsible_area;
 
-  if (isLoading) {
+  const renderStars = (assessment) => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      stars.push(<FaStar key={i} color={i < assessment ? "#ffc107" : "#e4e5e9"} />);
+    }
+    return stars;
+  };
+
+  if (setLoading || isLoading) {
     return <div className="loading-img"><PreloaderImage src={Loading} alt="Loading..." /></div>
   }
 
@@ -181,91 +212,59 @@ const Home = () => {
               <section>
                 <div className="profile">
                   <div className="circle">
-                    <p>LS</p>
+                    <p>{assessments[0]?.author?.[0] || "A"}</p>
                   </div>
                   <div className="comment-header">
                     <div className="row">
-                      <p className="name">Luiza Santos</p>
-                      <p className="time">3 meses atrás</p>
+                      <p className="name">{assessments[0]?.author || "Autor"}</p>
+                      <p className="time">{assessments[0]?.date_created || "Data"}</p>
                     </div>
                     <div className="stars">
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
+                      {renderStars(assessments[0]?.assessment || 0)}
                     </div>
                   </div>
                 </div>
                 <p>
-                  "Participar do hackathon foi incrível! Nós, como estudantes de
-                  ciência da computação, desenvolvemos uma solução para melhorar
-                  a acessibilidade em aplicativos de transporte. Vencer foi uma
-                  surpresa e validou nosso trabalho árduo. A experiência
-                  reforçou minha paixão pela tecnologia e me deu confiança para
-                  enfrentar novos desafios."
+                  {assessments[0]?.description_comment || "Comentário"}
                 </p>
               </section>
               <section>
                 <div className="profile">
                   <div className="circle">
-                    <p>AS</p>
+                    <p>{assessments[1]?.author?.[0] || "B"}</p>
                   </div>
                   <div className="comment-header">
                     <div className="row">
-                      <p className="name">Ana Silva</p>
-                      <p className="time">4 meses atrás</p>
+                      <p className="name">{assessments[1]?.author || "Autor"}</p>
+                      <p className="time">{assessments[1]?.date_created || "Data"}</p>
                     </div>
                     <div className="stars">
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
+                      {renderStars(assessments[1]?.assessment || 0)}
                     </div>
                   </div>
                 </div>
                 <p>
-                  "Participar do hackathon foi enriquecedor. Como iniciante em
-                  desenvolvimento de aplicativos móveis, me juntei a um time
-                  para criar uma solução para saúde mental no ambiente de
-                  trabalho. Vencer foi uma validação do nosso trabalho árduo e
-                  me deu confiança para continuar aprendendo e crescendo."
+                  {assessments[1]?.description_comment || "Comentário"}
                 </p>
               </section>
             </div>
             <section>
               <div className="profile">
                 <div className="circle">
-                  <p>PS</p>
+                  <p>{assessments[2]?.author?.[0] || "C"}</p>
                 </div>
                 <div className="comment-header">
                   <div className="row">
-                    <p className="name">Pedro Somavillar</p>
-                    <p className="time">3 meses atrás</p>
+                    <p className="name">{assessments[2]?.author || "Autor"}</p>
+                    <p className="time">{assessments[2]?.date_created || "Data"}</p>
                   </div>
                   <div className="stars">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
+                    {renderStars(assessments[2]?.assessment || 0)}
                   </div>
                 </div>
               </div>
               <p>
-                "Participar do hackathon foi uma experiência transformadora para
-                mim. Como um aprendiz autodidata na área de desenvolvimento web,
-                eu estava um pouco apreensivo em competir ao lado de estudantes
-                mais experientes. No entanto, eu me desafiei a sair da minha
-                zona de conforto e me juntei a um time diversificado de
-                talentos. Juntos, enfrentamos o desafio de criar uma solução
-                para promover a sustentabilidade no setor de tecnologia. Foi
-                incrível ver como nossas habilidades complementares se uniram
-                para criar uma solução inovadora e impactante. Vencer o
-                hackathon foi uma verdadeira celebração do poder da colaboração
-                e da criatividade, e me deu a confiança para continuar
-                perseguindo meus objetivos na área de tecnologia."
+                {assessments[2]?.description_comment || "Comentário"}
               </p>
             </section>
           </section>
