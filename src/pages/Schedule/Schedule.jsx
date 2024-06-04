@@ -37,7 +37,7 @@ const Schedule = () => {
       />
 
       <Sidebar
-        activePage="calendar"
+        activePage="schedule"
         isOpen={sidebarOpen}
         toggleSidebar={toggleSidebar}
       />
