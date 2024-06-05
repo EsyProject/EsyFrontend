@@ -6,7 +6,9 @@ import {
   MSelect,
   EventTable,
   Pagination,
+  EvaluationModal
 } from "../../components/index";
+import 'react-toastify/dist/ReactToastify.css';
 import config from "../../config.json";
 import eventsList from "../../components/Searchbar/data";
 import "./Historic.css";
@@ -17,6 +19,8 @@ const Historic = () => {
   const [searchValue, setSearchValue] = useState("");
   const [offset, setOffset] = useState(0);
   const [totalEvents, setTotalEvents] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   // User type access
   const userType = config.userType;
@@ -27,6 +31,16 @@ const Historic = () => {
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
+  };
+
+  const openModal = (event) => {
+    setSelectedEvent(event);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedEvent(null);
+    setModalOpen(false);
   };
 
   // Function to convert search input to lowercase
@@ -116,10 +130,8 @@ const Historic = () => {
                   Faltas <span>4</span>
                 </h4>
               </div>
-
             </section>
             <section className="line">
-
               <div className="events cancellations">
                 <h4>
                   Cancelamentos <span>0</span>
@@ -157,7 +169,7 @@ const Historic = () => {
             </div>
           ) : (
             <>
-              <EventTable events={filteredEvents.slice(offset, offset + 5)} />
+              <EventTable events={filteredEvents.slice(offset, offset + 5)} onEvaluate={(event) => openModal(event)} />
 
               <Pagination
                 limit={5}
@@ -169,6 +181,8 @@ const Historic = () => {
           )}
         </div>
       </div>
+
+      {modalOpen && <EvaluationModal onClose={closeModal} eventId={"23"} />}
     </div>
   );
 };

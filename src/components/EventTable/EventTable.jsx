@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import "./EventTable.css";
 
-const EventTable = ({ events }) => {
+const EventTable = ({ events, onEvaluate }) => {
   const getIcon = (evaluation) => {
     return evaluation === "true" ? (
       <i className="material-icons green">circle</i>
     ) : (
-      <span className="material-icons red">circle</span>
+      <span className="material-icons red" onClick={onEvaluate}>circle</span>
     );
   };
 
@@ -68,6 +68,7 @@ EventTable.propTypes = {
       evaluation: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onEvaluate: PropTypes.func.isRequired,
 };
 
 export default EventTable;
