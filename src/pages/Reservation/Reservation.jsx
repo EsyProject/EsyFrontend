@@ -43,17 +43,17 @@ const Reservation = () => {
   // imagens para o carrossel
   const images = [
     {
-      src: "src/assets/images-reservation/img1.png",
-      text: {
-        title: "Bosch Uva",
-        description: "2° Lugar - Hackathon 6ª Edição (janeiro de 2024)"
-      }
-    },
-    {
       src: "src/assets/images-reservation/img2.png",
       text: {
         title: "Happdine",
         description: "1° Lugar - Hackathon 6ª Edição (janeiro de 2024)"
+      }
+    },
+    {
+      src: "src/assets/images-reservation/img1.png",
+      text: {
+        title: "Bosch Uva",
+        description: "2° Lugar - Hackathon 6ª Edição (janeiro de 2024)"
       }
     },
     {
@@ -91,7 +91,7 @@ const Reservation = () => {
         description: "1° Lugar - Hackathon 4ª Edição (janeiro de 2023)"
       }
     },
-    {
+    /* {
       src: "src/assets/images-reservation/img8.png",
       text: {
         title: "Undefined",
@@ -101,10 +101,10 @@ const Reservation = () => {
     {
       src: "src/assets/images-reservation/img9.png",
       text: {
-        title: "Undefined",
+        title: "Hack Athon",
         description: "Descrição Undefined"
       }
-    },
+    }, */
   ];
 
   const { nameOfEvent, responsible_area, localEvent, description, initialTime, finishTime, initialDate } = eventFeedData || {};
