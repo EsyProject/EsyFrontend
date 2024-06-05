@@ -13,6 +13,10 @@ th {
   text-align: left;
 }
 
+.td-event-evaluation {
+  cursor: pointer;
+}
+
 .th-event-name {
   text-align: left;
 }
@@ -148,14 +152,6 @@ body::-webkit-scrollbar-thumb {
 .red {
   color: #f35b5b;
 }
-
-
-
-
-
-
-
-
 
 /* teste por favor vaaaaiiii */
 
