@@ -68,11 +68,23 @@ const Historic = () => {
           currentPageIcon="history"
           activePage="historic"
           showNavigationTexts={true}
-          navigationText="Meus eventos"
+          navigationText="Histórico"
           tabs={[
-            { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
-            { name: "historic", text: "Histórico de eventos", link: "/historic" },
-            { name: "tickets", text: "Tickets", link: "/tickets" },
+            {
+              name: "calendar",
+              text: "Agenda",
+              link: "/schedule",
+            },
+            {
+              name: "historic",
+              text: "Histórico de eventos",
+              link: "/historic",
+            },
+            {
+              name: "tickets",
+              text: "Tickets",
+              link: "/tickets",
+            },
           ]}
         />
       )}
