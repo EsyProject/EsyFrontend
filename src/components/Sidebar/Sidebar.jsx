@@ -85,21 +85,6 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
             </Link>
           )}
 
-          {/* Renders the 'Tickets' link only if the user is not an administrator */}
-          {userType !== "admin" && (
-            <Link to="/tickets">
-              <SidebarIcon
-                iconName="confirmation_number"
-                text="Tickets"
-                buttonClassName="icon-hover"
-                className="calendar"
-                textClassName="sidebar-text"
-                active={activeIcon === "confirmation_number"}
-                onClick={() => setActiveIcon("confirmation_number")}
-              />
-            </Link>
-          )}
-
           <div className="border-bottom"></div>
           <div className={`nav-text ${isOpen ? "active" : ""}`}>
             <h5>EVENTOS</h5>
@@ -173,6 +158,21 @@ const Sidebar = ({ isOpen, toggleSidebar, activePage }) => {
                 textClassName="sidebar-text"
                 active={activeIcon === "history"}
                 onClick={() => setActiveIcon("history")}
+              />
+            </Link>
+          )}
+
+          {/* Renders the 'Tickets' link only if the user is not an administrator */}
+          {userType !== "admin" && (
+            <Link to="/tickets">
+              <SidebarIcon
+                iconName="confirmation_number"
+                text="Tickets"
+                buttonClassName="icon-hover"
+                className="calendar"
+                textClassName="sidebar-text"
+                active={activeIcon === "confirmation_number"}
+                onClick={() => setActiveIcon("confirmation_number")}
               />
             </Link>
           )}

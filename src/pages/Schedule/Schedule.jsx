@@ -1,9 +1,12 @@
 import { useState } from "react";
+import config from "../../config.json";
 import { Sidebar, Navbar, Timetable } from "../../components/index";
 import "./Schedule.css"
 
 const Schedule = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  // User type access
+  const userType = config.userType;
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -24,30 +27,58 @@ const Schedule = () => {
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
-      <Navbar
-        currentPageIcon="calendar_month"
-        activePage="schedule"
-        showNavigationTexts={true}
-        navigationText="Agenda"
-        tabs={[
-          { name: "create", text: "Criação de novo evento", link: "/create" },
-          {
-            name: "schedule",
-            text: "Agenda",
-            link: "/schedule",
-          },
-          {
-            name: "dashboard",
-            text: "Dashboard",
-            link: "/dashboard",
-          },
-          {
-            name: "allevents",
-            text: "Todos os eventos",
-            link: "/allevents",
-          },
-        ]}
-      />
+      {userType === "admin" && (
+        <Navbar
+          currentPageIcon="calendar_month"
+          activePage="schedule"
+          showNavigationTexts={true}
+          navigationText="Agenda"
+          tabs={[
+            { name: "create", text: "Criação de novo evento", link: "/create" },
+            {
+              name: "schedule",
+              text: "Agenda",
+              link: "/schedule",
+            },
+            {
+              name: "dashboard",
+              text: "Dashboard",
+              link: "/dashboard",
+            },
+            {
+              name: "allevents",
+              text: "Todos os eventos",
+              link: "/allevents",
+            },
+          ]}
+        />
+      )}
+
+      {userType !== "admin" && (
+        <Navbar
+          currentPageIcon="calendar_month"
+          activePage="calendar"
+          showNavigationTexts={true}
+          navigationText="Agenda"
+          tabs={[
+            {
+              name: "calendar",
+              text: "Agenda",
+              link: "/schedule",
+            },
+            {
+              name: "historic",
+              text: "Histórico de eventos",
+              link: "/historic",
+            },
+            {
+              name: "tickets",
+              text: "Tickets",
+              link: "/tickets",
+            },
+          ]}
+        />
+      )}
 
       <Sidebar
         activePage="schedule"

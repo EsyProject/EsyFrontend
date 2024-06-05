@@ -72,10 +72,10 @@ const Tickets = () => {
       <Navbar
         currentPageIcon="confirmation_number"
         activePage="tickets"
-        navigationText="Meus eventos"
+        navigationText="Tickets"
         showNavigationTexts={true}
         tabs={[
-          { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
+          { name: "schedule", text: "Agenda", link: "/schedule" },
           { name: "historic", text: "Histórico de eventos", link: "/historic" },
           { name: "tickets", text: "Tickets", link: "/tickets" },
         ]}

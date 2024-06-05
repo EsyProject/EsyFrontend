@@ -7,6 +7,7 @@ import {
   EventTable,
   Pagination,
 } from "../../components/index";
+import config from "../../config.json";
 import eventsList from "../../components/Searchbar/data";
 import "./Historic.css";
 
@@ -16,6 +17,9 @@ const Historic = () => {
   const [searchValue, setSearchValue] = useState("");
   const [offset, setOffset] = useState(0);
   const [totalEvents, setTotalEvents] = useState(0);
+
+  // User type access
+  const userType = config.userType;
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -45,17 +49,45 @@ const Historic = () => {
 
   return (
     <div className={`historic-container ${sidebarOpen ? "sidebar-open" : ""}`}>
-      <Navbar
-        currentPageIcon="history"
-        activePage="historic"
-        showNavigationTexts={true}
-        navigationText="Meus eventos"
-        tabs={[
-          { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
-          { name: "historic", text: "Histórico de eventos", link: "/historic" },
-          { name: "tickets", text: "Tickets", link: "/tickets" },
-        ]}
-      />
+      {userType === "admin" && (
+        <Navbar
+          currentPageIcon="history"
+          activePage="historic"
+          showNavigationTexts={true}
+          navigationText="Meus eventos"
+          tabs={[
+            { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
+            { name: "historic", text: "Histórico de eventos", link: "/historic" },
+            { name: "tickets", text: "Tickets", link: "/tickets" },
+          ]}
+        />
+      )}
+
+      {userType !== "admin" && (
+        <Navbar
+          currentPageIcon="history"
+          activePage="historic"
+          showNavigationTexts={true}
+          navigationText="Histórico"
+          tabs={[
+            {
+              name: "calendar",
+              text: "Agenda",
+              link: "/schedule",
+            },
+            {
+              name: "historic",
+              text: "Histórico de eventos",
+              link: "/historic",
+            },
+            {
+              name: "tickets",
+              text: "Tickets",
+              link: "/tickets",
+            },
+          ]}
+        />
+      )}
 
       <Sidebar
         activePage="history"

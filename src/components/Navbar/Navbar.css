@@ -102,7 +102,7 @@ h4.active {
   position: absolute;
   width: 143px;
   height: 4px;
-  left: 400px;
+  left: 289px;
   top: 64px;
   background: #0066a5;
   border-radius: 5px 5px 0px 0px;
@@ -131,11 +131,22 @@ h4.active {
   transition: transform 0.3s ease, width 0.3s ease;
 }
 
+.subtitle-underline-calendar {
+  position: absolute;
+  width: 91px;
+  height: 4px;
+  left: 169px;
+  top: 64px;
+  background: #0066a5;
+  border-radius: 5px 5px 0px 0px;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
 .subtitle-underline-tickets {
   position: absolute;
   width: 50px;
   height: 4px;
-  left: 580px;
+  left: 454px;
   top: 64px;
   background: #0066a5;
   border-radius: 5px 5px 0px 0px;
