@@ -51,7 +51,25 @@ const Dashboard = () => {
         currentPageIcon="dashboard"
         activePage="dashboard"
         navigationText="Dashboard"
-        showNavigationTexts={false}
+        showNavigationTexts={true}
+        tabs={[
+          { name: "create", text: "Criação de novo evento", link: "/create" },
+          {
+            name: "schedule",
+            text: "Agenda",
+            link: "/schedule",
+          },
+          {
+            name: "dashboard",
+            text: "Dashboard",
+            link: "/dashboard",
+          },
+          {
+            name: "allevents",
+            text: "Todos os eventos",
+            link: "/allevents",
+          },
+        ]}
       />
 
       <Sidebar

@@ -122,9 +122,9 @@ h4.active {
 
 .subtitle-underline-schedule {
   position: absolute;
-  width: 130px;
+  width: 91px;
   height: 4px;
-  left: 234px;
+  left: 377px;
   top: 64px;
   background: #0066a5;
   border-radius: 5px 5px 0px 0px;
@@ -158,6 +158,28 @@ h4.active {
   width: 169px;
   height: 4px;
   left: 227px;
+  top: 64px;
+  background: #0066a5;
+  border-radius: 5px 5px 0px 0px;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.subtitle-underline-dashboard {
+  position: absolute;
+  width: 98px;
+  height: 4px;
+  left: 507px;
+  top: 64px;
+  background: #0066a5;
+  border-radius: 5px 5px 0px 0px;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.subtitle-underline-allevents {
+  position: absolute;
+  width: 130px;
+  height: 4px;
+  left: 601px;
   top: 64px;
   background: #0066a5;
   border-radius: 5px 5px 0px 0px;

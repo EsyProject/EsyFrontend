@@ -224,14 +224,19 @@ const EventCreation = () => {
         tabs={[
           { name: "create", text: "Criação de novo evento", link: "/create" },
           {
-            name: "update",
-            text: "Atualização de evento",
-            link: "/update",
+            name: "schedule",
+            text: "Agenda",
+            link: "/schedule",
           },
           {
-            name: "historic",
-            text: "Eventos programados para o mês",
-            link: "/historic",
+            name: "dashboard",
+            text: "Dashboard",
+            link: "/dashboard",
+          },
+          {
+            name: "allevents",
+            text: "Todos os eventos",
+            link: "/allevents",
           },
         ]}
       />

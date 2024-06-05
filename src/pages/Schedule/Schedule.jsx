@@ -28,11 +28,24 @@ const Schedule = () => {
         currentPageIcon="calendar_month"
         activePage="schedule"
         showNavigationTexts={true}
-        navigationText="Meus eventos"
+        navigationText="Agenda"
         tabs={[
-          { name: "schedule", text: "Próximos Eventos", link: "/schedule" },
-          { name: "historic", text: "Histórico de eventos", link: "/historic" },
-          { name: "tickets", text: "Tickets", link: "/tickets" }
+          { name: "create", text: "Criação de novo evento", link: "/create" },
+          {
+            name: "schedule",
+            text: "Agenda",
+            link: "/schedule",
+          },
+          {
+            name: "dashboard",
+            text: "Dashboard",
+            link: "/dashboard",
+          },
+          {
+            name: "allevents",
+            text: "Todos os eventos",
+            link: "/allevents",
+          },
         ]}
       />
 
