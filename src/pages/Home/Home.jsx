@@ -10,7 +10,7 @@ import { useEventById } from "../../services/queries";
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
-  const eventId = "1"; 
+  const eventId = "18";
   const { data: eventFeed, isLoading } = useEventById(eventId);
 
   const [eventFeedData, setEventFeedData] = useState(null);
@@ -26,10 +26,6 @@ const Home = () => {
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-  };
-
-  const openModal = () => {
-    setModalOpen(true);
   };
 
   const closeModal = () => {
@@ -57,9 +53,9 @@ const Home = () => {
 
   const displayResponsibleArea = responsible_area === "ETS" ? "ETS - Engineering Technical School" : responsible_area;
 
-  if (isLoading) {
+  /* if (isLoading) {
     return <div className="loading-img"><PreloaderImage src={Loading} alt="Loading..." /></div>
-  }
+  } */
 
   return (
     <div className={`feed-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -94,7 +90,9 @@ const Home = () => {
             <p>{displayResponsibleArea}</p>
             <h1>{nameOfEvent}</h1>
             <h2>Venha conhecer a competição de tecnologia e inovação da ETS</h2>
-            <button onClick={openModal}>Saber mais</button>
+            <a href="/description">
+              <button>Saber mais</button>
+            </a>
             <p>{local}</p>
           </div>
           <div className="container-image-banner">
