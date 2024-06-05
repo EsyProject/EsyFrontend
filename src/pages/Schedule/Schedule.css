@@ -1,5 +1,6 @@
 .sidebar-open .container-main-schedule {
-  margin-left: 490px;
+  transition: margin-left 0.3s ease;
+  margin-left: 88px;
 }
 
 .schedule-title {
@@ -9,6 +10,7 @@
   line-height: 36px;
   color: #17181b;
   margin-bottom: 0;
+  margin-top: 37px;
 }
 
 .schedule-subtitle {
@@ -40,11 +42,16 @@
   height: 100vh;
   max-width: 1215px;
   width: 100%;
+  margin-bottom: 108px;
 }
 
 .rbc-agenda-view {
   align-items: center;
   justify-content: center;
+}
+
+.rbc-calendar {
+  height: 120%;
 }
 
 @media screen and (max-width: 1420px) {

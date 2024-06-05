@@ -14,14 +14,25 @@ const Schedule = () => {
 
   const events = [
     {
-      title: "Fórum da Sustentabilidade",
-      start: new Date(2024, 4, 7, 10, 0), // ano, mês (0-11), dia, hora, minuto
-      end: new Date(2024, 4, 7, 12, 0),
+      title: "Hackathon",
+      start: new Date(2024, 5, 10), // ano, mês (0-11), dia
+      end: new Date(2024, 5, 15),
+      description: "Evento que Reúne programadores ligados ao desenvolvimento de software onde tem a duração de uma semana.",
+      area: "ETS - DS"
     },
     {
-      title: "Ciclo de Saúde Mental",
-      start: new Date(2024, 4, 10, 15, 0),
-      end: new Date(2024, 4, 10, 17, 0),
+      title: "Tech Lunch",
+      start: new Date(2024, 5, 6),
+      end: new Date(2024, 5, 6),
+      description: "Encontro voltado aos desenvolvedores de software e tecnologia, com foco em discutir temas técnicos e networking interno.",
+      area: "BD - DEV"
+    },
+    {
+      title: "Workshop",
+      start: new Date(2024, 5, 28),
+      end: new Date(2024, 5, 28),
+      description: "Evento que traz a proposta de vivenciar ainda mais a Melhoria Contínua de processos aliada a um universo de soluções e tecnologias.",
+      area: "GS - LA"
     },
   ];
 
@@ -90,7 +101,7 @@ const Schedule = () => {
         <div className="container-schedule-content">
           <h1 className="schedule-title">Minha agenda</h1>
           <p className="schedule-subtitle">Eventos programados para este mês</p>
-          <Timetable events={events} />
+          <Timetable events={events} className="rbc-background-event" data-area={events.area} />
         </div>
       </div>
     </div>
