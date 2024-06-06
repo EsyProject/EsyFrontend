@@ -2,11 +2,13 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "material-symbols";
 import "./CardView.css";
+import { useNavigate } from "react-router-dom";
 import CardViewModal from "../CardViewModal/CardViewModal";
-import { format, addDays } from 'date-fns';
+import { format } from 'date-fns';
 
-const CardView = ({ nameOfEvent, finishDate, finishTime, initialDate, initialTime, localEvent, responsible_area, description = '', img }) => {
+const CardView = ({ nameOfEvent, finishTime, initialDate, initialTime, localEvent, responsible_area, description = '', img, eventId }) => {
   const [isCardViewModalOpen, setIsCardViewModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const maxLength = 150;
   const minDescription =
@@ -22,13 +24,12 @@ const CardView = ({ nameOfEvent, finishDate, finishTime, initialDate, initialTim
     setIsCardViewModalOpen(false);
   };
 
-  const formatDate = (date) => {
-    const adjustedDate = addDays(new Date(date), 1);
-    return format(adjustedDate, 'yyyy-MM-dd');
-  };
-
   const formatTime = (time) => {
     return format(new Date(`1970-01-01T${time}`), 'HH:mm');
+  };
+
+  const handleEditEvent = () => {
+    navigate(`/update`, { state: { eventId } });
   };
 
   return (
@@ -60,7 +61,7 @@ const CardView = ({ nameOfEvent, finishDate, finishTime, initialDate, initialTim
             <div className="card-view-modal-content-child">
               <div className="child">
                 <div className="card-btn-container">
-                  <button onClick={handleCloseCardViewModal} className="card-view-modal-btn edit">
+                  <button onClick={handleEditEvent} className="card-view-modal-btn edit">
                     <span className="material-symbols-rounded">stylus</span>
                     <p>Editar informações do evento</p>
                   </button>
@@ -107,6 +108,7 @@ CardView.propTypes = {
   responsible_area: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
+  eventId: PropTypes.string.isRequired,
 };
 
 export default CardView;
