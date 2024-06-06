@@ -5,7 +5,7 @@ import "./CardView.css";
 import CardViewModal from "../CardViewModal/CardViewModal";
 import { format, addDays } from 'date-fns';
 
-const CardView = ({ nameOfEvent, finishDate, finishTime, initialDate, initialTime, localEvent, responsible_area, description, img }) => {
+const CardView = ({ nameOfEvent, finishDate, finishTime, initialDate, initialTime, localEvent, responsible_area, description = '', img }) => {
   const [isCardViewModalOpen, setIsCardViewModalOpen] = useState(false);
 
   const maxLength = 150;
@@ -28,7 +28,7 @@ const CardView = ({ nameOfEvent, finishDate, finishTime, initialDate, initialTim
   };
 
   const formatTime = (time) => {
-    return format(new Date(`1970-01-01T${time}:00`), 'HH:mm:ss');
+    return format(new Date(`1970-01-01T${time}`), 'HH:mm');
   };
 
   return (
@@ -98,15 +98,15 @@ const CardView = ({ nameOfEvent, finishDate, finishTime, initialDate, initialTim
 };
 
 CardView.propTypes = {
-  nameOfEvent: PropTypes.string.isRequired,
-  finishDate: PropTypes.string.isRequired,
-  finishTime: PropTypes.string.isRequired,
-  initialDate: PropTypes.string.isRequired,
-  initialTime: PropTypes.string.isRequired,
-  localEvent: PropTypes.string.isRequired,
-  responsible_area: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
+  nameOfEvent: PropTypes.string,
+  finishDate: PropTypes.string,
+  finishTime: PropTypes.string,
+  initialDate: PropTypes.string,
+  initialTime: PropTypes.string,
+  localEvent: PropTypes.string,
+  responsible_area: PropTypes.string,
+  description: PropTypes.string,
+  img: PropTypes.string,
 };
 
 export default CardView;
