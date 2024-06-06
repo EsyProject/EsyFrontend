@@ -145,8 +145,6 @@ const EventUpdate = () => {
         }
       );
 
-      const errorMessage = data.response?.data?.message
-
       const eventData = await eventPromise;
 
       if (eventData && eventData.event_id) {
@@ -188,27 +186,14 @@ const EventUpdate = () => {
   return (
     <div className={`creation-container ${sidebarOpen ? "sidebar-open" : ""}`}>
       <Navbar
-        currentPageIcon="calendar_add_on"
+        currentPageIcon="stylus"
         activePage="update"
-        navigationText="Novo evento"
-        showNavigationTexts={true}
-        tabs={[
-          { name: "create", text: "Criação de novo evento", link: "/create" },
-          {
-            name: "update",
-            text: "Atualização de evento",
-            link: "/update",
-          },
-          {
-            name: "schedule",
-            text: "Eventos programados para o mês",
-            link: "/schedule",
-          },
-        ]}
+        navigationText="Atualizar"
+        showNavigationTexts={false}
       />
 
       <Sidebar
-        activePage="calendar"
+        activePage=""
         isOpen={sidebarOpen}
         toggleSidebar={toggleSidebar}
       />
