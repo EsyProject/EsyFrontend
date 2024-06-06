@@ -29,10 +29,9 @@ const options_area = [
 
 const options_recurrence = [
   { value: "", label: "Não se repete" },
-  { value: "Diariamente", label: "Diariamente" },
-  { value: "Semanalmente", label: "Semanalmente" },
-  { value: "Mensalmente", label: "Mensalmente" },
-  { value: "Anualmente", label: "Anualmente" },
+  { value: "Mensalmente", label: "Mensal" },
+  { value: "Mensalmente", label: "Semestral" },
+  { value: "Anualmente", label: "Anual" },
 ];
 
 const options_local = [
