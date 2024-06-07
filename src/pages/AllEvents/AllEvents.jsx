@@ -32,6 +32,7 @@ const AllEvents = () => {
 
   const eventCards = eventsData.content.map((event, index) => (
     <CardView
+      eventId={event.event_id}
       key={index}
       nameOfEvent={event.nameOfEvent}
       initialDate={event.initialDate}
