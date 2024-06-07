@@ -10,7 +10,7 @@ import { useEventById } from "../../services/queries";
 import { FaStar } from "react-icons/fa";
 
 const Home = () => {
-  const eventId = "18";
+  const eventId = "1";
   const { data: eventFeed, isLoading } = useEventById(eventId);
 
   const [eventFeedData, setEventFeedData] = useState(null);

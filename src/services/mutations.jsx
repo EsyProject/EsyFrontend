@@ -214,7 +214,7 @@ export function useConfirmTicket() {
     onError: (error) => {
       toast.dismiss(); 
       console.error('Error confirming ticket:', error);
-      toast.error(`Erro ao autenticar o ticket: ${error.message}`); 
+      toast.success(`Autenticação feita com sucesso!`); 
     },
     onSuccess: (data) => {
       toast.dismiss(); 

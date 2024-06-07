@@ -1,12 +1,12 @@
 const eventsList = [
   {
-    name: "Workshop de Desenvolvimento de Aplicativos Móveis",
-    date: "Seg, 27 Mai 2024",
-    time: "10:00",
+    name: "Hackathon",
+    date: "Sex, 07 Julho 2024",
+    time: "08:00",
     local: "Ca300",
-    area: "BISB",
-    presence: "SIM",
-    evaluation: "true"
+    area: "ETS",
+    presence: "NÃO",
+    evaluation: "false"
   },
   {
     name: "Seminário sobre Inteligência Artificial e Machine Learning",

@@ -194,7 +194,7 @@ const Historic = () => {
         </div>
       </div>
 
-      {modalOpen && <EvaluationModal onClose={closeModal} eventId={"23"} />}
+      {modalOpen && <EvaluationModal onClose={closeModal} eventId={"1"} />}
     </div>
   );
 };

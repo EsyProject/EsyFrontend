@@ -464,9 +464,9 @@ const EventCreation = () => {
           </div>
           <TagCard
             date="22 - 29 Jul 2024"
-            title="Hackathon"
-            description="Evento que Reúne programadores ligados ao desenvolvimento de software onde tem a duração de uma semana."
-            area="ETS"
+            title="Fórum de Talentos"
+            description="Evento anual que proporciona aos estagiários a chance de apresentarem seus projetos..."
+            area="GS"
           />
 
           <TagCard
@@ -480,7 +480,7 @@ const EventCreation = () => {
             date="16 - 17 Ago 2024"
             title="Workshop"
             description="Evento que traz a proposta de vivenciar ainda mais a Melhoria Contínua de processos aliada a um universo de soluções e tecnologias."
-            area="GS"
+            area="ETS"
           />
         </div>
       </div>

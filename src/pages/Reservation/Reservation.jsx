@@ -9,7 +9,7 @@ import { useGetTicket } from "../../services/mutations";
 import Carousel from "../../components/Carousel/Carousel";
 
 const Reservation = () => {
-  const eventId = "13";
+  const eventId = "1";
   const { data: eventFeed } = useEventById(eventId);
   const [eventFeedData, setEventFeedData] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
