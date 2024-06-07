@@ -154,7 +154,6 @@ const Tickets = () => {
 
             {showPopupQr && (
               <QrCodeModal
-                image={Qrcode}
                 code={authCode}
                 onClose={handleCloseModalQr}
                 showModal={showPopupQr}
