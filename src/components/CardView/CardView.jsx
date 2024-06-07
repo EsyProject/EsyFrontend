@@ -108,7 +108,7 @@ CardView.propTypes = {
   responsible_area: PropTypes.string,
   description: PropTypes.string,
   img: PropTypes.string,
-  eventId: PropTypes.string.isRequired,
+  eventId: PropTypes.number.isRequired,
 };
 
 export default CardView;
