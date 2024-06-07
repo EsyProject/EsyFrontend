@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useCreateEvent, useCreateTicket } from "../../services/mutations";
+import { useState, useEffect } from "react";
+import { useUpdateEvent } from "../../services/mutations";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useForm } from "react-hook-form";
@@ -15,6 +15,7 @@ import {
 } from "../../components/index";
 import "material-symbols";
 import "./EventUpdate.css";
+import { useLocation } from "react-router-dom";
 
 const options_area = [
   { value: "", label: "Selecione" },
@@ -70,6 +71,9 @@ const options_local = [
 
 const EventUpdate = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation();
+  const eventId = location.state?.eventId;
+  const { mutate: updateEvent } = useUpdateEvent();
 
   const {
     register,
@@ -80,8 +84,6 @@ const EventUpdate = () => {
     reset,
     clearErrors,
   } = useForm();
-  const createEventMutation = useCreateEvent();
-  const createTicketMutation = useCreateTicket();
   const [eventBanner, setEventBanner] = useState(null);
 
   const formatDate = (date) => {
@@ -101,7 +103,7 @@ const EventUpdate = () => {
     setEventBanner(e.target.files[0]);
   };
 
-  const handleCreateEvent = async (data) => {
+  const handleUpdateEvent = async (data) => {
     try {
       const formData = new FormData();
 
@@ -135,7 +137,13 @@ const EventUpdate = () => {
       formData.append("finishDateTicket", finishDateTicketFormatted);
       formData.append("finishTimeTicket", finishTimeTicketFormatted);
 
-      const eventPromise = createEventMutation.mutateAsync(formData);
+      const eventPromise = new Promise((resolve, reject) => {
+        updateEvent({ eventId, formData }, {
+          onSuccess: resolve,
+          onError: reject,
+        });
+      });
+
       toast.promise(
         eventPromise,
         {
@@ -145,43 +153,23 @@ const EventUpdate = () => {
         }
       );
 
-      const eventData = await eventPromise;
+      await eventPromise;
 
-      if (eventData && eventData.event_id) {
-        const ticketData = {
-          initialDateTicket: initialDateTicketFormatted,
-          initialTimeTicket: initialTimeTicketFormatted,
-          finishDateTicket: finishDateTicketFormatted,
-          finishTimeTicket: finishTimeTicketFormatted,
-        };
-
-        const ticketPromise = createTicketMutation.mutateAsync({
-          eventId: eventData.event_id,
-          ...ticketData,
-        });
-
-        toast.promise(
-          ticketPromise,
-          {
-            pending: 'Atualizando ticket...',
-            success: 'Ticket atualizado com sucesso!',
-            error: 'Erro ao atualizar ticket!'
-          }
-        );
-
-        await ticketPromise;
-      } else {
-        console.error("Event data does not have an event_id:", eventData);
-      }
     } catch (error) {
-      console.error("Error creating event:", error);
+      console.error("Error updating event:", error);
     }
   };
-
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  useEffect(() => {
+    if (eventId) {
+      // TODO: Load event data by eventId and populate form
+      console.log("Event ID:", eventId);
+    }
+  }, [eventId]);
 
   return (
     <div className={`creation-container ${sidebarOpen ? "sidebar-open" : ""}`}>
@@ -200,7 +188,7 @@ const EventUpdate = () => {
 
       <div className="creation-container-main">
         <ToastContainer />
-        <form onSubmit={handleSubmit(handleCreateEvent)}>
+        <form onSubmit={handleSubmit(handleUpdateEvent)}>
           <div className="container-create-event">
             <div className="creation-container-child">
               <h2 className="title">Descrição</h2>
@@ -215,7 +203,6 @@ const EventUpdate = () => {
                     validationRules={{ required: "Campo obrigatório" }}
                     errors={errors}
                     clearErrors={clearErrors}
-                    value="teste"
                   />
 
                   <CustomSelect
