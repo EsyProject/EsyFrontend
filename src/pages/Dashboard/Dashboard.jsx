@@ -127,7 +127,7 @@ const Dashboard = () => {
                             <h1>
                               {average
                                 ? average
-                                : "0..."}
+                                : "5"}
                             </h1>
                             <span className="material-symbols-rounded">
                               grade
@@ -262,17 +262,24 @@ const Dashboard = () => {
                   <Calendar onChange={onChange} value={value} />
                 </div>
                 <TagCard
-                  date="22 - 26 Fev 2024"
-                  title="Jornada do Conhecimento"
-                  description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
-                  area="ETS - DS"
+                  date="22 - 29 Jul 2024"
+                  title="Fórum de Talentos"
+                  description="Evento anual que proporciona aos estagiários a chance de apresentarem seus projetos..."
+                  area="GS"
                 />
 
                 <TagCard
-                  date="22 - 26 Fev 2024"
-                  title="Jornada do Conhecimento"
-                  description="Evento que ocorre anulmente e visa promover uma visão ampla acerca das diferentes áreas da... "
-                  area="ETS - DS"
+                  date="01 - 05 Ago 2024"
+                  title="Tech Lunch"
+                  description="Encontro voltado aos desenvolvedores de software e tecnologia, com foco em discutir temas técnicos e networking interno."
+                  area="BD"
+                />
+
+                <TagCard
+                  date="16 - 17 Ago 2024"
+                  title="Workshop"
+                  description="Evento que traz a proposta de vivenciar ainda mais a Melhoria Contínua de processos aliada a um universo de soluções e tecnologias."
+                  area="ETS"
                 />
               </div>
             </div>
