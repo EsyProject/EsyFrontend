@@ -44,6 +44,20 @@ export const getCardEvent = async () => {
   return (await axiosInstance.get("/event/card")).data;
 };
 
+export const updateEvent = async (eventId, data) => {
+  try {
+    const response = await axiosInstance.put(`/event/update/${eventId}`, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao atualizar o evento:", error);
+    throw error;
+  }
+};
+
 // Assessment
 export const createAssessment = async (eventId, data) => {
   return (await axiosInstance.post(`/assessment/${eventId}`, data)).data;
