@@ -15,15 +15,15 @@ const Schedule = () => {
   const events = [
     {
       title: "Hackathon",
-      start: new Date(2024, 5, 10), // ano, mês (0-11), dia
-      end: new Date(2024, 5, 15),
+      start: new Date(2024, 5, 17), // ano, mês (0-11), dia
+      end: new Date(2024, 5, 22),
       description: "Evento que Reúne programadores ligados ao desenvolvimento de software onde tem a duração de uma semana.",
       area: "ETS - DS"
     },
     {
       title: "Tech Lunch",
-      start: new Date(2024, 5, 6),
-      end: new Date(2024, 5, 6),
+      start: new Date(2024, 5, 13),
+      end: new Date(2024, 5, 13),
       description: "Encontro voltado aos desenvolvedores de software e tecnologia, com foco em discutir temas técnicos e networking interno.",
       area: "BD - DEV"
     },
@@ -31,6 +31,13 @@ const Schedule = () => {
       title: "Workshop",
       start: new Date(2024, 5, 28),
       end: new Date(2024, 5, 28),
+      description: "Evento que traz a proposta de vivenciar ainda mais a Melhoria Contínua de processos aliada a um universo de soluções e tecnologias.",
+      area: "GS - LA"
+    },
+    {
+      title: "Fórum de Talentos",
+      start: new Date(2024, 5, 11),
+      end: new Date(2024, 5, 11),
       description: "Evento que traz a proposta de vivenciar ainda mais a Melhoria Contínua de processos aliada a um universo de soluções e tecnologias.",
       area: "GS - LA"
     },
