@@ -1,5 +1,6 @@
 .sidebar-open .navbar-container {
   margin-left: 248px;
+  width: calc(100% - 142px);
 }
 
 .sidebar-open .navbar-icon {
