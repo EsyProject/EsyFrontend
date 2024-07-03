@@ -1,0 +1,91 @@
+.options-modal {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  z-index: 999;
+  box-shadow: 3px 3px 10px rgba(218, 220, 224, 0.8);
+}
+
+.option {
+  padding: 10px 10px 10px 40px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #17181b;
+}
+
+.option:hover {
+  background-color: #e8eaed;
+}
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  gap: 5px;
+  width: 204px;
+  height: 40px;
+  border: 1px solid #bdc1c6;
+  border-radius: 7px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.select-wrapper h4 {
+  font-size: 14px;
+  color: #9aa0a6;
+  font-weight: 400;
+}
+
+select {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: #9aa0a6;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.select-wrapper select {
+  background-color: transparent;
+  border: none;
+  color: #9aa0a6;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.select-wrapper select:focus-visible {
+  outline: none;
+}
+
+.option:hover {
+  color: #17181b;
+  opacity: 100%;
+  font-weight: 600;
+}
+
+.option.selected {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #e8eaed;
+  color: #17181b;
+  opacity: 100%;
+  font-weight: 600;
+  padding: 10px 10px 10px 10px;
+}
+
+.options-modal > :last-child {
+  border-radius: 0 0 7px 7px;
+}
+
+.options-modal > :first-child {
+  border-radius: 7px 7px 0 0;
+}

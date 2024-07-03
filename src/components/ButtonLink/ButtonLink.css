@@ -1,0 +1,16 @@
+.custom-button {
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(90.71deg, #00a5ff 0%, #005893 100%);
+  border-radius: 7px;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}

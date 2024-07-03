@@ -1,0 +1,280 @@
+/* General settings for texts in the sidebar */
+.border {
+  justify-content: space-between;
+}
+
+.sidebar-logo-img img {
+  transition: font-size 0.5s ease;
+}
+
+.sidebar-text-logout,
+.sidebar-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(23, 24, 27, 0.7);
+}
+
+/* Specific settings for logout text */
+.sidebar-text-logout {
+  color: #ff2b2b;
+  opacity: 70%;
+  font-weight: 500;
+}
+
+/* Styles for the sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 23px 15px 23px 15px;
+  border-right: 1px solid #dadce0;
+  transition: all 0.35s;
+  width: 106px;
+  overflow: hidden;
+  user-select: none;
+  z-index: 1000;
+  background-color: #fff;
+}
+
+/* Styles for the sidebar header */
+.sidebar-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 0 auto;
+}
+
+.sidebar-header.active-header {
+  gap: 19px;
+}
+
+/* Styles for buttons in the sidebar */
+.sidebar button {
+  height: 50px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  text-align: left;
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+/* Styles for icons and text inside buttons */
+.sidebar button>span {
+  display: inline-flex;
+  align-items: center;
+  gap: 35px;
+  border-radius: 7px;
+  line-height: 1;
+  transition: all 0.3s;
+}
+
+.sidebar.open-sidebar button>span {
+  overflow: visible;
+  gap: 12px;
+}
+
+/* Transition settings for hover effect */
+.border .icon-hover-logout>span,
+.border .icon-hover>span {
+  width: 215px;
+  height: 50px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.icon-hover:hover {
+  background: rgba(0, 102, 165, 0.1);
+}
+
+.icon-hover:hover .material-symbols-outlined,
+.icon-hover:hover .sidebar-text {
+  color: #0066a5;
+  opacity: 100%;
+  font-weight: 500;
+}
+
+.icon-hover.active {
+  background: rgba(0, 102, 165, 0.1);
+  color: #0066a5;
+  font-weight: 500;
+}
+
+.icon-hover.active .material-symbols-outlined {
+  color: #0066a5;
+  opacity: 100%;
+}
+
+.icon-hover-logout:hover {
+  background: rgba(255, 43, 43, 0.1);
+  color: #ff2b2b;
+  opacity: 100%;
+  font-weight: 700;
+}
+
+.icon-hover-logout:hover .material-symbols-outlined {
+  color: #ff2b2b;
+  opacity: 100%;
+}
+
+.logout-container:hover .material-symbols-outlined,
+.logout-container:hover .sidebar-text-logout {
+  color: #ff2b2b;
+  opacity: 100%;
+  font-weight: 500;
+}
+
+.icon-hover-logout.active {
+  background: rgba(255, 43, 43, 0.1);
+  color: #ff2b2b;
+  font-weight: 500;
+}
+
+.icon-hover-logout.active .material-symbols-outlined {
+  color: #ff2b2b;
+  opacity: 100%;
+}
+
+.sidebar-text-logout.active {
+  color: #ff2b2b;
+  opacity: 100%;
+  font-weight: 500;
+}
+
+.sidebar-text.active {
+  color: #0066a5;
+  opacity: 100%;
+  font-weight: 500;
+}
+
+svg {
+  transition: all 0.4s;
+}
+
+/* Style for icons */
+.sidebar-header svg {
+  width: 16px;
+  height: 16px;
+  color: #0e1013;
+}
+
+.icon-notification svg,
+.icon-home svg,
+.icon-calendar svg,
+.icon-clock svg,
+.icon-settings svg {
+  width: 36px;
+  color: #17181b;
+  opacity: 50%;
+}
+
+.icon-notification svg {
+  height: 36px;
+}
+
+.icon-home svg {
+  height: 30px;
+}
+
+.icon-calendar svg {
+  height: 24px;
+}
+
+.icon-clock svg {
+  height: 34px;
+}
+
+.icon-settings svg {
+  height: 30px;
+}
+
+.open-btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.open-sidebar .open-btn-icon {
+  transform: rotate(360deg);
+}
+
+.open-btn-icon {
+  transform: rotate(180deg);
+}
+
+.icon-logout svg {
+  width: 36px;
+  height: 30px;
+  color: #ff2b2b;
+  opacity: 70%;
+  transform: scaleX(-1);
+  font-weight: 700;
+  stroke-width: 0.4px;
+}
+
+.icon-home {
+  margin-bottom: 15px;
+}
+
+/* Style for separation line in the sidebar */
+.border-bottom {
+  margin: 0 auto;
+  width: 100%;
+  height: 1px;
+  background-color: #DADCE0;
+  opacity: 100%;
+}
+
+/* Styles for navigation text */
+.nav-text h5 {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 50px;
+  color: #17181b;
+  opacity: 70%;
+  text-align: center;
+}
+
+.nav-text.active h5 {
+  margin-left: 25px;
+  text-align: left;
+}
+
+/* Styles for navigation inside the sidebar */
+.sidebar>nav {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.border-bottom {
+  width: 100%;
+}
+
+.sidebar.open-sidebar {
+  width: 249px;
+}
+
+.sidebar-header button {
+  width: 7px;
+}
+
+
+
+
+
+/* teste de responsividade para mobile */
+@media screen and (max-width: 940px),
+only screen and (min-device-width: 320px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1),
+only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  body.hideSidebar .toggleSidebar {
+    left: 0;
+  }
+}

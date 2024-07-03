@@ -1,0 +1,233 @@
+.tickets-container-main {
+  flex: 1;
+  width: 100%;
+  transition: margin-left 0.3s ease;
+  display: flex;
+  margin-top: 68px;
+}
+
+.sidebar-open .tickets-container-main .tickets-content-left {
+  padding-left: 245px;
+  transition: padding-left 0.3s ease;
+}
+
+/* .sidebar-open .left-column {
+  margin: 0 10% 0 23%;
+} */
+
+.image-eventcard img {
+  width: 361px;
+  height: 361px;
+  border: 0.7px solid #000000;
+  border-radius: 15px;
+  user-select: none;
+}
+
+.left-column {
+  flex: 1;
+  /* margin: 0 13% 0 20%; */
+  transition: margin-left 0.3s ease;
+  width: 650px;
+  margin: 0 auto;
+}
+
+.right-column {
+  /* flex: 1; */
+  border-left: 1px solid #dadce0;
+  padding: 20px;
+
+  max-width: 562px;
+  height: calc(100vh - 68px);
+  overflow-y: auto;
+}
+
+.container-event {
+  margin-top: 80px;
+}
+
+.container-event h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 10px 0 60px 0;
+}
+
+.info-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-date p {
+  color: #282a2d;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.container-details-event {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-qrcode {
+  text-align: center;
+}
+
+.container-qrcode p {
+  font-size: 19px;
+  color: #17181b;
+}
+
+.container-qrcode h2 {
+  font-size: 50px;
+  font-weight: 500;
+  color: #17181b;
+}
+
+.section-container-button {
+  flex: 1;
+  width: 100%;
+}
+
+.button-container-ticket {
+  display: flex;
+  align-items: center;
+  /* margin: 0 0 0 40%; */
+  justify-content: flex-end;
+  gap: 42px;
+  height: 180px;
+}
+
+.button-container-ticket a {
+  text-decoration: none;
+  width: 207px;
+}
+
+.button-container-ticket a span {
+  color: #0091e0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button-container-ticket>a {
+  margin: 45px 0 45px 0;
+}
+
+.container-next-events h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.container-next-events {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button-container-ticket button {
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #008fde;
+  cursor: pointer;
+}
+
+.button-container-ticket .custom-button {
+  height: 50px;
+  width: 207px;
+  background: linear-gradient(90.71deg, #00a5ff 0%, #005893 100%);
+  border-radius: 7px;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+/* testes */
+
+.tickets-content-left {
+  width: calc(100% - 562px);
+  padding-left: 105px;
+  transition: padding-left 0.3s ease;
+}
+
+.tickets-content-right h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 1600px) {
+  .tickets-container-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tickets-content-left,
+  .tickets-content-right {
+    width: 100%;
+    padding-left: 105px;
+    transition: padding-left 0.3s ease;
+  }
+
+  .tickets-content-right {
+    width: 100%;
+    padding-left: 105px;
+    transition: padding-left 0.3s ease;
+  }
+
+  .container-next-events {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    gap: 20px;
+    padding: 0px;
+  }
+
+  .right-column {
+    flex: none;
+    border-left: 1px solid #dadce0;
+    padding: 50px;
+    max-width: 100%;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .right-column .tickets-content-right .container-next-events .tickets-card {
+    flex: none;
+  }
+
+  .sidebar-open .tickets-container-main .tickets-content-right {
+    padding-left: 245px;
+    transition: padding-left 0.3s ease;
+  }
+
+  .container-next-events::-webkit-scrollbar {
+    height: 6px;
+    cursor: pointer;
+  }
+
+  .container-next-events::-webkit-scrollbar-track {
+    background: #FFF;
+  }
+
+  .container-next-events::-webkit-scrollbar-thumb {
+    background-color: #dadce0;
+    border-radius: none;
+    border: none;
+  }
+}

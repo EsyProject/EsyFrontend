@@ -1,0 +1,409 @@
+.dashboard-container {
+  transition: margin-left 0.3s ease;
+  margin-top: 119px;
+}
+
+.sidebar-open .dashboard-container-main {
+  margin-left: 320px;
+}
+
+.dashboard-container-main {
+  flex: 1;
+  margin-left: 186px;
+  transition: margin-left 0.3s;
+}
+
+.dashboard-container-main h2 {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.dashboard-columns.menu-open {
+  width: 1132px;
+}
+
+.left-column-dashboard {
+  width: fit-content;
+  transition: width 0.3s ease;
+}
+
+.left-column-dashboard.menu-open {
+  width: 1037px;
+  margin-right: 80px;
+  transition: width 0.3s ease;
+}
+
+.left-column-dashboard.menu-open
+  .participant-reviews
+  .participant-reviews-main
+  .highlights {
+  width: 610px;
+}
+
+.general-analysis {
+  margin-top: 50px;
+}
+
+.metrics {
+  display: flex;
+  gap: 15px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc((100% - 15px) / 4);
+  height: 105px;
+  border-radius: 12px;
+  padding: 22px;
+  position: relative;
+}
+
+.registrations {
+  background: rgb(24, 131, 126, 0.1);
+}
+
+.participations {
+  background: rgb(0, 136, 74, 0.1);
+}
+
+.absences {
+  background: rgb(0, 123, 192, 0.1);
+}
+
+.success-rate {
+  background: rgb(158, 40, 150, 0.1);
+}
+
+.rectangle-metric {
+  position: absolute;
+  width: 16.68px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 12px 0px 0px 12px;
+}
+
+.rectangle-registrations {
+  background: #18837e;
+}
+
+.rectangle-participations {
+  background: #00884a;
+}
+
+.rectangle-absences {
+  background: #007bc0;
+}
+
+.rectangle-success-rate {
+  background: #9e2896;
+}
+
+.metric p {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.metric h1 {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.participant-reviews {
+  margin-top: 44px;
+}
+
+.reviews-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reviews-title span {
+  font-weight: 500;
+  font-size: 12px;
+  color: #9aa0a6;
+}
+
+.participant-reviews-main {
+  display: flex;
+  gap: 17px;
+  flex-wrap: wrap;
+}
+
+.left-column-dashboard.menu-open
+  > .participant-reviews
+  > .participant-reviews-main
+  > .improvement-suggestions {
+  width: 100%;
+  height: auto;
+}
+
+.dashboard-columns.menu-open
+  > .left-column-dashboard
+  > .participant-reviews
+  > .participant-reviews-main
+  > .improvement-suggestions {
+  width: 100%;
+  height: auto;
+}
+
+.event-note {
+  width: 410px;
+  height: 80px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 11px 44px 11px 44px;
+}
+
+.note-content {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.note-content h1 {
+  font-weight: 500;
+  font-size: 35px;
+}
+
+.rate {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.event-note h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.evaluations {
+  width: 410px;
+  height: 450px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.event-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.event-reviews .evaluations :nth-child(1) .profile .circle {
+  background-color: #e472db;
+}
+
+.event-reviews .evaluations :nth-child(2) .profile .circle {
+  background-color: #7277e4;
+}
+
+.event-reviews .evaluations :nth-child(3) .profile .circle {
+  background-color: #ffa36f;
+}
+
+.user-info {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.user-details {
+  flex-direction: column;
+}
+
+.event-reviews .evaluations .profile {
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.event-reviews .evaluations .profile .circle {
+  font-weight: 500;
+  font-size: 24px;
+  color: #ffffff;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+}
+
+.event-reviews .evaluations .profile .row {
+  align-items: baseline;
+  gap: 10px;
+  display: flex;
+}
+
+.event-reviews .evaluations .profile .row .comment-header .stars {
+  display: flex;
+  flex-direction: row;
+}
+
+.event-reviews .evaluations .profile .row .name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #0e1013;
+}
+
+.event-reviews .evaluations p {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.event-reviews .evaluations .circle p {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.event-reviews .evaluations .profile .row .month {
+  font-weight: 400;
+  font-size: 12px;
+  color: #9aa0a6;
+}
+
+.event-reviews .evaluations .profile .comment-header .stars {
+  gap: 2px;
+  color: #ffcd4d;
+}
+
+.highlights {
+  width: 779px;
+  height: 545px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.sidebar-open .highlights {
+  width: 634px;
+}
+
+.menu-open .highlights {
+  width: 705px;
+}
+
+
+.improvement-suggestions {
+  width: 426px;
+  height: 545px;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.suggestion {
+  margin-bottom: 30px;
+}
+
+.suggestion p {
+  font-size: 14px;
+}
+
+.suggestion h5 {
+  font-size: 14px;
+  color: #2e3134;
+  margin-bottom: 10px;
+}
+
+.improvement-suggestions h2 {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 23px;
+}
+
+.dashboard-container-main {
+  transition: margin-left 0.3s ease;
+}
+
+.right-column-dashboard {
+  width: 581px;
+  height: calc(100vh - 68px);
+  border-left: 1px solid #dadce0;
+  overflow-y: auto;
+  transition: width 0.3s;
+}
+
+.container-next-events {
+  padding: 20px;
+}
+
+.button-container-dashboard button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 153px;
+  height: 34px;
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 15px 15px 0px 0px;
+  transform: rotate(-90deg);
+  border-bottom: none;
+  position: absolute;
+  bottom: 0;
+  left: 37%;
+  cursor: pointer;
+}
+
+.button-container-dashboard {
+  display: flex;
+  justify-content: center;
+  width: 153px;
+  height: 200px;
+  right: 100%;
+  position: absolute;
+}
+
+.container-button-menu {
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  top: 68px;
+  transition: 0.2s all ease;
+  right: 0;
+}
+
+.menu-container-closed {
+  left: 100%;
+  transition: right 0.3s ease;
+}
+
+.menu-container-open button {
+  left: 38%;
+}
+
+.menu-container-open {
+  right: 0;
+  transition: right 0.3s ease;
+}
+
+.container-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-left: 1px solid #dadce0;
+  padding: 45px;
+  gap: 20px;
+}
+
+.container-calendar {
+  margin: 0 auto;
+  margin-top: 50px;
+}

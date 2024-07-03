@@ -1,0 +1,133 @@
+.error-container-main {
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+}
+
+h1.error-code {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 170px;
+    line-height: 262px;
+    text-align: center;
+}
+
+p.error-status {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin-top: -25px;
+    text-align: center;
+}
+
+p.error-request-message {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28.3081px;
+    line-height: 42px;
+    text-align: center;
+    margin-top: 75px;
+}
+
+.bike-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    z-index: 1000;
+}
+
+.local-logotype {
+    position: absolute;
+    top: 45px;
+    left: 55px;
+    z-index: 1000;
+}
+
+/* animação das bubbles menores */
+
+.container-bubbles {
+    right: -30;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(180deg, #00A4FD 0%, #C0D6F5 100%);
+    border-radius: 50%;
+    animation: move 10s infinite ease-in-out;
+    opacity: 0;
+}
+
+/* Várias animações com diferentes delays e durações */
+.bubble:nth-child(1) {
+    right: 30%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    right: 40%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+    scale: 1.5;
+}
+
+.bubble:nth-child(3) {
+    right: 60%;
+    animation-duration: 16s;
+    animation-delay: 4s;
+    scale: .5;
+}
+
+.bubble:nth-child(4) {
+    right: 10%;
+    animation-duration: 18s;
+    animation-delay: 6s;
+    scale: 2;
+}
+
+.bubble:nth-child(5) {
+    right: 50%;
+    animation-duration: 20s;
+    animation-delay: 8s;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-300px);
+        opacity: 0.8;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-600px);
+        opacity: 0;
+    }
+}

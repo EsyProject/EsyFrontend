@@ -1,0 +1,161 @@
+.container-main {
+  flex: 1;
+  padding: 10px;
+  margin-left: 156px;
+  transition: margin-left 0.3s;
+  max-width: 1109px;
+}
+
+.sidebar-open .container-main {
+  margin-left: 300px;
+}
+
+.description-title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 60px;
+  color: #17181b;
+}
+
+.description-content-text {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: justify;
+  color: #282a2d;
+}
+
+.container-main-local {
+  padding-bottom: 60px;
+  padding-top: 68px;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.description-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-main .container-child {
+  display: flex;
+  gap: 50px;
+  padding-right: 60px;
+  margin-top: 68px;
+}
+
+.container-main .container-child .description-content {
+  max-width: calc(100% - 380px);
+}
+
+.description-main {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.description-infos,
+.description-row-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description-infos {
+  gap: 26px;
+  margin-bottom: 48px;
+}
+
+.description-row-info {
+  gap: 10px;
+}
+
+.description-row-info p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #282a2d;
+}
+
+.btn-link {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #0091e0;
+  transition: 0.3s;
+}
+
+.btn-link:hover {
+  color: #00a6ff;
+}
+
+.btn-primary {
+  width: 220px;
+  height: 53px;
+  background: linear-gradient(90.71deg, #00a5ff 0%, #005893 100%);
+  border-radius: 7px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.description-content .btn-container {
+  display: flex;
+  gap: 20px;
+}
+
+.container-child-column {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  padding-right: 60px;
+}
+
+/* margin: 10px 0 60px 0; */
+
+.wrapper-reservation {
+  margin: 10px 0 60px 0;
+}
+
+.description-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 0;
+}
+
+.description-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.description-date p {
+  color: #282a2d;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1255px) {
+  .container-main .container-child {
+    flex-direction: column;
+  }
+
+  .container-main .container-child .description-content {
+    max-width: 100%;
+  }
+
+}
